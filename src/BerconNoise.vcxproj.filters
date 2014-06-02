@@ -102,9 +102,6 @@
     <ClCompile Include="commonMath.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="MultiMap.cpp">
-      <Filter>Source Files\Main</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BerconCommon.h">

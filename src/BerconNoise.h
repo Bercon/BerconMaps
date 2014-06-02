@@ -135,7 +135,7 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		void GetClassName(TSTR& s) {s = GetString(IDS_CLASS_NAME);}
 
 		RefTargetHandle Clone( RemapDir &remap );
-		RefResult NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID,  RefMessage message);
+		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 24; }
 		Animatable* SubAnim(int i); 
@@ -162,6 +162,12 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		BerconNoise();
 		~BerconNoise();		
 
+		void* GetInterface(ULONG id) {
+			if(id == I_RESMAKER_INTERFACE)
+				return (void *) (ResourceMakerCallback*) this;
+			else
+				return Texmap::GetInterface(id);
+		}
 };
 
 class BerconNoiseClassDesc : public ClassDesc2 {

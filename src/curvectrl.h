@@ -28,7 +28,7 @@ public:
 	CurveCtrl() {}	
     ~CurveCtrl() {}	
 
-	static void update(ICurveCtl *curve, HWND hParent);
+	static void update(ICurveCtl *curve, HWND hParent, ReferenceMaker *resMaker);
 	static void disable(ICurveCtl *curve);
 	static void init(ICurveCtl *curve);	
 };

@@ -148,7 +148,7 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_COLOR);}
 
 		RefTargetHandle Clone( RemapDir &remap );
-		RefResult NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID,  RefMessage message);
+		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 8+gradient->numKeys(); } // !! Update submap count !!
 		Animatable* SubAnim(int i); 
@@ -174,6 +174,13 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 				
 		BerconGradient();
 		~BerconGradient();		
+
+		void* GetInterface(ULONG id) {
+			if(id == I_RESMAKER_INTERFACE)
+				return (void *) (ResourceMakerCallback*) this;
+			else
+				return Texmap::GetInterface(id);
+		}
 };
 
 class BerconGradientClassDesc : public ClassDesc2 {

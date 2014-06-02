@@ -43,6 +43,14 @@ under the License.
 
 #include "bitmap.h"
   
+#ifndef NOTIFY_REF_CHANGED_ARGS
+#if MAX_RELEASE < 16900
+#define NOTIFY_REF_CHANGED_ARGS Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message
+#else
+#define NOTIFY_REF_CHANGED_ARGS const Interval &changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message, BOOL propagate
+#endif // MAX_RELEASE
+#endif // #ifndef NOTIFY_REF_CHANGED_ARGS
+
 // Class ID's
 /* Old class ID's, prior to BerconMaps 3.0
 #define BerconGradient_CLASS_ID		Class_ID(0x1cf3071d, 0x6d41c735)

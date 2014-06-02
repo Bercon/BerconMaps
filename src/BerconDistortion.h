@@ -85,7 +85,7 @@ class BerconDistortion : public Texmap {
 		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_DIST);}
 
 		RefTargetHandle Clone( RemapDir &remap );
-		RefResult NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID,  RefMessage message);
+		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 2+DIST_NSUBTEX; }
 		Animatable* SubAnim(int i); 

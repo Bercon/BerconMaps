@@ -303,11 +303,11 @@ class BerconCurveDlgProcGRADIENT : public ParamMap2UserDlgProc {
 		BerconCurveDlgProcGRADIENT(BerconGradient *m) {parentMap = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
 			if (parentMap->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE)); // Force update curve
+				CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap)); // Force update curve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE));					
+					CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap));					
 					break;
 				case WM_DESTROY:
 					CurveCtrl::disable(parentMap->curve);
@@ -516,7 +516,7 @@ void BerconGradient::Reset() {
 	
 	if (curve) curve->DeleteMe();
 	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
-	curve->RegisterResourceMaker(new BerconRefMaker((ResourceMakerCallback *)this));
+	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 	CurveCtrl::init(curve);
 	pbCurve->SetValue( pb_curve_on, t, FALSE);	
 
@@ -989,7 +989,7 @@ TSTR BerconGradient::SubAnimName(int i) {
 	}									  
 }
 
-RefResult BerconGradient::NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message ) {	
+RefResult BerconGradient::NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS) {	
 	switch (message) {
 		case REFMSG_CHANGE:
 			ivalid.SetEmpty();			

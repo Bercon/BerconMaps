@@ -106,7 +106,7 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_TILE);}
 
 		RefTargetHandle Clone( RemapDir &remap );
-		RefResult NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message);
+		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 11; }
 		Animatable* SubAnim(int i); 
@@ -129,6 +129,13 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		//Constructor/Destructor
 		BerconTile();
 		~BerconTile();		
+
+		void* GetInterface(ULONG id) {
+			if(id == I_RESMAKER_INTERFACE)
+				return (void *) (ResourceMakerCallback*) this;
+			else
+				return Texmap::GetInterface(id);
+		}
 };
 
 class BerconTileClassDesc : public ClassDesc2 {

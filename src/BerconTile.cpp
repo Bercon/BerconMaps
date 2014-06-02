@@ -804,7 +804,7 @@ TSTR BerconTile::SubAnimName(int i) {
 	}
 }
 
-RefResult BerconTile::NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message ) {
+RefResult BerconTile::NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS) {
 	switch (message) {
 		case REFMSG_CHANGE:
 			ivalid.SetEmpty();			

@@ -198,7 +198,7 @@ TSTR BerconDistortion::SubAnimName(int i) {
 	}
 }
 
-RefResult BerconDistortion::NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message ) {
+RefResult BerconDistortion::NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS) {
 	switch (message) {
 		case REFMSG_CHANGE:
 			ivalid.SetEmpty();			

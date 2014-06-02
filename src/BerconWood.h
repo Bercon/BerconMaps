@@ -133,7 +133,7 @@ class BerconWood : public Texmap, public ResourceMakerCallback {
 		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_WOOD);}
 
 		RefTargetHandle Clone( RemapDir &remap );
-		RefResult NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID,  RefMessage message);
+		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return NUMREF; }
 		Animatable* SubAnim(int i); 
@@ -159,7 +159,14 @@ class BerconWood : public Texmap, public ResourceMakerCallback {
 		BerconWood();
 		~BerconWood();		
 
+		void* GetInterface(ULONG id) {
+			if(id == I_RESMAKER_INTERFACE)
+				return (void *) (ResourceMakerCallback*) this;
+			else
+				return Texmap::GetInterface(id);
+		}
 };
+
 class BerconWoodClassDesc : public ClassDesc2  {
 public:
 	virtual int IsPublic() 							{ return TRUE; }

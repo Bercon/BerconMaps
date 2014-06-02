@@ -17,8 +17,9 @@ under the License.
 
 #include "curvectrl.h"	
 
-void CurveCtrl::update(ICurveCtl *curve, HWND hParent) {
+void CurveCtrl::update(ICurveCtl *curve, HWND hParent, ReferenceMaker *resMaker) {
 	curve->SetCustomParentWnd(hParent);
+	curve->RegisterResourceMaker(resMaker);
 	BitArray ba = BitArray(1);			
 	ba.SetAll();
 	curve->SetDisplayMode(ba);

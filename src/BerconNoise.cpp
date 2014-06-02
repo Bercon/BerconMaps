@@ -295,11 +295,11 @@ class BerconCurveDlgProcNOISE : public ParamMap2UserDlgProc {
 		BerconCurveDlgProcNOISE(BerconNoise *m) {berconNoise = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
 			if (berconNoise->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE)); // Force update curve
+				CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise)); // Force update curve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE));					
+					CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise));					
 					break;
 				case WM_DESTROY:
 					CurveCtrl::disable(berconNoise->curve);
@@ -421,7 +421,7 @@ void BerconNoise::Reset() {
 
 	if (curve) curve->DeleteMe();
 	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
-	curve->RegisterResourceMaker(new BerconRefMaker((ResourceMakerCallback *)this));
+	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 	CurveCtrl::init(curve);
 	pbCurve->SetValue(enable_curve, t, FALSE);
 
@@ -728,7 +728,7 @@ TSTR BerconNoise::SubAnimName(int i) {
 	}
 }
 
-RefResult BerconNoise::NotifyRefChanged(Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message ) {
+RefResult BerconNoise::NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS) {
 	switch (message) {
 		case REFMSG_CHANGE:
 			ivalid.SetEmpty();			

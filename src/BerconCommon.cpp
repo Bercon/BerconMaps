@@ -219,8 +219,11 @@ void BerconXYZ::seedRandomGen(ShadeContext& sc) {
 		seed += sc.mtlNum;
 	}
 	if (p_randObj) {
-		int hand = (int)sc.Node()->GetHandle();
-		seed += hand*(hand*hand*15731 + 789221);
+		INode *node=sc.Node();
+		if (node) {
+			int hand = (int) node->GetHandle();
+			seed += hand*(hand*hand*15731 + 789221);
+		}
 	}
 	if (p_randPar) {
 		Object *ob = sc.GetEvalObject();		
