@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{43067d0a-0e6f-4679-83b2-7a5b5fb21603}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Main">
+      <UniqueIdentifier>{4971b58f-2900-4764-865b-561d35c7409a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Gradient">
+      <UniqueIdentifier>{db93fbce-443f-45a7-8184-65c8eed4182a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Curve">
+      <UniqueIdentifier>{dc7a81ea-e5ca-446c-94da-34fe8824490b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Patterns">
+      <UniqueIdentifier>{82fc4a5a-c3d4-45ac-803b-d459667eb4e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc">
+      <UniqueIdentifier>{3a83a3f3-71e8-4f57-890e-0f46e6724ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{d3a384ab-d0d5-4b7a-a8cc-7241b062b9dc}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Main">
+      <UniqueIdentifier>{ee43c05d-259d-4f09-9ff5-1d262fcb0779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Patterns">
+      <UniqueIdentifier>{f3d73eff-61be-4c8f-9e6c-c84e1660efcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Gradient">
+      <UniqueIdentifier>{bfe95d02-e91e-40a3-a0f3-4f4864626228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Curve">
+      <UniqueIdentifier>{1d9a5287-0d3c-4b7d-beca-15e9f20eb325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Misc">
+      <UniqueIdentifier>{53c9e9ad-0ae7-4739-bdf6-25a1e5401e51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{680604e9-378e-42b9-896f-596580a2bca7}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BerconNoise.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="notes.txt" />
+    <None Include="logo.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DllEntry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BerconCommon.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="BerconDistortion.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="BerconGradient.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="BerconNoise.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="BerconTile.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="BerconWood.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="GradientRamp.cpp">
+      <Filter>Source Files\Gradient</Filter>
+    </ClCompile>
+    <ClCompile Include="IGradient.cpp">
+      <Filter>Source Files\Gradient</Filter>
+    </ClCompile>
+    <ClCompile Include="curvectrl.cpp">
+      <Filter>Source Files\Curve</Filter>
+    </ClCompile>
+    <ClCompile Include="fractal.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="noise.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="perlin.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="tile.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="worley.cpp">
+      <Filter>Source Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="commonMath.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiMap.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BerconCommon.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconDistortion.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconGradient.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconNoise.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconTile.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconWood.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="fractal.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="noise.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="NoiseAverages.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="perlin.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="tile.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="worley.h">
+      <Filter>Header Files\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="GradientMap.h">
+      <Filter>Header Files\Gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="GradientRamp.h">
+      <Filter>Header Files\Gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="IGradient.h">
+      <Filter>Header Files\Gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="curvectrl.h">
+      <Filter>Header Files\Curve</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconRefMaker.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="BerconSC.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="commonMath.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiMap.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BerconNoise.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
