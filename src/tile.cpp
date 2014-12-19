@@ -50,7 +50,7 @@ TilePoint Tile::corner(float rX, float rY, float w, float h, TileParam& t) {
 	// Evaluate	maps
 	if (t.tileRound) {
 		bool inCorner = false;
-		float cX, cY;
+		float cX=0.0f, cY=0.0f;
 		// Detect corner
 		if (rX < t.tileCrnrRad) { 
 			if (rY < t.tileCrnrRad) { // Bottom left
