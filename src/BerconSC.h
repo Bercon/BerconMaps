@@ -17,6 +17,8 @@ under the License.
 
 #include "max.h"
 
+#define BERCON_SHADE_CONTEXT_CLASS_ID Class_ID(0x7c0a38f1, 0x2f1a67f2)
+
 class BerconSC: public ShadeContext {
 private:
 	ShadeContext* const sc;
@@ -70,7 +72,7 @@ public:
 	}
 
 	void ResetOutput (int n) { sc->ResetOutput(n); }
-	Class_ID ClassID () { return sc->ClassID(); }
+	Class_ID ClassID () { return BERCON_SHADE_CONTEXT_CLASS_ID; }
 	BOOL InMtlEditor () { return sc->InMtlEditor(); }
 	int Antialias () { return sc->Antialias(); }
 	int ProjType () { return sc->ProjType(); }
