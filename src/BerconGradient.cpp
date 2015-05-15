@@ -1108,7 +1108,10 @@ void BerconGradient::seedRandomGen(ShadeContext& sc) {
 			seed += sc.mtlNum;
 		}
 		if (p_randObj) {
-			int hand = (int)sc.Node()->GetHandle();
+			int hand = 0;
+			if (sc.Node())
+				hand = (int)sc.Node()->GetHandle();
+
 			seed += hand*(hand*hand*15731 + 789221);
 		}
 		if (p_randPar) {
