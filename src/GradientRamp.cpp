@@ -468,7 +468,7 @@ AColor GradientRamp::getColor(float x) {
 	if (x>=1) return color[keys-1];
 	int high = findHighKey(x);
 	if (interpolation == 4) return color[high];
-	int low = high - 1;	
+	int low = (high > 0 ? high - 1 : 0); // should never happen but just in case
 	if (interpolation == 3) return color[low];
 	if (interpolation == 2) return color[x-position[low]<position[high]-x?low:high];
 	float mult = interpolate(x, position[low], position[high]);
@@ -480,7 +480,7 @@ AColor GradientRamp::getColor(float x, ShadeContext& sc) {
 	if (x>=1) return subtex[keys-1]?subtex[keys-1]->EvalColor(sc):color[keys-1];
 	int high = findHighKey(x);
 	if (interpolation == 4) return subtex[high]?subtex[high]->EvalColor(sc):color[high];
-	int low = high - 1;	
+	int low = (high > 0 ? high - 1 : 0); // should never happen but just in case
 	if (interpolation == 3) return subtex[low]?subtex[low]->EvalColor(sc):color[low];	
 	if (interpolation == 2) {		
 		int key = x-position[low]<position[high]-x?low:high;
