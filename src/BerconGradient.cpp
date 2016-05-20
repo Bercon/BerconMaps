@@ -521,7 +521,11 @@ void BerconGradient::Reset() {
 	
 	if (curve) curve->DeleteMe();
 	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+#if MAX_RELEASE >= 18900
+	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
+#else
 	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
+#endif
 	CurveCtrl::init(curve);
 	pbCurve->SetValue( pb_curve_on, t, FALSE);	
 
