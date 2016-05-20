@@ -458,12 +458,17 @@ INT_PTR BerconGradientDlgProc::DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UIN
 			break;
 		}
 		case WM_CUSTEDIT_ENTER: {
-			switch (LOWORD(wParam)) {
-				case IDC_KEYNUM_EDIT:
-					parentMap->keyNumChanged(((ICustEdit*)lParam)->GetInt()); break;					
-				case IDC_KEYPOS_EDIT:
-					parentMap->keyPosChanged(((ICustEdit*)lParam)->GetFloat()); break;
-				default: break;
+			// Unlike the other messages here lParam is the HWND of the custom edit and not a pointer to it
+			ICustEdit* custEdit=GetICustEdit(reinterpret_cast<HWND>(lParam));
+			if (custEdit) {
+				switch (LOWORD(wParam)) {
+					case IDC_KEYNUM_EDIT:
+						parentMap->keyNumChanged(custEdit->GetInt()); break;
+					case IDC_KEYPOS_EDIT:
+						parentMap->keyPosChanged(custEdit->GetFloat()); break;
+					default: break;
+				}
+				ReleaseICustEdit(custEdit);
 			}
 			break;
 		}
