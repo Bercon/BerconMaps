@@ -237,7 +237,7 @@ void Tile::uvMapping(TilePoint& tp, Point3 p, float edges[4], TileParam& t, int 
 	// Offset
 	if (t.randOffset) {
 		uvw.x += UFRAND() * t.randX;
-		uvw.y += UFRAND() * t.randX;
+		uvw.y += UFRAND() * t.randY;
 	}
 
 	// Rotate
