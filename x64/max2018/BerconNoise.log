@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(367,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(368,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+     Creating library C:\Users\James\source\repos\BerconMaps\src\x64\max2018\\BerconMaps.lib and object C:\Users\James\source\repos\BerconMaps\src\x64\max2018\\BerconMaps.exp
+BerconMaps.exp : warning LNK4070: /OUT:BerconNoise.dlt directive in .EXP differs from output filename 'C:\Users\James\source\repos\BerconMaps\src\x64\max2018\BerconMaps.dlt'; ignoring directive
+  BerconNoise.vcxproj -> C:\Users\James\source\repos\BerconMaps\src\x64\max2018\BerconMaps.dlt
+  BerconNoise.vcxproj -> C:\Users\James\source\repos\BerconMaps\src\x64\max2018\BerconMaps.dlt.pdb (Full PDB)

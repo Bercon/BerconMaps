@@ -1,0 +1,1691 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_PANEL DLGINIT
+BEGIN
+    IDC_DIST_UVW, 0x403, 3, 0
+0x3146, "\000" 
+    IDC_DIST_UVW, 0x403, 3, 0
+0x3246, "\000" 
+    IDC_DIST_UVW, 0x403, 5, 0
+0x3246, 0x3146, "\000" 
+    IDC_NOISE_FUNCTION, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_NOISE_FUNCTION, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_NOISE_FUNCTION, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_WORLEY_DISTANCE, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_WORLEY_DISTANCE, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_WORLEY_DISTANCE, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_WORLEY_DISTANCE, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_FRACTAL_TYPE, 0x403, 3, 0
+0x3146, "\000" 
+    IDC_FRACTAL_TYPE, 0x403, 3, 0
+0x3246, "\000" 
+    IDC_FRACTAL_TYPE, 0x403, 5, 0
+0x3246, 0x3146, "\000" 
+    0
+END
+
+IDD_PANEL_WOOD DLGINIT
+BEGIN
+    IDC_WOOD_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_WOOD_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_WOOD_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    0
+END
+
+IDD_PANEL_TILE DLGINIT
+BEGIN
+    IDC_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_SOFTEN, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_ROTUV, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_ROTUV, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_ROTUV, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_AUTO, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_AUTO, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_AUTO, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    0
+END
+
+IDD_PANEL_COLOR DLGINIT
+BEGIN
+    IDC_GRADIENT_TYPE, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_GRADIENT_TYPE, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_GRADIENT_TYPE, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_GRADIENT_TYPE, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_GRADIENT_INT, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_GRADIENT_INT, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_GRADIENT_INT, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_GRADIENT_INT, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_GRADIENT_UVW, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_GRADIENT_UVW, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_GRADIENT_UVW, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_GRADIENT_UVW, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_GRADIENT_NORMAL, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_GRADIENT_NORMAL, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_GRADIENT_NORMAL, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_GRADIENT_NORMAL, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_GRADIENT_NORMAL2, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_GRADIENT_NORMAL2, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_GRADIENT_NORMAL2, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_GRADIENT_NORMAL2, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_RANGELOOP, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_RANGELOOP, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_RANGELOOP, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_RANGELOOP, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    0
+END
+
+IDD_PANEL_TILE1 DLGINIT
+BEGIN
+    IDC_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_SOFTEN, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_ROTUV, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_ROTUV, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_ROTUV, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_VAR_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_VAR_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_VAR_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    0
+END
+
+IDD_PANEL_TILE2 DLGINIT
+BEGIN
+    IDC_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_SOFTEN, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_ROTUV, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_ROTUV, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_ROTUV, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_VAR_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_VAR_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_VAR_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    0
+END
+
+IDD_XYZ DLGINIT
+BEGIN
+    IDC_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_TIL_X, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_TIL_X, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_TIL_X, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_TIL_X, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_TIL_Y, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_TIL_Y, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_TIL_Y, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_TIL_Y, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    IDC_TIL_Z, 0x403, 7, 0
+0x696c, 0x656e, 0x7261, "\000" 
+    IDC_TIL_Z, 0x403, 7, 0
+0x7173, 0x6175, 0x6572, "\000" 
+    IDC_TIL_Z, 0x403, 10, 0
+0x616d, 0x686e, 0x7461, 0x6174, 0x006e, 
+    IDC_TIL_Z, 0x403, 10, 0
+0x6863, 0x6265, 0x6379, 0x6568, 0x0076, 
+    0
+END
+
+IDD_PANEL_TILE3 DLGINIT
+BEGIN
+    IDC_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_SOFTEN, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_SOFTEN, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_ROTUV, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_ROTUV, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_ROTUV, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    IDC_VAR_TYPE, 0x403, 4, 0
+0x6c6f, 0x0064, 
+    IDC_VAR_TYPE, 0x403, 4, 0
+0x656e, 0x0077, 
+    IDC_VAR_TYPE, 0x403, 8, 0
+0x6973, 0x706d, 0x656c, 0x0078, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PANEL DIALOGEX 0, 0, 217, 258
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_NOISESIZE_EDIT,"CustEdit",WS_TABSTOP,30,17,40,10
+    CONTROL         "",IDC_NOISE_LOWTHRESH,"CustEdit",WS_TABSTOP,105,17,29,10
+    CONTROL         "",IDC_NOISE_HIGHTHRESH,"CustEdit",WS_TABSTOP,168,17,29,10
+    COMBOBOX        IDC_DIST_UVW,37,44,43,119,CBS_DROPDOWNLIST | WS_TABSTOP
+    COMBOBOX        IDC_NOISE_FUNCTION,132,44,74,112,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_NOISEPHASE_EDIT,"CustEdit",WS_TABSTOP,36,63,32,10
+    CONTROL         "",IDC_WORLEY_EDIT,"CustEdit",WS_TABSTOP,36,76,32,10
+    CONTROL         "",IDC_F1_EDIT,"CustEdit",WS_TABSTOP,102,63,32,10
+    CONTROL         "",IDC_F2_EDIT,"CustEdit",WS_TABSTOP,102,76,32,10
+    CONTROL         "",IDC_F3_EDIT,"CustEdit",WS_TABSTOP,165,63,32,10
+    CONTROL         "",IDC_F4_EDIT,"CustEdit",WS_TABSTOP,165,76,32,10
+    COMBOBOX        IDC_WORLEY_DISTANCE,132,89,74,111,CBS_DROPDOWNLIST | WS_TABSTOP
+    COMBOBOX        IDC_FRACTAL_TYPE,131,118,74,119,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_NOISELEV_EDIT,"CustEdit",WS_TABSTOP,38,122,29,10
+    CONTROL         "",IDC_FRACTAL_OFFSET_EDIT,"CustEdit",WS_TABSTOP,38,135,29,10
+    CONTROL         "",IDC_FRACTAL_GAIN_EDIT,"CustEdit",WS_TABSTOP,38,148,29,10
+    CONTROL         "",IDC_FRACTAL_LACUNARITY_EDIT,"CustEdit",WS_TABSTOP,167,135,29,10
+    CONTROL         "",IDC_FRACTAL_H_EDIT,"CustEdit",WS_TABSTOP,167,147,29,10
+    CONTROL         "",IDC_NOISE_COL1,"ColorSwatch",0x0,69,174,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX1,"CustButton",WS_TABSTOP,111,175,84,12
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,199,178,8,8
+    CONTROL         "",IDC_NOISE_COL2,"ColorSwatch",0x0,69,192,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX2,"CustButton",WS_TABSTOP,111,193,84,12
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,199,196,8,8
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,225,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,115,222,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,69,239,29,10
+    CONTROL         "Custom1",IDC_DISTORTION_TE2,"CustButton",WS_TABSTOP,115,238,91,12
+    CONTROL         "0,255,0",IDC_NOISESIZE_SPIN,"SpinnerControl",0x0,72,17,7,10
+    CONTROL         "",IDC_NOISE_LOWTHRESHSPIN,"SpinnerControl",0x0,136,17,7,10
+    CONTROL         "",IDC_NOISE_HIGHTHRESHSPIN,"SpinnerControl",0x0,199,17,7,10
+    CONTROL         "0,255,0",IDC_NOISEPHASE_SPIN,"SpinnerControl",0x0,70,63,7,10
+    CONTROL         "0,255,0",IDC_WORLEY_SPIN,"SpinnerControl",0x0,70,76,7,10
+    CONTROL         "0,255,0",IDC_F1_SPIN,"SpinnerControl",0x0,136,63,7,10
+    RTEXT           "Noise Type:",IDC_STATIC,80,46,47,8
+    RTEXT           "Size:",IDC_STATIC,10,18,16,8
+    RTEXT           "High:",IDC_STATIC,144,18,21,8
+    RTEXT           "Low:",IDC_STATIC,83,18,18,8
+    RTEXT           "Levels:",IDC_STATIC,9,122,26,8
+    CONTROL         "0,255,0",IDC_NOISELEV_SPIN,"SpinnerControl",0x0,69,122,7,10
+    RTEXT           "Phase:",IDC_STATIC,7,63,24,8
+    LTEXT           "Color #1",IDC_STATIC,39,177,29,8
+    LTEXT           "Color #2",IDC_STATIC,39,194,30,8
+    GROUPBOX        "Noise Function",IDC_STATIC,3,34,209,73
+    GROUPBOX        "Noise Fractal",IDC_STATIC,3,108,209,54
+    GROUPBOX        "Mix",IDC_STATIC,3,164,209,47
+    RTEXT           "Spread:",IDC_STATIC,5,76,26,8
+    RTEXT           "Distance:",IDC_STATIC,89,92,38,8
+    CONTROL         "",IDC_FRACTAL_OFFSET_SPIN,"SpinnerControl",0x0,69,135,7,10
+    RTEXT           "Offset:",IDC_STATIC,9,136,26,8
+    CONTROL         "",IDC_FRACTAL_GAIN_SPIN,"SpinnerControl",0x0,69,148,7,10
+    RTEXT           "Gain:",IDC_STATIC,14,149,21,8
+    CONTROL         "",IDC_FRACTAL_LACUNARITY_SPIN,"SpinnerControl",0x0,198,135,7,10
+    RTEXT           "Lacunarity:",IDC_STATIC,125,135,36,8
+    CONTROL         "",IDC_FRACTAL_H_SPIN,"SpinnerControl",0x0,198,147,7,10
+    RTEXT           "Exponent:",IDC_STATIC,126,148,34,8
+    RTEXT           "F1:",IDC_STATIC,87,63,11,8
+    RTEXT           "F2:",IDC_STATIC,87,76,11,8
+    CONTROL         "0,255,0",IDC_F2_SPIN,"SpinnerControl",0x0,136,76,7,10
+    RTEXT           "F3:",IDC_STATIC,150,63,11,8
+    CONTROL         "0,255,0",IDC_F3_SPIN,"SpinnerControl",0x0,199,63,7,10
+    RTEXT           "F4:",IDC_STATIC,150,76,11,8
+    CONTROL         "0,255,0",IDC_F4_SPIN,"SpinnerControl",0x0,199,76,7,10
+    GROUPBOX        "General",IDC_STATIC,4,2,209,31
+    RTEXT           "Fractal Type:",IDC_STATIC,83,121,42,8
+    GROUPBOX        "Distortion",IDC_STATIC,3,212,209,43
+    RTEXT           "Strength:",IDC_STATIC,15,239,48,8
+    RTEXT           "Use distortion:",IDC_STATIC,15,225,48,8
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,99,239,7,10
+    RTEXT           "UVW:",IDC_STATIC,8,46,23,8
+END
+
+IDD_PANEL_WOOD DIALOGEX 0, 0, 217, 314
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_SEED_EDIT,"CustEdit",WS_TABSTOP,33,16,40,10
+    COMBOBOX        IDC_WOOD_TYPE,140,14,67,82,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_WOODSIZE_EDIT,"CustEdit",WS_TABSTOP,55,44,40,10
+    CONTROL         "",IDC_TRESHLOW_EDIT,"CustEdit",WS_TABSTOP,55,56,40,10
+    CONTROL         "",IDC_TRESHHIGH_EDIT,"CustEdit",WS_TABSTOP,55,68,40,10
+    CONTROL         "",IDC_SKEW_EDIT,"CustEdit",WS_TABSTOP,55,80,40,10
+    CONTROL         "",IDC_WIDTHVAR_EDIT,"CustEdit",WS_TABSTOP,55,92,40,10
+    CONTROL         "",IDC_GAINVAR_EDIT,"CustEdit",WS_TABSTOP,55,104,40,10
+    CONTROL         "",IDC_TRUNKSTR_EDIT,"CustEdit",WS_TABSTOP,154,43,40,10
+    CONTROL         "",IDC_TRUNKFREQ_EDIT,"CustEdit",WS_TABSTOP,154,55,40,10
+    CONTROL         "",IDC_RADIALSTR_EDIT,"CustEdit",WS_TABSTOP,154,82,40,10
+    CONTROL         "",IDC_RADIALFREQ_EDIT,"CustEdit",WS_TABSTOP,154,94,40,10
+    CONTROL         "",IDC_RADIALZ_EDIT,"CustEdit",WS_TABSTOP,154,106,40,10
+    CONTROL         "",IDC_ANGLESTR_EDIT,"CustEdit",WS_TABSTOP,45,133,24,10
+    CONTROL         "",IDC_ANGLEFREQ_EDIT,"CustEdit",WS_TABSTOP,106,133,23,10
+    CONTROL         "",IDC_ANGLERAD_EDIT,"CustEdit",WS_TABSTOP,168,133,27,10
+    CONTROL         "",IDC_GRAINSTR_EDIT,"CustEdit",WS_TABSTOP,45,164,40,10
+    CONTROL         "",IDC_GRAINFREQ_EDIT,"CustEdit",WS_TABSTOP,147,164,40,10
+    CONTROL         "",IDC_NOISE_COL1,"ColorSwatch",0x0,71,191,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX1,"CustButton",WS_TABSTOP,113,192,84,12
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,194,8,8
+    CONTROL         "",IDC_NOISE_COL2,"ColorSwatch",0x0,71,208,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX2,"CustButton",WS_TABSTOP,113,209,84,12
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,211,8,8
+    CONTROL         "",IDC_NOISE_COL3,"ColorSwatch",0x0,71,225,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX3,"CustButton",WS_TABSTOP,113,226,84,12
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,228,8,8
+    CONTROL         "Custom1",IDC_LOCK_GRAIN,"CustButton",0x0,21,216,13,12
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,258,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,117,255,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,71,272,29,10
+    CONTROL         "Custom1",IDC_DISTORTION_TEX2,"CustButton",WS_TABSTOP,117,271,91,12
+    RTEXT           "Wood type:",IDC_STATIC,98,16,38,8
+    RTEXT           "Size:",IDC_STATIC,35,44,16,8
+    CONTROL         "0,255,0",IDC_WOODSIZE_SPIN,"SpinnerControl",0x0,97,44,7,10
+    LTEXT           "Color #1",IDC_STATIC,39,196,29,8
+    LTEXT           "Color #2",IDC_STATIC,40,213,28,8
+    GROUPBOX        "Wood",IDC_STATIC,4,2,209,149
+    GROUPBOX        "Distortion",IDC_STATIC,5,245,209,41
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,101,272,7,10
+    GROUPBOX        "Colors",IDC_STATIC,5,180,209,62
+    RTEXT           "Strength:",IDC_STATIC,117,44,30,8
+    CONTROL         "0,255,0",IDC_TRUNKSTR_SPIN,"SpinnerControl",0x0,196,43,7,10
+    RTEXT           "Freq:",IDC_STATIC,118,55,30,8
+    CONTROL         "0,255,0",IDC_TRUNKFREQ_SPIN,"SpinnerControl",0x0,196,55,7,10
+    GROUPBOX        "Trunk wobble",IDC_STATIC,114,33,95,35
+    RTEXT           "Strength:",IDC_STATIC,117,83,31,8
+    CONTROL         "0,255,0",IDC_RADIALSTR_SPIN,"SpinnerControl",0x0,196,82,7,10
+    RTEXT           "Freq:",IDC_STATIC,120,94,28,8
+    CONTROL         "0,255,0",IDC_RADIALFREQ_SPIN,"SpinnerControl",0x0,196,94,7,10
+    GROUPBOX        "Radial noise",IDC_STATIC,114,70,95,49
+    RTEXT           "Width Var:",IDC_STATIC,16,92,35,8
+    CONTROL         "0,255,0",IDC_WIDTHVAR_SPIN,"SpinnerControl",0x0,97,92,7,10
+    RTEXT           "Low:",IDC_STATIC,35,56,16,8
+    CONTROL         "0,255,0",IDC_TRESHLOW_SPIN,"SpinnerControl",0x0,97,56,7,10
+    RTEXT           "High:",IDC_STATIC,33,68,18,8
+    CONTROL         "0,255,0",IDC_TRESHHIGH_SPIN,"SpinnerControl",0x0,97,68,7,10
+    RTEXT           "Skew:",IDC_STATIC,30,80,21,8
+    CONTROL         "0,255,0",IDC_SKEW_SPIN,"SpinnerControl",0x0,97,80,7,10
+    RTEXT           "Strength:",IDC_STATIC,15,135,28,8
+    CONTROL         "0,255,0",IDC_ANGLESTR_SPIN,"SpinnerControl",0x0,71,133,7,10
+    RTEXT           "Freq:",IDC_STATIC,85,135,17,8
+    CONTROL         "0,255,0",IDC_ANGLEFREQ_SPIN,"SpinnerControl",0x0,131,133,7,10
+    GROUPBOX        "Angular noise",IDC_STATIC,10,122,199,25
+    RTEXT           "Strength:",IDC_STATIC,17,272,48,8
+    RTEXT           "Use distortion:",IDC_STATIC,17,257,48,8
+    RTEXT           "Z Freq:",IDC_STATIC,119,106,29,8
+    CONTROL         "0,255,0",IDC_RADIALZ_SPIN,"SpinnerControl",0x0,196,106,7,10
+    RTEXT           "Grain",IDC_STATIC,50,230,18,8
+    GROUPBOX        "Grain",IDC_STATIC,5,153,209,25
+    RTEXT           "Amount:",IDC_STATIC,14,164,27,8
+    CONTROL         "0,255,0",IDC_GRAINSTR_SPIN,"SpinnerControl",0x0,87,164,7,10
+    RTEXT           "Frequency:",IDC_STATIC,106,164,37,8
+    CONTROL         "0,255,0",IDC_GRAINFREQ_SPIN,"SpinnerControl",0x0,189,164,7,10
+    RTEXT           "Radius:",IDC_STATIC,141,135,24,8
+    CONTROL         "0,255,0",IDC_ANGLERAD_SPIN,"SpinnerControl",0x0,197,133,7,10
+    GROUPBOX        "General",IDC_STATIC,10,34,98,85
+    RTEXT           "Gain Var:",IDC_STATIC,16,104,35,8
+    CONTROL         "0,255,0",IDC_GAINVAR_SPIN,"SpinnerControl",0x0,97,104,7,10
+    RTEXT           "Seed:",IDC_STATIC,12,16,20,8
+    CONTROL         "0,255,0",IDC_SEED_SPIN,"SpinnerControl",0x0,75,16,7,10
+    GROUPBOX        "Super Sampling",IDC_STATIC,5,287,209,24
+    CONTROL         "",IDC_SAMPLES_EDIT,"CustEdit",WS_TABSTOP,160,297,40,10
+    CONTROL         "0,255,0",IDC_SAMPLES_SPIN,"SpinnerControl",0x0,201,297,7,10
+    RTEXT           "Samples:",IDC_STATIC,121,298,36,8
+END
+
+IDD_PANEL_TILE DIALOGEX 0, 0, 217, 407
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_TYPE,101,14,106,168,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_TILESIZE_EDIT,"CustEdit",WS_TABSTOP,30,17,25,10
+    CONTROL         "",IDC_TILEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,32,40,10
+    CONTROL         "",IDC_TILEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,44,40,10
+    CONTROL         "",IDC_EDGEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,56,40,10
+    CONTROL         "",IDC_EDGEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,68,40,10
+    COMBOBOX        IDC_SOFTEN,39,82,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_SOFTENRAD_EDIT,"CustEdit",WS_TABSTOP,160,85,40,10
+    CONTROL         "",IDC_CORNERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,65,99,8,8
+    CONTROL         "",IDC_CORNER_EDIT,"CustEdit",WS_TABSTOP,160,97,40,10
+    CONTROL         "",IDC_MAPUV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,78,185,8,8
+    CONTROL         "",IDC_UVCHAN_EDIT,"CustEdit",WS_TABSTOP,180,183,18,10
+    COMBOBOX        IDC_ROTUV,157,222,45,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_NOISE_COL1,"ColorSwatch",0x0,70,119,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX1,"CustButton",WS_TABSTOP,112,120,84,12
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,122,8,8
+    CONTROL         "",IDC_NOISE_COL3,"ColorSwatch",0x0,70,136,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX3,"CustButton",WS_TABSTOP,112,137,84,12
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,139,8,8
+    CONTROL         "",IDC_NOISE_COL2,"ColorSwatch",0x0,70,153,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX2,"CustButton",WS_TABSTOP,112,154,84,12
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,156,8,8
+    CONTROL         "Custom1",IDC_LOCKEDGE,"CustButton",0x0,16,144,13,12
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,373,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,117,370,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,71,387,29,10
+    CONTROL         "Custom1",IDC_DISTORTION_TEX2,"CustButton",WS_TABSTOP,117,386,91,12
+    RTEXT           "Size:",IDC_STATIC,9,17,16,8
+    CONTROL         "0,255,0",IDC_TILESIZE_SPIN,"SpinnerControl",0x0,57,17,7,10
+    RTEXT           "Color #1",IDC_STATIC,36,123,29,8
+    RTEXT           "Edge",IDC_STATIC,47,155,18,8
+    GROUPBOX        "Tiling",IDC_STATIC,4,2,209,109
+    GROUPBOX        "Distortion",IDC_STATIC,5,360,209,43
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,101,387,7,10
+    GROUPBOX        "Colors",IDC_STATIC,4,111,209,59
+    RTEXT           "Edge height:",IDC_STATIC,9,68,41,8
+    CONTROL         "0,255,0",IDC_EDGEHEIGHT_SPIN,"SpinnerControl",0x0,97,68,7,10
+    RTEXT           "Tile width:",IDC_STATIC,17,32,33,8
+    CONTROL         "0,255,0",IDC_TILEWIDTH_SPIN,"SpinnerControl",0x0,97,32,7,10
+    RTEXT           "Tile height:",IDC_STATIC,14,44,36,8
+    CONTROL         "0,255,0",IDC_TILEHEIGHT_SPIN,"SpinnerControl",0x0,97,44,7,10
+    RTEXT           "Edge width:",IDC_STATIC,12,56,38,8
+    CONTROL         "0,255,0",IDC_EDGEWIDTH_SPIN,"SpinnerControl",0x0,97,56,7,10
+    RTEXT           "Strength:",IDC_STATIC,17,387,48,8
+    RTEXT           "Use distortion:",IDC_STATIC,17,372,48,8
+    RTEXT           "Soften:",IDC_STATIC,10,84,24,8
+    RTEXT           "Soften radius:",IDC_STATIC,113,85,44,8
+    CONTROL         "0,255,0",IDC_SOFTENRAD_SPIN,"SpinnerControl",0x0,202,85,7,10
+    RTEXT           "Round corners:",IDC_STATIC,10,98,49,8
+    RTEXT           "Round radius:",IDC_STATIC,112,97,45,8
+    CONTROL         "0,255,0",IDC_CORNER_SPIN,"SpinnerControl",0x0,202,97,7,10
+    RTEXT           "Enable tile mapping:",IDC_STATIC,5,184,66,8
+    RTEXT           "Random rotation",IDC_STATIC,152,213,53,8
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN,"SpinnerControl",0x0,200,183,7,10
+    CONTROL         "Custom1",IDC_PATTERN,"CustEdit",WS_TABSTOP,11,313,198,12
+    GROUPBOX        "Custom Bond Pattern",IDC_STATIC,4,302,209,56
+    CTEXT           "offset, height, width1, width2, ... / offset, height, width1 ...",IDC_STATIC,12,331,198,8
+    GROUPBOX        "Tile UV Mapping (Color #1 and #2)",IDC_STATIC,4,171,209,130
+    RTEXT           "Channel:",IDC_STATIC,129,183,47,8
+    CONTROL         "",IDC_FLIPX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,253,8,8
+    RTEXT           "Random flip x-axis:",IDC_STATIC,26,252,61,8
+    CONTROL         "",IDC_FLIPY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,265,8,8
+    RTEXT           "Random flip y-axis:",IDC_STATIC,26,264,61,8
+    CONTROL         "",IDC_OFF_X2,"CustEdit",WS_TABSTOP,23,223,36,10
+    CONTROL         "0,255,0",IDC_OFF_X_SPIN2,"SpinnerControl",0x0,61,223,7,10
+    RTEXT           "±X:",IDC_STATIC,7,223,12,8
+    CONTROL         "",IDC_SIZ_X2,"CustEdit",WS_TABSTOP,87,223,36,10
+    CONTROL         "0,255,0",IDC_SIZ_X_SPIN2,"SpinnerControl",0x0,125,223,7,10
+    CONTROL         "",IDC_OFF_Y2,"CustEdit",WS_TABSTOP,23,237,36,10
+    CONTROL         "0,255,0",IDC_OFF_Y_SPIN2,"SpinnerControl",0x0,61,237,7,10
+    RTEXT           "±Y:",IDC_STATIC,7,238,12,8
+    CONTROL         "",IDC_SIZ_Y2,"CustEdit",WS_TABSTOP,87,237,36,10
+    CONTROL         "0,255,0",IDC_SIZ_Y_SPIN2,"SpinnerControl",0x0,125,237,7,10
+    RTEXT           "Random size",IDC_STATIC,89,213,42,8
+    RTEXT           "Random offset",IDC_STATIC,18,213,51,8
+    CONTROL         "Custom1",IDC_LOCK,"CustButton",0x0,135,228,13,12
+    COMBOBOX        IDC_AUTO,56,197,151,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Auto scaling:",IDC_STATIC,9,199,42,8
+    CONTROL         "",IDC_MAPUV2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,277,8,8
+    RTEXT           "Enable center mapping:",IDC_STATIC,9,276,78,8
+    CONTROL         "",IDC_RANDZ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,161,289,8,8
+    RTEXT           "Randomize MultiTexture and BerconGradient:",IDC_STATIC,6,288,149,8
+    CONTROL         "",IDC_UVCHAN_EDIT2,"CustEdit",WS_TABSTOP,181,275,18,10
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN2,"SpinnerControl",0x0,201,275,7,10
+    RTEXT           "Channel:",IDC_STATIC,130,275,47,8
+    CONTROL         "",IDC_RANDROT,"CustEdit",WS_TABSTOP,158,237,36,10
+    CONTROL         "0,255,0",IDC_RANDROT_SPIN,"SpinnerControl",0x0,196,237,7,10
+    RTEXT           "Color #2",IDC_STATIC,37,139,28,8
+    CTEXT           "Center mapping for solid",IDC_STATIC,104,253,106,8
+    CTEXT           "color for each tile.",IDC_STATIC,104,263,106,8
+    RTEXT           "Pattern:",IDC_STATIC,67,17,30,8
+    CONTROL         "",IDC_TILEWIDTH_EDIT2,"CustEdit",WS_TABSTOP,130,32,40,10
+    CONTROL         "",IDC_TILEHEIGHT_EDIT2,"CustEdit",WS_TABSTOP,130,44,40,10
+    CONTROL         "",IDC_EDGEWIDTH_EDIT2,"CustEdit",WS_TABSTOP,130,56,40,10
+    CONTROL         "",IDC_EDGEHEIGHT_EDIT2,"CustEdit",WS_TABSTOP,130,68,40,10
+    RTEXT           "± %:",IDC_STATIC,109,68,18,8
+    CONTROL         "0,255,0",IDC_EDGEHEIGHT_SPIN2,"SpinnerControl",0x0,172,68,7,10
+    RTEXT           "± %:",IDC_STATIC,109,32,18,8
+    CONTROL         "0,255,0",IDC_TILEWIDTH_SPIN2,"SpinnerControl",0x0,172,32,7,10
+    RTEXT           "± %:",IDC_STATIC,109,44,18,8
+    CONTROL         "0,255,0",IDC_TILEHEIGHT_SPIN2,"SpinnerControl",0x0,172,44,7,10
+    RTEXT           "± %:",IDC_STATIC,109,56,18,8
+    CONTROL         "0,255,0",IDC_EDGEWIDTH_SPIN2,"SpinnerControl",0x0,172,56,7,10
+    CTEXT           "Negative offset will be multiplied by row number try: -.25,1,1",IDC_STATIC,12,344,198,8
+    RTEXT           "+X:",IDC_STATIC,73,223,12,8
+    RTEXT           "+Y:",IDC_STATIC,73,239,12,8
+END
+
+IDD_PANEL_CURVE DIALOGEX 0, 0, 217, 148
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "",IDC_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,4,8,8
+    CONTROL         "",IDC_CURVE,"Static",SS_BLACKFRAME,5,15,206,130
+    RTEXT           "Use function curve:",-1,102,3,95,8
+END
+
+IDD_PANEL_WOOD_MAP DIALOGEX 0, 0, 217, 200
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    RTEXT           "Size",IDC_STATIC,6,6,72,8
+    CONTROL         "Custom1",IDC_MAP1,"CustButton",WS_TABSTOP,84,6,112,9
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,6,8,8
+    RTEXT           "Treshold low",IDC_STATIC,6,18,72,8
+    CONTROL         "Custom1",IDC_MAP2,"CustButton",WS_TABSTOP,84,18,112,9
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,18,8,8
+    RTEXT           "Treshold high",IDC_STATIC,6,30,72,8
+    CONTROL         "Custom1",IDC_MAP3,"CustButton",WS_TABSTOP,84,30,112,9
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,30,8,8
+    RTEXT           "Skew",IDC_STATIC,6,42,72,8
+    CONTROL         "Custom1",IDC_MAP4,"CustButton",WS_TABSTOP,84,42,112,9
+    CONTROL         "",IDC_MAPON4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,42,8,8
+    RTEXT           "Width variation",IDC_STATIC,6,54,72,8
+    CONTROL         "Custom1",IDC_MAP5,"CustButton",WS_TABSTOP,84,54,112,9
+    CONTROL         "",IDC_MAPON5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,54,8,8
+    RTEXT           "Gain variation",IDC_STATIC,6,66,72,8
+    CONTROL         "Custom1",IDC_MAP6,"CustButton",WS_TABSTOP,84,66,112,9
+    CONTROL         "",IDC_MAPON6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,66,8,8
+    RTEXT           "Trunk strength",IDC_STATIC,6,78,72,8
+    CONTROL         "Custom1",IDC_MAP7,"CustButton",WS_TABSTOP,84,78,112,9
+    CONTROL         "",IDC_MAPON7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,78,8,8
+    RTEXT           "Trunk frequency",IDC_STATIC,6,90,72,8
+    CONTROL         "Custom1",IDC_MAP8,"CustButton",WS_TABSTOP,84,90,112,9
+    CONTROL         "",IDC_MAPON8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,90,8,8
+    RTEXT           "Radial strength",IDC_STATIC,6,102,72,8
+    CONTROL         "Custom1",IDC_MAP9,"CustButton",WS_TABSTOP,84,102,112,9
+    CONTROL         "",IDC_MAPON9,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,102,8,8
+    RTEXT           "Radial frequency",IDC_STATIC,6,114,72,8
+    CONTROL         "Custom1",IDC_MAP10,"CustButton",WS_TABSTOP,84,114,112,9
+    CONTROL         "",IDC_MAPON10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,114,8,8
+    RTEXT           "Radial z strength",IDC_STATIC,6,126,72,8
+    CONTROL         "Custom1",IDC_MAP11,"CustButton",WS_TABSTOP,84,126,112,9
+    CONTROL         "",IDC_MAPON11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,126,8,8
+    RTEXT           "Angular strength",IDC_STATIC,6,138,72,8
+    CONTROL         "Custom1",IDC_MAP12,"CustButton",WS_TABSTOP,84,138,112,9
+    CONTROL         "",IDC_MAPON12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,138,8,8
+    RTEXT           "Angular frequency",IDC_STATIC,6,150,72,8
+    CONTROL         "Custom1",IDC_MAP13,"CustButton",WS_TABSTOP,84,150,112,9
+    CONTROL         "",IDC_MAPON13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,150,8,8
+    RTEXT           "Angular radius",IDC_STATIC,6,162,72,8
+    CONTROL         "Custom1",IDC_MAP14,"CustButton",WS_TABSTOP,84,162,112,9
+    CONTROL         "",IDC_MAPON14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,162,8,8
+    RTEXT           "Grain strength",IDC_STATIC,6,174,72,8
+    CONTROL         "Custom1",IDC_MAP15,"CustButton",WS_TABSTOP,84,174,112,9
+    CONTROL         "",IDC_MAPON15,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,174,8,8
+    RTEXT           "Grain frequency",IDC_STATIC,6,186,72,8
+    CONTROL         "Custom1",IDC_MAP16,"CustButton",WS_TABSTOP,84,186,112,9
+    CONTROL         "",IDC_MAPON16,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,186,8,8
+END
+
+IDD_PANEL_DISTORTION DIALOGEX 0, 0, 217, 79
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Custom1",IDC_MAP1,"CustButton",WS_TABSTOP,9,8,196,12
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,70,42,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,116,39,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,70,57,29,10
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,100,57,7,10
+    CONTROL         "Custom1",IDC_DISTORTION_TEX2,"CustButton",WS_TABSTOP,116,57,91,12
+    GROUPBOX        "Distortion",-1,4,25,209,50
+    RTEXT           "Strength:",-1,16,57,48,8
+    RTEXT           "Use distortion:",-1,16,41,48,8
+END
+
+IDD_PANEL_TILE_MAP DIALOGEX 0, 0, 217, 27
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    RTEXT           "Soften radius",-1,6,3,72,8
+    CONTROL         "Custom1",IDC_MAP1,"CustButton",WS_TABSTOP,84,3,112,9
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,3,8,8
+    RTEXT           "Round radius",-1,6,15,72,8
+    CONTROL         "Custom1",IDC_MAP2,"CustButton",WS_TABSTOP,84,15,112,9
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,15,8,8
+END
+
+IDD_PANEL_NOISE_MAP DIALOGEX 0, 0, 217, 176
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    RTEXT           "Size",-1,6,6,72,8
+    CONTROL         "Custom1",IDC_MAP1,"CustButton",WS_TABSTOP,84,6,112,9
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,6,8,8
+    RTEXT           "Treshold low",-1,6,18,72,8
+    CONTROL         "Custom1",IDC_MAP2,"CustButton",WS_TABSTOP,84,18,112,9
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,18,8,8
+    RTEXT           "Treshold high",-1,6,30,72,8
+    CONTROL         "Custom1",IDC_MAP3,"CustButton",WS_TABSTOP,84,30,112,9
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,30,8,8
+    RTEXT           "Phase",-1,6,42,72,8
+    CONTROL         "Custom1",IDC_MAP4,"CustButton",WS_TABSTOP,84,42,112,9
+    CONTROL         "",IDC_MAPON4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,42,8,8
+    RTEXT           "Spread",-1,6,54,72,8
+    CONTROL         "Custom1",IDC_MAP5,"CustButton",WS_TABSTOP,84,54,112,9
+    CONTROL         "",IDC_MAPON5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,54,8,8
+    RTEXT           "F1",-1,6,66,72,8
+    CONTROL         "Custom1",IDC_MAP6,"CustButton",WS_TABSTOP,84,66,112,9
+    CONTROL         "",IDC_MAPON6,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,66,8,8
+    RTEXT           "F2",-1,6,78,72,8
+    CONTROL         "Custom1",IDC_MAP7,"CustButton",WS_TABSTOP,84,78,112,9
+    CONTROL         "",IDC_MAPON7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,78,8,8
+    RTEXT           "F3",-1,6,90,72,8
+    CONTROL         "Custom1",IDC_MAP8,"CustButton",WS_TABSTOP,84,90,112,9
+    CONTROL         "",IDC_MAPON8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,90,8,8
+    RTEXT           "F4",-1,6,102,72,8
+    CONTROL         "Custom1",IDC_MAP9,"CustButton",WS_TABSTOP,84,102,112,9
+    CONTROL         "",IDC_MAPON9,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,102,8,8
+    RTEXT           "Levels",-1,6,114,72,8
+    CONTROL         "Custom1",IDC_MAP10,"CustButton",WS_TABSTOP,84,114,112,9
+    CONTROL         "",IDC_MAPON10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,114,8,8
+    RTEXT           "Offset",-1,6,126,72,8
+    CONTROL         "Custom1",IDC_MAP11,"CustButton",WS_TABSTOP,84,126,112,9
+    CONTROL         "",IDC_MAPON11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,126,8,8
+    RTEXT           "Gain",-1,6,138,72,8
+    CONTROL         "Custom1",IDC_MAP12,"CustButton",WS_TABSTOP,84,138,112,9
+    CONTROL         "",IDC_MAPON12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,138,8,8
+    RTEXT           "Lacunarity",-1,6,150,72,8
+    CONTROL         "Custom1",IDC_MAP13,"CustButton",WS_TABSTOP,84,150,112,9
+    CONTROL         "",IDC_MAPON13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,150,8,8
+    RTEXT           "Exponent",-1,6,162,72,8
+    CONTROL         "Custom1",IDC_MAP14,"CustButton",WS_TABSTOP,84,162,112,9
+    CONTROL         "",IDC_MAPON14,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,204,162,8,8
+END
+
+IDD_PANEL_COLOR DIALOGEX 0, 0, 217, 308
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Custom1",IDC_KEYTEX,"CustButton",WS_TABSTOP,115,13,94,12
+    CONTROL         "",IDC_KEYPOS_EDIT,"CustEdit",WS_TABSTOP,38,29,28,10
+    CONTROL         "",IDC_KEYCOL,"ColorSwatch",0x0,115,27,37,12
+    CONTROL         "",IDC_KEYPOS_SPIN,"SpinnerControl",0x0,68,29,7,10
+    CONTROL         "",IDC_KEYNUM_EDIT,"CustEdit",WS_TABSTOP,37,14,29,10
+    CONTROL         "",IDC_KEYNUM_SPIN,"SpinnerControl",0x0,68,14,7,10
+    CONTROL         "",IDC_SEED_EDIT,"CustEdit",WS_TABSTOP,37,262,29,10
+    CONTROL         "0,255,0",IDC_SEED_SPIN,"SpinnerControl",0x0,68,262,7,10
+    CONTROL         "",IDC_GRADIENT,"CustGradient",0x0,2,46,213,40
+    RTEXT           "Number:",IDC_STATIC,7,15,28,8
+    GROUPBOX        "Key parameters",IDC_STATIC,2,1,212,42
+    RTEXT           "Position:",IDC_STATIC,7,30,28,8
+    RTEXT           "Map:",IDC_STATIC,84,15,28,8
+    RTEXT           "Color:",IDC_STATIC,84,30,28,8
+    RTEXT           "Seed:",IDC_STATIC,7,263,28,8
+    RTEXT           "Type:",IDC_STATIC,59,99,53,8
+    COMBOBOX        IDC_GRADIENT_TYPE,115,96,93,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_RAND_MAT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,102,264,8,8
+    RTEXT           "MatID:",IDC_STATIC,77,263,23,8
+    CONTROL         "",IDC_RAND_OBJ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,133,264,8,8
+    RTEXT           "Obj.:",IDC_STATIC,112,263,18,8
+    CONTROL         "",IDC_RAND_PAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,174,264,8,8
+    RTEXT           "Particle:",IDC_STATIC,145,263,26,8
+    CONTROL         "",IDC_RANGEMIN_EDIT,"CustEdit",WS_TABSTOP,97,156,37,10
+    CONTROL         "0,255,0",IDC_RANGEMIN_SPIN,"SpinnerControl",0x0,136,156,7,10
+    RTEXT           "Min:",IDC_STATIC,75,157,19,8
+    CONTROL         "",IDC_RANGEMAX_EDIT,"CustEdit",WS_TABSTOP,163,156,37,10
+    CONTROL         "0,255,0",IDC_RANGEMAX_SPIN,"SpinnerControl",0x0,202,156,7,10
+    RTEXT           "Max:",IDC_STATIC,146,157,15,8
+    RTEXT           "Interpolation:",IDC_STATIC,64,128,48,8
+    COMBOBOX        IDC_GRADIENT_INT,115,126,93,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "UVW Type:",IDC_STATIC,59,114,53,8
+    COMBOBOX        IDC_GRADIENT_UVW,115,111,93,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Normal:",IDC_STATIC,59,189,53,8
+    COMBOBOX        IDC_GRADIENT_NORMAL,115,186,93,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Fall off:",IDC_STATIC,83,205,29,8
+    COMBOBOX        IDC_GRADIENT_NORMAL2,115,202,93,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_IOR_EDIT,"CustEdit",WS_TABSTOP,37,204,29,10
+    CONTROL         "0,255,0",IDC_IOR_SPIN,"SpinnerControl",0x0,68,204,7,10
+    RTEXT           "IOR:",IDC_STATIC,16,206,19,8
+    CONTROL         "Custom1",IDC_MAPTEX,"CustButton",WS_TABSTOP,115,231,94,12
+    RTEXT           "Map:",IDC_STATIC,84,233,28,8
+    CONTROL         "Custom1",IDC_NODE,"CustButton",WS_TABSTOP,37,186,43,12
+    RTEXT           "Object:",IDC_STATIC,7,189,28,8
+    CONTROL         "Custom1",IDC_DISTEX,"CustButton",WS_TABSTOP,115,289,94,12
+    RTEXT           "Distortion:",IDC_STATIC,80,291,31,8
+    CONTROL         "",IDC_DISTSTR_EDIT,"CustEdit",WS_TABSTOP,37,290,29,10
+    CONTROL         "0,255,0",IDC_DISTSTR_SPIN,"SpinnerControl",0x0,68,290,7,10
+    RTEXT           "Str:",IDC_STATIC,22,291,13,8
+    CONTROL         "",IDC_DISTON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,291,8,8
+    CONTROL         "",IDC_REVERSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,41,129,8,8
+    RTEXT           "Reverse:",IDC_STATIC,8,128,29,8
+    COMBOBOX        IDC_RANGELOOP,34,155,40,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Range:",IDC_STATIC,5,157,25,8
+    GROUPBOX        "Gradient",IDC_STATIC,2,88,212,55
+    GROUPBOX        "Gradient Range",IDC_STATIC,2,144,212,28
+    GROUPBOX        "Normal / Distance",IDC_STATIC,2,173,212,46
+    GROUPBOX        "Mapped",IDC_STATIC,2,220,212,28
+    GROUPBOX        "Random",IDC_STATIC,2,249,212,27
+    GROUPBOX        "Distortion",IDC_STATIC,2,277,212,29
+    CONTROL         "",IDC_RAND_TILE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,201,264,8,8
+    RTEXT           "Tile:",IDC_STATIC,184,262,14,8
+END
+
+IDD_PANEL_TILE1 DIALOGEX 0, 0, 217, 345
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_TYPE,81,14,126,168,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_TILESIZE_EDIT,"CustEdit",WS_TABSTOP,55,32,40,10
+    CONTROL         "",IDC_TILEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,48,40,10
+    CONTROL         "",IDC_TILEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,60,40,10
+    CONTROL         "",IDC_EDGEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,72,40,10
+    CONTROL         "",IDC_EDGEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,84,40,10
+    CONTROL         "",IDC_PERIOD_EDIT,"CustEdit",WS_TABSTOP,55,100,40,10
+    CONTROL         "",IDC_OFFSET_EDIT,"CustEdit",WS_TABSTOP,55,112,40,10
+    CONTROL         "",IDC_OFFSET2_EDIT,"CustEdit",WS_TABSTOP,55,124,40,10
+    COMBOBOX        IDC_SOFTEN,140,30,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_SOFTENRAD_EDIT,"CustEdit",WS_TABSTOP,160,47,40,10
+    CONTROL         "",IDC_CORNERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,65,8,8
+    CONTROL         "",IDC_CORNER_EDIT,"CustEdit",WS_TABSTOP,160,76,40,10
+    CONTROL         "",IDC_MAPUV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,219,8,8
+    CONTROL         "",IDC_UVCHAN_EDIT,"CustEdit",WS_TABSTOP,65,217,25,10
+    COMBOBOX        IDC_ROTUV,142,216,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "Custom1",IDC_UV_MAP,"CustButton",WS_TABSTOP,142,232,68,12
+    CONTROL         "",IDC_NOISE_COL1,"ColorSwatch",0x0,70,152,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX1,"CustButton",WS_TABSTOP,112,153,84,12
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,155,8,8
+    CONTROL         "",IDC_NOISE_COL3,"ColorSwatch",0x0,70,169,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX3,"CustButton",WS_TABSTOP,112,170,84,12
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,172,8,8
+    CONTROL         "",IDC_NOISE_COL2,"ColorSwatch",0x0,70,186,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX2,"CustButton",WS_TABSTOP,112,187,84,12
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,189,8,8
+    CONTROL         "Custom1",IDC_LOCKEDGE,"CustButton",0x0,16,177,13,12
+    COMBOBOX        IDC_VAR_TYPE,29,271,42,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_VAR_STR_EDIT,"CustEdit",WS_TABSTOP,76,274,29,10
+    CONTROL         "Custom1",IDC_VAR_MAP,"CustButton",WS_TABSTOP,117,272,91,12
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,304,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,117,301,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,71,318,29,10
+    CONTROL         "Custom1",IDC_DISTORTION_TEX2,"CustButton",WS_TABSTOP,117,317,91,12
+    RTEXT           "Style:",IDC_STATIC,58,17,18,8
+    RTEXT           "Size:",IDC_STATIC,34,32,16,8
+    CONTROL         "0,255,0",IDC_TILESIZE_SPIN,"SpinnerControl",0x0,97,32,7,10
+    RTEXT           "Color #1",IDC_STATIC,36,156,29,8
+    RTEXT           "Edge",IDC_STATIC,47,188,18,8
+    GROUPBOX        "Tiling",IDC_STATIC,4,2,209,137
+    GROUPBOX        "Distortion",IDC_STATIC,5,291,209,43
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,101,318,7,10
+    GROUPBOX        "Colors",IDC_STATIC,4,141,209,62
+    RTEXT           "Edge height:",IDC_STATIC,9,84,41,8
+    CONTROL         "0,255,0",IDC_EDGEHEIGHT_SPIN,"SpinnerControl",0x0,97,84,7,10
+    RTEXT           "Tile width:",IDC_STATIC,17,48,33,8
+    CONTROL         "0,255,0",IDC_TILEWIDTH_SPIN,"SpinnerControl",0x0,97,48,7,10
+    RTEXT           "Tile height:",IDC_STATIC,14,60,36,8
+    CONTROL         "0,255,0",IDC_TILEHEIGHT_SPIN,"SpinnerControl",0x0,97,60,7,10
+    RTEXT           "Edge width:",IDC_STATIC,12,72,38,8
+    CONTROL         "0,255,0",IDC_EDGEWIDTH_SPIN,"SpinnerControl",0x0,97,72,7,10
+    RTEXT           "Strength:",IDC_STATIC,17,318,48,8
+    RTEXT           "Use distortion:",IDC_STATIC,17,303,48,8
+    RTEXT           "Color #2",IDC_STATIC,37,172,28,8
+    RTEXT           "Offset #1:",IDC_STATIC,15,112,35,8
+    CONTROL         "0,255,0",IDC_OFFSET_SPIN,"SpinnerControl",0x0,97,112,7,10
+    RTEXT           "Period:",IDC_STATIC,15,100,35,8
+    CONTROL         "0,255,0",IDC_PERIOD_SPIN,"SpinnerControl",0x0,97,100,7,10
+    RTEXT           "Soften:",IDC_STATIC,111,32,24,8
+    RTEXT           "Soften radius:",IDC_STATIC,113,47,44,8
+    CONTROL         "0,255,0",IDC_SOFTENRAD_SPIN,"SpinnerControl",0x0,202,47,7,10
+    RTEXT           "Round corners:",IDC_STATIC,108,64,49,8
+    RTEXT           "Round radius:",IDC_STATIC,112,76,45,8
+    CONTROL         "0,255,0",IDC_CORNER_SPIN,"SpinnerControl",0x0,202,76,7,10
+    RTEXT           "Offset #2:",IDC_STATIC,15,124,35,8
+    CONTROL         "0,255,0",IDC_OFFSET2_SPIN,"SpinnerControl",0x0,97,124,7,10
+    RTEXT           "UV channel:",IDC_STATIC,9,218,41,8
+    RTEXT           "UVRotation:",IDC_STATIC,100,218,40,8
+    GROUPBOX        "Variation",IDC_STATIC,4,259,209,31
+    RTEXT           "Type:",IDC_STATIC,8,273,19,8
+    RTEXT           "Map:",IDC_STATIC,123,233,17,8
+    CONTROL         "0,255,0",IDC_VAR_STR_SPIN,"SpinnerControl",0x0,106,274,7,10
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN,"SpinnerControl",0x0,92,217,7,10
+    GROUPBOX        "Sub texture UV / Material ID",IDC_STATIC,4,204,209,53
+    RTEXT           "Random MatId:",IDC_STATIC,6,232,45,8
+    CONTROL         "",IDC_UVCHAN_EDIT2,"CustEdit",WS_TABSTOP,65,232,25,10
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN2,"SpinnerControl",0x0,92,232,7,10
+    CONTROL         "",IDC_UVCHAN_EDIT3,"CustEdit",WS_TABSTOP,65,244,25,10
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN3,"SpinnerControl",0x0,92,244,7,10
+    RTEXT           "to:",IDC_STATIC,10,244,41,8
+    CONTROL         "",IDC_MAPUV2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,233,8,8
+    CONTROL         "",IDC_MAPUV3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,245,8,8
+END
+
+IDD_PANEL_TILE2 DIALOGEX 0, 0, 217, 309
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_TYPE,81,14,126,168,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_TILESIZE_EDIT,"CustEdit",WS_TABSTOP,55,32,40,10
+    CONTROL         "",IDC_TILEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,48,40,10
+    CONTROL         "",IDC_TILEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,60,40,10
+    CONTROL         "",IDC_EDGEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,72,40,10
+    CONTROL         "",IDC_EDGEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,84,40,10
+    CONTROL         "",IDC_PERIOD_EDIT,"CustEdit",WS_TABSTOP,55,100,40,10
+    CONTROL         "",IDC_OFFSET_EDIT,"CustEdit",WS_TABSTOP,55,112,40,10
+    CONTROL         "",IDC_OFFSET2_EDIT,"CustEdit",WS_TABSTOP,55,124,40,10
+    COMBOBOX        IDC_SOFTEN,140,30,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_SOFTENRAD_EDIT,"CustEdit",WS_TABSTOP,160,47,40,10
+    CONTROL         "",IDC_CORNERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,65,8,8
+    CONTROL         "",IDC_CORNER_EDIT,"CustEdit",WS_TABSTOP,160,76,40,10
+    CONTROL         "",IDC_MAPUV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,169,94,8,8
+    CONTROL         "",IDC_UVCHAN_EDIT,"CustEdit",WS_TABSTOP,181,92,18,10
+    COMBOBOX        IDC_ROTUV,142,105,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "Custom1",IDC_UV_MAP,"CustButton",WS_TABSTOP,142,121,68,12
+    CONTROL         "",IDC_NOISE_COL1,"ColorSwatch",0x0,70,152,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX1,"CustButton",WS_TABSTOP,112,153,84,12
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,155,8,8
+    CONTROL         "",IDC_NOISE_COL3,"ColorSwatch",0x0,70,169,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX3,"CustButton",WS_TABSTOP,112,170,84,12
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,172,8,8
+    CONTROL         "",IDC_NOISE_COL2,"ColorSwatch",0x0,70,186,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX2,"CustButton",WS_TABSTOP,112,187,84,12
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,189,8,8
+    CONTROL         "Custom1",IDC_LOCKEDGE,"CustButton",0x0,16,177,13,12
+    COMBOBOX        IDC_VAR_TYPE,29,217,42,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_VAR_STR_EDIT,"CustEdit",WS_TABSTOP,76,220,29,10
+    CONTROL         "Custom1",IDC_VAR_MAP,"CustButton",WS_TABSTOP,117,218,91,12
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,277,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,117,274,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,71,291,29,10
+    CONTROL         "Custom1",IDC_DISTORTION_TEX2,"CustButton",WS_TABSTOP,117,290,91,12
+    RTEXT           "Style:",IDC_STATIC,58,17,18,8
+    RTEXT           "Size:",IDC_STATIC,34,32,16,8
+    CONTROL         "0,255,0",IDC_TILESIZE_SPIN,"SpinnerControl",0x0,97,32,7,10
+    RTEXT           "Color #1",IDC_STATIC,36,156,29,8
+    RTEXT           "Edge",IDC_STATIC,47,188,18,8
+    GROUPBOX        "Tiling",IDC_STATIC,4,2,209,137
+    GROUPBOX        "Distortion",IDC_STATIC,5,264,209,43
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,101,291,7,10
+    GROUPBOX        "Colors",IDC_STATIC,4,141,209,62
+    RTEXT           "Edge height:",IDC_STATIC,9,84,41,8
+    CONTROL         "0,255,0",IDC_EDGEHEIGHT_SPIN,"SpinnerControl",0x0,97,84,7,10
+    RTEXT           "Tile width:",IDC_STATIC,17,48,33,8
+    CONTROL         "0,255,0",IDC_TILEWIDTH_SPIN,"SpinnerControl",0x0,97,48,7,10
+    RTEXT           "Tile height:",IDC_STATIC,14,60,36,8
+    CONTROL         "0,255,0",IDC_TILEHEIGHT_SPIN,"SpinnerControl",0x0,97,60,7,10
+    RTEXT           "Edge width:",IDC_STATIC,12,72,38,8
+    CONTROL         "0,255,0",IDC_EDGEWIDTH_SPIN,"SpinnerControl",0x0,97,72,7,10
+    RTEXT           "Strength:",IDC_STATIC,17,291,48,8
+    RTEXT           "Use distortion:",IDC_STATIC,17,276,48,8
+    RTEXT           "Color #2",IDC_STATIC,37,172,28,8
+    RTEXT           "Offset #1:",IDC_STATIC,15,112,35,8
+    CONTROL         "0,255,0",IDC_OFFSET_SPIN,"SpinnerControl",0x0,97,112,7,10
+    RTEXT           "Period:",IDC_STATIC,15,100,35,8
+    CONTROL         "0,255,0",IDC_PERIOD_SPIN,"SpinnerControl",0x0,97,100,7,10
+    RTEXT           "Soften:",IDC_STATIC,111,32,24,8
+    RTEXT           "Soften radius:",IDC_STATIC,113,47,44,8
+    CONTROL         "0,255,0",IDC_SOFTENRAD_SPIN,"SpinnerControl",0x0,202,47,7,10
+    RTEXT           "Round corners:",IDC_STATIC,108,64,49,8
+    RTEXT           "Round radius:",IDC_STATIC,112,76,45,8
+    CONTROL         "0,255,0",IDC_CORNER_SPIN,"SpinnerControl",0x0,202,76,7,10
+    RTEXT           "Offset #2:",IDC_STATIC,15,124,35,8
+    CONTROL         "0,255,0",IDC_OFFSET2_SPIN,"SpinnerControl",0x0,97,124,7,10
+    RTEXT           "Map UV channel:",IDC_STATIC,106,93,59,8
+    RTEXT           "Rotation:",IDC_STATIC,109,107,30,8
+    GROUPBOX        "Variation",IDC_STATIC,4,205,209,31
+    RTEXT           "Type:",IDC_STATIC,8,219,19,8
+    RTEXT           "Map:",IDC_STATIC,122,122,17,8
+    CONTROL         "0,255,0",IDC_VAR_STR_SPIN,"SpinnerControl",0x0,106,220,7,10
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN,"SpinnerControl",0x0,201,92,7,10
+    GROUPBOX        "Randomize Material ID per tile",IDC_STATIC,4,237,209,25
+    CONTROL         "",IDC_MATIDON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,55,250,8,8
+    RTEXT           "Randomize:",IDC_STATIC,12,249,38,8
+    RTEXT           "From:",IDC_STATIC,76,249,20,8
+    CONTROL         "",IDC_MATIDFROM_EDIT,"CustEdit",WS_TABSTOP,98,248,36,10
+    CONTROL         "0,255,0",IDC_MATIDFROM_SPIN,"SpinnerControl",0x0,136,248,7,10
+    RTEXT           "To:",IDC_STATIC,146,249,14,8
+    CONTROL         "",IDC_MATIDTO_EDIT,"CustEdit",WS_TABSTOP,162,248,36,10
+    CONTROL         "0,255,0",IDC_MATIDTO_SPIN,"SpinnerControl",0x0,200,248,7,10
+END
+
+IDD_XYZ DIALOGEX 0, 0, 217, 166
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_TYPE,27,4,115,141,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Type:",IDC_STATIC,3,6,20,8
+    RTEXT           "Size",IDC_STATIC,82,29,14,8
+    CONTROL         "",IDC_CHAN,"CustEdit",WS_TABSTOP,177,6,24,10
+    CONTROL         "",IDC_CHAN_SPIN,"SpinnerControl",0x0,204,6,7,10
+    RTEXT           "Channel:",IDC_STATIC,144,7,30,8
+    RTEXT           "X:",IDC_STATIC,9,39,8,8
+    CONTROL         "",IDC_SIZ_X,"CustEdit",WS_TABSTOP,70,38,36,10
+    CONTROL         "0,255,0",IDC_SIZ_X_SPIN,"SpinnerControl",0x0,108,38,7,10
+    CONTROL         "",IDC_ANG_X,"CustEdit",WS_TABSTOP,163,38,36,10
+    CONTROL         "0,255,0",IDC_ANG_X_SPIN,"SpinnerControl",0x0,201,38,7,10
+    COMBOBOX        IDC_TIL_X,119,37,40,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    RTEXT           "Offset",IDC_STATIC,21,29,27,8
+    RTEXT           "Tiling",IDC_STATIC,128,29,18,8
+    RTEXT           "Angle °",IDC_STATIC,166,29,30,8
+    CONTROL         "",IDC_OFF_Y,"CustEdit",WS_TABSTOP,21,52,36,10
+    CONTROL         "0,255,0",IDC_OFF_Y_SPIN,"SpinnerControl",0x0,59,52,7,10
+    RTEXT           "Y:",IDC_STATIC,9,53,8,8
+    CONTROL         "",IDC_SIZ_Y,"CustEdit",WS_TABSTOP,70,52,36,10
+    CONTROL         "0,255,0",IDC_SIZ_Y_SPIN,"SpinnerControl",0x0,108,52,7,10
+    CONTROL         "",IDC_ANG_Y,"CustEdit",WS_TABSTOP,163,52,36,10
+    CONTROL         "0,255,0",IDC_ANG_Y_SPIN,"SpinnerControl",0x0,201,52,7,10
+    COMBOBOX        IDC_TIL_Y,119,51,40,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_OFF_Z,"CustEdit",WS_TABSTOP,21,66,36,10
+    CONTROL         "0,255,0",IDC_OFF_Z_SPIN,"SpinnerControl",0x0,59,66,7,10
+    RTEXT           "Z:",IDC_STATIC,9,67,8,8
+    CONTROL         "",IDC_SIZ_Z,"CustEdit",WS_TABSTOP,70,66,36,10
+    CONTROL         "0,255,0",IDC_SIZ_Z_SPIN,"SpinnerControl",0x0,108,66,7,10
+    CONTROL         "",IDC_ANG_Z,"CustEdit",WS_TABSTOP,163,66,36,10
+    CONTROL         "0,255,0",IDC_ANG_Z_SPIN,"SpinnerControl",0x0,201,66,7,10
+    COMBOBOX        IDC_TIL_Z,119,65,40,159,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_SEED_EDIT,"CustEdit",WS_TABSTOP,38,137,29,10
+    CONTROL         "0,255,0",IDC_SEED_SPIN,"SpinnerControl",0x0,68,137,7,10
+    RTEXT           "Seed:",IDC_STATIC,8,138,28,8
+    CONTROL         "",IDC_RAND_MAT2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,118,139,8,8
+    RTEXT           "Material:",IDC_STATIC,86,138,29,8
+    CONTROL         "",IDC_RAND_OBJ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,158,139,8,8
+    RTEXT           "Object:",IDC_STATIC,132,138,24,8
+    CONTROL         "",IDC_RAND_PAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,139,8,8
+    RTEXT           "Particle:",IDC_STATIC,172,138,26,8
+    GROUPBOX        "Transform",IDC_STATIC,2,19,212,63
+    CONTROL         "",IDC_OFF_X2,"CustEdit",WS_TABSTOP,21,101,36,10
+    CONTROL         "0,255,0",IDC_OFF_X_SPIN2,"SpinnerControl",0x0,59,101,7,10
+    RTEXT           "±X:",IDC_STATIC,5,101,12,8
+    CONTROL         "",IDC_SIZ_X2,"CustEdit",WS_TABSTOP,70,101,36,10
+    CONTROL         "0,255,0",IDC_SIZ_X_SPIN2,"SpinnerControl",0x0,108,101,7,10
+    CONTROL         "",IDC_ANG_X2,"CustEdit",WS_TABSTOP,163,101,36,10
+    CONTROL         "0,255,0",IDC_ANG_X_SPIN2,"SpinnerControl",0x0,201,101,7,10
+    CONTROL         "",IDC_OFF_Y2,"CustEdit",WS_TABSTOP,21,112,36,10
+    CONTROL         "0,255,0",IDC_OFF_Y_SPIN2,"SpinnerControl",0x0,59,112,7,10
+    RTEXT           "±Y:",IDC_STATIC,5,113,12,8
+    CONTROL         "",IDC_SIZ_Y2,"CustEdit",WS_TABSTOP,70,112,36,10
+    CONTROL         "0,255,0",IDC_SIZ_Y_SPIN2,"SpinnerControl",0x0,108,112,7,10
+    CONTROL         "",IDC_ANG_Y2,"CustEdit",WS_TABSTOP,163,112,36,10
+    CONTROL         "0,255,0",IDC_ANG_Y_SPIN2,"SpinnerControl",0x0,201,112,7,10
+    CONTROL         "",IDC_OFF_Z2,"CustEdit",WS_TABSTOP,21,123,36,10
+    CONTROL         "0,255,0",IDC_OFF_Z_SPIN2,"SpinnerControl",0x0,59,123,7,10
+    RTEXT           "±Z:",IDC_STATIC,5,125,12,8
+    CONTROL         "",IDC_SIZ_Z2,"CustEdit",WS_TABSTOP,70,123,36,10
+    CONTROL         "0,255,0",IDC_SIZ_Z_SPIN2,"SpinnerControl",0x0,108,123,7,10
+    CONTROL         "",IDC_ANG_Z2,"CustEdit",WS_TABSTOP,163,123,36,10
+    CONTROL         "0,255,0",IDC_ANG_Z_SPIN2,"SpinnerControl",0x0,201,123,7,10
+    GROUPBOX        "Variance",IDC_STATIC,0,82,212,69
+    RTEXT           "Size",IDC_STATIC,82,91,14,8
+    RTEXT           "Offset",IDC_STATIC,21,91,27,8
+    RTEXT           "Angle °",IDC_STATIC,168,91,28,8
+    CONTROL         "Custom1",IDC_LOCK,"CustButton",0x0,118,111,13,12
+    CONTROL         "",IDC_OFF_X,"CustEdit",WS_TABSTOP,22,38,36,10
+    CONTROL         "0,255,0",IDC_OFF_X_SPIN,"SpinnerControl",0x0,60,38,7,10
+    CONTROL         "",IDC_FILTER,"CustEdit",WS_TABSTOP,166,154,36,10
+    CONTROL         "0,255,0",IDC_FILTER_SPIN,"SpinnerControl",0x0,204,154,7,10
+    RTEXT           "Filtering strength;",IDC_STATIC,102,154,59,8
+    LTEXT           "BerconMaps 3.01",IDC_STATIC,4,154,79,8
+END
+
+IDD_PANEL_TILE3 DIALOGEX 0, 0, 217, 457
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    COMBOBOX        IDC_TYPE,81,14,126,168,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_TILESIZE_EDIT,"CustEdit",WS_TABSTOP,55,32,40,10
+    CONTROL         "",IDC_TILEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,48,40,10
+    CONTROL         "",IDC_TILEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,60,40,10
+    CONTROL         "",IDC_EDGEWIDTH_EDIT,"CustEdit",WS_TABSTOP,55,72,40,10
+    CONTROL         "",IDC_EDGEHEIGHT_EDIT,"CustEdit",WS_TABSTOP,55,84,40,10
+    CONTROL         "",IDC_PERIOD_EDIT,"CustEdit",WS_TABSTOP,55,100,40,10
+    CONTROL         "",IDC_OFFSET_EDIT,"CustEdit",WS_TABSTOP,55,112,40,10
+    CONTROL         "",IDC_OFFSET2_EDIT,"CustEdit",WS_TABSTOP,55,124,40,10
+    COMBOBOX        IDC_SOFTEN,140,30,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_SOFTENRAD_EDIT,"CustEdit",WS_TABSTOP,160,47,40,10
+    CONTROL         "",IDC_CORNERS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,160,65,8,8
+    CONTROL         "",IDC_CORNER_EDIT,"CustEdit",WS_TABSTOP,160,76,40,10
+    CONTROL         "",IDC_MAPUV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,169,94,8,8
+    CONTROL         "",IDC_UVCHAN_EDIT,"CustEdit",WS_TABSTOP,181,92,18,10
+    COMBOBOX        IDC_ROTUV,142,105,67,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "Custom1",IDC_UV_MAP,"CustButton",WS_TABSTOP,142,121,68,12
+    CONTROL         "",IDC_NOISE_COL1,"ColorSwatch",0x0,70,152,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX1,"CustButton",WS_TABSTOP,112,153,84,12
+    CONTROL         "",IDC_MAPON1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,155,8,8
+    CONTROL         "",IDC_NOISE_COL3,"ColorSwatch",0x0,70,169,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX3,"CustButton",WS_TABSTOP,112,170,84,12
+    CONTROL         "",IDC_MAPON3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,172,8,8
+    CONTROL         "",IDC_NOISE_COL2,"ColorSwatch",0x0,70,186,37,13
+    CONTROL         "Custom1",IDC_NOISE_TEX2,"CustButton",WS_TABSTOP,112,187,84,12
+    CONTROL         "",IDC_MAPON2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,200,189,8,8
+    CONTROL         "Custom1",IDC_LOCKEDGE,"CustButton",0x0,16,177,13,12
+    COMBOBOX        IDC_VAR_TYPE,29,217,42,101,CBS_DROPDOWNLIST | WS_TABSTOP
+    CONTROL         "",IDC_VAR_STR_EDIT,"CustEdit",WS_TABSTOP,76,220,29,10
+    CONTROL         "Custom1",IDC_VAR_MAP,"CustButton",WS_TABSTOP,117,218,91,12
+    CONTROL         "",IDC_USE_DISTORTION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,71,283,8,8
+    CONTROL         "Custom1",IDC_DISTORTION_TEX,"CustButton",WS_TABSTOP,117,280,91,12
+    CONTROL         "",IDC_DISTORTION_EDIT,"CustEdit",WS_TABSTOP,71,297,29,10
+    CONTROL         "Custom1",IDC_DISTORTION_TEX2,"CustButton",WS_TABSTOP,117,296,91,12
+    RTEXT           "Style:",IDC_STATIC,58,17,18,8
+    RTEXT           "Size:",IDC_STATIC,34,32,16,8
+    CONTROL         "0,255,0",IDC_TILESIZE_SPIN,"SpinnerControl",0x0,97,32,7,10
+    RTEXT           "Color #1",IDC_STATIC,36,156,29,8
+    RTEXT           "Edge",IDC_STATIC,47,188,18,8
+    GROUPBOX        "Tiling",IDC_STATIC,4,2,209,137
+    GROUPBOX        "Distortion",IDC_STATIC,5,270,209,43
+    CONTROL         "0,255,0",IDC_DISTORTION_SPIN,"SpinnerControl",0x0,101,297,7,10
+    GROUPBOX        "Colors",IDC_STATIC,4,141,209,62
+    RTEXT           "Edge height:",IDC_STATIC,9,84,41,8
+    CONTROL         "0,255,0",IDC_EDGEHEIGHT_SPIN,"SpinnerControl",0x0,97,84,7,10
+    RTEXT           "Tile width:",IDC_STATIC,17,48,33,8
+    CONTROL         "0,255,0",IDC_TILEWIDTH_SPIN,"SpinnerControl",0x0,97,48,7,10
+    RTEXT           "Tile height:",IDC_STATIC,14,60,36,8
+    CONTROL         "0,255,0",IDC_TILEHEIGHT_SPIN,"SpinnerControl",0x0,97,60,7,10
+    RTEXT           "Edge width:",IDC_STATIC,12,72,38,8
+    CONTROL         "0,255,0",IDC_EDGEWIDTH_SPIN,"SpinnerControl",0x0,97,72,7,10
+    RTEXT           "Strength:",IDC_STATIC,17,297,48,8
+    RTEXT           "Use distortion:",IDC_STATIC,17,282,48,8
+    RTEXT           "Color #2",IDC_STATIC,37,172,28,8
+    RTEXT           "Offset #1:",IDC_STATIC,15,112,35,8
+    CONTROL         "0,255,0",IDC_OFFSET_SPIN,"SpinnerControl",0x0,97,112,7,10
+    RTEXT           "Period:",IDC_STATIC,15,100,35,8
+    CONTROL         "0,255,0",IDC_PERIOD_SPIN,"SpinnerControl",0x0,97,100,7,10
+    RTEXT           "Soften:",IDC_STATIC,111,32,24,8
+    RTEXT           "Soften radius:",IDC_STATIC,113,47,44,8
+    CONTROL         "0,255,0",IDC_SOFTENRAD_SPIN,"SpinnerControl",0x0,202,47,7,10
+    RTEXT           "Round corners:",IDC_STATIC,108,64,49,8
+    RTEXT           "Round radius:",IDC_STATIC,112,76,45,8
+    CONTROL         "0,255,0",IDC_CORNER_SPIN,"SpinnerControl",0x0,202,76,7,10
+    RTEXT           "Offset #2:",IDC_STATIC,15,124,35,8
+    CONTROL         "0,255,0",IDC_OFFSET2_SPIN,"SpinnerControl",0x0,97,124,7,10
+    RTEXT           "Map UV channel:",IDC_STATIC,106,93,59,8
+    RTEXT           "Rotation:",IDC_STATIC,109,107,30,8
+    GROUPBOX        "Variation",IDC_STATIC,4,205,209,31
+    RTEXT           "Type:",IDC_STATIC,8,219,19,8
+    RTEXT           "Map:",IDC_STATIC,122,122,17,8
+    CONTROL         "0,255,0",IDC_VAR_STR_SPIN,"SpinnerControl",0x0,106,220,7,10
+    CONTROL         "0,255,0",IDC_UVCHAN_SPIN,"SpinnerControl",0x0,201,92,7,10
+    CONTROL         "Custom1",IDC_PATTERN,"CustEdit",WS_TABSTOP,11,326,198,12
+    GROUPBOX        "Custom Bond Pattern",IDC_STATIC,5,315,209,43
+    CTEXT           "offset, height, width1, width2, ... / offset, height, width1 ...",IDC_STATIC,12,344,198,8
+END
+
+IDD_PANEL_MULTI DIALOGEX 0, 0, 217, 196
+STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    CONTROL         "Pyramidal",IDC_FILTERING_1,"Button",BS_AUTORADIOBUTTON,72,18,46,10
+    CONTROL         "Summed Area",IDC_FILTERING_2,"Button",BS_AUTORADIOBUTTON,72,29,60,10
+    CONTROL         "None",IDC_FILTERING_3,"Button",BS_AUTORADIOBUTTON,72,40,33,10
+    CONTROL         "",IDC_BLUR_EDIT,"CustEdit",WS_TABSTOP,166,14,35,10
+    CONTROL         "Material ID",IDC_RNDBY_1,"Button",BS_AUTORADIOBUTTON,9,71,50,10
+    CONTROL         "Object",IDC_RNDBY_2,"Button",BS_AUTORADIOBUTTON,57,71,37,10
+    CONTROL         "",IDC_SEED_EDIT,"CustEdit",WS_TABSTOP,166,70,35,10
+    CONTROL         "",IDC_AGAMMA_EDIT,"CustEdit",WS_TABSTOP,66,109,35,10
+    CONTROL         "",IDC_RGAMMA_EDIT,"CustEdit",WS_TABSTOP,66,122,35,10
+    CONTROL         "",IDC_OGAMMA_EDIT,"CustEdit",WS_TABSTOP,66,135,35,10
+    CONTROL         "",IDC_AHUE_EDIT,"CustEdit",WS_TABSTOP,116,109,35,10
+    CONTROL         "",IDC_RHUE_EDIT,"CustEdit",WS_TABSTOP,116,122,35,10
+    CONTROL         "",IDC_OHUE_EDIT,"CustEdit",WS_TABSTOP,116,135,35,10
+    CONTROL         "",IDC_ASAT_EDIT,"CustEdit",WS_TABSTOP,166,109,35,10
+    CONTROL         "",IDC_RSAT_EDIT,"CustEdit",WS_TABSTOP,166,122,35,10
+    CONTROL         "",IDC_OSAT_EDIT,"CustEdit",WS_TABSTOP,166,135,35,10
+    CONTROL         "",IDC_AGAMMA_SPIN,"SpinnerControl",0x0,102,109,7,10
+    RTEXT           "Overall",IDC_STATIC,19,110,39,8
+    PUSHBUTTON      "Open files",IDC_OPENBUTTON,7,14,56,18
+    GROUPBOX        "Color Adjustment",IDC_STATIC,2,88,213,61
+    RTEXT           "Random (+/-)",IDC_STATIC,12,123,46,8
+    RTEXT           "Distribution (%)",IDC_STATIC,6,136,52,8
+    CONTROL         "",IDC_AHUE_SPIN,"SpinnerControl",0x0,152,109,7,10
+    CONTROL         "",IDC_ASAT_SPIN,"SpinnerControl",0x0,202,109,7,10
+    LTEXT           "Gamma",IDC_STATIC,75,97,25,8
+    LTEXT           "Hue (°)",IDC_STATIC,126,97,23,8
+    LTEXT           "Saturation (%)",IDC_STATIC,166,97,44,8
+    CONTROL         "",IDC_RGAMMA_SPIN,"SpinnerControl",0x0,102,122,7,10
+    CONTROL         "",IDC_RHUE_SPIN,"SpinnerControl",0x0,152,122,7,10
+    CONTROL         "",IDC_RSAT_SPIN,"SpinnerControl",0x0,202,122,7,10
+    CONTROL         "",IDC_OGAMMA_SPIN,"SpinnerControl",0x0,102,135,7,10
+    CONTROL         "",IDC_OHUE_SPIN,"SpinnerControl",0x0,152,135,7,10
+    CONTROL         "",IDC_OSAT_SPIN,"SpinnerControl",0x0,202,135,7,10
+    GROUPBOX        "Randomize by",IDC_STATIC,2,58,213,29
+    PUSHBUTTON      "Reload files",IDC_RELOADBUTTON,7,34,56,18
+    CONTROL         "",IDC_SEED_SPIN,"SpinnerControl",0x0,202,70,7,10
+    LTEXT           "Seed",IDC_STATIC,144,71,18,8
+    GROUPBOX        "Bitmaps",IDC_STATIC,2,2,213,54
+    GROUPBOX        "Filtering",IDC_STATIC,67,8,75,44
+    CONTROL         "",IDC_BLUR_SPIN,"SpinnerControl",0x0,202,14,7,10
+    LTEXT           "Blur",IDC_STATIC,149,15,13,8
+    LTEXT           "MultiTexture Version",IDC_STATIC,3,187,65,8
+    CONTROL         103,IDC_LOGO,"Static",SS_BITMAP | SS_NOTIFY | SS_SUNKEN,2,150,213,36
+    LTEXT           "1.02",IDC_STATIC,69,187,17,8
+    CONTROL         "BerconTile",IDC_RNDBY_3,"Button",BS_AUTORADIOBUTTON,94,71,50,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_PANEL, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 175
+    END
+
+    IDD_PANEL_WOOD, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 274
+    END
+
+    IDD_PANEL_TILE, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 367
+    END
+
+    IDD_PANEL_CURVE, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 108
+    END
+
+    IDD_PANEL_WOOD_MAP, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_PANEL_DISTORTION, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 39
+    END
+
+    IDD_PANEL_NOISE_MAP, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_PANEL_COLOR, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 224
+    END
+
+    IDD_PANEL_TILE1, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 305
+    END
+
+    IDD_PANEL_TILE2, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 269
+    END
+
+    IDD_XYZ, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_PANEL_TILE3, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 417
+    END
+
+    IDD_PANEL_MULTI, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 189
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_LIBDESCRIPTION      "Bercon's Noise Map"
+    IDS_CATEGORY            "3D maps"
+    IDS_CLASS_NAME          "BerconNoise"
+    IDS_PARAMS              "Parameters"
+    IDS_BERCON_WOOD         "BerconWood"
+    IDS_WOODSIZE            "Wood size"
+    IDS_COORDS              "Coordinates"
+    IDS_OUTPUT              "Output"
+    IDS_RADIAL_WOOD         "Radial wood"
+    IDS_TILING              "Use tiling"
+    IDS_TILINGSIZE          "Tiling size"
+    IDS_DISTORTION_STRENGTH "Distortion strength"
+    IDS_DISTORTION_MAP      "Distortion map"
+    IDS_NF_WORLEY           "Worley (Voronoi)"
+    IDS_F_FRACTAL           "Fractal"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_DS_COLOR1           "Color 1"
+    IDS_DS_COLOR2           "Color 2"
+    IDS_JW_MAP1             "Map 1"
+    IDS_JW_MAP2             "Map 2"
+    IDS_JW_MAP1ENABLE       "Map 1 Enable"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_JW_MAP2ENABLE       "Map 2 Enable"
+    IDS_DS_NOISESIZE        "Noise Size"
+    IDS_DS_PHASE            "Noise Phase"
+    IDS_DS_NSLEV            "Noise Levels"
+    IDS_RB_LOWTHRESH        "Low Threshold"
+    IDS_RB_HIGHTHRESH       "High Threshold"
+    IDS_NOISE_TYPE          "Noise Type"
+    IDS_NOISE_FUNCTION      "Noise Function"
+    IDS_NF_SIMPLEX2         "Simplex 2D"
+    IDS_OUTPUT_NOISE        "Use curve"
+    IDS_WORLEY_DISTANCE     "Worley Distance"
+    IDS_FRACTAL_TYPE        "Fractal Type"
+    IDS_WORLEY_SPREAD       "Worley Spread"
+    IDS_W_LIN               "Linear"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_W_SQU               "Square"
+    IDS_W_MAN               "Manhattan"
+    IDS_W_CHE               "Chebychev"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_F_REGULAR           "None"
+    IDS_F_TURBULENCE        "Turbulence"
+    IDS_F_FBM               "fBm"
+    IDS_F_HETEROTERRAIN     "Hetero Terrain"
+    IDS_F_HYBRIDMULTIFRACTAL "Hybrid Multi Fractal"
+    IDS_F_RIDGEDMULTIFRACTAL "Ridged Multi Fractal"
+    IDS_FRACTAL_GAIN        "Fractal Gain"
+    IDS_FRACTAL_OFFSET      "Fractal Offset"
+    IDS_FRACTAL_LACUNARITY  "Fractal Lacunarity"
+    IDS_PERLIN_WOOD         "Perlin wood"
+    IDS_FRACTAL_H           "Fractal H"
+    IDS_W_MI5               "Minkovsky 0.5"
+    IDS_W_MI4               "Minkovsky 4"
+    IDS_WOOD_TYPE           "Wood type"
+    IDS_TRUNKSTR            "Trunk wobble strength"
+    IDS_TRUNKFREQ           "Trunk wobble frequency"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RADIALSTR           "Radial noise strength"
+    IDS_RADIALFREQ          "Radial noise frequency"
+    IDS_WIDTHVAR            "Width variation"
+    IDS_SKEW                "Skew"
+    IDS_ANGLESTR            "Angular strength"
+    IDS_ANGLEFREQ           "Angular frequency"
+    IDS_DISTORTION_MAP2     "Distortion strength map"
+    IDS_USE_DISTORTION      "Use distortion"
+    IDS_SIMPLEX_WOOD        "Simplex wood"
+    IDS_DS_COLOR3           "Color 3"
+    IDS_JW_MAP3             "Map 3"
+    IDS_JW_MAP3ENABLE       "Map 3 Enable"
+    IDS_RADIALZ             "Radial noise z"
+    IDS_ANGLERAD            "Angular radius"
+    IDS_LOCK_GRAIN          "Lock grain"
+    IDS_GRAINSTR            "Grain amount"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_GRAINFREQ           "Grain frequency"
+    IDS_GAINVAR             "Gain variation"
+    IDS_SEED                "Random seed"
+    IDS_CURVE               "Curve control"
+    IDS_BERCON_TILE         "BerconTile"
+    IDS_TILETYPE_0          "Stretcher Bond"
+    IDS_TILETYPE_1          "Flemish Stretcher Bond"
+    IDS_TILETYPE_2          "Common Bond"
+    IDS_TILETYPE_3          "Flemish Bond"
+    IDS_TILETYPE_4          "Monk Bond"
+    IDS_TILETYPE_5          "Flemish Garden Wall Bond"
+    IDS_TILETYPE_6          "English Bond"
+    IDS_TILETYPE_7          "English Cross Bond"
+    IDS_TILETYPE_8          "Double English Cross Bond"
+    IDS_TILESOFTEN_0        "None"
+    IDS_TILESOFTEN_1        "Linear"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TILESOFTEN_2        "Round"
+    IDS_TILESOFTEN_3        "Smooth"
+    IDS_CURVEPB             "Curve param"
+    IDS_CURVEPARM           "Curve parameters"
+    IDS_TILEROT_0           "None"
+    IDS_TILEROT_1           "180 Degrees"
+    IDS_TILEROT_2           "90 Degrees"
+    IDS_TILEROT_3           "Random°"
+    IDS_PBMAP               "Map parameters"
+    IDS_MAP1                "Map1"
+    IDS_MAP2                "Map2"
+    IDS_MAP3                "Map3"
+    IDS_MAP4                "Map4"
+    IDS_MAP5                "Map5"
+    IDS_MAP6                "Map6"
+    IDS_MAP7                "Map7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MAP8                "Map8"
+    IDS_MAP9                "Map9"
+    IDS_MAP10               "Map10"
+    IDS_MAP11               "Map11"
+    IDS_MAP12               "Map12"
+    IDS_MAP13               "Map13"
+    IDS_MAP14               "Map14"
+    IDS_MAP15               "Map15"
+    IDS_MAP16               "Map16"
+    IDS_MAPON1              "MapOn1"
+    IDS_MAPON2              "MapOn2"
+    IDS_MAPON3              "MapOn3"
+    IDS_MAPON4              "MapOn4"
+    IDS_MAPON5              "MapOn5"
+    IDS_MAPON6              "MapOn6"
+    IDS_MAPON7              "MapOn7"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MAPON8              "MapOn8"
+    IDS_MAPON9              "MapOn9"
+    IDS_MAPON10             "MapOn10"
+    IDS_MAPON11             "MapOn11"
+    IDS_MAPON12             "MapOn12"
+    IDS_MAPON13             "MapOn13"
+    IDS_MAPON14             "MapOn14"
+    IDS_MAPON15             "MapOn15"
+    IDS_MAPON16             "MapOn16"
+    IDS_BERCON_DIST         "BerconMapping"
+    IDS_VAR_MAP             "Variation map"
+    IDS_VAR_TYPE            "Variation type"
+    IDS_TILEVAR_0           "None"
+    IDS_TILEVAR_1           "Mix"
+    IDS_TILEVAR_2           "Color"
+    IDS_VAR_STR             "Variation strength"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UV_MAP              "UV Map"
+    IDS_TILEROT_4           "Map"
+    IDS_W_ID                "ID"
+    IDS_TILEUVW_0           "No auto scale"
+    IDS_TILEUVW_1           "UV"
+    IDS_WORLEY_F1           "F1"
+    IDS_WORLEY_F2           "F2"
+    IDS_WORLEY_F3           "F3"
+    IDS_WORLEY_F4           "F4"
+    IDC_WORLEY_SOLID        "Solid"
+    IDS_TILE_SIZE           "Tile size"
+    IDS_TILE_STYLE          "Tile style"
+    IDS_TILE_WIDTH          "Tile width"
+    IDS_TILE_HEIGHT         "Tile height"
+    IDS_TILE_EWIDTH         "Tile edge width"
+    IDS_TILE_EHEIGHT        "Tile edge height"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TILE_PERIOD         "Tiling period"
+    IDS_TILE_OFFSET         "Tiling offset"
+    IDS_TILE_OFFSET2        "Tiling offset 2"
+    IDS_TILE_SOFTEN         "Tile soften"
+    IDS_TILE_SOFTRAD        "Tile soften radius"
+    IDS_TILE_ROUND          "Tile round"
+    IDS_TILE_ROUNDRAD       "Tile round radius"
+    IDS_TILE_LOCK           "Lock edge"
+    IDS_TILE_MAPUV          "Map UV"
+    IDS_TILE_ROTUV          "Rot UV"
+    IDS_DIST_UVW            "UVWDist"
+    IDS_UVW_NORMAL          "Normal"
+    IDS_UVW_RADIAL          "Radial"
+    IDS_UVW_SPHERICAL       "Spherical"
+    IDS_TILETYPE_9          "Stack Bond"
+    IDS_F_FBMTURB           "fBm Turbulence"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LINEAR_WOOD         "Linear wood"
+    IDS_BERCON_COLOR        "BerconGradient"
+    IDS_SUBMAPS             "Key maps"
+    IDS_GRADTYPE_RANDOM     "Random"
+    IDS_GRADTYPE_AGE        "Particle Age"
+    IDS_GRADTYPE_SPEED      "Particle Speed"
+    IDS_GRADTYPE_SIZE       "Particle Size"
+    IDS_GRADINT_LINEAR      "Linear"
+    IDS_GRADINT_SMOOTH      "Smooth"
+    IDS_GRADINT_SOLIDNEAR   "Solid - Nearest"
+    IDS_GRADINT_SOLIDLEFT   "Solid - Left"
+    IDS_GRADINT_SOLIDRIGHT  "Solid - Right"
+    IDS_SUBCOLORS           "Key colors"
+    IDS_SUBPOSITIONS        "Key positions"
+    IDS_KEYTEX              "Key texture"
+    IDS_KEYNUM              "Key number"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_KEYPOS              "Key position"
+    IDS_KEYCOL              "Key color"
+    IDS_GRADIENTTYPE        "Gradient type"
+    IDS_GRADIENTINTERPOLATION "Gradient interpolation"
+    IDS_RANDBYMAT           "Random by material id"
+    IDS_RANDBYOBJ           "Random by object"
+    IDS_RANDBYPAR           "Random by particle"
+    IDS_RANGEMIN            "Range minimum"
+    IDS_RANGEMAX            "Range maximum"
+    IDS_GRADTYPE_UVW        "UVW / XYZ"
+    IDS_GRADTYPE_LIGHT      "Lighting (shadow/light)"
+    IDS_GRADTYPE_MAP        "Map"
+    IDS_GRADTYPE_NORMAL     "Normal"
+    IDS_GRADTYPE_DISTANCE   "Distance"
+    IDS_GRADUVW_LINEAR      "Linear"
+    IDS_GRADUVW_RADIAL      "Radial"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_GRADUVW_RECTANGLE   "Rectangle"
+    IDS_GRADUVW_DIAGONAL    "Diagonal"
+    IDS_GRADUVW_SPIRAL      "Spiral"
+    IDS_GRADUVW_SWEEP       "Sweep"
+    IDS_GRADUVW_TARTAN      "Tartan"
+    IDS_GRADUVW_SPHERICAL   "Spherical"
+    IDS_GRADUVW_BOX         "Box"
+    IDS_GRADUVW_PONG        "Pong"
+    IDS_LOOP_STRETCH        "Stretch"
+    IDS_LOOP_TILE           "Tile"
+    IDS_LOOP_MIRROR         "Mirror"
+    IDS_LOOP_NONE           "None"
+    IDS_NORMAL_VIEW         "View"
+    IDS_NORMAL_LOCALX       "Local X"
+    IDS_NORMAL_LOCALY       "Local Y"
+    IDS_NORMAL_LOCALZ       "Local Z"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NORMAL_WORLDX       "World X"
+    IDS_NORMAL_WORLDY       "World Y"
+    IDS_NORMAL_WORLDZ       "World Z"
+    IDS_NORMAL_CAMERAX      "Camera X"
+    IDS_NORMAL_CAMERAY      "Camera Y"
+    IDS_NORMAL_CAMERAZ      "Camera Z"
+    IDS_NORMAL_TOOBJECT     "To Object"
+    IDS_NORMAL_OBJECTZ      "Object Z"
+    IDS_NORMAL_PARALLEL     "Perpendicular / Parallel"
+    IDS_NORMAL_TOWARDS      "Towards / Away"
+    IDS_NORMAL_FRESNEL      "Fresnel"
+    IDS_MAP                 "Map"
+    IDS_NODE                "Node"
+    IDS_REVERSE             "Reverse"
+    IDS_RANGELOOP           "Range loop"
+    IDS_GRADIENTUVW         "Gradient UVW"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NORMALTYPE          "Normal type"
+    IDS_NORMALFUNCTION      "Normal function"
+    IDS_IOR                 "IOR"
+    IDS_DISTON              "Distortion on"
+    IDS_ULOOP               "U loop"
+    IDS_VLOOP               "V loop"
+    IDS_WLOOP               "W loop"
+    IDS_SAMPLES             "Samples"
+    IDS_XYZ                 "Mapping"
+    IDS_XYZ_UVW             "Explicit Map Channel 2D"
+    IDS_XYZ_OBJ             "Object XYZ"
+    IDS_XYZ_WOR             "World XYZ"
+    IDS_XYZ_SCR             "Screen"
+    IDS_LOOP_CONT           "Continue"
+    IDS_XYZ_UVW2            "Explicit Map Channel Real world"
+    IDS_NF_SIMPLEX3         "Simplex 3D"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NF_SIMPLEX4         "Simplex 4D"
+    IDS_NF_PERLIN2          "Perlin 2D"
+    IDS_NF_PERLIN3          "Perlin 3D"
+    IDS_NF_PERLIN4          "Perlin 4D"
+    IDS_TILEUVW_2           "UV Fit"
+    IDS_TILEUVW_3           "UV Fit Keep aspect"
+    IDS_TILEUVW_4           "UV Normalized"
+    IDS_TILEUVW_5           "UV Normalized Keep aspect"
+    IDS_TILETYPE_10         "Herringbone"
+    IDS_TILETYPE_11         "Custom (See the text field below)"
+    IDS_TILE_WIDTH2         "Tile width variation"
+    IDS_TILE_HEIGHT2        "Tile height variation"
+    IDS_TILE_EWIDTH2        "Edge width variation"
+    IDS_TILE_EHEIGHT2       "Edge height variation"
+    IDS_TILE_AUTO           "Auto scaling"
+    IDS_UVWCHAN             "UVW Channel"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_UVWCHAN2            "UVV Channel 2"
+    IDS_RANDOM_X_OFF        "Random X offset"
+    IDS_RANDOM_Y_OFF        "Random Y offset"
+    IDS_RANDOM_X_SCA        "Random X scale"
+    IDS_RANDOM_Y_SCA        "Random Y scale"
+    IDS_TILE_ROT            "Random Rotation"
+    IDS_FLIP_X              "Flip X-axis"
+    IDS_FLIP_Y              "Flip Y-axis"
+    IDS_SUPPORT             "Support"
+    IDS_CENTER_MAP          "Center mapping"
+    IDS_LOCK_SCALE          "Uniform scale"
+    IDS_PATTERN_STRING      "Pattern string"
+    IDS_CLASS_NAME_MULTI    "MultiTexture"
+    IDS_AGAMMA2             "General Gamma"
+    IDS_AHUE2               "General Hue"
+    IDS_RGAMMA2             "Random Gamma"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RHUE2               "Random Hue"
+    IDS_RSAT2               "Random Saturation"
+    IDS_OGAMMA2             "Occurance Gamma"
+    IDS_OHUE2               "Occurance Hue"
+    IDS_OSAT2               "Occurance Saturation"
+    IDS_RNDBY2              "Randomize by"
+    IDS_STRING262           "asfa"
+    IDS_BLUR2               "Blur"
+    IDS_FILTERING2          "Filtering"
+    IDS_ASAT                "General Saturation"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Finnish (Finland) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FIN)
+LANGUAGE LANG_FINNISH, SUBLANG_DEFAULT
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_GRADIENTMENU MENU
+BEGIN
+    POPUP "menu"
+    BEGIN
+        MENUITEM "Add key",                     ID_MENU_ADDKEY
+        MENUITEM "Remove key",                  ID_MENU_REMOVEKEY
+        POPUP "Reset"
+        BEGIN
+            MENUITEM "Reset",                       ID_RESET_RESET
+        END
+        POPUP "Help"
+        BEGIN
+            MENUITEM "Alt + Left-click to create/remove keys", ID_HELP_ALT
+        END
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAPLOGO          BITMAP                  "logo.bmp"
+#endif    // Finnish (Finland) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
