@@ -1,3 +1,14 @@
+This branch is a forked version that aims to streamline and improve the existing BerconMaps project. 
+Intended platforms are 3DS Max 2018+.
+Testing platform is an AMD CPU running Windows 10 (with latest feature updates).
+
+--  Remove redundant custom control curve (it's currently crashing anything after Max 2017)
+--  Optimize code and implement basic AVX support
+--  Fix Resource ID issues
+--  Fix unintended behavior when used in the Slate Material editor
+
+Fork date: March 26, 2018
+
 BerconMaps
 ==========
 
