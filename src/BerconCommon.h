@@ -21,27 +21,27 @@ under the License.
 
 #pragma once
 
-#include "Max.h"
-#include "resource.h"
-#include "istdplug.h"
-#include "iparamb2.h"
-#include "iparamm2.h"
-#include "stdmat.h"
-#include "imtl.h"
-#include "macrorec.h"
-#include "texutil.h"
-#include "plugapi.h"
-#include "3dsmaxport.h"
-
-#include "maxscript/MAXScript.h"
+#include <max.h>
+#include <3dsmaxdlport.h>
+#include <istdplug.h>
+#include <iparamb2.h>
+#include <iparamm2.h>
+#include <stdmat.h>
+#include <imtl.h>
+#include <macrorec.h>
+#include <texutil.h>
+#include <plugapi.h>
+#include <icurvctl.h>
+#include <bitmap.h>
+#include <maxscript/maxscript.h>
 
 #include "fractal.h"
 #include "BerconRefMaker.h"
-#include "icurvctl.h"
+#include "resource.h"
 #include "curvectrl.h"
 #include "BerconSC.h"
 
-#include "bitmap.h"
+
   
 #ifndef NOTIFY_REF_CHANGED_ARGS
 #if MAX_RELEASE < 16900
@@ -60,11 +60,11 @@ under the License.
 #define BerconDistortion_CLASS_ID	Class_ID(0x6017b625, 0x2b7c52d6)
 */
 
-#define BerconGradient_CLASS_ID		Class_ID(0x330ebc1e, 0x50cf90f7)
-#define BerconWood_CLASS_ID			Class_ID(0x2bf7396b, 0x783d8f00)
-#define BerconTile_CLASS_ID			Class_ID(0x7cb81794, 0x2c029e21)
-#define BerconNoise_CLASS_ID		Class_ID(0x2a5e5975, 0x7bb5823e)
-#define BerconDistortion_CLASS_ID	Class_ID(0x2fb3e417, 0x7d47fd34)
+#define BerconGradient_CLASS_ID			Class_ID(0x330ebc1e, 0x50cf90f7)
+#define BerconWood_CLASS_ID				Class_ID(0x2bf7396b, 0x783d8f00)
+#define BerconTile_CLASS_ID				Class_ID(0x7cb81794, 0x2c029e21)
+#define BerconNoise_CLASS_ID			Class_ID(0x2a5e5975, 0x7bb5823e)
+#define BerconDistortion_CLASS_ID		Class_ID(0x2fb3e417, 0x7d47fd34)
 
 // Useful macros
 #define pblockGetValue(from, to) (pblock->GetValue(from, t, to, ivalid))
@@ -83,20 +83,20 @@ under the License.
 
 TCHAR *GetString(int id);
 
-static void setSpinnerType(IParamMap2 *map, TimeValue t, int pb_id, int edit_id, int spin_id, int spinnerTypeWorld=1, bool allowNegative=false) {	
-	HWND hWnd = map->GetHWnd();	
+ static void setSpinnerType(IParamMap2 *map, TimeValue t, int pb_id, int edit_id, int spin_id, int spinnerTypeWorld = 1, bool allowNegative = false) {
+	HWND hWnd = map->GetHWnd();
 	if (!hWnd) return;
-	
-	float val;	
+
+	float val;
 	map->GetParamBlock()->GetValue(pb_id, t, val, FOREVER);
 
 	float minVal = allowNegative ? -1000000.f : 0.f;
-	
-	ISpinnerControl* spin;	
+
+	ISpinnerControl* spin;
 	if (spinnerTypeWorld)
-		spin = SetupUniverseSpinner(hWnd, spin_id, edit_id,  minVal, 1000000.f, val);
+		spin = SetupUniverseSpinner(hWnd, spin_id, edit_id, minVal, 1000000.f, val);
 	else
-		spin = SetupFloatSpinner(hWnd, spin_id, edit_id,  minVal, 1000000.f, val);		
+		spin = SetupFloatSpinner(hWnd, spin_id, edit_id, minVal, 1000000.f, val);
 	spin->SetAutoScale(TRUE);
 	ReleaseISpinner(spin);
 }
@@ -107,148 +107,154 @@ enum {
 	xyz_offset_x, xyz_offset_y, xyz_offset_z,
 	xyz_size_x, xyz_size_y, xyz_size_z,
 	xyz_angle_x, xyz_angle_y, xyz_angle_z,
-	
+
 	xyz_tile_x, xyz_tile_y, xyz_tile_z,
 
 	xyz_offset_x2, xyz_offset_y2, xyz_offset_z2,
 	xyz_size_x2, xyz_size_y2, xyz_size_z2,
 	xyz_angle_x2, xyz_angle_y2, xyz_angle_z2,
 
-	xyz_seed, xyz_rand_mat, xyz_rand_obj,xyz_rand_par,
+	xyz_seed, xyz_rand_mat, xyz_rand_obj, xyz_rand_par,
 
 	xyz_lock,
 	xyz_filtering,
 };
 
+//25 MAR 2018 -- REPLACED STRING LITERALS WITH RESOURCE IDs AS REQUIRED BY MAX 2019. REPLACED _T WITH _M.
 class XYZ_Desc : public ParamBlockDesc2 {
+
 public:
 
-	XYZ_Desc(ClassDesc2* pointer, int ref, int blkID, int type, int x, int y, int z, int closed=1) : ParamBlockDesc2(blkID, _T("Mapping"),  0, pointer, 
+	XYZ_Desc(ClassDesc2* pointer, int ref, int blkID, int type, int x, int y, int z, int closed=1) : ParamBlockDesc2(blkID, _M("Mapping"),  0, pointer, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, ref, 	
 	IDD_XYZ, IDS_XYZ, 0, closed, NULL,
 
-	xyz_map, _T("xyz_map"), TYPE_INT, P_ANIMATABLE, _T("xyz_map"), p_default, type, p_ui, TYPE_INTLISTBOX, IDC_TYPE, 0, p_end,
-	xyz_chan,		_T("xyz_chan"), 		TYPE_INT, 		P_ANIMATABLE, 	IDS_SEED, 
+	xyz_map, _M("xyz_map"), TYPE_INT, P_ANIMATABLE, IDS_XYZ, p_default, type, p_ui, TYPE_INTLISTBOX, IDC_TYPE, 0, p_end,
+
+	xyz_chan,	_M("xyz_chan"), TYPE_INT, P_ANIMATABLE, IDS_SEED, 
 		p_default, 1, p_range, 0, 100,
-		p_ui, 			TYPE_SPINNER,	EDITTYPE_INT,	IDC_CHAN,	IDC_CHAN_SPIN, SPIN_AUTOSCALE, 
+		p_ui, TYPE_SPINNER,	EDITTYPE_INT, IDC_CHAN, IDC_CHAN_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	xyz_offset_x, _T("xyz_offset_x"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_offset_x"),
+	xyz_offset_x, _M("xyz_offset_x"), TYPE_FLOAT, P_ANIMATABLE, IDC_OFF_X,
 		p_default, 0.f, p_range, -1000000.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_OFF_X, IDC_OFF_X_SPIN, SPIN_AUTOSCALE,
 		p_end,
-	xyz_offset_y, _T("xyz_offset_y"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_offset_y"),
+	xyz_offset_y, _M("xyz_offset_y"), TYPE_FLOAT, P_ANIMATABLE, IDC_OFF_Y,
 		p_default, 0.f, p_range, -1000000.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_OFF_Y, IDC_OFF_Y_SPIN, SPIN_AUTOSCALE,
 		p_end,
-	xyz_offset_z, _T("xyz_offset_z"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_offset_z"),
+	xyz_offset_z, _M("xyz_offset_z"), TYPE_FLOAT, P_ANIMATABLE, IDC_OFF_Z,
 		p_default, 0.f, p_range, -1000000.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_OFF_Z, IDC_OFF_Z_SPIN, SPIN_AUTOSCALE,
 		p_end,
 
-	xyz_size_x, _T("xyz_size_x"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_size_x"),
+	xyz_size_x, _M("xyz_size_x"), TYPE_FLOAT, P_ANIMATABLE, IDC_SIZ_X,
 		p_default, 1.f, p_range, 0.0001f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_X, IDC_SIZ_X_SPIN, SPIN_AUTOSCALE,
 		p_end,
-	xyz_size_y, _T("xyz_size_y"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_size_y"),
+	xyz_size_y, _M("xyz_size_y"), TYPE_FLOAT, P_ANIMATABLE, IDC_SIZ_Y,
 		p_default, 1.f, p_range, 0.0001f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_Y, IDC_SIZ_Y_SPIN, SPIN_AUTOSCALE,
 		p_end,
-	xyz_size_z, _T("xyz_size_z"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_size_z"),
+	xyz_size_z, _M("xyz_size_z"), TYPE_FLOAT, P_ANIMATABLE,IDC_SIZ_Z,
 		p_default, 1.f, p_range, 0.0001f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_Z, IDC_SIZ_Z_SPIN, SPIN_AUTOSCALE,
 		p_end,
 
-	xyz_angle_x, _T("xyz_angle_x"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_angle_x"),
+	xyz_angle_x, _M("xyz_angle_x"), TYPE_FLOAT, P_ANIMATABLE, IDC_ANG_X,
 		p_default, 0.f, p_range, -1000000.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_X, IDC_ANG_X_SPIN, SPIN_AUTOSCALE,
 		p_end,
-	xyz_angle_y, _T("xyz_angle_y"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_angle_y"),
+	xyz_angle_y, _M("xyz_angle_y"), TYPE_FLOAT, P_ANIMATABLE, IDC_ANG_Y,
 		p_default, 0.f, p_range, -1000000.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_Y, IDC_ANG_Y_SPIN, SPIN_AUTOSCALE,
 		p_end,
-	xyz_angle_z, _T("xyz_angle_z"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_angle_z"),
+	xyz_angle_z, _M("xyz_angle_z"), TYPE_FLOAT, P_ANIMATABLE, IDC_ANG_Z,
 		p_default, 0.f, p_range, -1000000.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_Z, IDC_ANG_Z_SPIN, SPIN_AUTOSCALE,
 		p_end,
 
-	xyz_tile_x, _T("xyz_tile_x"), TYPE_INT, P_ANIMATABLE, _T("xyz_tile_x"), p_default, x, p_ui, TYPE_INTLISTBOX, IDC_TIL_X, 0, p_end,
-	xyz_tile_y, _T("xyz_tile_y"), TYPE_INT, P_ANIMATABLE, _T("xyz_tile_y"), p_default, y, p_ui, TYPE_INTLISTBOX, IDC_TIL_Y, 0, p_end,
-	xyz_tile_z, _T("xyz_tile_z"), TYPE_INT, P_ANIMATABLE, _T("xyz_tile_z"), p_default, z, p_ui, TYPE_INTLISTBOX, IDC_TIL_Z, 0, p_end,
+	xyz_tile_x, _M("xyz_tile_x"), TYPE_INT, P_ANIMATABLE, IDC_TIL_X, p_default, x, p_ui, TYPE_INTLISTBOX, IDC_TIL_X, 0, p_end,
+	xyz_tile_y, _M("xyz_tile_y"), TYPE_INT, P_ANIMATABLE, IDC_TIL_Y, p_default, y, p_ui, TYPE_INTLISTBOX, IDC_TIL_Y, 0, p_end,
+	xyz_tile_z, _M("xyz_tile_z"), TYPE_INT, P_ANIMATABLE, IDC_TIL_Z, p_default, z, p_ui, TYPE_INTLISTBOX, IDC_TIL_Z, 0, p_end,
 
 	// #################### // Random \\ ####################
 
-	xyz_seed,		_T("seed"), 		TYPE_INT, 		P_ANIMATABLE, 	IDS_SEED, 
+	xyz_seed,		_M("seed"), 		TYPE_INT, 		P_ANIMATABLE, 	IDS_SEED, 
 		p_default, 12345, p_range, 1, 99999,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_INT,	IDC_SEED_EDIT,	IDC_SEED_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	xyz_rand_mat,	_T("randByMat"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYMAT,
+	xyz_rand_mat,	_M("randByMat"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYMAT,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_MAT,
 		p_end,
 
-	xyz_rand_obj,	_T("randByObj"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYOBJ,
+	xyz_rand_obj,	_M("randByObj"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYOBJ,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_OBJ,
 		p_end,
 
-	xyz_rand_par,	_T("randByPar"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYPAR,
+	xyz_rand_par,	_M("randByPar"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYPAR,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_PAR,
 		p_end,	
 
-	xyz_offset_x2, _T("xyz_offset_x2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_offset_x2"),
+	xyz_offset_x2, _M("xyz_offset_x2"), TYPE_FLOAT, P_ANIMATABLE, IDC_OFF_X2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_OFF_X2, IDC_OFF_X_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-	xyz_offset_y2, _T("xyz_offset_y2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_offset_y2"),
+	xyz_offset_y2, _M("xyz_offset_y2"), TYPE_FLOAT, P_ANIMATABLE, IDC_OFF_Y2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_OFF_Y2, IDC_OFF_Y_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-	xyz_offset_z2, _T("xyz_offset_z2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_offset_z2"),
+	xyz_offset_z2, _M("xyz_offset_z2"), TYPE_FLOAT, P_ANIMATABLE, IDC_OFF_Z2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_OFF_Z2, IDC_OFF_Z_SPIN2, SPIN_AUTOSCALE,
 		p_end,
 
-	xyz_size_x2, _T("xyz_size_x2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_size_x2"),
+	xyz_size_x2, _M("xyz_size_x2"), TYPE_FLOAT, P_ANIMATABLE, IDC_SIZ_X2,
 		p_default, 0.f, p_range, 0.f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_X2, IDC_SIZ_X_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-	xyz_size_y2, _T("xyz_size_y2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_size_y2"),
+	xyz_size_y2, _M("xyz_size_y2"), TYPE_FLOAT, P_ANIMATABLE, IDC_SIZ_Y2,
 		p_default, 0.f, p_range, 0.f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_Y2, IDC_SIZ_Y_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-	xyz_size_z2, _T("xyz_size_z2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_size_z2"),
+	xyz_size_z2, _M("xyz_size_z2"), TYPE_FLOAT, P_ANIMATABLE, IDC_SIZ_Z2,
 		p_default, 0.f, p_range, 0.f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_Z2, IDC_SIZ_Z_SPIN2, SPIN_AUTOSCALE,
 		p_end,
 
-	xyz_angle_x2, _T("xyz_angle_x2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_angle_x2"),
+	xyz_angle_x2, _M("xyz_angle_x2"), TYPE_FLOAT, P_ANIMATABLE, IDC_ANG_X2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_X2, IDC_ANG_X_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-	xyz_angle_y2, _T("xyz_angle_y2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_angle_y2"),
+	xyz_angle_y2, _M("xyz_angle_y2"), TYPE_FLOAT, P_ANIMATABLE, IDC_ANG_Y2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_Y2, IDC_ANG_Y_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-	xyz_angle_z2, _T("xyz_angle_z2"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_angle_z2"),
+	xyz_angle_z2, _M("xyz_angle_z2"), TYPE_FLOAT, P_ANIMATABLE, IDC_ANG_Z2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_Z2, IDC_ANG_Z_SPIN2, SPIN_AUTOSCALE,
 		p_end,
 
-	xyz_lock,	_T("xyz_lock"), TYPE_BOOL,			P_ANIMATABLE,				_T("xyz_lock"),
-		p_default,		TRUE,
-		p_ui,			TYPE_CHECKBUTTON, IDC_LOCK,
+	xyz_lock,	_M("xyz_lock"), TYPE_BOOL,	P_ANIMATABLE,IDC_LOCK,
+		p_default,	TRUE,
+		p_ui,		TYPE_CHECKBUTTON, IDC_LOCK,
 		p_end,
 
-	xyz_filtering, _T("xyz_filtering"), TYPE_FLOAT, P_ANIMATABLE, _T("xyz_filtering"),
+	xyz_filtering, _M("xyz_filtering"), TYPE_FLOAT, P_ANIMATABLE, IDC_FILTER,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_FILTER, IDC_FILTER_SPIN, SPIN_AUTOSCALE,
 		p_end,	
 
 	p_end) {}
 };
+
+
+
 
 class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 	public:
@@ -260,7 +266,7 @@ class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 			switch (msg) {
 				case WM_INITDIALOG:
 					custButton = GetICustButton(GetDlgItem(hWnd, IDC_LOCK));
-					custButton->SetText(_T("L"));
+					custButton->SetText(_M("L"));
 					ReleaseICustButton(custButton);
 
 					// UVW
