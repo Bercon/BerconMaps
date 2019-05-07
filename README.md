@@ -11,6 +11,7 @@ Testing platform is an AMD CPU running Windows 10 (with latest feature updates).
 --  Fix unintended behavior when used in the Slate Material editor
 
 Fork date: March 26, 2018
+Update: May 2019 // Resuming work on this project
 
 BerconMaps
 ==========
