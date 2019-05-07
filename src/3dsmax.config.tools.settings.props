@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemDefinitionGroup>
+		<!-- Compiler Debug settings -->
+		<ClCompile Condition="'$(Configuration)'=='$(ConfigDebug)'">
+			<Optimization>Disabled</Optimization>
+			<PreprocessorDefinitions>;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<BasicRuntimeChecks Condition="'$(CLRSupport)' == 'true'">Default</BasicRuntimeChecks>
+			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+		</ClCompile>
+		<!-- Compiler Hybrid settings -->
+		<ClCompile Condition="'$(Configuration)'=='$(ConfigHybrid)'">
+			<!-- Optimization is disabled for all configs except Release -->
+			<Optimization>Disabled</Optimization>
+			<PreprocessorDefinitions>;_HYBRID;IS_HYBRID;SECURE_SCL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+			<BasicRuntimeChecks Condition="'$(CLRSupport)' == 'true'">Default</BasicRuntimeChecks>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+		</ClCompile>
+		<!-- Compiler Release settings -->
+		<ClCompile Condition="'$(Configuration)'=='$(ConfigRelease)'">
+			<Optimization>MaxSpeed</Optimization>
+			<InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+			<IntrinsicFunctions>true</IntrinsicFunctions>
+			<FavorSizeOrSpeed>speed</FavorSizeOrSpeed>
+			<OmitFramePointers>false</OmitFramePointers>
+			<EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+			<PreprocessorDefinitions>;NDEBUG;SECURE_SCL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<StringPooling>true</StringPooling>
+			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+			<FunctionLevelLinking>true</FunctionLevelLinking>
+			<!-- Generate enhanced debugging information for optimized code; for VS 2012 only -->
+			<AdditionalOptions>/Zo %(AdditionalOptions)</AdditionalOptions>
+		</ClCompile>
+
+		<!-- Linker Release Settings -->
+		<Link Condition="'$(Configuration)'=='$(ConfigRelease)'">
+			<OptimizeReferences>true</OptimizeReferences>
+			<EnableCOMDATFolding>true</EnableCOMDATFolding>
+			<SetChecksum>true</SetChecksum>
+		</Link>
+		<Link Condition="'$(Configuration)'=='$(ConfigDebug)'">
+			<GenerateMapFile Condition="'$(CLRSupport)' == 'true'">true</GenerateMapFile>
+			<MapExports Condition="'$(CLRSupport)' == 'true'">true</MapExports>
+			<AssemblyDebug Condition="'$(CLRSupport)' == 'true'">true</AssemblyDebug>
+		</Link>
+		<!-- Resource Compiler Debug Settings -->
+		<ResourceCompile Condition="'$(Configuration)'=='$(ConfigDebug)'">
+			<PreprocessorDefinitions>;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+		</ResourceCompile>
+		
+	</ItemDefinitionGroup>
+</Project>

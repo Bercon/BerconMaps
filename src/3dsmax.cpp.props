@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- Import project settings from property sheets.
+	The order in which these are imported should not matter, since no setting 
+	in one of the prop sheets should overwrite the same setting defined in another prop sheet.
+	Importing them conditionally allows -->
+	<ImportGroup Label="PropertySheets">
+		<!-- 3ds Max specific property sheets -->
+	</ImportGroup>
+	<ImportGroup Label="PropertySheets">
+		<!-- Import project settings specific to the platform -->
+		<Import Project="3dsmax.platform.tools.settings.props" Condition="exists('3dsmax.platform.tools.settings.props')" />
+	</ImportGroup>
+	<ImportGroup Label="PropertySheets">
+		<!-- Import project settings specific to the config -->
+		<Import Project="3dsmax.config.tools.settings.props" Condition="exists('3dsmax.config.tools.settings.props')" />
+	</ImportGroup>
+	<ImportGroup  Label="PropertySheets">
+		<Import Project="3dsmax.common.tools.settings.props" Condition="exists('3dsmax.common.tools.settings.props')" />
+	</ImportGroup>
+	<ImportGroup Label="PropertySheets">
+		<!-- This property sheet is used by some 3rd party tools to insert themselves in the compile\linker\etc tool chain, ex: Bullseye code coverage tool 
+		Import this property sheet only for 3ds Max projects, not for any 3rd party project that is using our peroperty sheets.
+		Those projects may import this already and that will result in warning MSB4011: Microsoft.Cpp.x64.user.props" cannot be imported again -->
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props') AND '$(IsMaxProjectInDevTree)'=='true'" Label="LocalAppDataPlatform" />
+	</ImportGroup>
+</Project>

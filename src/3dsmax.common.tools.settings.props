@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemDefinitionGroup>
+		<!-- Compiler common settings -->
+		<ClCompile >
+			<!-- Don't generated pdbs if MAXBUILD_GENERATE_DEBUG_INFO is set to false -->
+			<DebugInformationFormat Condition="'$(MAXBUILD_GENERATE_DEBUG_INFO)'!='false'">ProgramDatabase</DebugInformationFormat>
+			<DebugInformationFormat Condition="'$(MAXBUILD_GENERATE_DEBUG_INFO)'=='false'">None</DebugInformationFormat>
+			<ProgramDataBaseFileName Condition="'$(MAXBUILD_GENERATE_DEBUG_INFO)'=='false'" />
+
+			<WarningLevel>Level3</WarningLevel>
+			<WholeProgramOptimization>false</WholeProgramOptimization>
+			<!-- The .NET 4.0 reference assemblies are always kept in the program files(x86) directory -->
+			<AdditionalUsingDirectories>$(MSBuildProgramFiles32)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+			<PreprocessorDefinitions>_ADESK_3DSMAX_WINDOWS_; WINVER=0x0601;_WIN32_WINNT=0x0601;_WIN32_WINDOWS=0x0601;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;MODULE_NAME=$(TargetFileName);QT_NO_UNICODE_LITERAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<!-- More preprocessor defines to build with VS2017 (toolset v141) 
+				ToDo: Update Boost dependency (required version TBD), to remove the need for define _SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING,
+				      which silences this error when building src\dll\SpectrumRenderer\Max2SPD\build\Max2SPD.vxcproj:
+				      "error C4996: 'std::fpos<_Mbstatet>::seekpos': warning STL4019: The member std::fpos::seekpos() is non-Standard,
+				      and is preserved only for compatibility with workarounds for old versions of Visual C++. It will be removed in a
+				      future release, and in this release always returns 0. Please use standards-conforming mechanisms to manipulate fpos,
+				      such as conversions to and from streamoff, or an integral type, instead.
+				      If you are receiving this message while compiling Boost.IOStreams, a fix has been submitted upstream to make Boost use
+				      standards-conforming mechanisms, as it does for other compilers. You can define _SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING
+				      to acknowledge that you have received this warning, or define _REMOVE_FPOS_SEEKPOS to remove std::fpos::seekpos entirely."
+				      See https://developercommunity.visualstudio.com/content/problem/282567/member-seekpos-in-class-fpos-is-missing.html
+				      and https://github.com/boostorg/iostreams/pull/57
+			-->
+			<PreprocessorDefinitions>GTEST_HAS_TR1_TUPLE=0;_SILENCE_FPOS_SEEKPOS_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<AdditionalOptions>/GR /we4002 /we4706 /we4390 /we4557 /we4546 /we4545 /we4295 /we4310 /we4130 /we4611 /we4213 /we4121 /we4715 /we4701 /w34265 /wd4244 /wd4018 /wd4819 /wd4456 /wd4457 /wd4458 /wd4459 /wd4589 /wd4702 %(AdditionalOptions)</AdditionalOptions>
+			<!-- Silence more warnings to build with VS2017 (toolset v141):
+			     - C4840 warning: "non-portable use of class 'type' as an argument to a variadic function" (occurs for Point3, Point2, Class_ID class types)
+			-->
+			<AdditionalOptions>/wd4840 %(AdditionalOptions)</AdditionalOptions>
+			<ExceptionHandling>Async</ExceptionHandling>
+			<FloatingPointModel>Precise</FloatingPointModel>
+			<RuntimeTypeInfo>true</RuntimeTypeInfo>
+			<UseFullPaths>true</UseFullPaths>
+			<PrecompiledHeader>NotUsing</PrecompiledHeader>
+			<PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+			<EnableEnhancedInstructionSet Condition="'$(CLRSupport)' == 'true'">NotSet</EnableEnhancedInstructionSet>
+			<MultiProcessorCompilation>true</MultiProcessorCompilation>
+			<!-- MAXBUILD_FAIL_ON_COMPILER_WARNINGS is an env var set by maxrake -->
+			<TreatWarningAsError>$(MAXBUILD_FAIL_ON_COMPILER_WARNINGS)</TreatWarningAsError>
+			<SDLCheck>true</SDLCheck>
+			<MinimalRebuild>false</MinimalRebuild>
+			<AdditionalOptions>/Zm400 %(AdditionalOptions)</AdditionalOptions>
+			<LanguageStandard>stdcpp14</LanguageStandard>
+		</ClCompile>
+
+		<!-- Linker Common Settings -->
+		<Link>
+			<!-- So that Hybrid builds can be mixed and matched with release builds -->
+			<AdditionalLibraryDirectories Condition="'$(Configuration)'=='$(ConfigHybrid)'">$(MaxSdkDir)lib\$(Platform)\$(ConfigRelease)\;$(MaxDevelDir)\3dswin\lib\$(MaxPlatform)\$(ConfigRelease)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+			<LinkIncremental>false</LinkIncremental>
+			<SubSystem>Windows</SubSystem>
+			<RandomizedBaseAddress>true</RandomizedBaseAddress>
+			<ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
+			<StripPrivateSymbols>$(MaxPdbDir)\$(TargetName).pdb</StripPrivateSymbols>
+			<ImportLibrary>$(IntDir)\$(TargetName).lib</ImportLibrary>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+
+			<!-- Don't generated pdbs if MAXBUILD_GENERATE_DEBUG_INFO is set to false -->
+			<GenerateDebugInformation Condition="'$(MAXBUILD_GENERATE_DEBUG_INFO)'!='false'">DebugFull</GenerateDebugInformation>
+			<GenerateDebugInformation Condition="'$(MAXBUILD_GENERATE_DEBUG_INFO)'=='false'">false</GenerateDebugInformation>
+
+			<!-- These optimization options are causing the links to be very long. Disabling them in CI builds. -->
+			<OptimizeReferences Condition="'$(MAXBUILD_FAST_LINK)'=='true'">false</OptimizeReferences>
+			<EnableCOMDATFolding Condition="'$(MAXBUILD_FAST_LINK)'=='true'">false</EnableCOMDATFolding>
+		</Link>
+		
+		<!-- Librarian Common Settings. This is for static libraries -->
+		<Lib>
+			<OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+			<!-- So that Hybrid builds can be mixed and matched with release builds -->
+			<AdditionalLibraryDirectories Condition="'$(Configuration)'=='$(ConfigHybrid)'">$(MaxSdkDir)lib\$(Platform)\$(ConfigRelease)\;$(MaxDevelDir)\3dswin\lib\$(MaxPlatform)\$(ConfigRelease)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+		</Lib>
+
+		<!-- Extract MUI Resource DLL -->
+		<PostBuildEvent>
+			<!-- The paths are normalizd by the calls to Path::GetFullPath. This makes the paths have
+					consistent path seperator characters, removes back directory elipses (..), and 
+					makes the output alot easier to read and debug. Note, the build command this can NOT
+					be split up into more than one line: That will break the build.
+			-->
+			<Command Condition="'$(TargetExt)' != '.lib' AND '$(IsMaxProjectInDevTree)'=='true'">python.exe "$([System.IO.Path]::GetFullPath('$(MaxSdkDir)/tools/RunMUIRCT.py'))" --add-file "$([System.IO.Path]::GetFullPath('$(TargetDir)'))\"$(TargetFileName) --file-dir "$([System.IO.Path]::GetFullPath('$(MUIRCT_ListDir)/MUIRCT_List'))"
+type nul > $(TargetPath).toSign </Command>
+			<Command Condition="'$(TargetExt)' != '.lib' AND '$(IsMaxProjectInDevTree)'=='false'">"$([System.IO.Path]::GetFullPath('$(MaxSdkDir)/tools/RunMUIRCT.exe'))" -o "$([System.IO.Path]::GetFullPath('$(TargetDir)'))\" -f $(TargetFileName) -t "$([System.IO.Path]::GetFullPath('$(IntDir)'))\" </Command>
+		</PostBuildEvent>
+		
+		<ResourceCompile>
+			<PreprocessorDefinitions>_MSC_VER; %(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<Culture>0x0409</Culture>
+		</ResourceCompile>
+		
+	</ItemDefinitionGroup>
+	
+</Project>

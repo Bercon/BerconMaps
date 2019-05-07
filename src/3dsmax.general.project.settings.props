@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- Define character sets, platforms and configurations 3ds Max can use.
+	Changing the values of these properties affects the name of the project configurations too.-->
+	<PropertyGroup Label="UserMacros">
+		<PlatformX64>x64</PlatformX64>
+		<ConfigDebug>Debug</ConfigDebug>
+		<ConfigRelease>Release</ConfigRelease>
+		<ConfigHybrid>Hybrid</ConfigHybrid>
+		<CharSetMultibyte>Multibyte</CharSetMultibyte>
+		<!-- Configuration without the 'Unicode' symbol -->
+		<MaxConfiguration Condition="'$(Configuration)'=='Debug'">Debug</MaxConfiguration>
+		<MaxConfiguration Condition="'$(Configuration)'=='Hybrid'">Hybrid</MaxConfiguration>
+		<MaxConfiguration Condition="'$(Configuration)'=='Release'">Release</MaxConfiguration>
+		<!-- Configuration where Hybrid is replaced with Release -->
+		<ExternalConfiguration Condition="'$(Configuration)'=='Debug'">Debug</ExternalConfiguration>
+		<ExternalConfiguration Condition="'$(Configuration)'=='Hybrid'">Release</ExternalConfiguration>
+		<ExternalConfiguration Condition="'$(Configuration)'=='Release'">Release</ExternalConfiguration>
+		<debug_or_release Condition="'$(Configuration)'=='Debug'">Debug</debug_or_release>
+		<debug_or_release Condition="'$(Configuration)'=='Hybrid'">Release</debug_or_release>
+		<debug_or_release Condition="'$(Configuration)'=='Release'">Release</debug_or_release>
+		<UnicodeConfig Condition="'$(Configuration)'=='Debug'">DebugUnicode</UnicodeConfig>
+		<UnicodeConfig Condition="'$(Configuration)'=='Hybrid'">HybridUnicode</UnicodeConfig>
+		<UnicodeConfig Condition="'$(Configuration)'=='Release'">ReleaseUnicode</UnicodeConfig>
+		<MaxPlatform>x64</MaxPlatform>
+		<x86_or_x64>x64</x86_or_x64>
+		<_32_or_64>64</_32_or_64>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- Get whether the project is in the maxsdk or not. -->
+		<IsMaxSdkProject>$(MSBuildProjectDirectory.Contains(\maxsdk\))</IsMaxSdkProject>
+		<!-- Get whether a project is in the developer tree or not.
+			A Developer build with the cannonized directory structure matching that of Perforce. If the project file
+			is under the 3dswin/src directory then this resolves to true, false otherwise. -->
+		<IsMaxProjectInDevTree>$(MSBuildProjectDirectory.Contains(\3dswin\src\))</IsMaxProjectInDevTree>
+	</PropertyGroup>
+
+	<!-- Defines properties for use in project files. -->
+	<PropertyGroup>
+		<!-- The root directory for the entire build -->
+		<MaxDevelDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\..\..\'))</MaxDevelDir>
+		<!-- The directory that contains all the max source code -->
+		<MaxSourceDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\'))</MaxSourceDir>
+		<!-- The Internal, Non-Public library directory -->
+		<MaxLib>$(MaxDevelDir)\3dswin\lib\$(MaxPlatform)\$(MaxConfiguration)\</MaxLib>
+		<!-- The Internal, Non-Public Include directory -->
+		<MaxInc>$(MaxSourceDir)\include\</MaxInc>
+		<!-- The directory where the SDK resides -->
+		<MaxSdkDir>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</MaxSdkDir>
+		<!-- The root 3dsmax directory where 3dsmax.exe is built at -->
+		<MaxBuild>$(MaxDevelDir)\3dswin\bin\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuild>
+		<MaxBuild Condition="'$(IsMaxSdkProject)'=='true' AND '$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)\bin\$(Platform)\$(MaxConfiguration)\</MaxBuild>
+		<!-- The plugin directory under the root max build directory -->
+		<MaxBuildPlugins>$(MaxBuild)\plugins\</MaxBuildPlugins>
+		<!-- The standard native plugin directory in the build directory -->
+		<MaxBuildStdplugs>$(MaxBuild)stdplugs\</MaxBuildStdplugs>
+		<MaxBuildStdplugs Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)\plugin\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildStdplugs>
+		<!-- The directory for directx plugins -->
+		<MaxBuildStdplugsDx>$(MaxBuildStdplugs)DxPlugins\</MaxBuildStdplugsDx>
+		<!-- The standard managed plugin directory in the build directory -->
+		<MaxBuildBinAssembly>$(MaxBuild)bin\assemblies\</MaxBuildBinAssembly>
+		<MaxBuildBinAssembly Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)\bin\$(Platform)\$(MaxConfiguration)\bin\assemblies\</MaxBuildBinAssembly>
+    <!-- The Application Plugins directory from where Max loads plugin bundles. To be used only by Max, not by 3rd party plugins -->
+    <MaxBuildApplicationPlugins>$(MaxBuild)ApplicationPlugins\</MaxBuildApplicationPlugins>
+    <MaxBuildApplicationPlugins Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)\plugin\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildApplicationPlugins>
+    <!-- The directory where SDK howto example projects are built to -->
+		<MaxSdkPlugin>$(MaxSdkDir)\plugin\$(MaxPlatform)\$(MaxConfiguration)\</MaxSdkPlugin>
+		<!-- The directory where projects in the SDK look for managed plugin assemblies -->
+		<MaxSdkAssemblies>$(MaxBuild)</MaxSdkAssemblies>
+		<MaxSdkAssemblies Condition="'$(IsMaxProjectInDevTree)'=='false'">$(ADSK_3DSMAX_x64_2020)</MaxSdkAssemblies>
+		<!-- The include directory for header files in the public SDK -->
+		<MaxSdkInc>$(MaxSdkDir)\include</MaxSdkInc>
+		<!-- Directory for Public Stripped PDB's -->
+		<MaxPdbDir>$(MaxSdkDir)\pdb\$(Platform)\$(MaxConfiguration)\</MaxPdbDir>
+		<!-- The public MaxSDK library directory -->
+		<MaxSdkLib>$(MaxSdkDir)lib\$(Platform)\$(Configuration)\</MaxSdkLib>
+		<!-- The tools directory in the public SDK -->
+		<MaxSdkTools>$(MaxSdkDir)\tools</MaxSdkTools>
+		<!-- The root directory of the private 3ds Max SDK -->
+		<MaxSdkPrivateDir>$(MaxSourceDir)MaxSdkPrivate\</MaxSdkPrivateDir>
+		<!-- The private Max SDK library directory -->
+		<MaxSdkPrivateLib>$(MaxSdkPrivateDir)lib\$(Platform)\$(Configuration)\</MaxSdkPrivateLib>
+		<!-- The private Max SDK include directory -->
+		<MaxSdkPrivateInc>$(MaxSdkPrivateDir)include</MaxSdkPrivateInc>
+		<!-- Directory for stripped debug symbols for the private Max SDK APIs -->
+		<MaxPdbPrivateDir>$(MaxSdkPrivateDir)pdb\$(Platform)\$(MaxConfiguration)\</MaxPdbPrivateDir>
+		<!-- The private build directory. For internal use only. -->
+		<MaxBuildPrivate>$(MaxDevelDir)\3dswin\bin_private\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildPrivate>
+		<!-- The private build directory for MaxIO. For internal use only. -->
+		<MaxBuildIO>$(MaxDevelDir)\3dswin\bin_io\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildIO>
+		<!-- The private build directory for Ext1. For internal use only. -->
+		<MaxBuildExt1>$(MaxDevelDir)\3dswin\bin_Ext1\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildExt1>
+		<!-- The private build directory for Ext2. For internal use only. -->
+		<MaxBuildExt2>$(MaxDevelDir)\3dswin\bin_Ext2\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildExt2>
+		<!-- The private build directory for Labs. For internal use only. -->
+		<MaxBuildLabs>$(MaxDevelDir)\3dswin\bin_Labs\$(MaxPlatform)\$(MaxConfiguration)\</MaxBuildLabs>
+		<!-- The directory where the Candidate to SDK resides -->
+		<MaxCandidateSdkDir>$(MaxSourceDir)\MaxCandidateSdk</MaxCandidateSdkDir>
+		<!-- The directory where the Candidate to SDK include resides -->
+		<MaxCandidateSdkLib>$(MaxCandidateSdkDir)\lib</MaxCandidateSdkLib>
+		<!-- The directory where the Candidate to SDK libs resides -->
+		<MaxCandidateSdkInc>$(MaxCandidateSdkDir)\include</MaxCandidateSdkInc>
+
+		<MentalraySDKForMaxDir>$(MaxSourceDir)dll\mentalray\mentalraySDKForMax</MentalraySDKForMaxDir>
+
+    <!-- The directory for the shared elements for command line apps -->
+    <CmdlineSharedInc>$(MaxDevelDir)\3dswin\src\cmdline\cmdlineShared\</CmdlineSharedInc>
+    
+		<!-- Directories for components or binary artifacts in 3 categories -->
+		<!-- MaxBinaries - those components used eclusivly by max and built by max -->
+		<MaxBinaries>$(MaxDevelDir)\MaxBinaries\</MaxBinaries>
+		<!-- ADSKComponents - those compoents from other autodesk groups -->
+		<ADSKComponents>$(MaxDevelDir)\ADSKComponents\</ADSKComponents>
+		<!-- ThirdPartyComponents - those third party packages max uses -->
+		<ThirdPartyComponents>$(MaxDevelDir)\ThirdPartyComponents\</ThirdPartyComponents>
+
+	</PropertyGroup>
+
+	<!-- Defines properties for internal use only -->
+	<PropertyGroup>
+		<!-- Autocad RealDWG -->
+		<AcadRealDWG>$(MaxDevelDir)\AcadComponents\RealDWG\include\</AcadRealDWG>
+		<AcadRealDWGx64>$(MaxDevelDir)\AcadComponents\RealDWG\includex64</AcadRealDWGx64>
+		<AcadRealDWGInc>$(AcadRealDWGx64)</AcadRealDWGInc>
+		<AcadRealDWGLib>$(MaxDevelDir)\AcadComponents\RealDWG\Lib\$(MaxPlatform)\$(ExternalConfiguration)\</AcadRealDWGLib>
+		<!-- Autocad RealDWG Brep -->
+		<AcadRealDWGBrep>$(MaxDevelDir)\AcadComponents\RealDWG\Utils\Brep\include\</AcadRealDWGBrep>
+		<AcadRealDWGBrepLib>$(MaxDevelDir)\AcadComponents\RealDWG\Utils\Brep\lib\$(MaxPlatform)\$(ExternalConfiguration)\</AcadRealDWGBrepLib>
+
+		<!-- Autocad ASM -->
+		<AcadASM>$(MaxDevelDir)\AcadComponents\ASM\</AcadASM>
+		<AcadASMLib>$(AcadASM)bin\$(MaxPlatform)\$(ExternalConfiguration)\</AcadASMLib>
+		<!-- PDE Library includes -->
+		<PDEInc>$(MaxDevelDir)\AcadComponents\PDELib\include\vc100\</PDEInc>
+		<PDEInc64>$(MaxDevelDir)\AcadComponents\PDELib\include\vc100x64\</PDEInc64>
+
+		<!-- Internal Testing Frameworks -->
+		<CppUnitInc>$(MaxDevelDir)MaxBinaries\TestFrameworks\cppunit\include\</CppUnitInc>
+		<CppUnitLib>$(MaxDevelDir)MaxBinaries\TestFrameworks\cppunit\lib\$(Platform)\$(MaxConfiguration)\</CppUnitLib>
+		<GoogleTestInc>$(MaxDevelDir)MaxBinaries\TestFrameworks\googletest\include\</GoogleTestInc>
+		<GoogleTestLib>$(MaxDevelDir)MaxBinaries\TestFrameworks\googletest\lib\</GoogleTestLib>
+		<GoogleTestSrc>$(MaxDevelDir)MaxBinaries\TestFrameworks\googletest\googletest\</GoogleTestSrc>
+		<GoogleMockSrc>$(MaxDevelDir)MaxBinaries\TestFrameworks\googletest\googlemock\</GoogleMockSrc>
+
+		<!-- ADP-SDK-->
+		<ADPSDKInc>$(MaxDevelDir)ADP-SDK\inc\</ADPSDKInc>
+		<ADPSDKLib>$(MaxDevelDir)ADP-SDK\libs\</ADPSDKLib>
+		
+		<!-- AdSSO Include directories -->
+		<AdSSOInc>$(MaxDevelDir)AdSSO\include\</AdSSOInc>
+		<!-- AdSSO Library directories -->
+		<AdSSOLib>$(MaxDevelDir)AdSSO\binary\lib\A360\win_vc14\x64\$(ExternalConfiguration)\</AdSSOLib>
+
+		<!-- CLICv2 Include directories -->
+		<AutodeskLicensingV2Inc>$(MaxDevelDir)AutodeskLicensingV2\inc\</AutodeskLicensingV2Inc>
+		<!-- CLICv2 Library directories -->
+		<AutodeskLicensingV2Lib>$(MaxDevelDir)AutodeskLicensingV2\$(ExternalConfiguration)\libs\</AutodeskLicensingV2Lib>
+
+		<!-- AirMax Include directories -->
+		<AirMaxInclude>$(MaxDevelDir)AirMaxBundle\include\</AirMaxInclude>
+		<!-- AirMax Library directories -->
+		<AirMaxCoreUnitsLib>$(MaxDevelDir)AirMaxBundle\binary\lib\AdCoreUnits\win_vc141\x64\$(ExternalConfiguration)\</AirMaxCoreUnitsLib>
+		<AirMaxDataLib>$(MaxDevelDir)AirMaxBundle\binary\lib\ADP\win_vc141\x64\$(ExternalConfiguration)\</AirMaxDataLib>
+		<AirMaxVizLib>$(MaxDevelDir)AirMaxBundle\binary\lib\AIRViz\win_vc141\x64\$(ExternalConfiguration)\</AirMaxVizLib>
+		<AirMaxProtein>$(MaxDevelDir)AirMaxBundle\binary\lib\Protein\win_vc141\x64\$(ExternalConfiguration)\</AirMaxProtein>
+		<AirMaxRibbonAppFrameLib>$(MaxDevelDir)AirMaxBundle\binary\lib\RibbonAppFrame\win_vc141\x64\$(ExternalConfiguration)\</AirMaxRibbonAppFrameLib>
+		<!-- Reality studio Library directories -->
+		<RealityStudioLib>$(MaxDevelDir)RealityStudio\lib\x64\$(ExternalConfiguration)\</RealityStudioLib>
+		
+		<!-- DirectX directories -->
+		<DirectXSDKInc>$(MaxDevelDir)DirectX_SDK\Include\</DirectXSDKInc>
+		<DirectXSDKInc Condition="'$(IsMaxProjectInDevTree)'=='false'">$(DXSDK_DIR)\Include\</DirectXSDKInc>
+		<DirectXSDKLib>$(MaxDevelDir)DirectX_SDK\Lib\x64\</DirectXSDKLib>
+		<DirectXSDKLib Condition="'$(IsMaxProjectInDevTree)'=='false'">$(DXSDK_DIR)\Lib\x64\</DirectXSDKLib>
+		<!-- FBX SDK directories -->
+		<FbxSdkInc>$(MaxDevelDir)\fbxsdk\include\</FbxSdkInc>
+		<FbxSdkInc Condition="'$(IsMaxProjectInDevTree)'=='false'">$(FBX_SDK_INC_DIR)\</FbxSdkInc>
+		<FbxSdkLib>$(MaxDevelDir)\fbxsdk\lib\$(ExternalConfiguration)\</FbxSdkLib>
+		<FbxSdkLib Condition="'$(IsMaxProjectInDevTree)'=='false'">$(FBX_SDK_LIB_DIR)\x64\$(ExternalConfiguration)\</FbxSdkLib>
+
+		<!-- Bifrost directories -->
+		<MaxBifrost>$(MaxDevelDir)\Bifrost</MaxBifrost>
+		<MaxBifrostLib>$(MaxBifrost)\lib\$(ExternalConfiguration)</MaxBifrostLib>
+		<MaxBifrostFluidsInc>$(MaxBifrost)\BifrostFluids\common\include</MaxBifrostFluidsInc>
+		<MaxBifrostFluidsLib>$(MaxBifrost)\BifrostFluids\platform\Windows\$(ExternalConfiguration)\lib</MaxBifrostFluidsLib>
+		<MaxAminoInc>$(MaxBifrost)\Amino\common\include</MaxAminoInc>
+		<MaxAminoLib>$(MaxBifrost)\Amino\platform\Windows\$(ExternalConfiguration)\lib</MaxAminoLib>
+
+		<!-- Qt dependency -->
+		<!-- The Qt root directory is in capital letters, because it is the default directory macro which gets automatically added
+		to your Qt project / custom build settings by the Qt Visual Studio AddIn. -->
+		<QTVER>$([MSBuild]::ValueOrDefault(`$(QTVER)`, `5.11.2`))</QTVER>
+		<QTDIR>$([MSBuild]::ValueOrDefault(`$(QTDIR)`, `$(MaxSdkDir)Qt\$(QTVER)\`))</QTDIR>
+		<QTDIR Condition="'$(IsMaxProjectInDevTree)'=='true'">$(MaxDevelDir)Qt\$(QTVER)\</QTDIR>
+		<QtMigrateLib>$(MaxDevelDir)QtWinMigrate\lib\</QtMigrateLib>
+		<QtMigrateLib Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)QtWinMigrate\lib\</QtMigrateLib>
+		<QtMigrateInc>$(MaxDevelDir)</QtMigrateInc>
+		<QtMigrateInc Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)</QtMigrateInc>
+
+        <!-- Boost dependency -->
+        <BoostDir>$(MaxDevelDir)Boost</BoostDir>
+        <BoostLib>$(MaxDevelDir)Boost\stage\lib</BoostLib>
+        
+        <!-- Python dependency -->
+        <PythonDir>$(MaxDevelDir)Python</PythonDir>
+        <PythonInc>$(MaxDevelDir)Python\Include</PythonInc>
+        <PythonLibs>$(MaxDevelDir)Python\Libs\$(ExternalConfiguration)</PythonLibs>
+        
+		<!-- Intel TBB dependency from OGS -->
+		<OGSTBBInclude>$(AirMaxInclude)\external</OGSTBBInclude>
+		<OGSTBBLib>$(AirMaxVizLib)</OGSTBBLib>
+
+		<OGSTBBInclude Condition="'$(IsMaxProjectInDevTree)'=='false'">$(TBB_DIR)\include</OGSTBBInclude>
+		<OGSTBBLib Condition="'$(IsMaxProjectInDevTree)'=='false'">$(TBB_DIR)\lib\intel64\vc14</OGSTBBLib>
+
+		<!-- Mental Images -->
+		<MentalImagesInc>$(MaxDevelDir)mentalimages\mental ray\common\include</MentalImagesInc>
+		<MentalImagesSrc>$(MaxDevelDir)mentalimages\mental ray\src\</MentalImagesSrc>
+		<MentalImagesBin>$(MaxDevelDir)mentalimages\mental ray\nt-x86-64-vc12\</MentalImagesBin>
+		<MentalImagesLib>$(MaxDevelDir)mentalimages\mental ray\nt-x86-64-vc12\lib-o</MentalImagesLib>
+		<MentalImagesLibDebug>$(MaxDevelDir)mentalimages\mental ray\nt-x86-64-vc12\lib-mdd</MentalImagesLibDebug>
+		<MentalMatterInc>$(MaxDevelDir)mentalimages\mental matter\include\</MentalMatterInc>
+		<MentalMatterLib>$(MaxDevelDir)mentalimages\mental matter\nt-x64-vc10sp1\</MentalMatterLib>
+		<raysat_name>raysat_3dsmax2017</raysat_name>
+
+		<!-- Alembic -->
+		<AlembicLib>$(MaxDevelDir)Alembic\Alembic$(ExternalConfiguration)\Alembic\alembic-1.7.5\lib</AlembicLib>
+		<AlembicHDF5Lib>$(MaxDevelDir)Alembic\Alembic$(ExternalConfiguration)\Alembic\hdf5-1.8.20\lib</AlembicHDF5Lib>
+		<AlembicILMBaseLib>$(MaxDevelDir)Alembic\Alembic$(ExternalConfiguration)\Alembic\ilmbase-2.2.1\lib</AlembicILMBaseLib>
+		<AlembicZLib>$(MaxDevelDir)Alembic\Alembic$(ExternalConfiguration)\Alembic\zlib-1.2.11\lib</AlembicZLib>
+		<AlembicInc>$(MaxDevelDir)Alembic\Alembic$(ExternalConfiguration)\Alembic\alembic-1.7.5\include</AlembicInc>
+		<AlembicILMBaseInc>$(MaxDevelDir)Alembic\Alembic$(ExternalConfiguration)\Alembic\ilmbase-2.2.1\include</AlembicILMBaseInc>
+
+		<!-- LMV SVF -->
+		<LMVInc>$(MaxDevelDir)LMVTK\include\</LMVInc>
+		<LMVLib>$(MaxDevelDir)LMVTK\binary\lib\win_vc14\x64\$(ExternalConfiguration)\</LMVLib>
+		<PropertyDBInc>$(MaxDevelDir)propertydb\include\</PropertyDBInc>
+		<PropertyDBLib>$(MaxDevelDir)propertydb\binary\$(ExternalConfiguration)\</PropertyDBLib>
+
+		<!-- MassFX & PhysX -->
+		<PhysXLib>$(MaxDevelDir)MassFX\shared\depends\PhysX_2.8.5\novodex\SDKs\lib\win64</PhysXLib>
+		<MassFXPhysxIntegratorInc>$(MaxDevelDir)3dswin\src\dll\MassFX\ContentCore\PhysxIntegrator\public\</MassFXPhysxIntegratorInc>
+		<MassFXMainInc>$(MaxDevelDir)3dswin\src\dll\MassFX\ContentCore\Main\public\</MassFXMainInc>
+		<MassFXContentCoreExtInc>$(MaxDevelDir)3dswin\src\dll\MassFX\ContentCoreExt\public\</MassFXContentCoreExtInc>
+		<MassFXNovodexPhysicsInc>$(MaxDevelDir)MassFX\shared\depends\PhysX_2.8.5\novodex\SDKs\Physics\include</MassFXNovodexPhysicsInc>
+		<MassFXNovodexCookingInc>$(MaxDevelDir)MassFX\shared\depends\PhysX_2.8.5\novodex\SDKs\Cooking\include</MassFXNovodexCookingInc>
+		<MassFXNovodexFoundationInc>$(MaxDevelDir)MassFX\shared\depends\PhysX_2.8.5\novodex\SDKs\Foundation\include</MassFXNovodexFoundationInc>
+		<MassFXNovodexPhysXLoaderInc>$(MaxDevelDir)MassFX\shared\depends\PhysX_2.8.5\novodex\SDKs\PhysXLoader\include</MassFXNovodexPhysXLoaderInc>
+
+		<!-- AMG -->
+		<AMGInc>$(MaxDevelDir)AMG\code\projects\</AMGInc>
+		<AMGLib>$(MaxDevelDir)AMG\lib\win_vc14\x64\$(ExternalConfiguration)\</AMGLib>
+    
+		<!-- SoftwareSecurity -->
+		<SecurityLibraryInc>$(MaxDevelDir)SecurityLibrary\include\AdSecLib\</SecurityLibraryInc>
+		<SecurityLibraryLib>$(MaxDevelDir)SecurityLibrary\lib\$(ExternalConfiguration)\</SecurityLibraryLib>
+
+		<!-- SimpleShare -->
+		<SimpleShareInc>$(MaxDevelDir)SimpleShare\SimpleShareDataWrapper\inc\</SimpleShareInc>
+		<SimpleShareLib>$(MaxDevelDir)SimpleShare\SimpleShareDataWrapper\libs\$(ExternalConfiguration)\</SimpleShareLib>
+	
+    <!-- OpenSSL -->
+    <OpenSSLInc>$(MaxDevelDir)openssl\include\</OpenSSLInc>
+    <OpenSSLLib>$(MaxDevelDir)openssl\lib\$(debug_or_release)\</OpenSSLLib>
+
+    <!-- Curl -->
+    <CurlInc>$(MaxDevelDir)curl\include\</CurlInc>
+    <CurlLib>$(MaxDevelDir)curl\lib\$(debug_or_release)\</CurlLib>
+
+    <!-- OSS-SDK-C -->
+	  <OSSSDKCInc>$(MaxDevelDir)SimpleShare\OSSSDKC\inc\</OSSSDKCInc>
+	  <OSSSDKCLib>$(MaxDevelDir)SimpleShare\OSSSDKC\libs\$(ExternalConfiguration)\</OSSSDKCLib>
+    
+    <!-- Azure SoftwareEntitlement -->
+    <AzureSoftwareEntitlementInc>$(MaxDevelDir)MS-Azure-SoftwareEntitlement\include\</AzureSoftwareEntitlementInc>
+    <AzureSoftwareEntitlementLib>$(MaxDevelDir)MS-Azure-SoftwareEntitlement\lib\$(debug_or_release)\</AzureSoftwareEntitlementLib>
+
+    <!-- zlib -->
+    <ZLibInc>$(MaxDevelDir)zlib\include\</ZLibInc>
+    <ZLibInc Condition="'$(IsMaxProjectInDevTree)'=='false'">$(ZLIB_SDK_DIR)\include\</ZLibInc>
+    <ZLibLib>$(MaxDevelDir)zlib\lib\</ZLibLib>
+    <ZLibLib Condition="'$(IsMaxProjectInDevTree)'=='false'">$(ZLIB_SDK_DIR)\lib\</ZLibLib>
+
+  </PropertyGroup>
+
+	<PropertyGroup Label="Configuration">
+		<UseOfMfc>false</UseOfMfc>
+		<UseOfAtl>false</UseOfAtl>
+		<PlatformToolset>v141</PlatformToolset>
+		<CharacterSet Condition=" '$(OverrideCharacterSet)'=='' ">Unicode</CharacterSet>
+		<PlatformTarget>x64</PlatformTarget>
+		<Prefer32Bit>false</Prefer32Bit>
+		<UseIntelIPP>false</UseIntelIPP>
+		<UseIntelTBB>false</UseIntelTBB>
+		<UseIntelMKL>No</UseIntelMKL>
+		<UseIntelDAAL>false</UseIntelDAAL>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    		<PreferredToolArchitecture>x64</PreferredToolArchitecture>
+		<!-- The location for intermediate files for native .vcxproj files.
+			Intermediate Directory path needs to end in  "\" -->
+		<!-- Now, ALL intermediate files for project files under 3dswin/src go into 3dswin\obj , in order to simplify cleaning the build. -->
+		<IntDir>$(MaxDevelDir)\3dswin\obj\$(MaxPlatform)\$(MaxConfiguration)\$(ProjectName)\</IntDir>
+		<!-- If the project file is in the SDK but is not in the perforce developer tree, then the intermediate directory can stay in the SDK directories -->
+		<IntDir Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)\obj\$(MaxPlatform)\$(MaxConfiguration)\$(ProjectName)\</IntDir>
+
+		<!-- The location for intermediate files for managed .csproj files -->
+		<IntermediateOutputPath>$(MaxDevelDir)\3dswin\obj\$(MaxPlatform)\$(MaxConfiguration)\$(MSBuildProjectName)\</IntermediateOutputPath>
+		<IntermediateOutputPath Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkDir)\obj\$(MaxPlatform)\$(MaxConfiguration)\$(MSBuildProjectName)\</IntermediateOutputPath>
+
+		<!-- The location for MUIRCT_List file -->
+		<MUIRCT_ListDir>$(MaxLib)</MUIRCT_ListDir>
+		<MUIRCT_ListDir Condition="'$(IsMaxProjectInDevTree)'=='false'">$(MaxSdkLib)</MUIRCT_ListDir>
+	</PropertyGroup>
+
+	<!-- C# Compiler and Linker settings -->
+	<PropertyGroup>
+		<!-- MAXBUILD_FAIL_ON_COMPILER_WARNINGS is an env var set by maxrake -->
+		<TreatWarningsAsErrors>$(MAXBUILD_FAIL_ON_COMPILER_WARNINGS)</TreatWarningsAsErrors>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+  </PropertyGroup>
+</Project>
