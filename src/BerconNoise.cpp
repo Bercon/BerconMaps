@@ -130,7 +130,7 @@ static ParamBlockDesc2 berconnoise_param_blk ( berconnoise_params, _T("params"),
 	// General
 	noise_size,	_T("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NOISESIZE,
 		p_default,		25.f,
-		p_range,		0.0, 1000000.0f,
+		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISESIZE_EDIT, IDC_NOISESIZE_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 	noise_lowthresh, _T("thresholdLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
