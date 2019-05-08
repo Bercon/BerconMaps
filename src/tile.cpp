@@ -154,7 +154,8 @@ inline static float getAngle(int type, float amount) {
 	+ ensure inside uv with rand offset/scale
 */
 
-#define HALFPI 1.57079633f
+// #define HALFPI 1.57079633f  //Already defined in trig.h
+
 #define QUATPI 0.785398163f
 #define SQRTHALF 0.707106781f
 
@@ -176,7 +177,7 @@ void Tile::uvMapping(TilePoint& tp, Point3 p, float edges[4], TileParam& t, int 
 	float angle = getAngle(t.rotUV, t.randRot);
 
 	// Random scale
-	float scaleX, scaleY;	
+	float scaleX = 0, scaleY = 0;	
 	switch (t.autoScale) {
 		case 1: { // UV
 			scaleX = w; scaleY = h;
@@ -323,7 +324,7 @@ TilePoint Tile::drawTile(Point3 p, float edges[4], TileParam& t, int id, int dir
 }
 
 static int rowcol(float& low, float& high, int& id, float pos, float total, std::vector<float>& arr, float size, float var, float rand) {
-	int num = arr.size();
+	auto num = arr.size();
 	float h = total * size;
 	float y = pos / h;
 	float yi = (float)FASTFLOOR(y); // group ID

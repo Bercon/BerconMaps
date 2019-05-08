@@ -84,16 +84,39 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		// Curve
 		ICurveCtl* curve;				
 		BOOL useCurve;
+
 		// From ResourceMakerCallback		
-		BOOL SetCustomImageList(HIMAGELIST &hCTools,ICurveCtl *pCCtl) { return TRUE; };
-		BOOL GetToolTip(int iButton, TSTR &ToolTip,ICurveCtl *pCCtl) { return TRUE; };
-		void ResetCallback(int curvenum, ICurveCtl *pCCtl) { ICurve *pCurve = NULL; pCurve = pCCtl->GetControlCurve(curvenum); if(pCurve) { pCurve->SetNumPts(2); NewCurveCreatedCallback(curvenum, pCCtl); }}
-		void NewCurveCreatedCallback(int curvenum, ICurveCtl *pCCtl) {
-			ICurve *pCurve = NULL; pCurve = pCCtl->GetControlCurve(curvenum); TimeValue t = GetCOREInterface()->GetTime();
-			CurvePoint pt = pCurve->GetPoint(t,0); pt.p.y = 0.f; pCurve->SetPoint(t,0,&pt);
-			pCurve->SetPenProperty( RGB(0,0,0)); pCurve->SetDisabledPenProperty( RGB(128,128,128));		
-			pt = pCurve->GetPoint(t,1); pt.p.y = 1.f; pCurve->SetPoint(t,1,&pt);
+/*		virtual BOOL SetCustomImageList(HIMAGELIST& hCTools, ICurveCtl* pCCtl) { return FALSE; };
+																									\\ Put this back if you want custom images and tooltips 
+		virtual BOOL GetToolTip(int iButton, MSTR& ToolTip, ICurveCtl* pCCtl) { return FALSE; };
+*/
+
+		virtual void NewCurveCreatedCallback(int curvenum, ICurveCtl* pCCtl)
+		{
+			ICurve* pCurve = NULL;
+			pCurve = pCCtl->GetControlCurve(curvenum);
+			TimeValue t = GetCOREInterface()->GetTime();
+			CurvePoint pt = pCurve->GetPoint(t, 0);
+			pt.p.y = 0.f;
+			pCurve->SetPoint(t, 0, &pt);
+			pCurve->SetPenProperty(RGB(0, 0, 0));
+			pCurve->SetDisabledPenProperty(RGB(128, 128, 128));
+			pt = pCurve->GetPoint(t, 1);
+			pt.p.y = 1.f;
+			pCurve->SetPoint(t, 1, &pt);
 		}
+
+		virtual void ResetCallback(int curvenum, ICurveCtl* pCCtl)
+		{
+			ICurve* pCurve = NULL;
+			pCurve = pCCtl->GetControlCurve(curvenum);
+			if (pCurve)
+			{
+				pCurve->SetNumPts(2);
+				NewCurveCreatedCallback(curvenum, pCCtl);
+			}
+		}
+
 
 		// Interactive Display
 		TexHandle *texHandle;

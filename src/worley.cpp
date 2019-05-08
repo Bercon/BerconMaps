@@ -95,7 +95,7 @@ void Worley::noise(double at[3], int order, double *F, int function) {
 
 #define ROLL(seed) (seed=1402024253*seed+586950981)
 void Worley::add(long xi, long yi, long zi, double at[3], int order, double *F, int function) {
-	double d;
+	double d = 0;
 	double d3[3];
 	double f3[3];
 	unsigned long seed, this_id;

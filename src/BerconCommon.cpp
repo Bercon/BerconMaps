@@ -15,16 +15,10 @@ specific language governing permissions and limitations
 under the License.   
 */
 
+
 #include "BerconCommon.h"
 #include "chkmtlapi.h"
 
-TCHAR *GetString(int id) {
-	static TCHAR buf[256];
-
-	if (hInstance)
-		return LoadString(hInstance, id, buf, sizeof(buf)) ? buf : NULL;
-	return NULL;
-}
 
 void BerconXYZ::reset(IParamBlock2* pblock, Interval& ivalid, int type, int x, int y, int z) {
 	if (!pblock) return;
@@ -163,7 +157,7 @@ void BerconXYZ::getBasis(Matrix3 transform, Point3* b) {
 	}
 }
 
-#define NZERO(x) (x > 0.0001f)
+//#define NZERO(x) (x > 0.0001f)
 void BerconXYZ::update() {
 	tm.IdentityMatrix();
 	tm.Translate(Point3(offX, offY, offZ));
@@ -178,7 +172,7 @@ void BerconXYZ::update() {
 
 	getBasis(tm, b);
 	
-	variance = NZERO(offX2) || NZERO(offY2) || NZERO(offZ2) || NZERO(sizeX2) || NZERO(sizeY2) || NZERO(sizeZ2) || NZERO(angX2) || NZERO(angY2) || NZERO(angZ2);
+	variance = (offX2 > 0.0001f) || (offY2 > 0.0001f) || (offZ2 > 0.0001f) || (sizeX2 > 0.0001f) || (sizeY2 > 0.0001f) || (sizeZ2 > 0.0001f) || (angX2 > 0.0001f) || (angY2 > 0.0001f) || (angZ2 > 0.0001f);
 }
 
 Matrix3 BerconXYZ::random(ShadeContext& sc, Matrix3* inv) {
@@ -228,8 +222,8 @@ void BerconXYZ::seedRandomGen(ShadeContext& sc) {
 	if (p_randPar) {
 		Object *ob = sc.GetEvalObject();		
 		if (ob && ob->IsParticleSystem()) {
-			ParticleObject *obj = (ParticleObject*)ob;
-			IChkMtlAPI* chkMtlAPI = static_cast<IChkMtlAPI*>(obj->GetInterface(I_NEWMTLINTERFACE));
+			auto*obj = static_cast<ParticleObject*>(ob);
+			auto* chkMtlAPI = static_cast<IChkMtlAPI*>(obj->GetInterface(I_NEWMTLINTERFACE));
 			if ((chkMtlAPI && chkMtlAPI->SupportsParticleIDbyFace())) {
 				int id = chkMtlAPI->GetParticleFromFace(sc.FaceNumber());
 				seed += id*(id*id*571 + 789221);
@@ -267,7 +261,7 @@ inline static int tiling(int type, float& x, int& flip) {
 	return TRUE;
 }
 
-#define OFFSET_5 Point3(0.5f, 0.5f, 0.f)
+#define OFFSET_5 (Point3(0.5f, 0.5f, 0.f))
 
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Matrix3 transform, int* flips) {
 	switch (mappingType) {

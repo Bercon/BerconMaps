@@ -46,6 +46,7 @@
     <None Include="BerconNoise.def">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DllEntry.cpp">
@@ -54,23 +55,8 @@
     <ClCompile Include="BerconCommon.cpp">
       <Filter>Source Files\Main</Filter>
     </ClCompile>
-    <ClCompile Include="BerconGradient.cpp">
-      <Filter>Source Files\Main</Filter>
-    </ClCompile>
     <ClCompile Include="BerconNoise.cpp">
       <Filter>Source Files\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="BerconTile.cpp">
-      <Filter>Source Files\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="BerconWood.cpp">
-      <Filter>Source Files\Main</Filter>
-    </ClCompile>
-    <ClCompile Include="GradientRamp.cpp">
-      <Filter>Source Files\Gradient</Filter>
-    </ClCompile>
-    <ClCompile Include="IGradient.cpp">
-      <Filter>Source Files\Gradient</Filter>
     </ClCompile>
     <ClCompile Include="fractal.cpp">
       <Filter>Source Files\Patterns</Filter>
@@ -81,33 +67,18 @@
     <ClCompile Include="perlin.cpp">
       <Filter>Source Files\Patterns</Filter>
     </ClCompile>
-    <ClCompile Include="tile.cpp">
-      <Filter>Source Files\Patterns</Filter>
-    </ClCompile>
     <ClCompile Include="worley.cpp">
       <Filter>Source Files\Patterns</Filter>
     </ClCompile>
     <ClCompile Include="commonMath.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
-    <ClCompile Include="BerconDistortion.cpp">
-      <Filter>Source Files\Main</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BerconCommon.h">
       <Filter>Header Files\Main</Filter>
     </ClInclude>
-    <ClInclude Include="BerconGradient.h">
-      <Filter>Header Files\Main</Filter>
-    </ClInclude>
     <ClInclude Include="BerconNoise.h">
-      <Filter>Header Files\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="BerconTile.h">
-      <Filter>Header Files\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="BerconWood.h">
       <Filter>Header Files\Main</Filter>
     </ClInclude>
     <ClInclude Include="fractal.h">
@@ -119,23 +90,8 @@
     <ClInclude Include="perlin.h">
       <Filter>Header Files\Patterns</Filter>
     </ClInclude>
-    <ClInclude Include="tile.h">
-      <Filter>Header Files\Patterns</Filter>
-    </ClInclude>
     <ClInclude Include="worley.h">
       <Filter>Header Files\Patterns</Filter>
-    </ClInclude>
-    <ClInclude Include="GradientMap.h">
-      <Filter>Header Files\Gradient</Filter>
-    </ClInclude>
-    <ClInclude Include="GradientRamp.h">
-      <Filter>Header Files\Gradient</Filter>
-    </ClInclude>
-    <ClInclude Include="IGradient.h">
-      <Filter>Header Files\Gradient</Filter>
-    </ClInclude>
-    <ClInclude Include="BerconSC.h">
-      <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="commonMath.h">
       <Filter>Header Files\Misc</Filter>
@@ -143,11 +99,14 @@
     <ClInclude Include="BerconRefMaker.h">
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
+    <ClInclude Include="BerconSC.h">
+      <Filter>Header Files\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="curvectrl.h">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BerconDistortion.h">
-      <Filter>Header Files\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

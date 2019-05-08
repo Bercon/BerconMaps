@@ -15,7 +15,7 @@ specific language governing permissions and limitations
 under the License.   
 */
 
-#include "Max.h"
+#include "max.h"
 #include "resource.h"
 #include "istdplug.h"
 #include "icurvctl.h"

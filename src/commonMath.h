@@ -40,29 +40,29 @@ inline float length(float a, float b, float c) { return sqrt(a*a + b*b + c*c); }
 
 // Macros
 
-#define SMOOTH(d) (d*d*(3.f-2.f*d))
+#define SMOOTH(d) ((d)*(d)*(3.f-2.f*(d)))
 
 #define MAX(a,b) (((a) > (b)) ? (a) : (b))
 
 #define MIN(a,b) (((a) > (b)) ? (b) : (a))
 
-#define FASTFLOOR(x) ((x) < 0 ? ((int)x-1) : ((int)x) )
+#define FASTFLOOR(x) ((x) < 0 ? ((int)(x)-1) : ((int)(x)) )
 
-#define FASTFLOORI(x) ((x) < 0 ? ((int)x-1) : ((int)x) )
+#define FASTFLOORI(x) ((x) < 0 ? ((int)(x)-1) : ((int)(x)) )
 
-#define FASTFLOORL(x) ((x) < 0 ? ((long)x-1) : ((long)x) )
+#define FASTFLOORL(x) ((x) < 0 ? ((long)(x)-1) : ((long)(x)) )
 
-#define FADE(t) ( t * t * t * ( t * ( t * 6 - 15 ) + 10 ) )
+#define FADE(t) ( (t) * (t) * (t) * ( (t) * ( (t) * 6 - 15 ) + 10 ) )
 
 #define LERP(t, a, b) ((a) + (t)*((b)-(a)))
 
-#define ABS(x) ((x) < 0 ? (-x) : (x))
+#define ABS(x) ((x) < 0 ? (-(x)) : (x))
 
 //#define LERP(a, b, blend) (b + blend * (a-b))
 
-#define SFRAND() ((double)rand() / (double)RAND_MAX) // Random number (0..1)
+#define SFRAND() ((double)rand() / ((double)(RAND_MAX))) // Random number (0..1)
 
-#define UFRAND() ((double)rand() / (double)RAND_MAX * 2. - 1.) // Random number (-1..1)
+#define UFRAND() ((double)rand() / ((double)(RAND_MAX)) * 2. - 1.) // Random number (-1..1)
 
 #define SQRT2 1.41421356 // sqrt(2);
 

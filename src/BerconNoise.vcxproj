@@ -44,14 +44,14 @@
       <ProxyFileName>.\midl\x64\%(Filename)_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
-      <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\include\Qt;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\samples\Include;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\howto\3dsmaxPluginWizard\Templates\1033;C:\Qt\5.11.2\msvc2017_64\include;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\samples\Include;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AssemblerOutput>All</AssemblerOutput>
-      <SupportJustMyCode>false</SupportJustMyCode>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <ResourceCompile />
     <Link>
@@ -69,6 +69,8 @@
       <ForceFileOutput>Enabled</ForceFileOutput>
       <AssemblyDebug>true</AssemblyDebug>
       <CLRUnmanagedCodeCheck>true</CLRUnmanagedCodeCheck>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
     <Xdcmake />
     <Bscmake />
@@ -84,44 +86,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="BerconNoise.def" />
+    <None Include="ClassDiagram.cd" />
     <None Include="logo.bmp" />
     <None Include="notes.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BerconDistortion.cpp" />
     <ClCompile Include="DllEntry.cpp" />
     <ClCompile Include="BerconCommon.cpp" />
-    <ClCompile Include="BerconGradient.cpp" />
     <ClCompile Include="BerconNoise.cpp" />
-    <ClCompile Include="BerconTile.cpp" />
-    <ClCompile Include="BerconWood.cpp" />
-    <ClCompile Include="GradientRamp.cpp" />
-    <ClCompile Include="IGradient.cpp" />
     <ClCompile Include="fractal.cpp" />
     <ClCompile Include="noise.cpp" />
     <ClCompile Include="perlin.cpp" />
-    <ClCompile Include="tile.cpp" />
     <ClCompile Include="worley.cpp" />
     <ClCompile Include="commonMath.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BerconCommon.h" />
-    <ClInclude Include="BerconDistortion.h" />
-    <ClInclude Include="BerconGradient.h" />
     <ClInclude Include="BerconNoise.h" />
     <ClInclude Include="BerconRefMaker.h" />
-    <ClInclude Include="BerconTile.h" />
-    <ClInclude Include="BerconWood.h" />
+    <ClInclude Include="BerconSC.h" />
+    <ClInclude Include="curvectrl.h" />
     <ClInclude Include="fractal.h" />
     <ClInclude Include="noise.h" />
     <ClInclude Include="perlin.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="tile.h" />
     <ClInclude Include="worley.h" />
-    <ClInclude Include="GradientMap.h" />
-    <ClInclude Include="GradientRamp.h" />
-    <ClInclude Include="IGradient.h" />
-    <ClInclude Include="BerconSC.h" />
     <ClInclude Include="commonMath.h" />
   </ItemGroup>
   <ItemGroup>

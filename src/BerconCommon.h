@@ -40,8 +40,9 @@ under the License.
 #include "resource.h"
 #include "curvectrl.h"
 #include "BerconSC.h"
+#include "tchar.h"
 
-
+extern TCHAR* GetString(int id);
   
 #ifndef NOTIFY_REF_CHANGED_ARGS
 #if MAX_RELEASE < 16900
@@ -60,11 +61,8 @@ under the License.
 #define BerconDistortion_CLASS_ID	Class_ID(0x6017b625, 0x2b7c52d6)
 */
 
-#define BerconGradient_CLASS_ID			Class_ID(0x330ebc1e, 0x50cf90f7)
-#define BerconWood_CLASS_ID				Class_ID(0x2bf7396b, 0x783d8f00)
-#define BerconTile_CLASS_ID				Class_ID(0x7cb81794, 0x2c029e21)
 #define BerconNoise_CLASS_ID			Class_ID(0x2a5e5975, 0x7bb5823e)
-#define BerconDistortion_CLASS_ID		Class_ID(0x2fb3e417, 0x7d47fd34)
+
 
 // Useful macros
 #define pblockGetValue(from, to) (pblock->GetValue(from, t, to, ivalid))
@@ -77,18 +75,18 @@ under the License.
 #define URANDF() ((float)rand() / (float)RAND_MAX * 2.f - 1.f)
 
 // Some macros for U/V/W/Range looping/mirroring etc.
-#define D_LOOP(x) x = x - (float)((int)x); if (x<0) x = 1.f + x;
+#define D_LOOP(x) x = (x) - (float)((int)(x)); if ((x)<0) x = 1.f + x;
 #define D_MIRR(x) if (x<0) x = -x; int ix = (int)x; if (ix%2==0) x = x - ix; else x = 1.f - x + ix;
 #define D_STRE(x) if (x<0) x = 0.f; else if (x>1) x = 1.f;
 
-TCHAR *GetString(int id);
 
- static void setSpinnerType(IParamMap2 *map, TimeValue t, int pb_id, int edit_id, int spin_id, int spinnerTypeWorld = 1, bool allowNegative = false) {
+
+static void setSpinnerType(IParamMap2 *map, TimeValue t, int pb_id, int edit_id, int spin_id, int spinnerTypeWorld = 1, bool allowNegative = false) {
 	HWND hWnd = map->GetHWnd();
 	if (!hWnd) return;
 
 	float val;
-	map->GetParamBlock()->GetValue(pb_id, t, val, FOREVER);
+	map->GetParamBlock()->GetValue(pb_id, t, val, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
 
 	float minVal = allowNegative ? -1000000.f : 0.f;
 
@@ -254,8 +252,6 @@ public:
 };
 
 
-
-
 class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 	public:
 		ReferenceTarget *reftarg;		
@@ -302,14 +298,14 @@ class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 				case WM_SHOWWINDOW: 
 					// Set correct dropdown value
 					int curIndex;
-					map->GetParamBlock()->GetValue(xyz_map, t, curIndex, FOREVER);
-					SendMessage(GetDlgItem(hWnd, IDC_TYPE), CB_SETCURSEL, (WPARAM)curIndex, 0);
-					map->GetParamBlock()->GetValue(xyz_tile_x, t, curIndex, FOREVER);
-					SendMessage(GetDlgItem(hWnd, IDC_TIL_X), CB_SETCURSEL, (WPARAM)curIndex, 0);
-					map->GetParamBlock()->GetValue(xyz_tile_y, t, curIndex, FOREVER);
-					SendMessage(GetDlgItem(hWnd, IDC_TIL_Y), CB_SETCURSEL, (WPARAM)curIndex, 0);
-					map->GetParamBlock()->GetValue(xyz_tile_z, t, curIndex, FOREVER);
-					SendMessage(GetDlgItem(hWnd, IDC_TIL_Z), CB_SETCURSEL, (WPARAM)curIndex, 0);
+					map->GetParamBlock()->GetValue(xyz_map, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					SendMessage(GetDlgItem(hWnd, IDC_TYPE), CB_SETCURSEL, WPARAM(curIndex), 0);
+					map->GetParamBlock()->GetValue(xyz_tile_x, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					SendMessage(GetDlgItem(hWnd, IDC_TIL_X), CB_SETCURSEL, WPARAM(curIndex), 0);
+					map->GetParamBlock()->GetValue(xyz_tile_y, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					SendMessage(GetDlgItem(hWnd, IDC_TIL_Y), CB_SETCURSEL, WPARAM(curIndex), 0);
+					map->GetParamBlock()->GetValue(xyz_tile_z, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					SendMessage(GetDlgItem(hWnd, IDC_TIL_Z), CB_SETCURSEL, WPARAM(curIndex), 0);
 					break;
 				case WM_DESTROY:			
 				default: return FALSE;
@@ -322,20 +318,20 @@ class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 
 class BerconXYZ {
 private:		
-	int mappingType, mappingChannel;
+	int mappingType{}, mappingChannel{};
 	float offX, offY, offZ;
-	float sizeX, sizeY, sizeZ;
-	float angX, angY, angZ;
-	int tileX, tileY, tileZ;
-	float offX2, offY2, offZ2;
-	float sizeX2, sizeY2, sizeZ2;
-	float angX2, angY2, angZ2;
-	int p_seed, p_randObj, p_randMat, p_randPar;
-	float filtering;
+	float sizeX{}, sizeY{}, sizeZ{};
+	float angX{}, angY{}, angZ{};
+	int tileX{}, tileY{}, tileZ{};
+	float offX2{}, offY2{}, offZ2{};
+	float sizeX2{}, sizeY2{}, sizeZ2{};
+	float angX2{}, angY2{}, angZ2{};
+	int p_seed{}, p_randObj{}, p_randMat{}, p_randPar{};
+	float filtering{};
 
-	BOOL lock;
+	BOOL lock{};
 
-	bool variance;
+	bool variance{};
 
 	Point3 b[3];
 
