@@ -2,13 +2,15 @@ This branch is a forked version that aims to streamline and improve the existing
 Intended platforms are 3DS Max 2020+.
 Testing platform is an Intel X-series CPU running Windows 10 (with latest feature updates).
 
---  Remove redundant custom control curve (it's currently crashing anything after Max 2017)
+--  Remove redundant custom control curve (it's currently crashing anything after Max 2017) [removed!]
 
---  Optimize code and implement basic AVX support
+--  Optimize code and implement basic AVX support [just changed compiler flag to compile for AVX]
 
 --  Fix Resource ID issues [fixed!]
 
---  Fix unintended behavior when used in the Slate Material editor
+--  Fix unintended behavior when used in the Slate Material editor [fixed!]
+
+--  Reintegrate Distortion, Mapping, Gradient, Tile and Wood [in progress]
 
 Fork date: March 26, 2018
 Update: May 2019 // Resuming work on this project
@@ -25,7 +27,7 @@ License
 
 Apache License, Version 2.0
 
-Read LICENSE file
+Read LICENSE file [no change from License under Jerry Ylilammi]
 
 Contributing
 -------------------------
