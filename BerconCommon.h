@@ -71,9 +71,9 @@ extern TCHAR* GetString(int id);
 #define URANDF() ((float)rand() / (float)RAND_MAX * 2.f - 1.f)
 
 // Some macros for U/V/W/Range looping/mirroring etc.
-#define D_LOOP(x) x = (x) - (float)((int)(x)); if ((x)<0) x = 1.f + x;
-#define D_MIRR(x) if (x<0) x = -x; int ix = (int)x; if (ix%2==0) x = x - ix; else x = 1.f - x + ix;
-#define D_STRE(x) if (x<0) x = 0.f; else if (x>1) x = 1.f;
+#define D_LOOP(x) x = (x) - (float)((int)(x)); if ((x)<0) ((x)) = 1.f + (x);
+#define D_MIRR(x) if ((x)<0) (x) = -(x); int ix = (int)(x); if (ix%2==0) (x) = (x) - ix; else (x) = 1.f - (x) + ix;
+#define D_STRE(x) if ((x)<0) (x) = 0.f; else if ((x)>1) (x) = 1.f;
 
 #pragma warning (push)
 #pragma warning(disable: 4505)
@@ -85,7 +85,7 @@ static auto setSpinnerType(IParamMap2* map, TimeValue t, int pb_id, int edit_id,
 	if (!hWnd) return;
 
 	float val;
-	map->GetParamBlock()->GetValue(pb_id, t, val, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+	map->GetParamBlock()->GetValue(pb_id, t, val, Interval(int(0x80000000), int(0x7fffffff)));
 
 	float minVal = allowNegative ? -1000000.f : 0.f;
 
@@ -256,7 +256,8 @@ class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 	public:
 		ReferenceTarget *reftarg;		
 		BerconXYZDlgProc(ReferenceTarget *m) {reftarg = m;}		
-		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM /*wParam*/,LPARAM /*lParam*/) {
+		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM /*wParam*/,LPARAM /*lParam*/) override
+		{
 			HWND hwndMap;
 			ICustButton* custButton;
 			switch (msg) {
@@ -312,8 +313,8 @@ class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 			}
 			return TRUE;
 		}
-		void DeleteThis() {delete this;}
-		void SetThing(ReferenceTarget *m) { reftarg = m; }
+		void DeleteThis() override {delete this;}
+		void SetThing(ReferenceTarget *m) override { reftarg = m; }
 };
 
 class BerconXYZ {
@@ -336,12 +337,14 @@ private:
 	Point3 b[3];
 
 public:
+
+	BerconXYZ() { offX = 0; offY = 0; offZ = 0; mode2D = FALSE; update(); }
+	~BerconXYZ() {}
+
+
 	Matrix3 tm;
 	Matrix3 invNoScaleTm;
 	int mode2D;
-
-	BerconXYZ() {offX=0; offY=0; offZ=0; mode2D = FALSE; update();}
-	~BerconXYZ() {}
 
 	ULONG req() { if (mappingType==0 || mappingType==1) return MTLREQ_UV; return 0; };
 	void map(int /*subMtlNum*/, BitArray& mapreq, BitArray& /*bumpreq*/) { if (mappingType==0 || mappingType==1) mapreq.Set(mappingChannel); }	
@@ -367,3 +370,9 @@ private:
 	void getBasis(Matrix3 transform, Point3* b);
 
 };
+
+class bercon_xyz : public BerconXYZ
+{
+public:
+};
+

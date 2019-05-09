@@ -178,12 +178,9 @@ public:
 	RefTargetHandle Clone(RemapDir& remap);
 	RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-	int NumSubs() { return 22; }
-	Animatable* SubAnim(int i);
+		Animatable* SubAnim(int i);
 	TSTR SubAnimName(int i);
 
-	// TODO: Maintain the number or references here 
-	 virtual int NumRefs() { return 22; }
 	RefTargetHandle GetReference(int i);
 	void SetReference(int i, RefTargetHandle rtarg);
 

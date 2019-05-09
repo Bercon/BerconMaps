@@ -17,6 +17,7 @@ under the License.
 
 #include "BerconNoise.h"
 #include "resource.h"
+#include ".\Materials\XYZGen.h"
 
 #define NCOLS		2  // Number of colors
 
