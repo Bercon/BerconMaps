@@ -37,10 +37,8 @@ under the License.
 #include "tchar.h"
 #include "resource.h"
 
+
 // #include "BerconRefMaker.h"	// This doesn't appear to do anything
-
-
-//	#include "BerconSC.h"		// This appears to not be used either
 
 
 extern TCHAR* GetString(int id);

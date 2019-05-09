@@ -22,6 +22,7 @@ under the License.
 #pragma once
 
 #include "BerconCommon.h"
+#include "BerconSC.h"
 #include "icurvctl.h"
 
 
