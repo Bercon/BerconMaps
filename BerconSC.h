@@ -80,14 +80,14 @@ public:
 	void ResetOutput(int n) { sc_->ResetOutput(n); }
 	Class_ID ClassID() { return BERCON_SHADE_CONTEXT_CLASS_ID; }
 	virtual BOOL InMtlEditor() { return sc_->InMtlEditor(); }
-	virtual int Antialias() { return sc_->Antialias(); }
+	int Antialias() override { return sc_->Antialias(); }
 	virtual int ProjType() { return sc_->ProjType(); }
 	virtual LightDesc* Light(int n) { return sc_->Light(n); }
-	virtual TimeValue CurTime() { return sc_->CurTime(); }
+	TimeValue CurTime() override { return sc_->CurTime(); }
 	virtual int NodeID() { return sc_->NodeID(); }
 	virtual INode* Node() { return sc_->Node(); }
 	virtual Object* GetEvalObject() { return sc_->GetEvalObject(); }
-	virtual Point3 BarycentricCoords() { return sc_->BarycentricCoords(); }
+	Point3 BarycentricCoords() override { return sc_->BarycentricCoords(); }
 	virtual int FaceNumber() { return sc_->FaceNumber(); }
 	virtual Point3 Normal() { return sc_->Normal(); }
 	void SetNormal(Point3 p) { sc_->SetNormal(p); }
@@ -102,15 +102,15 @@ public:
 	void SetIOR(float ior) { sc_->SetIOR(ior); }
 	float GetIOR() { return sc_->GetIOR(); }
 	virtual Point3 CamPos() { return sc_->CamPos(); }
-	virtual Point3 P(); // Overridden
-	virtual Point3 DP() { return sc_->DP(); }
-	void DP(Point3& dpdx, Point3& dpdy) { sc_->DP(dpdx, dpdx); }
+	Point3 P() override; // Overridden
+	Point3 DP() override { return sc_->DP(); }
+	void DP(Point3& dpdx, Point3& dpdy) override { sc_->DP(dpdx, dpdy); }		// error fixed May 2019
 	Point3 PObj() override; // Overridden
-	virtual Point3 DPObj() { return sc_->DPObj(); }
+	Point3 DPObj() override { return sc_->DPObj(); }
 	virtual Box3 ObjectBox() { return sc_->ObjectBox(); }
 	inline Point3 PObjRelBox() override; // Overridden
 	Point3 DPObjRelBox() { return sc_->DPObjRelBox(); }
-	inline void ScreenUV(Point2& uv, Point2& duv) override; // Overridden		[why are some of these 'overridden' instead of virtual?]
+	inline void ScreenUV(Point2& uv, Point2& duv) override; // Overridden		[why are some of these 'overridden' instead of virtual? I ask 'cuz I suck at C++]
 	virtual IPoint2 ScreenCoord() { return sc_->ScreenCoord(); }
 	virtual Point2 SurfacePtScreen() { return sc_->SurfacePtScreen(); }
 	inline Point3 UVW(int channel) override; // Overridden
@@ -163,26 +163,30 @@ public:
 		else return NULL;
 	}
 
-	template<class T> void ScaledToRGB(T& energy) const { sc_->globContext->pToneOp; }
+	template<class T> void ScaledToRGB(T& /*energy*/) const { sc_->globContext->pToneOp; }
 
-	virtual ToneOperator* ScaledToRGB(float energy) const 
+	virtual ToneOperator* ScaledToRGB(float /*energy*/) const 
 	{
 		if (globContext->pToneOp) return sc_->globContext->pToneOp;
 		else return NULL;
 	}
 
-	virtual ToneOperator* ScaledToRGB() const { sc_->globContext->pToneOp; }
-
-	template<class T> void ScalePhysical(T& energy) const { sc_->globContext->pToneOp; }
-	ToneOperator* ScalePhysical(float energy) const 
+	virtual ToneOperator* ScaledToRGB() const
 	{
 		if (globContext->pToneOp) return sc_->globContext->pToneOp;
 		else return NULL;
 	}
 
-	template<class T> void ScaleRGB(T& energy) const { sc_->globContext->pToneOp; }
+	template<class T> void ScalePhysical(T& /*energy*/) const { sc_->globContext->pToneOp; }
+	ToneOperator* ScalePhysical(float /*energy*/) const 
+	{
+		if (globContext->pToneOp) return sc_->globContext->pToneOp;
+		else return NULL;
+	}
 
-	virtual ToneOperator* ScaleRGB(float energy) const 
+	template<class T> void ScaleRGB(T& /*energy*/) const { sc_->globContext->pToneOp; }
+
+	virtual ToneOperator* ScaleRGB(float /*energy*/) const 
 	{
 		if (globContext->pToneOp) return sc_->globContext->pToneOp;
 		else return NULL;

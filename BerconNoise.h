@@ -22,9 +22,8 @@ under the License.
 #pragma once
 
 #include "BerconCommon.h"
-#include "BerconSC.h"
-#include "icurvctl.h"
-
+#include "curvectrl.h"
+#include "noise.h"
 
 extern TCHAR* GetString(int id);
 
@@ -73,10 +72,11 @@ public:
 	// Parameter block
 	IParamBlock2* pbXYZ;
 	IParamBlock2* pblock; //ref 0
-	//		IParamBlock2	*pbCurve;	//ref CURVEPB_REF
+	IParamBlock2* pbCurve; //ref CURVEPB_REF
 	IParamBlock2* pbMap; //ref PBMAP_REF
 
-	BerconXYZ berconXYZ;
+	
+	BerconXYZ berconXYZ;			// [does this belong here?]
 
 	Color col[2];
 	Texmap* subtex[NOISE_NSUBTEX]; //array of sub-materials
@@ -86,42 +86,42 @@ public:
 	Interval ivalid;
 
 	// Curve
-	//		ICurveCtl* curve;				
-	//		BOOL useCurve;
+	ICurveCtl* cc_curve;
+	BOOL useCurve;
 
 	// From ResourceMakerCallback		
-	/*		virtual BOOL SetCustomImageList(HIMAGELIST& hCTools, ICurveCtl* pCCtl) { return FALSE; };
-																										\\ Put this back if you want custom images and tooltips 
-			virtual BOOL GetToolTip(int iButton, MSTR& ToolTip, ICurveCtl* pCCtl) { return FALSE; };
-	*/
+	virtual BOOL SetCustomImageList(HIMAGELIST& hCTools, ICurveCtl* pCCtl) { return FALSE; };
+																										
+	virtual BOOL GetToolTip(int iButton, MSTR& ToolTip, ICurveCtl* pCCtl) { return FALSE; };
 
-	/*
-			virtual void NewCurveCreatedCallback(int curvenum, ICurveCtl* pCCtl)
-			{
-				ICurve* pCurve = NULL;
-				pCurve = pCCtl->GetControlCurve(curvenum);
-				TimeValue t = GetCOREInterface()->GetTime();
-				CurvePoint pt = pCurve->GetPoint(t, 0);
-				pt.p.y = 0.f;
-				pCurve->SetPoint(t, 0, &pt);
-				pCurve->SetPenProperty(RGB(0, 0, 0));
-				pCurve->SetDisabledPenProperty(RGB(128, 128, 128));
-				pt = pCurve->GetPoint(t, 1);
-				pt.p.y = 1.f;
-				pCurve->SetPoint(t, 1, &pt);
-			}
-	
-			virtual void ResetCallback(int curvenum, ICurveCtl* pCCtl)
-			{
-				ICurve* pCurve = NULL;
-				pCurve = pCCtl->GetControlCurve(curvenum);
-				if (pCurve)
-				{
-					pCurve->SetNumPts(2);
-					NewCurveCreatedCallback(curvenum, pCCtl);
-				}
-			}
-		*/
+
+
+	virtual void NewCurveCreatedCallback(int curvenum, ICurveCtl* pCCtl)
+	{
+		ICurve* pCurve = NULL;
+		pCurve = pCCtl->GetControlCurve(curvenum);
+		TimeValue t = GetCOREInterface()->GetTime();
+		CurvePoint pt = pCurve->GetPoint(t, 0);
+		pt.p.y = 0.f;
+		pCurve->SetPoint(t, 0, &pt);
+		pCurve->SetPenProperty(RGB(0, 0, 0));
+		pCurve->SetDisabledPenProperty(RGB(128, 128, 128));
+		pt = pCurve->GetPoint(t, 1);
+		pt.p.y = 1.f;
+		pCurve->SetPoint(t, 1, &pt);
+	}
+
+	virtual void ResetCallback(int curvenum, ICurveCtl* pCCtl)
+	{
+		ICurve* pCurve = NULL;
+		pCurve = pCCtl->GetControlCurve(curvenum);
+		if (pCurve)
+		{
+			pCurve->SetNumPts(2);
+			NewCurveCreatedCallback(curvenum, pCCtl);
+		}
+	}
+
 	// Interactive Display
 	TexHandle* texHandle;
 	Interval texHandleValid;
@@ -152,7 +152,6 @@ public:
 		berconXYZ.map(subMtlNum, mapreq, bumpreq);
 	}
 
-
 	int NumSubTexmaps() { return NOISE_NSUBTEX; }
 	Texmap* GetSubTexmap(int i) { return subtex[i]; }
 	void SetSubTexmap(int i, Texmap* m);
@@ -177,15 +176,17 @@ public:
 	void GetClassName(TSTR& s) { s = GetString(IDS_CLASS_NAME); }
 
 	RefTargetHandle Clone(RemapDir& remap);
-	RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
+	RefResult NotifyRefChanged(const Interval &changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message, BOOL propagate);
+	
 
-		Animatable* SubAnim(int i);
+	Animatable* SubAnim(int i);
 	TSTR SubAnimName(int i);
+	
 
-	RefTargetHandle GetReference(int i);
+		RefTargetHandle GetReference(int i);
 	void SetReference(int i, RefTargetHandle rtarg);
 
-	int NumParamBlocks() { return 3; }
+	int NumParamBlocks() { return 4; }
 
 	IParamBlock2* GetParamBlock(int i)
 	{
@@ -193,7 +194,8 @@ public:
 		{
 		case 0: return pblock;
 		case 1: return pbMap;
-		case 2: return pbXYZ;
+		case 2: return pbCurve;
+		case 3: return pbXYZ;
 		}
 		return NULL;
 	}
@@ -201,7 +203,7 @@ public:
 	IParamBlock2* GetParamBlockByID(BlockID id)
 	{
 		if (pblock->ID() == id) return pblock;
-		//		if (pbCurve->ID() == id) return pbCurve;
+		if (pbCurve->ID() == id) return pbCurve;
 		if (pbMap->ID() == id) return pbMap;
 		if (pbXYZ->ID() == id) return pbXYZ;
 		return NULL;
@@ -216,7 +218,7 @@ public:
 	void* GetInterface(ULONG id)
 	{
 		if (id == I_RESMAKER_INTERFACE)
-			return (void *)(ResourceMakerCallback*)this;
+			return (void *)static_cast<ResourceMakerCallback*>(this);
 		else
 			return Texmap::GetInterface(id);
 	}

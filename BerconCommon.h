@@ -22,6 +22,7 @@ under the License.
 #pragma once
 
 #include <max.h>
+
 #include <3dsmaxdlport.h>
 #include <maxscript/maxscript.h>
 #include <istdplug.h>
@@ -33,10 +34,8 @@ under the License.
 #include <texutil.h>
 #include <plugapi.h>
 #include <bitmap.h>
-#include "fractal.h"
-#include "tchar.h"
+#include <tchar.h>
 #include "resource.h"
-
 
 // #include "BerconRefMaker.h"	// This doesn't appear to do anything
 
@@ -55,8 +54,11 @@ extern TCHAR* GetString(int id);
 #define BerconDistortion_CLASS_ID	Class_ID(0x6017b625, 0x2b7c52d6)
 */
 
+#define BerconGradient_CLASS_ID			Class_ID(0x330ebc1e, 0x50cf90f7)
+#define BerconWood_CLASS_ID				Class_ID(0x2bf7396b, 0x783d8f00)
+#define BerconTile_CLASS_ID				Class_ID(0x7cb81794, 0x2c029e21)
 #define BerconNoise_CLASS_ID			Class_ID(0x2a5e5975, 0x7bb5823e)
-
+#define BerconDistortion_CLASS_ID		Class_ID(0x2fb3e417, 0x7d47fd34)
 
 // Useful macros
 #define pblockGetValue(from, to) (pblock->GetValue(from, t, to, ivalid))
@@ -83,7 +85,8 @@ static auto setSpinnerType(IParamMap2* map, TimeValue t, int pb_id, int edit_id,
 	if (!hWnd) return;
 
 	float val;
-	map->GetParamBlock()->GetValue(pb_id, t, val, Interval(int(0x80000000), int(0x7fffffff)));
+
+	map->GetParamBlock()->GetValue(pb_id, t, val, FOREVER);		//  Should be an address, not a pointer? [how does this even work]
 
 	float minVal = allowNegative ? -1000000.f : 0.f;
 
@@ -253,8 +256,9 @@ public:
 class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 	public:
 		ReferenceTarget *reftarg;		
-		BerconXYZDlgProc(ReferenceTarget *m) {reftarg = m;}		
-		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM /*wParam*/,LPARAM /*lParam*/) override
+		BerconXYZDlgProc(ReferenceTarget *m) {reftarg = m;}
+
+		virtual INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM /*wParam*/,LPARAM /*lParam*/) override
 		{
 			HWND hwndMap;
 			ICustButton* custButton;
@@ -297,13 +301,13 @@ class BerconXYZDlgProc : public ParamMap2UserDlgProc {
 				case WM_SHOWWINDOW: 
 					// Set correct dropdown value
 					int curIndex;
-					map->GetParamBlock()->GetValue(xyz_map, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					map->GetParamBlock()->GetValue(xyz_map, t, curIndex, FOREVER);
 					SendMessage(GetDlgItem(hWnd, IDC_TYPE), CB_SETCURSEL, WPARAM(curIndex), 0);
-					map->GetParamBlock()->GetValue(xyz_tile_x, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					map->GetParamBlock()->GetValue(xyz_tile_x, t, curIndex, FOREVER);
 					SendMessage(GetDlgItem(hWnd, IDC_TIL_X), CB_SETCURSEL, WPARAM(curIndex), 0);
-					map->GetParamBlock()->GetValue(xyz_tile_y, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					map->GetParamBlock()->GetValue(xyz_tile_y, t, curIndex, FOREVER);
 					SendMessage(GetDlgItem(hWnd, IDC_TIL_Y), CB_SETCURSEL, WPARAM(curIndex), 0);
-					map->GetParamBlock()->GetValue(xyz_tile_z, t, curIndex, Interval(TimeValue(0x80000000), TimeValue(0x7fffffff)));
+					map->GetParamBlock()->GetValue(xyz_tile_z, t, curIndex, FOREVER);
 					SendMessage(GetDlgItem(hWnd, IDC_TIL_Z), CB_SETCURSEL, WPARAM(curIndex), 0);
 					break;
 				case WM_DESTROY:			
@@ -337,7 +341,7 @@ private:
 public:
 
 	BerconXYZ() { offX = 0; offY = 0; offZ = 0; mode2D = FALSE; update(); }
-	~BerconXYZ() {}
+	~BerconXYZ() = default;
 
 
 	Matrix3 tm;

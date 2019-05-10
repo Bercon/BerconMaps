@@ -16,16 +16,16 @@
 
 #ifndef COMPILE_MULTIMAP
 
-// #include "BerconWood.h"	// why???
+// #include "BerconWood.h"
 
 // Define Bercon Noise
 
 extern ClassDesc2* GetBerconNoiseDesc();
-/*extern ClassDesc2* GetBerconWoodDesc();
+extern ClassDesc2* GetBerconWoodDesc();
 extern ClassDesc2* GetBerconTileDesc();
 extern ClassDesc2* GetBerconDistortionDesc();
 extern ClassDesc2* GetBerconGradientDesc();
-*/
+
 extern void InitGradientControls();
 
 extern TCHAR *GetString(int id)
@@ -62,18 +62,18 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, ULONG fdwReason, LPVOID /*lpvReserved*/)
 // This function returns the number of plug-in classes this DLL
 
 __declspec( dllexport ) int LibNumberClasses() {
-	return 1;
+	return 5;
 }
 
 // This function returns the number of plug-in classes this DLL
 __declspec( dllexport ) ClassDesc* LibClassDesc(int i) {
 	switch(i) {
 		case 0: return GetBerconNoiseDesc();
-		/*case 1: return GetBerconWoodDesc();
+		case 1: return GetBerconWoodDesc();
 		case 2: return GetBerconTileDesc();
 		case 3: return GetBerconDistortionDesc();
 		case 4: return GetBerconGradientDesc();
-		*/
+
 		default: return 0;
 	}
 }
