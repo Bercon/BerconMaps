@@ -108,11 +108,11 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-		int NumSubs() { return 11; }
+//		int NumSubs() { return 11; }
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 
-		int NumRefs() { return 11; }
+//		int NumRefs() { return 11; }
 		RefTargetHandle GetReference(int i);
 		void SetReference(int i, RefTargetHandle rtarg);
 

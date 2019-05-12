@@ -97,8 +97,8 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		void gradSelKey();
 		void gradReset() { resetKeys(); }
 
-		// Curve
-		ICurveCtl* curve;				
+		// curveCtrl
+		ICurveCtl* bcCurve;				
 		BOOL p_curveOn;
 		// From ResourceMakerCallback		
 		BOOL SetCustomImageList(HIMAGELIST &hCTools,ICurveCtl *pCCtl) { return TRUE; };

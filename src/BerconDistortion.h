@@ -87,12 +87,12 @@ class BerconDistortion : public Texmap {
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-		int NumSubs() { return 2+DIST_NSUBTEX; }
+//		int NumSubs() { return 2+DIST_NSUBTEX; }
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 
 		// TODO: Maintain the number or references here 
-		int NumRefs() { return 5; }
+//		int NumRefs() { return 5; }
 		RefTargetHandle GetReference(int i);
 		void SetReference(int i, RefTargetHandle rtarg);
 
