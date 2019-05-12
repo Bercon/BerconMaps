@@ -17,29 +17,29 @@ under the License.
 
 #include "curvectrl.h"	
 
-void CurveCtrl::update(ICurveCtl *curve, HWND hParent, ReferenceMaker *resMaker) {
-	curve->SetCustomParentWnd(hParent);
+void CurveCtrl::update(ICurveCtl *bcCurve, HWND hParent, ReferenceMaker *resMaker) {
+	bcCurve->SetCustomParentWnd(hParent);
 #if MAX_RELEASE >= 18900
-	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(resMaker));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceTarget*>(resMaker));
 #else
-	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(resMaker));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceMaker*>(resMaker));
 #endif
 	BitArray ba = BitArray(1);			
 	ba.SetAll();
-	curve->SetDisplayMode(ba);
-	curve->EnableDraw(TRUE);
-	curve->SetActive(TRUE);
-	curve->SetZoomValues(256.f, 128.f);
-	curve->SetScrollValues(-16, -45);
-	curve->Redraw();
+	bcCurve->SetDisplayMode(ba);
+	bcCurve->EnableDraw(TRUE);
+	bcCurve->SetActive(TRUE);
+	bcCurve->SetZoomValues(256.f, 128.f);
+	bcCurve->SetScrollValues(-16, -45);
+	bcCurve->Redraw();
 }
-void CurveCtrl::disable(ICurveCtl *curve) {
-	curve->SetActive(FALSE);
-	curve->EnableDraw(FALSE);	
+void CurveCtrl::disable(ICurveCtl *bcCurve) {
+	bcCurve->SetActive(FALSE);
+	bcCurve->EnableDraw(FALSE);	
 }
 
-void CurveCtrl::init(ICurveCtl *curve) {	
-	curve->SetTitle(L"Function value curve");
+void CurveCtrl::init(ICurveCtl *bcCurve) {	
+	bcCurve->SetTitle(L"Function value bcCurve");
 
 	// UI
 	DWORD flags = CC_NONE;				
@@ -64,15 +64,15 @@ void CurveCtrl::init(ICurveCtl *curve) {
 	flags |= CC_RCMENU_INSERT_BEZIER;
 	flags |= CC_RCMENU_DELETE;
 	
-	curve->SetCCFlags(flags);
+	bcCurve->SetCCFlags(flags);
 
 	// Range	
-	curve->SetXRange(0.0f,1.0f);
-	curve->SetYRange(0.0f,1.0f);
+	bcCurve->SetXRange(0.0f,1.0f);
+	bcCurve->SetYRange(0.0f,1.0f);
 
-	// Setup curve			
-	curve->SetNumCurves(1, TRUE);
-	ICurve *pCurve = curve->GetControlCurve(0);
+	// Setup bcCurve			
+	bcCurve->SetNumCurves(1, TRUE);
+	ICurve *pCurve = bcCurve->GetControlCurve(0);
 	pCurve->SetNumPts(2);
 	pCurve->SetPenProperty( RGB(0,0,0));
 	pCurve->SetDisabledPenProperty( RGB(128,128,128));

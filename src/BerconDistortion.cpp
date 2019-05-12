@@ -35,32 +35,32 @@ static XYZ_Desc xyz_blk(&BerconDistortionDesc, COORD_REF, xyz_params, 0, 1, 1, 1
 
 enum { map1, distortion_map, distortion_map2, use_distortion, distortion_str, };
 
-static ParamBlockDesc2 BerconDistortion_param_blk ( BerconDistortion_params, _T("params"),  0, &BerconDistortionDesc, 
+static ParamBlockDesc2 BerconDistortion_param_blk ( BerconDistortion_params, _M("params"),  0, &BerconDistortionDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, PBLOCK_REF, 	
 	IDD_PANEL_DISTORTION, IDS_PARAMS, 0, 0, NULL,
 	// params
 	// Distortion controls
-	map1,		_T("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_MAP1,
+	map1,		_M("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_MAP1,
 		p_refno,		MAP3_REF,
 		p_subtexno,		2,
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_MAP1,
 		p_end,
-	distortion_map,		_T("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
+	distortion_map,		_M("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
 		p_refno,		MAP1_REF,
 		p_subtexno,		0,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TEX,
 		p_end,
-	distortion_map2,	_T("map2"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP2,
+	distortion_map2,	_M("map2"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP2,
 		p_refno,		MAP2_REF,
 		p_subtexno,		1,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TEX2,
 		p_end,
-	distortion_str,	_T("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
+	distortion_str,	_M("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
 		p_default,		0.1f,
 		p_range,		0.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_DISTORTION_EDIT, IDC_DISTORTION_SPIN, 0.001f, 
 		p_end,
-	use_distortion,	_T("useDistortion"), TYPE_BOOL,			0,				IDS_USE_DISTORTION,
+	use_distortion,	_M("useDistortion"), TYPE_BOOL,			0,				IDS_USE_DISTORTION,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_USE_DISTORTION,
 		p_end,
@@ -147,7 +147,7 @@ TSTR BerconDistortion::GetSubTexmapSlotName(int i) {
 		case 0:  return TSTR(GetString(IDS_DISTORTION_MAP)); 
 		case 1:  return TSTR(GetString(IDS_DISTORTION_MAP2)); 
 		case 2:  return TSTR(GetString(IDS_MAP1)); 
-		default: return TSTR(_T(""));
+		default: return TSTR(_M(""));
 	}
 }
 

@@ -101,186 +101,186 @@ enum {
 //ParamDlg* BerconWood::xyzGenDlg;
 ParamDlg* BerconWood::texoutDlg;
 
-static ParamBlockDesc2 BerconWood_param_blk ( BerconWood_params, _T("params"),  0, &BerconWoodDesc, 
+static ParamBlockDesc2 BerconWood_param_blk ( BerconWood_params, _M("params"),  0, &BerconWoodDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, PBLOCK_REF, 	
 	IDD_PANEL_WOOD, IDS_PARAMS, 0, 0, NULL,
 	// params
 
 	// Standard noise controls
-	noise_color1,	 _T("color1"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR1,	
+	noise_color1,	 _M("color1"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR1,	
 		p_default,		Color(0.768f, 0.568f, 0.25f), 
 		p_ui,			TYPE_COLORSWATCH, IDC_NOISE_COL1, 
 		p_end,
-	noise_color2,	 _T("color2"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR2,	
+	noise_color2,	 _M("color2"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR2,	
 		p_default,		Color(0.392f , 0.243f, 0.0f), 
 		p_ui,			TYPE_COLORSWATCH, IDC_NOISE_COL2, 
 		p_end,			 
-	noise_color3,	 _T("color3"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR3,	
+	noise_color3,	 _M("color3"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR3,	
 		p_default,		Color(0.549f, 0.337f, 0.0f), 
 		p_ui,			TYPE_COLORSWATCH, IDC_NOISE_COL3, 
 		p_end,
-	noise_map1,		_T("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP1,
+	noise_map1,		_M("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP1,
 		p_refno,		MAP1_REF,
 		p_subtexno,		0,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_NOISE_TEX1,
 		p_end,
-	noise_map2,		_T("map2"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP2,
+	noise_map2,		_M("map2"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP2,
 		p_refno,		MAP2_REF,
 		p_subtexno,		1,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_NOISE_TEX2,
 		p_end,
-	noise_map3,		_T("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP3,
+	noise_map3,		_M("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP3,
 		p_refno,		MAP3_REF,
 		p_subtexno,		2,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_NOISE_TEX3,
 		p_end,
-	noise_map1_on,	_T("map1Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP1ENABLE,
+	noise_map1_on,	_M("map1Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP1ENABLE,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_MAPON1,
 		p_end,
-	noise_map2_on,	_T("map2Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP2ENABLE,
+	noise_map2_on,	_M("map2Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP2ENABLE,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_MAPON2,
 		p_end,
-	noise_map3_on,	_T("map3Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP3ENABLE,
+	noise_map3_on,	_M("map3Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP3ENABLE,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_MAPON3,
 		p_end,
-	wood_size,	_T("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_WOODSIZE,
+	wood_size,	_M("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_WOODSIZE,
 		p_default,		3.f,
 		p_range,		0.001, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_WOODSIZE_EDIT, IDC_WOODSIZE_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	low_tresh, _T("treshLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
+	low_tresh, _M("treshLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
 		p_default,		0.3f,
 		p_range,		0.0f, 1.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_TRESHLOW_EDIT, IDC_TRESHLOW_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	high_tresh, _T("treshHigh"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_HIGHTHRESH,
+	high_tresh, _M("treshHigh"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_HIGHTHRESH,
 		p_default,		1.0f,
 		p_range,		0.0f, 1.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_TRESHHIGH_EDIT, IDC_TRESHHIGH_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	wood_type,	_T("woodType"),		TYPE_INT,		0,				IDS_WOOD_TYPE,		
+	wood_type,	_M("woodType"),		TYPE_INT,		0,				IDS_WOOD_TYPE,		
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_WOOD_TYPE, 0, 
 		p_end,	
 
-	trunk_str,	_T("trunkStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_TRUNKSTR,
+	trunk_str,	_M("trunkStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_TRUNKSTR,
 		p_default,		1.f,
 		p_range,		0.f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_TRUNKSTR_EDIT, IDC_TRUNKSTR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	trunk_freq,	_T("trunkFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_TRUNKFREQ,
+	trunk_freq,	_M("trunkFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_TRUNKFREQ,
 		p_default,		.04f,
 		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_TRUNKFREQ_EDIT, IDC_TRUNKFREQ_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 	
 		
-	radial_str,	_T("radialStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_RADIALSTR,
+	radial_str,	_M("radialStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_RADIALSTR,
 		p_default,		.25f,
 		p_range,		0.f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_RADIALSTR_EDIT, IDC_RADIALSTR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	radial_freq,	_T("radialFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_RADIALFREQ,
+	radial_freq,	_M("radialFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_RADIALFREQ,
 		p_default,		.1f,
 		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_RADIALFREQ_EDIT, IDC_RADIALFREQ_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	radial_z,	_T("radialZ"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_RADIALZ,
+	radial_z,	_M("radialZ"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_RADIALZ,
 		p_default,		.01f,
 		p_range,		0.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_RADIALZ_EDIT, IDC_RADIALZ_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 
-	angle_str,	_T("angleStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_ANGLESTR,
+	angle_str,	_M("angleStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_ANGLESTR,
 		p_default,		.1f,
 		p_range,		0.f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANGLESTR_EDIT, IDC_ANGLESTR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	angle_freq,	_T("angleFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_ANGLEFREQ,
+	angle_freq,	_M("angleFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_ANGLEFREQ,
 		p_default,		1.f,
 		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANGLEFREQ_EDIT, IDC_ANGLEFREQ_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	angle_rad,	_T("angleRad"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_ANGLERAD,
+	angle_rad,	_M("angleRad"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_ANGLERAD,
 		p_default,		15.f,
 		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANGLERAD_EDIT, IDC_ANGLERAD_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 
-	grain_amount,	_T("grainStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_GRAINSTR,
+	grain_amount,	_M("grainStr"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_GRAINSTR,
 		p_default,		.2f,
 		p_range,		0.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_GRAINSTR_EDIT, IDC_GRAINSTR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	grain_freq,	_T("grainFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_GRAINFREQ,
+	grain_freq,	_M("grainFreq"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_GRAINFREQ,
 		p_default,		5.f,
 		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_GRAINFREQ_EDIT, IDC_GRAINFREQ_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	lock_grain,	_T("grainLock"), TYPE_BOOL,			0,				IDS_LOCK_GRAIN,
+	lock_grain,	_M("grainLock"), TYPE_BOOL,			0,				IDS_LOCK_GRAIN,
 		p_default,		FALSE,
 		p_ui,			TYPE_CHECKBUTTON, IDC_LOCK_GRAIN,
 		p_end,
 
 
-	width_var,	_T("widthVariation"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_WIDTHVAR,
+	width_var,	_M("widthVariation"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_WIDTHVAR,
 		p_default,		.5f,
 		p_range,		0.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_WIDTHVAR_EDIT, IDC_WIDTHVAR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	gain_var,	_T("gainVariation"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_GAINVAR,
+	gain_var,	_M("gainVariation"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_GAINVAR,
 		p_default,		.75f,
 		p_range,		0.0f, 1.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_GAINVAR_EDIT, IDC_GAINVAR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	rand_seed,	_T("randomSeed"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_SEED,
+	rand_seed,	_M("randomSeed"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_SEED,
 		p_default,		12.345f,
 		p_range,		0.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SEED_EDIT, IDC_SEED_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	wood_skew,	_T("skew"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_SKEW,
+	wood_skew,	_M("skew"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_SKEW,
 		p_default,		0.75f,
 		p_range,		0.0f, 1.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SKEW_EDIT, IDC_SKEW_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 	// Sampling
-	pb_samples,	_T("samples"),   TYPE_INT,			P_ANIMATABLE,	IDS_SAMPLES,
+	pb_samples,	_M("samples"),   TYPE_INT,			P_ANIMATABLE,	IDS_SAMPLES,
 		p_default,		4,
 		p_range,		1, 1000000,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_INT, IDC_SAMPLES_EDIT, IDC_SAMPLES_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 	// Distortion controls
-	distortion_map,		_T("map4"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
+	distortion_map,		_M("map4"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
 		p_refno,		MAP4_REF,
 		p_subtexno,		3,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TEX,
 		p_end,
-	distortion_map2,	_T("map5"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP2,
+	distortion_map2,	_M("map5"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP2,
 		p_refno,		MAP5_REF,
 		p_subtexno,		4,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TEX2,
 		p_end,
-	distortion_str,	_T("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
+	distortion_str,	_M("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
 		p_default,		0.1f,
 		p_range,		0.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_DISTORTION_EDIT, IDC_DISTORTION_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	use_distortion,	_T("useDistortion"), TYPE_BOOL,			0,				IDS_USE_DISTORTION,
+	use_distortion,	_M("useDistortion"), TYPE_BOOL,			0,				IDS_USE_DISTORTION,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_USE_DISTORTION,
 		p_end,
 
 	// UVW, Output controls
-	pb_output,			_T("output"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_OUTPUT,
+	pb_output,			_M("output"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_OUTPUT,
 		p_refno,		OUTPUT_REF, 
 		p_end,
 	p_end
@@ -288,14 +288,14 @@ static ParamBlockDesc2 BerconWood_param_blk ( BerconWood_params, _T("params"),  
 
 enum { enable_curve, curve_cont };
 
-static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _T("params"),  0, &BerconWoodDesc, 
+static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _M("params"),  0, &BerconWoodDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, CURVEPB_REF, 	
 	IDD_PANEL_CURVE, IDS_CURVEPARM, 0, 1, NULL,
-	enable_curve,	_T("enableCurve"), TYPE_BOOL,			0,				IDS_OUTPUT_NOISE,
+	enable_curve,	_M("enableCurve"), TYPE_BOOL,			0,				IDS_OUTPUT_NOISE,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_ENABLE,
 		p_end,	
-	curve_cont,			_T("curveControl"),	TYPE_REFTARG,	P_OWNERS_REF,	IDS_CURVE,
+	curve_cont,			_M("curveControl"),	TYPE_REFTARG,	P_OWNERS_REF,	IDS_CURVE,
 		p_refno,		CURVE_REF, 
 		p_end,
 	p_end
@@ -306,26 +306,26 @@ enum {
 	mapOn1, mapOn2, mapOn3, mapOn4, mapOn5, mapOn6, mapOn7, mapOn8, mapOn9, mapOn10, mapOn11, mapOn12, mapOn13, mapOn14, mapOn15, mapOn16,
 };
 
-static ParamBlockDesc2 BerconMap_param_blk ( BerconMap_params, _T("params"),  0, &BerconWoodDesc, 
+static ParamBlockDesc2 BerconMap_param_blk ( BerconMap_params, _M("params"),  0, &BerconWoodDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, PBMAP_REF, 	
 	IDD_PANEL_WOOD_MAP, IDS_PBMAP, 0, 1, NULL,
 	
-	map1, _T("bmap1"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP1, p_refno, BMAP1_REF, p_subtexno, BMAP1_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP1, p_end, mapOn1, _T("bmap1Enabled"), TYPE_BOOL, 0, IDS_MAPON1, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON1, p_end,
-	map2, _T("bmap2"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP2, p_refno, BMAP2_REF, p_subtexno, BMAP2_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP2, p_end, mapOn2, _T("bmap2Enabled"), TYPE_BOOL, 0, IDS_MAPON2, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON2, p_end,
-	map3, _T("bmap3"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP3, p_refno, BMAP3_REF, p_subtexno, BMAP3_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP3, p_end, mapOn3, _T("bmap3Enabled"), TYPE_BOOL, 0, IDS_MAPON3, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON3, p_end,
-	map4, _T("bmap4"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP4, p_refno, BMAP4_REF, p_subtexno, BMAP4_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP4, p_end, mapOn4, _T("bmap4Enabled"), TYPE_BOOL, 0, IDS_MAPON4, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON4, p_end,
-	map5, _T("bmap5"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP5, p_refno, BMAP5_REF, p_subtexno, BMAP5_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP5, p_end, mapOn5, _T("bmap5Enabled"), TYPE_BOOL, 0, IDS_MAPON5, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON5, p_end,
-	map6, _T("bmap6"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP6, p_refno, BMAP6_REF, p_subtexno, BMAP6_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP6, p_end, mapOn6, _T("bmap6Enabled"), TYPE_BOOL, 0, IDS_MAPON6, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON6, p_end,
-	map7, _T("bmap7"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP7, p_refno, BMAP7_REF, p_subtexno, BMAP7_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP7, p_end, mapOn7, _T("bmap7Enabled"), TYPE_BOOL, 0, IDS_MAPON7, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON7, p_end,
-	map8, _T("bmap8"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP8, p_refno, BMAP8_REF, p_subtexno, BMAP8_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP8, p_end, mapOn8, _T("bmap8Enabled"), TYPE_BOOL, 0, IDS_MAPON8, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON8, p_end,
-	map9, _T("bmap9"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP9, p_refno, BMAP9_REF, p_subtexno, BMAP9_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP9, p_end, mapOn9, _T("bmap9Enabled"), TYPE_BOOL, 0, IDS_MAPON9, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON9, p_end,
-	map10, _T("bmap10"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP10, p_refno, BMAP10_REF, p_subtexno, BMAP10_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP10, p_end, mapOn10, _T("bmap10Enabled"), TYPE_BOOL, 0, IDS_MAPON10, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON10, p_end,
-	map11, _T("bmap11"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP11, p_refno, BMAP11_REF, p_subtexno, BMAP11_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP11, p_end, mapOn11, _T("bmap11Enabled"), TYPE_BOOL, 0, IDS_MAPON11, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON11, p_end,
-	map12, _T("bmap12"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP12, p_refno, BMAP12_REF, p_subtexno, BMAP12_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP12, p_end, mapOn12, _T("bmap12Enabled"), TYPE_BOOL, 0, IDS_MAPON12, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON12, p_end,
-	map13, _T("bmap13"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP13, p_refno, BMAP13_REF, p_subtexno, BMAP13_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP13, p_end, mapOn13, _T("bmap13Enabled"), TYPE_BOOL, 0, IDS_MAPON13, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON13, p_end,
-	map14, _T("bmap14"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP14, p_refno, BMAP14_REF, p_subtexno, BMAP14_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP14, p_end, mapOn14, _T("bmap14Enabled"), TYPE_BOOL, 0, IDS_MAPON14, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON14, p_end,
-	map15, _T("bmap15"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP15, p_refno, BMAP15_REF, p_subtexno, BMAP15_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP15, p_end, mapOn15, _T("bmap15Enabled"), TYPE_BOOL, 0, IDS_MAPON15, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON15, p_end,
-	map16, _T("bmap16"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP16, p_refno, BMAP16_REF, p_subtexno, BMAP16_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP16, p_end, mapOn16, _T("bmap16Enabled"), TYPE_BOOL, 0, IDS_MAPON16, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON16, p_end,
+	map1, _M("bmap1"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP1, p_refno, BMAP1_REF, p_subtexno, BMAP1_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP1, p_end, mapOn1, _M("bmap1Enabled"), TYPE_BOOL, 0, IDS_MAPON1, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON1, p_end,
+	map2, _M("bmap2"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP2, p_refno, BMAP2_REF, p_subtexno, BMAP2_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP2, p_end, mapOn2, _M("bmap2Enabled"), TYPE_BOOL, 0, IDS_MAPON2, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON2, p_end,
+	map3, _M("bmap3"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP3, p_refno, BMAP3_REF, p_subtexno, BMAP3_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP3, p_end, mapOn3, _M("bmap3Enabled"), TYPE_BOOL, 0, IDS_MAPON3, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON3, p_end,
+	map4, _M("bmap4"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP4, p_refno, BMAP4_REF, p_subtexno, BMAP4_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP4, p_end, mapOn4, _M("bmap4Enabled"), TYPE_BOOL, 0, IDS_MAPON4, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON4, p_end,
+	map5, _M("bmap5"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP5, p_refno, BMAP5_REF, p_subtexno, BMAP5_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP5, p_end, mapOn5, _M("bmap5Enabled"), TYPE_BOOL, 0, IDS_MAPON5, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON5, p_end,
+	map6, _M("bmap6"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP6, p_refno, BMAP6_REF, p_subtexno, BMAP6_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP6, p_end, mapOn6, _M("bmap6Enabled"), TYPE_BOOL, 0, IDS_MAPON6, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON6, p_end,
+	map7, _M("bmap7"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP7, p_refno, BMAP7_REF, p_subtexno, BMAP7_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP7, p_end, mapOn7, _M("bmap7Enabled"), TYPE_BOOL, 0, IDS_MAPON7, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON7, p_end,
+	map8, _M("bmap8"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP8, p_refno, BMAP8_REF, p_subtexno, BMAP8_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP8, p_end, mapOn8, _M("bmap8Enabled"), TYPE_BOOL, 0, IDS_MAPON8, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON8, p_end,
+	map9, _M("bmap9"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP9, p_refno, BMAP9_REF, p_subtexno, BMAP9_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP9, p_end, mapOn9, _M("bmap9Enabled"), TYPE_BOOL, 0, IDS_MAPON9, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON9, p_end,
+	map10, _M("bmap10"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP10, p_refno, BMAP10_REF, p_subtexno, BMAP10_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP10, p_end, mapOn10, _M("bmap10Enabled"), TYPE_BOOL, 0, IDS_MAPON10, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON10, p_end,
+	map11, _M("bmap11"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP11, p_refno, BMAP11_REF, p_subtexno, BMAP11_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP11, p_end, mapOn11, _M("bmap11Enabled"), TYPE_BOOL, 0, IDS_MAPON11, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON11, p_end,
+	map12, _M("bmap12"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP12, p_refno, BMAP12_REF, p_subtexno, BMAP12_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP12, p_end, mapOn12, _M("bmap12Enabled"), TYPE_BOOL, 0, IDS_MAPON12, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON12, p_end,
+	map13, _M("bmap13"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP13, p_refno, BMAP13_REF, p_subtexno, BMAP13_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP13, p_end, mapOn13, _M("bmap13Enabled"), TYPE_BOOL, 0, IDS_MAPON13, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON13, p_end,
+	map14, _M("bmap14"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP14, p_refno, BMAP14_REF, p_subtexno, BMAP14_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP14, p_end, mapOn14, _M("bmap14Enabled"), TYPE_BOOL, 0, IDS_MAPON14, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON14, p_end,
+	map15, _M("bmap15"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP15, p_refno, BMAP15_REF, p_subtexno, BMAP15_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP15, p_end, mapOn15, _M("bmap15Enabled"), TYPE_BOOL, 0, IDS_MAPON15, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON15, p_end,
+	map16, _M("bmap16"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP16, p_refno, BMAP16_REF, p_subtexno, BMAP16_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP16, p_end, mapOn16, _M("bmap16Enabled"), TYPE_BOOL, 0, IDS_MAPON16, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON16, p_end,
 
 	p_end
 );
@@ -335,15 +335,15 @@ class BerconCurveDlgProc : public ParamMap2UserDlgProc {
 		BerconWood *berconWood;		
 		BerconCurveDlgProc(BerconWood *m) {berconWood = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
-			if (berconWood->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(berconWood->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood)); // Force update curve
+			if (berconWood->bcCurve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
+				CurveCtrl::update(berconWood->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood)); // Force update bcCurve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(berconWood->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood));					
+					CurveCtrl::update(berconWood->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood));					
 					break;
 				case WM_DESTROY:
-					CurveCtrl::disable(berconWood->curve);
+					CurveCtrl::disable(berconWood->bcCurve);
 					break;
 				default: return FALSE;
 			}
@@ -351,7 +351,7 @@ class BerconCurveDlgProc : public ParamMap2UserDlgProc {
 		}
 		void DeleteThis() {delete this;}
 		void SetThing(ReferenceTarget *m) { 
-			CurveCtrl::disable(berconWood->curve); // Disable previously used curve
+			CurveCtrl::disable(berconWood->bcCurve); // Disable previously used bcCurve
 			berconWood = (BerconWood*)m;
 		}
 };
@@ -374,7 +374,7 @@ INT_PTR BerconWoodDlgProc::DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT ms
 		case WM_INITDIALOG:	{			
 			// Lock buttons
 			ICustButton* custButton = GetICustButton(GetDlgItem(hWnd, IDC_LOCK_GRAIN));
-			custButton->SetText(_T("L"));
+			custButton->SetText(_M("L"));
 			ReleaseICustButton(custButton); 
 
 			// Wood type
@@ -412,7 +412,7 @@ BerconWood::BerconWood() {
 	pbXYZ = NULL;
 	BerconWoodDesc.MakeAutoParamBlocks(this);	
 	texout = NULL;	
-	curve = NULL;	
+	bcCurve = NULL;	
 	Reset();
 }
 
@@ -425,14 +425,14 @@ void BerconWood::Reset() {
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
 	
-	if (curve) curve->DeleteMe();
-	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	if (bcCurve) bcCurve->DeleteMe();
+	bcCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
 #if MAX_RELEASE >= 18900
-	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else
-	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 #endif
-	CurveCtrl::init(curve);
+	CurveCtrl::init(bcCurve);
 	pbCurve->SetValue(enable_curve, t, FALSE);
 
 	for (int i=0; i<NSUBTEX; i++) { 
@@ -542,7 +542,7 @@ void BerconWood::Update(TimeValue t, Interval& valid) {
 			if (mapOn[i] && subtex[i])
 				mappedParameters = true;	
 
-		// Curve
+		// bcCurve
 		pbCurve->GetValue(enable_curve, t, useCurve, ivalid);
 
 		EnableStuff();		
@@ -656,7 +656,7 @@ TSTR BerconWood::GetSubTexmapSlotName(int i){
 		case BMAP15_NUM: return TSTR(GetString(IDS_MAP15)); 
 		case BMAP16_NUM: return TSTR(GetString(IDS_MAP16)); 
 		
-		default: return TSTR(_T(""));
+		default: return TSTR(_M(""));
 	}
 }
 
@@ -665,7 +665,7 @@ RefTargetHandle BerconWood::GetReference(int i)  {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
 		case OUTPUT_REF: return texout;
-		case CURVE_REF: return curve;
+		case CURVE_REF: return bcCurve;
 		case CURVEPB_REF: return pbCurve;
 		case PBMAP_REF: return pbMap;
 		default: return subtex[i-2];
@@ -677,7 +677,7 @@ void BerconWood::SetReference(int i, RefTargetHandle rtarg) {
 		case COORD_REF: pbXYZ = (IParamBlock2 *)rtarg; break;
 		case PBLOCK_REF: pblock = (IParamBlock2 *)rtarg; break;
 		case OUTPUT_REF: texout = (TextureOutput *)rtarg; break;
-		case CURVE_REF: curve = (ICurveCtl *)rtarg; break;
+		case CURVE_REF: bcCurve = (ICurveCtl *)rtarg; break;
 		case CURVEPB_REF: pbCurve = (IParamBlock2 *)rtarg; break;
 		case PBMAP_REF: pbMap = (IParamBlock2 *)rtarg; break;
 		default: subtex[i-2] = (Texmap *)rtarg; break;
@@ -690,7 +690,7 @@ RefTargetHandle BerconWood::Clone(RemapDir &remap) {
 	mnew->ReplaceReference(COORD_REF,remap.CloneRef(pbXYZ));
 	mnew->ReplaceReference(OUTPUT_REF,remap.CloneRef(texout));
 	mnew->ReplaceReference(PBLOCK_REF,remap.CloneRef(pblock));
-	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(curve));
+	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(bcCurve));
 	mnew->ReplaceReference(CURVEPB_REF,remap.CloneRef(pbCurve));
 	mnew->ReplaceReference(PBMAP_REF,remap.CloneRef(pbMap));
 	mnew->ivalid.SetEmpty();		
@@ -708,7 +708,7 @@ Animatable* BerconWood::SubAnim(int i) {
 	switch (i) {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
-		case CURVE_REF: return curve;
+		case CURVE_REF: return bcCurve;
 		case CURVEPB_REF: return pbCurve;
 		case OUTPUT_REF: return texout;
 		case PBMAP_REF: return pbMap;
@@ -832,7 +832,7 @@ AColor BerconWood::EvalColor(ShadeContext& sc) {
 	
 	// Apply curves
 	if (useCurve)
-		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
 
 	// Calculate color
 	c = (1.0f-d)*c0 + d*c1;
@@ -874,13 +874,13 @@ Point3 BerconWood::EvalNormalPerturb(ShadeContext& sc) {
 	Point3 np, nG, gP;
 	
 	float d = sc.filterMaps? Noise::wood(p, dpdx, dpdy, gP, wp) : Noise::wood(p, gP, wp);
-	if (useCurve) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+	if (useCurve) d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
 	
 	float g = grainON ? Fractal::grain(gP, grainA, grainF): 0.f;	
 	
 	for (int i=0; i<3; i++) {		
 		np[i] = sc.filterMaps? Noise::wood(p + DELTA * M[i], dpdx, dpdy, gP, wp) : Noise::wood(p + DELTA * M[i], gP, wp);
-		if (useCurve) np[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i]);	
+		if (useCurve) np[i] = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i]);	
 		np[i] = (np[i] - d) / DELTA;
 		if (grainON) nG[i] = Fractal::grain(gP, grainA, grainF); // gP is updated by wood()
 	}

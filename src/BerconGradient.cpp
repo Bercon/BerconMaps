@@ -112,138 +112,138 @@ ParamDlg* BerconGradient::texoutDlg;
 #define P_READ_ONLY			0x00008000	//!< this parameter is not assignable through MAXScript (allows try-and-buy 3rd-party plugins)
 */
 
-static ParamBlockDesc2 gradientmap_param_blk ( gradientmap_params, _T("params"),  0, &BerconGradientDesc, 
+static ParamBlockDesc2 gradientmap_param_blk ( gradientmap_params, _M("params"),  0, &BerconGradientDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, PBLOCK_REF, 	
 	IDD_PANEL_COLOR, IDS_PARAMS, 0, 0, NULL,
 
 	// #################### // Map / Node \\ ####################
 
-	pb_maptex,		_T("mapTex"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_MAP,
+	pb_maptex,		_M("mapTex"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_MAP,
 		p_refno,		MAPTEX_REF,
 		p_subtexno,		MAPTEX_NUM,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_MAPTEX,
 		p_end,
 
-	pb_node, 			_T("node"), 		TYPE_INODE, 	0,		IDS_NODE,
+	pb_node, 			_M("node"), 		TYPE_INODE, 	0,		IDS_NODE,
 		p_ui, 			TYPE_PICKNODEBUTTON, IDC_NODE, 
 		p_end, 
 	
 	// #################### // Keys \\ ####################
-	pb_submaps,		_T("submaps"),		TYPE_TEXMAP_TAB,	0, P_VARIABLE_SIZE|P_SUBANIM, IDS_SUBMAPS,						
+	pb_submaps,		_M("submaps"),		TYPE_TEXMAP_TAB,	0, P_VARIABLE_SIZE|P_SUBANIM, IDS_SUBMAPS,						
 		p_end,
-	pb_colors,		_T("colors"),		TYPE_FRGBA_TAB,		0, P_VARIABLE_SIZE|P_ANIMATABLE, IDS_SUBCOLORS,						
+	pb_colors,		_M("colors"),		TYPE_FRGBA_TAB,		0, P_VARIABLE_SIZE|P_ANIMATABLE, IDS_SUBCOLORS,						
 		p_end,
-	pb_positions,	_T("positions"),	TYPE_FLOAT_TAB,		0, P_VARIABLE_SIZE|P_ANIMATABLE, IDS_SUBPOSITIONS,						
+	pb_positions,	_M("positions"),	TYPE_FLOAT_TAB,		0, P_VARIABLE_SIZE|P_ANIMATABLE, IDS_SUBPOSITIONS,						
 		p_end,
 
 	// #################### // Key controls \\ ####################
 
-	pb_keyTex,		_T("keyTex"),		TYPE_TEXMAP,	P_OWNERS_REF|P_TRANSIENT|P_INVISIBLE,	IDS_KEYTEX,
+	pb_keyTex,		_M("keyTex"),		TYPE_TEXMAP,	P_OWNERS_REF|P_TRANSIENT|P_INVISIBLE,	IDS_KEYTEX,
 		p_refno,		KEYTEX_REF,
 		p_subtexno,		KEYTEX_NUM,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_KEYTEX,
 		p_end,
 
-	pb_keyNum,		_T("keyNum"),		TYPE_INT,		P_TRANSIENT,	IDS_KEYNUM,
+	pb_keyNum,		_M("keyNum"),		TYPE_INT,		P_TRANSIENT,	IDS_KEYNUM,
 		p_default,		0,
 		p_range,		0, 100000,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_INT, IDC_KEYNUM_EDIT, IDC_KEYNUM_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	pb_keyPos,		_T("keyPos"),		TYPE_FLOAT,		P_TRANSIENT,	IDS_KEYPOS,
+	pb_keyPos,		_M("keyPos"),		TYPE_FLOAT,		P_TRANSIENT,	IDS_KEYPOS,
 		p_default,		0.f,
 		p_range,		0.0, 1.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_KEYPOS_EDIT, IDC_KEYPOS_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	pb_keyCol,		_T("keyCol"),		TYPE_RGBA,		P_TRANSIENT,	IDS_KEYCOL,	
+	pb_keyCol,		_M("keyCol"),		TYPE_RGBA,		P_TRANSIENT,	IDS_KEYCOL,	
 		p_default,		Color(0.0, 0.0, 0.0), 
 		p_ui,			TYPE_COLORSWATCH, IDC_KEYCOL, 
 		p_end,
 
 	// #################### // General \\ ####################
 
-	pb_type,		_T("type"),			TYPE_INT,		P_ANIMATABLE, IDS_GRADIENTTYPE,
+	pb_type,		_M("type"),			TYPE_INT,		P_ANIMATABLE, IDS_GRADIENTTYPE,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_GRADIENT_TYPE, 0, 
 		p_end,
 		
-	pb_interpolation,_T("interpolation"),TYPE_INT,		P_ANIMATABLE, IDS_GRADIENTINTERPOLATION,
+	pb_interpolation,_M("interpolation"),TYPE_INT,		P_ANIMATABLE, IDS_GRADIENTINTERPOLATION,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_GRADIENT_INT, 0, 
 		p_end,
 
-	pb_reverse,	_T("reverse"),	TYPE_BOOL,		P_ANIMATABLE, IDS_REVERSE,
+	pb_reverse,	_M("reverse"),	TYPE_BOOL,		P_ANIMATABLE, IDS_REVERSE,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_REVERSE,
 		p_end,
 
 	// #################### // Random \\ ####################
 
-	pb_seed,		_T("seed"), 		TYPE_INT, 		P_ANIMATABLE, 	IDS_SEED, 
+	pb_seed,		_M("seed"), 		TYPE_INT, 		P_ANIMATABLE, 	IDS_SEED, 
 		p_default, 12345, p_range, 1, 99999,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_INT,	IDC_SEED_EDIT,	IDC_SEED_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	pb_rand_mat,	_T("randByMat"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYMAT,
+	pb_rand_mat,	_M("randByMat"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYMAT,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_MAT,
 		p_end,
 
-	pb_rand_obj,	_T("randByObj"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYOBJ,
+	pb_rand_obj,	_M("randByObj"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYOBJ,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_OBJ,
 		p_end,
 
-	pb_rand_par,	_T("randByPar"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYPAR,
+	pb_rand_par,	_M("randByPar"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYPAR,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_PAR,
 		p_end,
 
-	pb_rand_tile,	_T("randByTile"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYPAR,
+	pb_rand_tile,	_M("randByTile"),	TYPE_BOOL,		P_ANIMATABLE, IDS_RANDBYPAR,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_RAND_TILE,
 		p_end,	
 
 	// #################### // Range \\ ####################
 
-	pb_range_min,		_T("rangeMin"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_RANGEMIN,
+	pb_range_min,		_M("rangeMin"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_RANGEMIN,
 		p_default,		0.f,
 		p_range,		-1000000.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_RANGEMIN_EDIT, IDC_RANGEMIN_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	pb_range_max,		_T("rangeMax"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_RANGEMAX,
+	pb_range_max,		_M("rangeMax"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_RANGEMAX,
 		p_default,		1.f,
 		p_range,		-1000000.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_RANGEMAX_EDIT, IDC_RANGEMAX_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	pb_range_loop,		_T("rangeLoop"),	TYPE_INT,		P_ANIMATABLE,				IDS_RANGELOOP,
+	pb_range_loop,		_M("rangeLoop"),	TYPE_INT,		P_ANIMATABLE,				IDS_RANGELOOP,
 		p_default,		0,
 		p_ui, 			TYPE_INTLISTBOX, IDC_RANGELOOP, 0, 
 		p_end,
 
 	// #################### // UVW \\ ####################
 
-	pb_gradient_uvw,	_T("gradientUVW"),TYPE_INT,		P_ANIMATABLE, IDS_GRADIENTUVW,
+	pb_gradient_uvw,	_M("gradientUVW"),TYPE_INT,		P_ANIMATABLE, IDS_GRADIENTUVW,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_GRADIENT_UVW, 0, 
 		p_end,
 
 	// #################### // Normal \\ ####################
 
-	pb_gradient_normal,	_T("normalType"),TYPE_INT,		P_ANIMATABLE, IDS_NORMALTYPE,
+	pb_gradient_normal,	_M("normalType"),TYPE_INT,		P_ANIMATABLE, IDS_NORMALTYPE,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_GRADIENT_NORMAL, 0, 
 		p_end,
 
-	pb_gradient_normal2,	_T("normalFunction"),TYPE_INT,		P_ANIMATABLE, IDS_NORMALFUNCTION,
+	pb_gradient_normal2,	_M("normalFunction"),TYPE_INT,		P_ANIMATABLE, IDS_NORMALFUNCTION,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_GRADIENT_NORMAL2, 0, 
 		p_end,	
 
-	pb_ior,					_T("IOR"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_IOR,
+	pb_ior,					_M("IOR"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_IOR,
 		p_default,		1.6f,
 		p_range,		1.0, 1000000.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_IOR_EDIT, IDC_IOR_SPIN, SPIN_AUTOSCALE, 
@@ -251,46 +251,46 @@ static ParamBlockDesc2 gradientmap_param_blk ( gradientmap_params, _T("params"),
 
 	// #################### // Distortion \\ ####################
 
-	pb_distex,		_T("disTex"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
+	pb_distex,		_M("disTex"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
 		p_refno,		DISTEX_REF,
 		p_subtexno,		DISTEX_NUM,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTEX,
 		p_end,
 
-	pb_disstr,		_T("disStr"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
+	pb_disstr,		_M("disStr"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
 		p_default,		0.f,
 		p_range,		0.0, 1000000.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_DISTSTR_EDIT, IDC_DISTSTR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
-	pb_dison,	_T("disOn"),	TYPE_BOOL,		P_ANIMATABLE, IDS_DISTON,
+	pb_dison,	_M("disOn"),	TYPE_BOOL,		P_ANIMATABLE, IDS_DISTON,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_DISTON,
 		p_end,
 		
 	// #################### // UVW, Output \\ ####################
 
-	/*pb_coords,			_T("coords"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_COORDS,
+	/*pb_coords,			_M("coords"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_COORDS,
 		p_refno,		COORD_REF, 
 		p_end,*/
-	pb_output,			_T("output"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_OUTPUT,
+	pb_output,			_M("output"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_OUTPUT,
 		p_refno,		OUTPUT_REF, 
 		p_end,
 
 	p_end
 );
 
-static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _T("params"),  0, &BerconGradientDesc, 
+static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _M("params"),  0, &BerconGradientDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, CURVEPB_REF, 	
 	IDD_PANEL_CURVE, IDS_CURVEPARM, 0, 1, NULL,
 
-	// #################### // Curve \\ ####################
+	// #################### // bcCurve \\ ####################
 
-	pb_curve_on,	_T("enableCurve"), TYPE_BOOL,			0,				IDS_OUTPUT_NOISE,
+	pb_curve_on,	_M("enableCurve"), TYPE_BOOL,			0,				IDS_OUTPUT_NOISE,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_ENABLE,
 		p_end,	
-	pb_curve,			_T("curveControl"),	TYPE_REFTARG,	P_OWNERS_REF,	IDS_CURVE,
+	pb_curve,			_M("curveControl"),	TYPE_REFTARG,	P_OWNERS_REF,	IDS_CURVE,
 		p_refno,		CURVE_REF, 
 		p_end,
 
@@ -302,15 +302,15 @@ class BerconCurveDlgProcGRADIENT : public ParamMap2UserDlgProc {
 		BerconGradient *parentMap;		
 		BerconCurveDlgProcGRADIENT(BerconGradient *m) {parentMap = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
-			if (parentMap->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap)); // Force update curve
+			if (parentMap->bcCurve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
+				CurveCtrl::update(parentMap->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap)); // Force update bcCurve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap));					
+					CurveCtrl::update(parentMap->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap));					
 					break;
 				case WM_DESTROY:
-					CurveCtrl::disable(parentMap->curve);
+					CurveCtrl::disable(parentMap->bcCurve);
 					break;
 				default: return FALSE;
 			}
@@ -318,7 +318,7 @@ class BerconCurveDlgProcGRADIENT : public ParamMap2UserDlgProc {
 		}
 		void DeleteThis() {delete this;}
 		void SetThing(ReferenceTarget *m) { 
-			CurveCtrl::disable(parentMap->curve); // Disable previously used curve
+			CurveCtrl::disable(parentMap->bcCurve); // Disable previously used bcCurve
 			parentMap = (BerconGradient*)m;
 		}
 };
@@ -495,7 +495,7 @@ BerconGradient::BerconGradient() {
 	//xyzGen = NULL;
 	texout = NULL;	
 	pbCurve = NULL;
-	curve = NULL;
+	bcCurve = NULL;
 	p_maptex = NULL;
 	p_distex = NULL;
 	p_node = NULL;
@@ -519,14 +519,14 @@ void BerconGradient::Reset() {
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
 	
-	if (curve) curve->DeleteMe();
-	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	if (bcCurve) bcCurve->DeleteMe();
+	bcCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
 #if MAX_RELEASE >= 18900
-	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else
-	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 #endif
-	CurveCtrl::init(curve);
+	CurveCtrl::init(bcCurve);
 	pbCurve->SetValue( pb_curve_on, t, FALSE);	
 
 	pblock->SetValue( pb_type,				t, 0);
@@ -912,7 +912,7 @@ RefTargetHandle BerconGradient::GetReference(int i) {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;		
 		case OUTPUT_REF: return texout;
-		case CURVE_REF: return curve;		
+		case CURVE_REF: return bcCurve;		
 		case CURVEPB_REF: return pbCurve;
 		case MAPTEX_REF: return p_maptex;
 		case DISTEX_REF: return p_distex;
@@ -930,7 +930,7 @@ void BerconGradient::SetReference(int i, RefTargetHandle rtarg) {
 		case COORD_REF: pbXYZ = (IParamBlock2 *)rtarg; break;			
 		case PBLOCK_REF: pblock = (IParamBlock2 *)rtarg; break;		
 		case OUTPUT_REF: texout = (TextureOutput *)rtarg; break;
-		case CURVE_REF: curve = (ICurveCtl *)rtarg; break;
+		case CURVE_REF: bcCurve = (ICurveCtl *)rtarg; break;
 		case CURVEPB_REF: pbCurve = (IParamBlock2 *)rtarg; break;
 		case MAPTEX_REF: p_maptex = (Texmap *)rtarg; break;
 		case DISTEX_REF: p_distex = (Texmap *)rtarg; break;		
@@ -962,7 +962,7 @@ RefTargetHandle BerconGradient::Clone(RemapDir &remap) {
 	mnew->ReplaceReference(PBLOCK_REF,remap.CloneRef(pblock));
 	mnew->ReplaceReference(COORD_REF,remap.CloneRef(pbXYZ));
 	mnew->ReplaceReference(OUTPUT_REF,remap.CloneRef(texout));	
-	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(curve));
+	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(bcCurve));
 	mnew->ReplaceReference(CURVEPB_REF,remap.CloneRef(pbCurve));
 
 	BaseClone(this, mnew, remap);
@@ -974,7 +974,7 @@ Animatable* BerconGradient::SubAnim(int i) {
 		case PBLOCK_REF: return pblock;
 		case COORD_REF: return pbXYZ;		
 		case OUTPUT_REF: return texout;
-		case CURVE_REF: return curve;
+		case CURVE_REF: return bcCurve;
 		case CURVEPB_REF: return pbCurve;
 		case MAPTEX_REF: return p_maptex;
 		case DISTEX_REF: return p_distex;
@@ -1358,8 +1358,8 @@ AColor BerconGradient::EvalColor(ShadeContext& sc) {
 	// Limit range
 	if (!limitRange(d)) return res;
 
-	// Curve
-	if (p_curveOn) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);		
+	// bcCurve
+	if (p_curveOn) d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);		
 
 	// Get color from gradient
 	res = gradient->getColor(p_reverse?1.f-d:d, sc);
@@ -1403,7 +1403,7 @@ Point3 BerconGradient::EvalNormalPerturb(ShadeContext& sc) {
 	// Origin
 	float d = getGradientValueUVW(p) + dist;	
 	if (!limitRange(d)) return res;
-	if (p_curveOn) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);		
+	if (p_curveOn) d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);		
 	d = Intens(gradient->getColor(d, sc));
 
 	// Deltas
@@ -1416,7 +1416,7 @@ Point3 BerconGradient::EvalNormalPerturb(ShadeContext& sc) {
 			normal[i] = getGradientValueUVW(p+DELTA*M[i]) + dist;
 			if (!limitRange(normal[i])) return res;
 			if (p_curveOn) 
-				normal[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i]);
+				normal[i] = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i]);
 			normal[i] = (normal[i] - d) / DELTA;
 		}
 		normal = M[0]*normal.x + M[1]*normal.y + M[2]*normal.z;
@@ -1427,7 +1427,7 @@ Point3 BerconGradient::EvalNormalPerturb(ShadeContext& sc) {
 			normal[i] = getGradientValueUVW(p+MP[i]) + dist;
 			if (!limitRange(normal[i])) return res;
 			if (p_curveOn) 
-				normal[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i]);
+				normal[i] = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i]);
 			normal[i] = Intens(gradient->getColor(normal[i], sc));
 			normal[i] = (normal[i] - d) / DELTA;
 		}		

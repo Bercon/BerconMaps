@@ -96,152 +96,152 @@ enum {
 
 ParamDlg* BerconNoise::texoutDlg;
 
-static ParamBlockDesc2 berconnoise_param_blk ( berconnoise_params, _T("params"),  0, &BerconNoiseDesc, 
+static ParamBlockDesc2 berconnoise_param_blk ( berconnoise_params, _M("params"),  0, &BerconNoiseDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, PBLOCK_REF, 	
 	IDD_PANEL, IDS_PARAMS, 0, 0, NULL,	
 	// Maps
-	noise_color1,	 _T("color1"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR1,	
+	noise_color1,	 _M("color1"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR1,	
 		p_default,		Color(0,0,0), 
 		p_ui,			TYPE_COLORSWATCH, IDC_NOISE_COL1, 
 		p_end,
-	noise_color2,	 _T("color2"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR2,	
+	noise_color2,	 _M("color2"),	TYPE_RGBA,				P_ANIMATABLE,	IDS_DS_COLOR2,	
 		p_default,		Color(1.0, 1.0, 1.0), 
 		p_ui,			TYPE_COLORSWATCH, IDC_NOISE_COL2, 
 		p_end,
-	noise_map1,		_T("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP1,
+	noise_map1,		_M("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP1,
 		p_refno,		MAP1_REF,
 		p_subtexno,		0,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_NOISE_TEX1,
 		p_end,
-	noise_map2,		_T("map2"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP2,
+	noise_map2,		_M("map2"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_JW_MAP2,
 		p_refno,		MAP2_REF,
 		p_subtexno,		1,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_NOISE_TEX2,
 		p_end,
-	noise_map1_on,	_T("map1Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP1ENABLE,
+	noise_map1_on,	_M("map1Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP1ENABLE,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_MAPON1,
 		p_end,
-	noise_map2_on,	_T("map2Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP2ENABLE,
+	noise_map2_on,	_M("map2Enabled"), TYPE_BOOL,			0,				IDS_JW_MAP2ENABLE,
 		p_default,		TRUE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_MAPON2,
 		p_end,
 
 	// General
-	noise_size,	_T("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NOISESIZE,
+	noise_size,	_M("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NOISESIZE,
 		p_default,		25.f,
-		p_range,		0.001f, 1000000.0f,
+		p_range,		0.0001f, 1000000.0f,		// Prevent user from crashing program by bringing value to below zero
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISESIZE_EDIT, IDC_NOISESIZE_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	noise_lowthresh, _T("thresholdLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
+	noise_lowthresh, _M("thresholdLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
 		p_default,		0.0f,
 		p_range,		0.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISE_LOWTHRESH, IDC_NOISE_LOWTHRESHSPIN, SPIN_AUTOSCALE, 
 		p_end,
-	noise_hithresh, _T("thresholdHigh"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_HIGHTHRESH,
+	noise_hithresh, _M("thresholdHigh"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_HIGHTHRESH,
 		p_default,		1.0f,
 		p_range,		0.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISE_HIGHTHRESH, IDC_NOISE_HIGHTHRESHSPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 	// Noise controls
-	noise_phase,		_T("phase"),	TYPE_FLOAT,	P_ANIMATABLE,	IDS_DS_PHASE,
+	noise_phase,		_M("phase"),	TYPE_FLOAT,	P_ANIMATABLE,	IDS_DS_PHASE,
 		p_default,		0.f,
 		p_range,		-1000.0, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISEPHASE_EDIT, IDC_NOISEPHASE_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	noise_function_type, _T("noise_function"), TYPE_INT,	0,				IDS_NOISE_FUNCTION,
+	noise_function_type, _M("noise_function"), TYPE_INT,	0,				IDS_NOISE_FUNCTION,
 		p_default,		1,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_NOISE_FUNCTION, 0, 
 		p_end,
-	worley_distance, _T("worleyDistance"),	TYPE_INT,		0,				IDS_WORLEY_DISTANCE,
+	worley_distance, _M("worleyDistance"),	TYPE_INT,		0,				IDS_WORLEY_DISTANCE,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_WORLEY_DISTANCE, 0, 
 		p_end,
-	worley_F1,	_T("wF1"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F1,
+	worley_F1,	_M("wF1"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F1,
 		p_default,		1.0f,
 		p_range,		-1000.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_F1_EDIT, IDC_F1_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	worley_F2,	_T("wF2"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F2,
+	worley_F2,	_M("wF2"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F2,
 		p_default,		0.0f,
 		p_range,		-1000.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_F2_EDIT, IDC_F2_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	worley_F3,	_T("wF3"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F3,
+	worley_F3,	_M("wF3"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F3,
 		p_default,		0.0f,
 		p_range,		-1000.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_F3_EDIT, IDC_F3_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	worley_F4,	_T("wF4"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F4,
+	worley_F4,	_M("wF4"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_F4,
 		p_default,		0.0f,
 		p_range,		-1000.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_F4_EDIT, IDC_F4_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	worley_spread,	_T("worleySpread"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_SPREAD,
+	worley_spread,	_M("worleySpread"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_WORLEY_SPREAD,
 		p_default,		3.0f,
 		p_range,		0.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_WORLEY_EDIT, IDC_WORLEY_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 	// Fractal controls
-	fractal_type,	_T("fractalType"),		TYPE_INT,		0,				IDS_FRACTAL_TYPE,
+	fractal_type,	_M("fractalType"),		TYPE_INT,		0,				IDS_FRACTAL_TYPE,
 		p_default,		0,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_FRACTAL_TYPE, 0, 
 		p_end,
-	fractal_levels,	_T("levels"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NSLEV,
+	fractal_levels,	_M("levels"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NSLEV,
 		p_default,		3.0f,
 		p_range,		1.0f, 20.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISELEV_EDIT, IDC_NOISELEV_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	fractal_gain,	_T("fractalGain"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_GAIN,
+	fractal_gain,	_M("fractalGain"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_GAIN,
 		p_default,		0.0f,
 		p_range,		0.0f, 100.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_FRACTAL_GAIN_EDIT, IDC_FRACTAL_GAIN_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	fractal_offset,	_T("fractalOffset"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_OFFSET,
+	fractal_offset,	_M("fractalOffset"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_OFFSET,
 		p_default,		0.0f,
 		p_range,		0.0f, 100.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_FRACTAL_OFFSET_EDIT, IDC_FRACTAL_OFFSET_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	fractal_h,	_T("fractalH"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_H,
+	fractal_h,	_M("fractalH"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_H,
 		p_default,		0.0f,
 		p_range,		0.0f, 100.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_FRACTAL_H_EDIT, IDC_FRACTAL_H_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	fractal_lacunarity,	_T("fractalLacunarity"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_LACUNARITY,
+	fractal_lacunarity,	_M("fractalLacunarity"), TYPE_FLOAT,			P_ANIMATABLE,	IDS_FRACTAL_LACUNARITY,
 		p_default,		0.0f,
 		p_range,		0.0f, 100.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_FRACTAL_LACUNARITY_EDIT, IDC_FRACTAL_LACUNARITY_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
 	// Distortion controls
-	distortion_map,		_T("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
+	distortion_map,		_M("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
 		p_refno,		MAP3_REF,
 		p_subtexno,		2,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TEX,
 		p_end,
-	distortion_map2,	_T("map4"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP2,
+	distortion_map2,	_M("map4"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP2,
 		p_refno,		MAP4_REF,
 		p_subtexno,		3,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TE2,
 		p_end,
-	distortion_str,	_T("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
+	distortion_str,	_M("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
 		p_default,		0.1f,
 		p_range,		0.0f, 1000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_DISTORTION_EDIT, IDC_DISTORTION_SPIN, SPIN_AUTOSCALE, 
 		p_end,
-	use_distortion,	_T("useDistortion"), TYPE_BOOL,			0,				IDS_USE_DISTORTION,
+	use_distortion,	_M("useDistortion"), TYPE_BOOL,			0,				IDS_USE_DISTORTION,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_USE_DISTORTION,
 		p_end,
-	uvw_dist, _T("UVWdistortion"), TYPE_INT,	0,				IDS_DIST_UVW,
+	uvw_dist, _M("UVWdistortion"), TYPE_INT,	0,				IDS_DIST_UVW,
 		p_default,		1,		
 		p_ui, 			TYPE_INTLISTBOX, IDC_DIST_UVW, 0, 
 		p_end,
 		
 	// UVW, Output controls
-	pb_output,			_T("output"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_OUTPUT,
+	pb_output,			_M("output"),		TYPE_REFTARG,	P_OWNERS_REF,	IDS_OUTPUT,
 		p_refno,		OUTPUT_REF, 
 		p_end,
 	p_end
@@ -249,14 +249,14 @@ static ParamBlockDesc2 berconnoise_param_blk ( berconnoise_params, _T("params"),
 
 enum { enable_curve, curve_cont };
 
-static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _T("params"),  0, &BerconNoiseDesc, 
+static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _M("params"),  0, &BerconNoiseDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, CURVEPB_REF, 	
 	IDD_PANEL_CURVE, IDS_CURVEPARM, 0, 1, NULL,
-	enable_curve,	_T("enableCurve"), TYPE_BOOL,			0,				IDS_OUTPUT_NOISE,
+	enable_curve,	_M("enableCurve"), TYPE_BOOL,			0,				IDS_OUTPUT_NOISE,
 		p_default,		FALSE,
 		p_ui,			TYPE_SINGLECHEKBOX, IDC_ENABLE,
 		p_end,	
-	curve_cont,			_T("curveControl"),	TYPE_REFTARG,	P_OWNERS_REF,	IDS_CURVE,
+	curve_cont,			_M("curveControl"),	TYPE_REFTARG,	P_OWNERS_REF,	IDS_CURVE,
 		p_refno,		CURVE_REF, 
 		p_end,
 	p_end
@@ -267,24 +267,24 @@ enum {
 	mapOn1, mapOn2, mapOn3, mapOn4, mapOn5, mapOn6, mapOn7, mapOn8, mapOn9, mapOn10, mapOn11, mapOn12, mapOn13, mapOn14,
 };
 
-static ParamBlockDesc2 BerconMap_param_blk ( BerconMap_params, _T("params"),  0, &BerconNoiseDesc, 
+static ParamBlockDesc2 BerconMap_param_blk ( BerconMap_params, _M("params"),  0, &BerconNoiseDesc, 
 	P_AUTO_CONSTRUCT + P_AUTO_UI, PBMAP_REF, 	
 	IDD_PANEL_NOISE_MAP, IDS_PBMAP, 0, 1, NULL,
 	
-	map1, _T("bmap1"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP1, p_refno, BMAP1_REF, p_subtexno, BMAP1_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP1, p_end, mapOn1, _T("bmap1Enabled"), TYPE_BOOL, 0, IDS_MAPON1, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON1, p_end,
-	map2, _T("bmap2"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP2, p_refno, BMAP2_REF, p_subtexno, BMAP2_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP2, p_end, mapOn2, _T("bmap2Enabled"), TYPE_BOOL, 0, IDS_MAPON2, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON2, p_end,
-	map3, _T("bmap3"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP3, p_refno, BMAP3_REF, p_subtexno, BMAP3_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP3, p_end, mapOn3, _T("bmap3Enabled"), TYPE_BOOL, 0, IDS_MAPON3, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON3, p_end,
-	map4, _T("bmap4"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP4, p_refno, BMAP4_REF, p_subtexno, BMAP4_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP4, p_end, mapOn4, _T("bmap4Enabled"), TYPE_BOOL, 0, IDS_MAPON4, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON4, p_end,
-	map5, _T("bmap5"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP5, p_refno, BMAP5_REF, p_subtexno, BMAP5_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP5, p_end, mapOn5, _T("bmap5Enabled"), TYPE_BOOL, 0, IDS_MAPON5, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON5, p_end,
-	map6, _T("bmap6"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP6, p_refno, BMAP6_REF, p_subtexno, BMAP6_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP6, p_end, mapOn6, _T("bmap6Enabled"), TYPE_BOOL, 0, IDS_MAPON6, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON6, p_end,
-	map7, _T("bmap7"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP7, p_refno, BMAP7_REF, p_subtexno, BMAP7_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP7, p_end, mapOn7, _T("bmap7Enabled"), TYPE_BOOL, 0, IDS_MAPON7, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON7, p_end,
-	map8, _T("bmap8"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP8, p_refno, BMAP8_REF, p_subtexno, BMAP8_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP8, p_end, mapOn8, _T("bmap8Enabled"), TYPE_BOOL, 0, IDS_MAPON8, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON8, p_end,
-	map9, _T("bmap9"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP9, p_refno, BMAP9_REF, p_subtexno, BMAP9_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP9, p_end, mapOn9, _T("bmap9Enabled"), TYPE_BOOL, 0, IDS_MAPON9, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON9, p_end,
-	map10, _T("bmap10"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP10, p_refno, BMAP10_REF, p_subtexno, BMAP10_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP10, p_end, mapOn10, _T("bmap10Enabled"), TYPE_BOOL, 0, IDS_MAPON10, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON10, p_end,
-	map11, _T("bmap11"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP11, p_refno, BMAP11_REF, p_subtexno, BMAP11_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP11, p_end, mapOn11, _T("bmap11Enabled"), TYPE_BOOL, 0, IDS_MAPON11, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON11, p_end,
-	map12, _T("bmap12"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP12, p_refno, BMAP12_REF, p_subtexno, BMAP12_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP12, p_end, mapOn12, _T("bmap12Enabled"), TYPE_BOOL, 0, IDS_MAPON12, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON12, p_end,
-	map13, _T("bmap13"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP13, p_refno, BMAP13_REF, p_subtexno, BMAP13_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP13, p_end, mapOn13, _T("bmap13Enabled"), TYPE_BOOL, 0, IDS_MAPON13, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON13, p_end,
-	map14, _T("bmap14"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP14, p_refno, BMAP14_REF, p_subtexno, BMAP14_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP14, p_end, mapOn14, _T("bmap14Enabled"), TYPE_BOOL, 0, IDS_MAPON14, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON14, p_end,
+	map1, _M("bmap1"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP1, p_refno, BMAP1_REF, p_subtexno, BMAP1_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP1, p_end, mapOn1, _M("bmap1Enabled"), TYPE_BOOL, 0, IDS_MAPON1, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON1, p_end,
+	map2, _M("bmap2"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP2, p_refno, BMAP2_REF, p_subtexno, BMAP2_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP2, p_end, mapOn2, _M("bmap2Enabled"), TYPE_BOOL, 0, IDS_MAPON2, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON2, p_end,
+	map3, _M("bmap3"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP3, p_refno, BMAP3_REF, p_subtexno, BMAP3_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP3, p_end, mapOn3, _M("bmap3Enabled"), TYPE_BOOL, 0, IDS_MAPON3, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON3, p_end,
+	map4, _M("bmap4"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP4, p_refno, BMAP4_REF, p_subtexno, BMAP4_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP4, p_end, mapOn4, _M("bmap4Enabled"), TYPE_BOOL, 0, IDS_MAPON4, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON4, p_end,
+	map5, _M("bmap5"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP5, p_refno, BMAP5_REF, p_subtexno, BMAP5_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP5, p_end, mapOn5, _M("bmap5Enabled"), TYPE_BOOL, 0, IDS_MAPON5, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON5, p_end,
+	map6, _M("bmap6"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP6, p_refno, BMAP6_REF, p_subtexno, BMAP6_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP6, p_end, mapOn6, _M("bmap6Enabled"), TYPE_BOOL, 0, IDS_MAPON6, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON6, p_end,
+	map7, _M("bmap7"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP7, p_refno, BMAP7_REF, p_subtexno, BMAP7_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP7, p_end, mapOn7, _M("bmap7Enabled"), TYPE_BOOL, 0, IDS_MAPON7, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON7, p_end,
+	map8, _M("bmap8"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP8, p_refno, BMAP8_REF, p_subtexno, BMAP8_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP8, p_end, mapOn8, _M("bmap8Enabled"), TYPE_BOOL, 0, IDS_MAPON8, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON8, p_end,
+	map9, _M("bmap9"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP9, p_refno, BMAP9_REF, p_subtexno, BMAP9_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP9, p_end, mapOn9, _M("bmap9Enabled"), TYPE_BOOL, 0, IDS_MAPON9, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON9, p_end,
+	map10, _M("bmap10"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP10, p_refno, BMAP10_REF, p_subtexno, BMAP10_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP10, p_end, mapOn10, _M("bmap10Enabled"), TYPE_BOOL, 0, IDS_MAPON10, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON10, p_end,
+	map11, _M("bmap11"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP11, p_refno, BMAP11_REF, p_subtexno, BMAP11_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP11, p_end, mapOn11, _M("bmap11Enabled"), TYPE_BOOL, 0, IDS_MAPON11, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON11, p_end,
+	map12, _M("bmap12"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP12, p_refno, BMAP12_REF, p_subtexno, BMAP12_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP12, p_end, mapOn12, _M("bmap12Enabled"), TYPE_BOOL, 0, IDS_MAPON12, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON12, p_end,
+	map13, _M("bmap13"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP13, p_refno, BMAP13_REF, p_subtexno, BMAP13_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP13, p_end, mapOn13, _M("bmap13Enabled"), TYPE_BOOL, 0, IDS_MAPON13, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON13, p_end,
+	map14, _M("bmap14"), TYPE_TEXMAP, P_OWNERS_REF, IDS_MAP14, p_refno, BMAP14_REF, p_subtexno, BMAP14_NUM, p_ui, TYPE_TEXMAPBUTTON, IDC_MAP14, p_end, mapOn14, _M("bmap14Enabled"), TYPE_BOOL, 0, IDS_MAPON14, p_default, TRUE, p_ui, TYPE_SINGLECHEKBOX, IDC_MAPON14, p_end,
 
 	p_end
 );
@@ -294,15 +294,15 @@ class BerconCurveDlgProcNOISE : public ParamMap2UserDlgProc {
 		BerconNoise *berconNoise;		
 		BerconCurveDlgProcNOISE(BerconNoise *m) {berconNoise = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
-			if (berconNoise->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise)); // Force update curve
+			if (berconNoise->bcCurve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
+				CurveCtrl::update(berconNoise->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise)); // Force update bcCurve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise));					
+					CurveCtrl::update(berconNoise->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise));					
 					break;
 				case WM_DESTROY:
-					CurveCtrl::disable(berconNoise->curve);
+					CurveCtrl::disable(berconNoise->bcCurve);
 					break;
 				default: return FALSE;
 			}
@@ -310,7 +310,7 @@ class BerconCurveDlgProcNOISE : public ParamMap2UserDlgProc {
 		}
 		void DeleteThis() {delete this;}
 		void SetThing(ReferenceTarget *m) { 
-			CurveCtrl::disable(berconNoise->curve); // Disable previously used curve
+			CurveCtrl::disable(berconNoise->bcCurve); // Disable previously used bcCurve
 			berconNoise = (BerconNoise*)m;
 		}
 };
@@ -407,7 +407,7 @@ BerconNoise::BerconNoise() {
 	pbXYZ = NULL;
 	BerconNoiseDesc.MakeAutoParamBlocks(this);
 	texout = NULL;	
-	curve = NULL;		
+	bcCurve = NULL;		
 	Reset();
 }
 
@@ -419,14 +419,14 @@ void BerconNoise::Reset() {
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
 
-	if (curve) curve->DeleteMe();
-	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	if (bcCurve) bcCurve->DeleteMe();
+	bcCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
 #if MAX_RELEASE >= 18900
-	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else
-	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
+	bcCurve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 #endif
-	CurveCtrl::init(curve);
+	CurveCtrl::init(bcCurve);
 	pbCurve->SetValue(enable_curve, t, FALSE);
 
 	for (int i=0; i<NOISE_NSUBTEX; i++) 
@@ -527,7 +527,7 @@ void BerconNoise::Update(TimeValue t, Interval& valid) {
 		for (int i = 0; i<14; i++)
 			pbMap->GetValue((i+14), t, mapOn[i+4], ivalid);		
 
-		// Curve
+		// bcCurve
 		pbCurve->GetValue(enable_curve, t, useCurve, ivalid);
 
 		EnableStuff();		
@@ -660,7 +660,7 @@ TSTR BerconNoise::GetSubTexmapSlotName(int i) {
 		case BMAP13_NUM: return TSTR(GetString(IDS_MAP13)); 
 		case BMAP14_NUM: return TSTR(GetString(IDS_MAP14)); 
 
-		default: return TSTR(_T(""));
+		default: return TSTR(_M(""));
 	}
 }
 
@@ -669,7 +669,7 @@ RefTargetHandle BerconNoise::GetReference(int i)  {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
 		case OUTPUT_REF: return texout;
-		case CURVE_REF: return curve;
+		case CURVE_REF: return bcCurve;
 		case CURVEPB_REF: return pbCurve;
 		case PBMAP_REF: return pbMap;
 		default: return subtex[i-2];
@@ -681,7 +681,7 @@ void BerconNoise::SetReference(int i, RefTargetHandle rtarg) {
 		case COORD_REF:  pbXYZ = (IParamBlock2 *)rtarg; break;
 		case PBLOCK_REF: pblock = (IParamBlock2 *)rtarg; break;
 		case OUTPUT_REF: texout = (TextureOutput *)rtarg; break;
-		case CURVE_REF: curve = (ICurveCtl *)rtarg; break;
+		case CURVE_REF: bcCurve = (ICurveCtl *)rtarg; break;
 		case CURVEPB_REF: pbCurve = (IParamBlock2 *)rtarg; break;
 		case PBMAP_REF: pbMap = (IParamBlock2 *)rtarg; break;
 		default: subtex[i-2] = (Texmap *)rtarg; break;
@@ -694,7 +694,7 @@ RefTargetHandle BerconNoise::Clone(RemapDir &remap) {
 	mnew->ReplaceReference(COORD_REF,remap.CloneRef(pbXYZ));
 	mnew->ReplaceReference(OUTPUT_REF,remap.CloneRef(texout));
 	mnew->ReplaceReference(PBLOCK_REF,remap.CloneRef(pblock));
-	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(curve));
+	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(bcCurve));
 	mnew->ReplaceReference(CURVEPB_REF,remap.CloneRef(pbCurve));
 	mnew->ReplaceReference(PBMAP_REF,remap.CloneRef(pbMap));
 	mnew->ivalid.SetEmpty();		
@@ -712,7 +712,7 @@ Animatable* BerconNoise::SubAnim(int i) {
 	switch (i) {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
-		case CURVE_REF: return curve;
+		case CURVE_REF: return bcCurve;
 		case CURVEPB_REF: return pbCurve;
 		case OUTPUT_REF: return texout;
 		case PBMAP_REF: return pbMap;
@@ -843,7 +843,7 @@ AColor BerconNoise::EvalColor(ShadeContext& sc) {
 	// Caluclate noise function
 	float d = sc.filterMaps ? Noise::limitedNoise(p, dpdx, dpdy, np) : Noise::limitedNoise(p, np);	
 	if (useCurve)
-		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
 
 	// Get colors
 	RGBA c0 = mapOn[0]&&subtex[0] ? subtex[0]->EvalColor(sc): col[0];
@@ -888,10 +888,10 @@ Point3 BerconNoise::EvalNormalPerturb(ShadeContext& sc) {
 	Point3 normal;
 	float d = Noise::limitedNoise(p, np);
 	if (useCurve) {		
-		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
-		normal.x = (curve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[0], np)) - d) / DELTA;
-		normal.y = (curve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[1], np)) - d) / DELTA;
-		normal.z = (curve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[2], np)) - d) / DELTA;
+		d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		normal.x = (bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[0], np)) - d) / DELTA;
+		normal.y = (bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[1], np)) - d) / DELTA;
+		normal.z = (bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[2], np)) - d) / DELTA;
 	} else {
 		normal.x = (Noise::limitedNoise(p+DELTA*M[0], np) - d) / DELTA;
 		normal.y = (Noise::limitedNoise(p+DELTA*M[1], np) - d) / DELTA;
