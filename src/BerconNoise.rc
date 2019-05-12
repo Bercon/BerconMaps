@@ -1032,8 +1032,8 @@ BEGIN
     CONTROL         "0,255,0",IDC_OFF_X_SPIN,"SpinnerControl",0x0,60,38,7,10
     CONTROL         "",IDC_FILTER,"CustEdit",WS_TABSTOP,166,154,36,10
     CONTROL         "0,255,0",IDC_FILTER_SPIN,"SpinnerControl",0x0,204,154,7,10
-    RTEXT           "Filtering strength:",IDC_STATIC,105,154,59,8
-    LTEXT           "BerconMaps 3.04.1",IDC_STATIC,4,154,72,8
+    RTEXT           "Filtering strength;",IDC_STATIC,102,154,59,8
+    LTEXT           "BerconMaps 3.01",IDC_STATIC,4,154,79,8
 END
 
 IDD_PANEL_TILE3 DIALOGEX 0, 0, 217, 457
@@ -1164,7 +1164,7 @@ BEGIN
     CONTROL         "",IDC_BLUR_SPIN,"SpinnerControl",0x0,202,14,7,10
     LTEXT           "Blur",IDC_STATIC,149,15,13,8
     LTEXT           "MultiTexture Version",IDC_STATIC,3,187,65,8
-    CONTROL         IDD_PANEL_TILE,IDC_LOGO,"Static",SS_BITMAP | SS_NOTIFY | SS_SUNKEN,2,150,213,36
+    CONTROL         103,IDC_LOGO,"Static",SS_BITMAP | SS_NOTIFY | SS_SUNKEN,2,150,213,36
     LTEXT           "1.02",IDC_STATIC,69,187,17,8
     CONTROL         "BerconTile",IDC_RNDBY_3,"Button",BS_AUTORADIOBUTTON,94,71,50,10
 END
@@ -1195,7 +1195,7 @@ BEGIN
 
     IDD_PANEL_CURVE, DIALOG
     BEGIN
-        BOTTOMMARGIN, 145
+        BOTTOMMARGIN, 108
     END
 
     IDD_PANEL_WOOD_MAP, DIALOG
@@ -1247,17 +1247,6 @@ BEGIN
     END
 END
 #endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AFX_DIALOG_LAYOUT
-//
-
-IDD_XYZ AFX_DIALOG_LAYOUT
-BEGIN
-    0
-END
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1686,7 +1675,6 @@ END
 //
 
 IDB_BITMAPLOGO          BITMAP                  "logo.bmp"
-
 #endif    // Finnish (Finland) resources
 /////////////////////////////////////////////////////////////////////////////
 

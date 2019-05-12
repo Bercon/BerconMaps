@@ -130,7 +130,7 @@ static ParamBlockDesc2 berconnoise_param_blk ( berconnoise_params, _T("params"),
 	// General
 	noise_size,	_T("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NOISESIZE,
 		p_default,		25.f,
-		p_range,		0.0, 1000000.0f,
+		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISESIZE_EDIT, IDC_NOISESIZE_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 	noise_lowthresh, _T("thresholdLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
@@ -294,15 +294,15 @@ class BerconCurveDlgProcNOISE : public ParamMap2UserDlgProc {
 		BerconNoise *berconNoise;		
 		BerconCurveDlgProcNOISE(BerconNoise *m) {berconNoise = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
-			if (berconNoise->bcCurve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(berconNoise->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise)); // Force update bcCurve
+			if (berconNoise->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
+				CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise)); // Force update curve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(berconNoise->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise));					
+					CurveCtrl::update(berconNoise->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconNoise));					
 					break;
 				case WM_DESTROY:
-					CurveCtrl::disable(berconNoise->bcCurve);
+					CurveCtrl::disable(berconNoise->curve);
 					break;
 				default: return FALSE;
 			}
@@ -310,7 +310,7 @@ class BerconCurveDlgProcNOISE : public ParamMap2UserDlgProc {
 		}
 		void DeleteThis() {delete this;}
 		void SetThing(ReferenceTarget *m) { 
-			CurveCtrl::disable(berconNoise->bcCurve); // Disable previously used bcCurve
+			CurveCtrl::disable(berconNoise->curve); // Disable previously used curve
 			berconNoise = (BerconNoise*)m;
 		}
 };
@@ -407,7 +407,7 @@ BerconNoise::BerconNoise() {
 	pbXYZ = NULL;
 	BerconNoiseDesc.MakeAutoParamBlocks(this);
 	texout = NULL;	
-	bcCurve = NULL;		
+	curve = NULL;		
 	Reset();
 }
 
@@ -419,14 +419,14 @@ void BerconNoise::Reset() {
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
 
-	if (bcCurve) bcCurve->DeleteMe();
-	bcCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	if (curve) curve->DeleteMe();
+	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
 #if MAX_RELEASE >= 18900
-	bcCurve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
+	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else
-	bcCurve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
+	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 #endif
-	CurveCtrl::init(bcCurve);
+	CurveCtrl::init(curve);
 	pbCurve->SetValue(enable_curve, t, FALSE);
 
 	for (int i=0; i<NOISE_NSUBTEX; i++) 
@@ -527,7 +527,7 @@ void BerconNoise::Update(TimeValue t, Interval& valid) {
 		for (int i = 0; i<14; i++)
 			pbMap->GetValue((i+14), t, mapOn[i+4], ivalid);		
 
-		// bcCurve
+		// Curve
 		pbCurve->GetValue(enable_curve, t, useCurve, ivalid);
 
 		EnableStuff();		
@@ -669,7 +669,7 @@ RefTargetHandle BerconNoise::GetReference(int i)  {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
 		case OUTPUT_REF: return texout;
-		case CURVE_REF: return bcCurve;
+		case CURVE_REF: return curve;
 		case CURVEPB_REF: return pbCurve;
 		case PBMAP_REF: return pbMap;
 		default: return subtex[i-2];
@@ -681,7 +681,7 @@ void BerconNoise::SetReference(int i, RefTargetHandle rtarg) {
 		case COORD_REF:  pbXYZ = (IParamBlock2 *)rtarg; break;
 		case PBLOCK_REF: pblock = (IParamBlock2 *)rtarg; break;
 		case OUTPUT_REF: texout = (TextureOutput *)rtarg; break;
-		case CURVE_REF: bcCurve = (ICurveCtl *)rtarg; break;
+		case CURVE_REF: curve = (ICurveCtl *)rtarg; break;
 		case CURVEPB_REF: pbCurve = (IParamBlock2 *)rtarg; break;
 		case PBMAP_REF: pbMap = (IParamBlock2 *)rtarg; break;
 		default: subtex[i-2] = (Texmap *)rtarg; break;
@@ -694,7 +694,7 @@ RefTargetHandle BerconNoise::Clone(RemapDir &remap) {
 	mnew->ReplaceReference(COORD_REF,remap.CloneRef(pbXYZ));
 	mnew->ReplaceReference(OUTPUT_REF,remap.CloneRef(texout));
 	mnew->ReplaceReference(PBLOCK_REF,remap.CloneRef(pblock));
-	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(bcCurve));
+	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(curve));
 	mnew->ReplaceReference(CURVEPB_REF,remap.CloneRef(pbCurve));
 	mnew->ReplaceReference(PBMAP_REF,remap.CloneRef(pbMap));
 	mnew->ivalid.SetEmpty();		
@@ -712,7 +712,7 @@ Animatable* BerconNoise::SubAnim(int i) {
 	switch (i) {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
-		case CURVE_REF: return bcCurve;
+		case CURVE_REF: return curve;
 		case CURVEPB_REF: return pbCurve;
 		case OUTPUT_REF: return texout;
 		case PBMAP_REF: return pbMap;
@@ -843,7 +843,7 @@ AColor BerconNoise::EvalColor(ShadeContext& sc) {
 	// Caluclate noise function
 	float d = sc.filterMaps ? Noise::limitedNoise(p, dpdx, dpdy, np) : Noise::limitedNoise(p, np);	
 	if (useCurve)
-		d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
 
 	// Get colors
 	RGBA c0 = mapOn[0]&&subtex[0] ? subtex[0]->EvalColor(sc): col[0];
@@ -888,10 +888,10 @@ Point3 BerconNoise::EvalNormalPerturb(ShadeContext& sc) {
 	Point3 normal;
 	float d = Noise::limitedNoise(p, np);
 	if (useCurve) {		
-		d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
-		normal.x = (bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[0], np)) - d) / DELTA;
-		normal.y = (bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[1], np)) - d) / DELTA;
-		normal.z = (bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[2], np)) - d) / DELTA;
+		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		normal.x = (curve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[0], np)) - d) / DELTA;
+		normal.y = (curve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[1], np)) - d) / DELTA;
+		normal.z = (curve->GetControlCurve(0)->GetValue(sc.CurTime(), Noise::limitedNoise(p+DELTA*M[2], np)) - d) / DELTA;
 	} else {
 		normal.x = (Noise::limitedNoise(p+DELTA*M[0], np) - d) / DELTA;
 		normal.y = (Noise::limitedNoise(p+DELTA*M[1], np) - d) / DELTA;

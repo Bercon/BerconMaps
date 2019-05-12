@@ -335,15 +335,15 @@ class BerconCurveDlgProc : public ParamMap2UserDlgProc {
 		BerconWood *berconWood;		
 		BerconCurveDlgProc(BerconWood *m) {berconWood = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
-			if (berconWood->bcCurve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
-				CurveCtrl::update(berconWood->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood)); // Force update bcCurve
+			if (berconWood->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
+				CurveCtrl::update(berconWood->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood)); // Force update curve
 			switch (msg) {
 				case WM_INITDIALOG:
 				case WM_SHOWWINDOW:
-					CurveCtrl::update(berconWood->bcCurve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood));					
+					CurveCtrl::update(berconWood->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(berconWood));					
 					break;
 				case WM_DESTROY:
-					CurveCtrl::disable(berconWood->bcCurve);
+					CurveCtrl::disable(berconWood->curve);
 					break;
 				default: return FALSE;
 			}
@@ -351,7 +351,7 @@ class BerconCurveDlgProc : public ParamMap2UserDlgProc {
 		}
 		void DeleteThis() {delete this;}
 		void SetThing(ReferenceTarget *m) { 
-			CurveCtrl::disable(berconWood->bcCurve); // Disable previously used bcCurve
+			CurveCtrl::disable(berconWood->curve); // Disable previously used curve
 			berconWood = (BerconWood*)m;
 		}
 };
@@ -412,7 +412,7 @@ BerconWood::BerconWood() {
 	pbXYZ = NULL;
 	BerconWoodDesc.MakeAutoParamBlocks(this);	
 	texout = NULL;	
-	bcCurve = NULL;	
+	curve = NULL;	
 	Reset();
 }
 
@@ -425,14 +425,14 @@ void BerconWood::Reset() {
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
 	
-	if (bcCurve) bcCurve->DeleteMe();
-	bcCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	if (curve) curve->DeleteMe();
+	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
 #if MAX_RELEASE >= 18900
-	bcCurve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
+	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else
-	bcCurve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
+	curve->RegisterResourceMaker(static_cast<ReferenceMaker*>(this));
 #endif
-	CurveCtrl::init(bcCurve);
+	CurveCtrl::init(curve);
 	pbCurve->SetValue(enable_curve, t, FALSE);
 
 	for (int i=0; i<NSUBTEX; i++) { 
@@ -542,7 +542,7 @@ void BerconWood::Update(TimeValue t, Interval& valid) {
 			if (mapOn[i] && subtex[i])
 				mappedParameters = true;	
 
-		// bcCurve
+		// Curve
 		pbCurve->GetValue(enable_curve, t, useCurve, ivalid);
 
 		EnableStuff();		
@@ -665,7 +665,7 @@ RefTargetHandle BerconWood::GetReference(int i)  {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
 		case OUTPUT_REF: return texout;
-		case CURVE_REF: return bcCurve;
+		case CURVE_REF: return curve;
 		case CURVEPB_REF: return pbCurve;
 		case PBMAP_REF: return pbMap;
 		default: return subtex[i-2];
@@ -677,7 +677,7 @@ void BerconWood::SetReference(int i, RefTargetHandle rtarg) {
 		case COORD_REF: pbXYZ = (IParamBlock2 *)rtarg; break;
 		case PBLOCK_REF: pblock = (IParamBlock2 *)rtarg; break;
 		case OUTPUT_REF: texout = (TextureOutput *)rtarg; break;
-		case CURVE_REF: bcCurve = (ICurveCtl *)rtarg; break;
+		case CURVE_REF: curve = (ICurveCtl *)rtarg; break;
 		case CURVEPB_REF: pbCurve = (IParamBlock2 *)rtarg; break;
 		case PBMAP_REF: pbMap = (IParamBlock2 *)rtarg; break;
 		default: subtex[i-2] = (Texmap *)rtarg; break;
@@ -690,7 +690,7 @@ RefTargetHandle BerconWood::Clone(RemapDir &remap) {
 	mnew->ReplaceReference(COORD_REF,remap.CloneRef(pbXYZ));
 	mnew->ReplaceReference(OUTPUT_REF,remap.CloneRef(texout));
 	mnew->ReplaceReference(PBLOCK_REF,remap.CloneRef(pblock));
-	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(bcCurve));
+	mnew->ReplaceReference(CURVE_REF,remap.CloneRef(curve));
 	mnew->ReplaceReference(CURVEPB_REF,remap.CloneRef(pbCurve));
 	mnew->ReplaceReference(PBMAP_REF,remap.CloneRef(pbMap));
 	mnew->ivalid.SetEmpty();		
@@ -708,7 +708,7 @@ Animatable* BerconWood::SubAnim(int i) {
 	switch (i) {
 		case COORD_REF: return pbXYZ;
 		case PBLOCK_REF: return pblock;
-		case CURVE_REF: return bcCurve;
+		case CURVE_REF: return curve;
 		case CURVEPB_REF: return pbCurve;
 		case OUTPUT_REF: return texout;
 		case PBMAP_REF: return pbMap;
@@ -832,7 +832,7 @@ AColor BerconWood::EvalColor(ShadeContext& sc) {
 	
 	// Apply curves
 	if (useCurve)
-		d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
 
 	// Calculate color
 	c = (1.0f-d)*c0 + d*c1;
@@ -874,13 +874,13 @@ Point3 BerconWood::EvalNormalPerturb(ShadeContext& sc) {
 	Point3 np, nG, gP;
 	
 	float d = sc.filterMaps? Noise::wood(p, dpdx, dpdy, gP, wp) : Noise::wood(p, gP, wp);
-	if (useCurve) d = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+	if (useCurve) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
 	
 	float g = grainON ? Fractal::grain(gP, grainA, grainF): 0.f;	
 	
 	for (int i=0; i<3; i++) {		
 		np[i] = sc.filterMaps? Noise::wood(p + DELTA * M[i], dpdx, dpdy, gP, wp) : Noise::wood(p + DELTA * M[i], gP, wp);
-		if (useCurve) np[i] = bcCurve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i]);	
+		if (useCurve) np[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i]);	
 		np[i] = (np[i] - d) / DELTA;
 		if (grainON) nG[i] = Fractal::grain(gP, grainA, grainF); // gP is updated by wood()
 	}
