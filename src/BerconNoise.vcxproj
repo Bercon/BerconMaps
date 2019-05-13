@@ -77,7 +77,7 @@
     <IncludePath>C:\Qt\5.11.2\msvc2017_64\include;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\samples\Include;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\samples;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Qt\5.11.2\msvc2017_64\lib;C:\Program Files\Autodesk\3ds Max 2020 SDK\maxsdk\lib\x64\Release;$(LibraryPath)</LibraryPath>
     <CustomBuildAfterTargets />
-    <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2019|x64'">
@@ -301,7 +301,7 @@
       <AdditionalDependencies>AmgTranslator.lib;assetmanagement.lib;ATSCore.lib;biped.lib;bmm.lib;CommonRendererUI.lib;core.lib;crowd.lib;CustDlg.lib;CustomFileStreamAPI.lib;DataBridge.lib;DefaultRenderItems.lib;edmodel.lib;expr.lib;flt.lib;FragmentGraph.lib;geom.lib;gfx.lib;GraphicsDriver.lib;GraphicsUtility.lib;gup.lib;IGame.lib;imageViewers.lib;ManipSys.lib;MaxGraphicsObjects.lib;maxnet.lib;MaxQtBridge.lib;Maxscrpt.lib;maxutil.lib;MenuMan.lib;menus.lib;mesh.lib;MNMath.lib;MouseCursors.lib;NotificationAPIUtils.lib;NotificationSystem.lib;optimesh.lib;Paramblk2.lib;particle.lib;particleflow.lib;ParticleFlowTools.lib;physique.lib;PointCloud.lib;Poly.lib;PolyPaint.lib;populate.lib;RapidRTCore.lib;RenderingAPI.lib;RenderUtil.lib;rtmax.lib;spring.lib;tessint.lib;TipSystem.lib;ToolClips.lib;Tprofiler.lib;TprofilerTool.lib;UnwrapBase.lib;UnwrapInternal.lib;viewfile.lib;ViewSystem.lib;zlibdll.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <StripPrivateSymbols>
       </StripPrivateSymbols>
-      <OutputFile>$(OutDir)BerconMaps_2019_x64.dlt</OutputFile>
+      <OutputFile>$(OutDir)BerconMaps_2019_x64_AVX2.dlt</OutputFile>
       <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
       <ForceFileOutput>Enabled</ForceFileOutput>
       <AssemblyDebug>true</AssemblyDebug>
