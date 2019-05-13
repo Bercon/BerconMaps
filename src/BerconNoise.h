@@ -81,8 +81,8 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		TextureOutput   *texout;
 		Interval		ivalid;
 		
-		// Curve
-		ICurveCtl* curve;				
+		// curveCtrl
+		ICurveCtl* bcCurve;				
 		BOOL useCurve;
 		// From ResourceMakerCallback		
 		BOOL SetCustomImageList(HIMAGELIST &hCTools,ICurveCtl *pCCtl) { return TRUE; };
@@ -137,12 +137,12 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-		int NumSubs() { return 24; }
+//		int NumSubs() { return 24; }
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 
 		// TODO: Maintain the number or references here 
-		int NumRefs() { return 24; }
+//		int NumRefs() { return 24; }
 		RefTargetHandle GetReference(int i);
 		void SetReference(int i, RefTargetHandle rtarg);
 
@@ -178,6 +178,6 @@ public:
 	virtual SClass_ID SuperClassID() 				{ return TEXMAP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return BerconNoise_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
-	virtual const TCHAR* InternalName() 			{ return _T("BerconNoise"); } // returns fixed parsable name (scripter-visible name)
+	virtual const TCHAR* InternalName() 			{ return _M("BerconNoise"); } // returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }
 };

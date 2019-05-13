@@ -31,13 +31,13 @@ float Fractal::fractal(Point3 p, NoiseParams& np) {
 
 float Fractal::turbulence(Point3 p, NoiseParams& np) {
 	float sum = 0.0f;
-	float l,f = 1.0f;	
+	float l,fr = 1.0f;	
 	for (l = np.levels; l >= 1.0f; l-=1.0f) {
-		sum += fabs(Noise::noise(p*f, np))/f;
-		f *= 2.0f;
+		sum += fabs(Noise::noise(p*fr, np))/fr;
+		fr *= 2.0f;
 	}
 	if (l>0.0f)
-		sum += l*fabs(Noise::noise(p*f, np))/f;
+		sum += l*fabs(Noise::noise(p*fr, np))/fr;
 	return sum;
 }
 

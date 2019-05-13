@@ -69,6 +69,7 @@ public:
 			case 5: return heteroTerrain(p, np);
 			case 6: return hybridMultiFractal(p, d, np);
 			case 7: return ridgedMultiFractal(p, d, np);
+		default: ;
 		}
 		return 0.f;
 	}

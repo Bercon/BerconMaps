@@ -17,7 +17,7 @@ under the License.
 
 #pragma once
 
-#include "Max.h"
+#include <max.h>
 
 #include "texutil.h"
 

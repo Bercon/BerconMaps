@@ -87,12 +87,12 @@ class BerconDistortion : public Texmap {
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-		int NumSubs() { return 2+DIST_NSUBTEX; }
+//		int NumSubs() { return 2+DIST_NSUBTEX; }
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 
 		// TODO: Maintain the number or references here 
-		int NumRefs() { return 5; }
+//		int NumRefs() { return 5; }
 		RefTargetHandle GetReference(int i);
 		void SetReference(int i, RefTargetHandle rtarg);
 
@@ -118,6 +118,6 @@ public:
 	virtual Class_ID ClassID() 						{ return BerconDistortion_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
 
-	virtual const TCHAR* InternalName() 			{ return _T("BerconMapping"); }	// returns fixed parsable name (scripter-visible name)
+	virtual const TCHAR* InternalName() 			{ return _M("BerconMapping"); }	// returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }					// returns owning module handle	
 };

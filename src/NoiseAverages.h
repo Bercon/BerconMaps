@@ -17,6 +17,8 @@ under the License.
 
 #define sfrand() ((double)rand() / (double)RAND_MAX)
 #define ufrand() ((double)rand() / (double)RAND_MAX * 2. - 1.)
+#include <maxscript/foundation/CharStream.h>
+#include "perlin.h"
 
 /*
 	Used to compute average values for noise functions, these can be used in filtering

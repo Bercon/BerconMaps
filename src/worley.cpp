@@ -30,8 +30,8 @@ static char Poisson_count[256]= {
 	2,3,3,4,2,5,4,2,4,2,2,2,4,5,3,2};
 
 #define DENSITY_ADJUSTMENT  0.398150
-#define FASTFLOORL(x) ((x)<0 ? ((long)x-1) : ((long)x) )
-#define ADD(a,b,c) ( add(int_at[0]+a, int_at[1]+b, int_at[2]+c, new_at, order, F, function) )
+#define FASTFLOORL(x) ((x)<0 ? ((long)(x)-1) : ((long)(x)) )
+#define ADD(a,b,c) ( add(int_at[0]+(a), int_at[1]+(b), int_at[2]+(c), new_at, order, F, function) )
 
 void Worley::noise(double at[3], int order, double *F, int function) {
 	double x2, y2, z2, mx2, my2, mz2;
@@ -93,9 +93,9 @@ void Worley::noise(double at[3], int order, double *F, int function) {
 	return;
 }
 
-#define ROLL(seed) (seed=1402024253*seed+586950981)
+#define ROLL(seed) ((seed)=1402024253*(seed)+586950981)
 void Worley::add(long xi, long yi, long zi, double at[3], int order, double *F, int function) {
-	double d;
+	double d = 0;
 	double d3[3];
 	double f3[3];
 	unsigned long seed, this_id;

@@ -400,8 +400,8 @@ float Perlin::snoise(float x, float y, float z, float w) {
 #define FILTSTART	1.2f
 #define FILTEND		2.2f
 
-#define FILTER(d) d = smooth(d / FILTDIV, FILTSTART, FILTEND); \
-				  if (d >= .9999f) return 0.f;
+#define FILTER(d) d = smooth((d) / FILTDIV, FILTSTART, FILTEND); \
+				  if ((d) >= .9999f) return 0.f;
 
 float Perlin::fnoise2D(float x, float y, float d) {
 	FILTER(d)

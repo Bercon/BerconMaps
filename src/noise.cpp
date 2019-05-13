@@ -29,6 +29,7 @@ void Noise::alterUVW(Point3& p, int type) {
 			p.y = 0.f;			
 			p.z = 0.f;
 			break;
+		default: ;
 	}
 }
 

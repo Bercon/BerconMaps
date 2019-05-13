@@ -16,6 +16,7 @@ under the License.
 */
 
 #include "tile.h"
+#include <utility>
 #include "perlin.h"
 
 inline static int generateID(int x, int y) { return (y-101) * 1000 + x; }
@@ -136,11 +137,10 @@ inline static float getAngle(int type, float amount) {
 					return (float)pi;
 				case 3:
 					return (float)pi*1.5f;
-			}			
-		default: // Amount	
-			return UFRAND() * amount;
+				default: return UFRAND() * amount;	// Amount;
+			}
+		default: return 0.f;
 	}
-	return 0.f;
 }
 
 /*
@@ -154,7 +154,8 @@ inline static float getAngle(int type, float amount) {
 	+ ensure inside uv with rand offset/scale
 */
 
-#define HALFPI 1.57079633f
+// #define HALFPI 1.57079633f  //Already defined in trig.h
+
 #define QUATPI 0.785398163f
 #define SQRTHALF 0.707106781f
 
@@ -176,7 +177,7 @@ void Tile::uvMapping(TilePoint& tp, Point3 p, float edges[4], TileParam& t, int 
 	float angle = getAngle(t.rotUV, t.randRot);
 
 	// Random scale
-	float scaleX, scaleY;	
+	float scaleX = 0, scaleY = 0;	
 	switch (t.autoScale) {
 		case 1: { // UV
 			scaleX = w; scaleY = h;
@@ -196,7 +197,8 @@ void Tile::uvMapping(TilePoint& tp, Point3 p, float edges[4], TileParam& t, int 
 			float s = MAX(t.tileMaxWidth, t.tileMaxHeight);		
 			scaleX = s;
 			scaleY = s;
-			break; }		
+			break; }
+	default: ;
 	}
 
 	// Calculate scaling required to fit UVs tightly around the tile
@@ -281,14 +283,14 @@ TilePoint Tile::drawTile(Point3 p, float edges[4], TileParam& t, int id, int dir
 		edges[1] -= t.eH_var ? hEdgeH * (1.f + noise(edges[1], randomSeed) * t.edgeHeightVar) : hEdgeH;
 	}
 
-	if (p.x < edges[0]) return TilePoint();
-	if (p.x > edges[2]) return TilePoint();
-	if (p.y < edges[3]) return TilePoint();
-	if (p.y > edges[1]) return TilePoint();
+	if (p.x < edges[0]) return {};
+	if (p.x > edges[2]) return {};
+	if (p.y < edges[3]) return {};
+	if (p.y > edges[1]) return {};
 
 	float width = edges[2] - edges[0];
 	float height = edges[1] - edges[3];
-	if (width < 0 || height < 0) return TilePoint();
+	if (width < 0 || height < 0) return {};
 
 	TilePoint tp = corner(p.x - edges[0], p.y - edges[3], width, height, t);	
 	if (tp.d < 0) return tp; // On edge
@@ -323,7 +325,8 @@ TilePoint Tile::drawTile(Point3 p, float edges[4], TileParam& t, int id, int dir
 }
 
 static int rowcol(float& low, float& high, int& id, float pos, float total, std::vector<float>& arr, float size, float var, float rand) {
-	int num = arr.size();
+
+	const auto tilenum = arr.size();											// changed name to 'tilenum' for disambiguation
 	float h = total * size;
 	float y = pos / h;
 	float yi = (float)FASTFLOOR(y); // group ID
@@ -331,18 +334,19 @@ static int rowcol(float& low, float& high, int& id, float pos, float total, std:
 
 	float sumY = 0.f;
 	float tileHeight = 0.f;
-	int cur = 0;	
-	while (cur < num) {		
+	auto cur = 0;	
+	while ((tilenum >= 0) && cur < static_cast<unsigned int>(tilenum)) {		// Avoid compiling signed to unsigned integer when comparing signed and unsigned integer expressions. "cur" is unsigned. [CHANGED MAY 2019]
+		
 		tileHeight = arr[cur] * size;
 		if (y < sumY + tileHeight)
 			break;		
 		sumY += tileHeight;
 		cur++;
 	}
-	if (cur < 0 || cur >= num) // Necessary due floating point error
+	if (cur < 0 || cur >= tilenum) // Necessary due floating point error
 		return -1;
 
-	id = yi * num + cur;
+	id = tilenum * yi + cur;
 
 	// Variance
 	// ----------- To determine max var
@@ -359,8 +363,8 @@ static int rowcol(float& low, float& high, int& id, float pos, float total, std:
 	if (var > 0.0001f) {
 		float n;
 		
-		float bTileHeight = arr[STEPDOWN(cur, num)]*size;
-		float tTileHeight = arr[STEPUP(cur, num)]*size;
+		float bTileHeight = arr[STEPDOWN(cur, tilenum)]*size;
+		float tTileHeight = arr[STEPUP(cur, tilenum)]*size;
 
 		n = noise(eBot, rand);
 		float neBot = eBot + (n>0 ? tileHeight : bTileHeight) * n * var;		
@@ -369,18 +373,18 @@ static int rowcol(float& low, float& high, int& id, float pos, float total, std:
 
 		if (pos < neBot) { // We droped one cur down
 			id--;
-			cur = STEPDOWN(cur, num);
+			cur = STEPDOWN(cur, tilenum);
 			low = eBot-bTileHeight;
 			n = noise(low, rand);
-			low += (n>0 ? bTileHeight : arr[STEPDOWN(cur, num)]*size) * n * var;
+			low += (n>0 ? bTileHeight : arr[STEPDOWN(cur, tilenum)]*size) * n * var;
 			high = neBot;				
 
 		} else if (pos > neTop) { // We rose one cur up
 			id++;
-			cur = STEPUP(cur, num);
+			cur = STEPUP(cur, tilenum);
 			high = eTop+tTileHeight;
 			n = noise(high, rand);
-			high += (n<0 ? tTileHeight : arr[STEPUP(cur, num)]*size) * n * var;
+			high += (n<0 ? tTileHeight : arr[STEPUP(cur, tilenum)]*size) * n * var;
 			low = neTop;		
 
 		} else { // Still in the same cur
@@ -501,6 +505,7 @@ void TilePattern::setPreset(int preset) {
 		case 7: setPattern(L".25, 1, .5 / 0, 1, 1"); break; // English
 		case 8: setPattern(L"0,1,1 / -.25,1,.5 / -.25,1,1 / -.25,1,.5"); break; // English Cross
 		case 9: setPattern(L"0,1,.5 / -.25,1,.5 / -.25,1,1 / -.25,1,1"); break; // Double English Cross
+	default: ;
 	}
 }
 
@@ -558,6 +563,6 @@ static int parsePattern(std::wstring str, TilePattern* pat) {
 }
 
 void TilePattern::setPattern(std::wstring s) {
-	parsePattern(s, this);
+	parsePattern(std::move(s), this);
 	update();
 }

@@ -97,8 +97,8 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		void gradSelKey();
 		void gradReset() { resetKeys(); }
 
-		// Curve
-		ICurveCtl* curve;				
+		// curveCtrl
+		ICurveCtl* bcCurve;				
 		BOOL p_curveOn;
 		// From ResourceMakerCallback		
 		BOOL SetCustomImageList(HIMAGELIST &hCTools,ICurveCtl *pCCtl) { return TRUE; };
@@ -191,6 +191,6 @@ public:
 	virtual SClass_ID SuperClassID() 				{ return TEXMAP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return BerconGradient_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
-	virtual const TCHAR* InternalName() 			{ return _T("BerconGradient"); } // scripter-visible name
+	virtual const TCHAR* InternalName() 			{ return _M("BerconGradient"); } // scripter-visible name
 	virtual HINSTANCE HInstance() 					{ return hInstance; }
 };
