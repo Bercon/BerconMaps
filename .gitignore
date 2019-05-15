@@ -10,11 +10,12 @@
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
-x64/
 build/
 bld/
+.vs/
 [Bb]in/
 [Oo]bj/
+BerconMaps.tlog/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -53,6 +54,13 @@ dlldata.c
 *.pidb
 *.svclog
 *.scc
+
+*.cod
+*.exp
+*.lib
+*.res
+*.lastcodeanalysissucceeded
+unsuccessfulbuild
 
 # Chutzpah Test files
 _Chutzpah*
