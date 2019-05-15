@@ -150,11 +150,16 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-		int NumSubs() { return 8+gradient->numKeys(); } // !! Update submap count !!
+		int NumSubs() { return 1; }						// Return 1 for PBlock
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 		
-		int NumRefs() { return 8+gradient->numKeys(); } // !! Update submap count !!
+		int NumRefs()									// Max will handle this internally. I can confirm this method works as far back as 2016. MtlLib.h (2017+) and imtl.h (<=2016) process this internally.
+		{												// Refer to line 103 of Materials\MtlLib.h
+			int count = 0;
+			return count;
+		}
+
 		RefTargetHandle GetReference(int i);
 		void SetReference(int i, RefTargetHandle rtarg);
 

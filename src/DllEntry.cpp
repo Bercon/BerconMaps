@@ -17,9 +17,10 @@ under the License.
 
 //#define COMPILE_MULTIMAP 1
 
+
 #ifndef COMPILE_MULTIMAP
 
-#include "BerconWood.h"
+#include "BerconCommon.h"
 
 extern ClassDesc2* GetBerconNoiseDesc();
 extern ClassDesc2* GetBerconWoodDesc();
@@ -33,6 +34,7 @@ int controlsInit = FALSE;
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID /*lpvReserved*/) {
 	if( fdwReason == DLL_PROCESS_ATTACH ) {
+		MaxSDK::Util::UseLanguagePackLocale();
 		hInstance = hinstDLL;
 		DisableThreadLibraryCalls(hInstance);
 	}      

@@ -19,6 +19,8 @@ under the License.
 
 #include "max.h"
 
+
+
 #define BERCON_SHADE_CONTEXT_CLASS_ID Class_ID(0x7c0a38f1, 0x2f1a67f2)
 
 class BerconSC : public ShadeContext {
@@ -157,40 +159,42 @@ public:
 
 	// REVISED METHODS OF CALLING GLOBCONTEXT AND TONEOPERATOR FOR THESE FUNCTIONS
 
-	virtual ToneOperator* IsPhysicalSpace() const
-	{
-		if (globContext->pToneOp) return sc->globContext->pToneOp;
-		else return NULL;
-	}
+	
+		virtual ToneOperator* IsPhysicalSpace() const
+		{
+			if (globContext != NULL && globContext->pToneOp !=NULL) return sc->globContext->pToneOp;			// Always check globContext and pToneOp for null
+			else return NULL;
+		}
 
-	template<class T> void ScaledToRGB(T& /*energy*/) const { sc->globContext->pToneOp; }
+			virtual ToneOperator* ScaledToRGB(float /*energy*/) const
+		{
+			if (globContext != NULL && globContext->pToneOp != NULL) return sc->globContext->pToneOp;
+			else return NULL;
+		}
 
-	virtual ToneOperator* ScaledToRGB(float /*energy*/) const 
-	{
-		if (globContext->pToneOp) return sc->globContext->pToneOp;
-		else return NULL;
-	}
+		virtual ToneOperator* ScaledToRGB() const
+		{
+			if (globContext != NULL && globContext->pToneOp != NULL) return sc->globContext->pToneOp;
+			else return NULL;
+		}
 
-	virtual ToneOperator* ScaledToRGB() const
-	{
-		if (globContext->pToneOp) return sc->globContext->pToneOp;
-		else return NULL;
-	}
+		ToneOperator* ScalePhysical(float /*energy*/) const
+		{
+			if (globContext != NULL && globContext->pToneOp != NULL) return sc->globContext->pToneOp;
 
-	template<class T> void ScalePhysical(T& /*energy*/) const { sc->globContext->pToneOp; }
-	ToneOperator* ScalePhysical(float /*energy*/) const 
-	{
-		if (globContext->pToneOp) return sc->globContext->pToneOp;
-		else return NULL;
-	}
+			else return NULL;
+		}
 
-	template<class T> void ScaleRGB(T& /*energy*/) const { sc->globContext->pToneOp; }
 
-	virtual ToneOperator* ScaleRGB(float /*energy*/) const 
-	{
-		if (globContext->pToneOp) return sc->globContext->pToneOp;
-		else return NULL;
-	}
+		virtual ToneOperator* ScaleRGB(float /*energy*/) const
+		{
+			if (globContext != NULL && globContext->pToneOp != NULL) return sc->globContext->pToneOp;
+			else return NULL;
+		}
+	
+
+
+
 
 	/*	THIS SECTION IS DEPRECATED AND WILL THROW COMPILER ERROR C4996
 	bool IsPhysicalSpace () const{ return sc->IsPhysicalSpace(); }

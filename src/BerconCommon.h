@@ -21,6 +21,7 @@ under the License.
 
 #pragma once
 
+#include <immintrin.h>
 #include <max.h>
 #include <3dsmaxdlport.h>
 #include <istdplug.h>

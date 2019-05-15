@@ -23,6 +23,7 @@ under the License.
 
 #include "BerconCommon.h"
 
+
 extern TCHAR *GetString(int id);
 
 extern HINSTANCE hInstance;
@@ -122,6 +123,7 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		RGBA EvalColor(ShadeContext& sc);
 		float EvalMono(ShadeContext& sc);
 		Point3 EvalNormalPerturb(ShadeContext& sc);
+		BOOL HandleOwnViewPerturb(ShadeContext& sc);
 
 		XYZGen *GetTheXYZGen() { return NULL; } 
 		
@@ -137,14 +139,20 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-//		int NumSubs() { return 24; }
+		int NumSubs() { return 1; };			// Always return 1 when ParameterBlocks are used
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 
-		// TODO: Maintain the number or references here 
-//		int NumRefs() { return 24; }
-		RefTargetHandle GetReference(int i);
-		void SetReference(int i, RefTargetHandle rtarg);
+		
+		int NumRefs()									// Max will handle this internally. I can confirm this method works as far back as 2016. MtlLib.h (2017+) and imtl.h (<=2016) process this internally.
+		{												// Refer to line 103 of Materials\MtlLib.h
+			int count = 0;
+			return count;
+		}
+
+
+		virtual RefTargetHandle GetReference(int i);
+		virtual void SetReference(int i, RefTargetHandle rtarg);
 
 		int	NumParamBlocks() { return 4; }
 		IParamBlock2* GetParamBlock(int i) { switch (i) { case 0: return pblock; case 1: return pbCurve; case 2: return pbMap; case 3: return pbXYZ; } return NULL; }

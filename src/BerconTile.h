@@ -95,6 +95,7 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		RGBA EvalColor(ShadeContext& sc);
 		float EvalMono(ShadeContext& sc);
 		Point3 EvalNormalPerturb(ShadeContext& sc);
+		BOOL HandleOwnViewPerturb(ShadeContext& sc);
 		
 		int SubNumToRefNum(int subNum) { return subNum; }
 		
@@ -108,11 +109,15 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
-//		int NumSubs() { return 11; }
+		int NumSubs() { return 1; };					// Always return 1 when ParameterBlocks are used
 		Animatable* SubAnim(int i); 
 		TSTR SubAnimName(int i);
 
-//		int NumRefs() { return 11; }
+		int NumRefs()									// Max will handle this internally. I can confirm this method works as far back as 2016. MtlLib.h (2017+) and imtl.h (<=2016) process this internally.
+		{												// Refer to line 103 of Materials\MtlLib.h
+			int count = 0;
+			return count;
+		}
 		RefTargetHandle GetReference(int i);
 		void SetReference(int i, RefTargetHandle rtarg);
 
