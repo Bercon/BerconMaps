@@ -518,9 +518,9 @@ void BerconGradient::Reset() {
 	//else ReplaceReference( COORD_REF, GetNewDefaultXYZGen());	
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
-	
-	if (curve) curve->DeleteMe();
-	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+
+	ICurveCtl* newCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	ReplaceReference(CURVE_REF, newCurve);
 #if MAX_RELEASE >= 18900
 	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else

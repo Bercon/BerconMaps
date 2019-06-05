@@ -1033,7 +1033,7 @@ BEGIN
     CONTROL         "",IDC_FILTER,"CustEdit",WS_TABSTOP,166,154,36,10
     CONTROL         "0,255,0",IDC_FILTER_SPIN,"SpinnerControl",0x0,204,154,7,10
     RTEXT           "Filtering strength;",IDC_STATIC,102,154,59,8
-    LTEXT           "BerconMaps 3.01",IDC_STATIC,4,154,79,8
+    LTEXT           "BerconMaps 3.02",IDC_STATIC,4,154,79,8
 END
 
 IDD_PANEL_TILE3 DIALOGEX 0, 0, 217, 457
@@ -1164,7 +1164,7 @@ BEGIN
     CONTROL         "",IDC_BLUR_SPIN,"SpinnerControl",0x0,202,14,7,10
     LTEXT           "Blur",IDC_STATIC,149,15,13,8
     LTEXT           "MultiTexture Version",IDC_STATIC,3,187,65,8
-    CONTROL         103,IDC_LOGO,"Static",SS_BITMAP | SS_NOTIFY | SS_SUNKEN,2,150,213,36
+    CONTROL         IDD_PANEL,IDC_LOGO,"Static",SS_BITMAP | SS_NOTIFY | SS_SUNKEN,2,150,213,36
     LTEXT           "1.02",IDC_STATIC,69,187,17,8
     CONTROL         "BerconTile",IDC_RNDBY_3,"Button",BS_AUTORADIOBUTTON,94,71,50,10
 END
@@ -1256,106 +1256,286 @@ END
 
 STRINGTABLE
 BEGIN
+    IDS_GRADUVW_SWEEP       "Sweep"
+    IDS_GRADUVW_TARTAN      "Tartan"
+    IDS_GRAINFREQ           "Grain frequency"
+    IDS_GRAINSTR            "Grain amount"
+    IDS_IOR                 "IOR"
+    IDS_JW_MAP1             "Map 1"
+    IDS_JW_MAP1ENABLE       "Map 1 Enable"
+    IDS_JW_MAP2             "Map 2"
+    IDS_JW_MAP2ENABLE       "Map 2 Enable"
+    IDS_JW_MAP3             "Map 3"
+    IDS_JW_MAP3ENABLE       "Map 3 Enable"
+    IDS_KEYCOL              "Key color"
+    IDS_KEYNUM              "Key number"
+    IDS_KEYPOS              "Key position"
+    IDS_KEYTEX              "Key texture"
     IDS_LIBDESCRIPTION      "Bercon's Noise Map"
-    IDS_CATEGORY            "3D maps"
-    IDS_CLASS_NAME          "BerconNoise"
-    IDS_PARAMS              "Parameters"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_BERCON_TILE         "BerconTile"
     IDS_BERCON_WOOD         "BerconWood"
-    IDS_WOODSIZE            "Wood size"
+    IDS_BLUR2               "Blur"
+    IDS_CATEGORY            "3D maps"
+    IDS_CENTER_MAP          "Center mapping"
+    IDS_CLASS_NAME          "BerconNoise"
+    IDS_CLASS_NAME_MULTI    "MultiTexture"
     IDS_COORDS              "Coordinates"
-    IDS_OUTPUT              "Output"
-    IDS_RADIAL_WOOD         "Radial wood"
-    IDS_TILING              "Use tiling"
-    IDS_TILINGSIZE          "Tiling size"
-    IDS_DISTORTION_STRENGTH "Distortion strength"
+    IDS_CURVE               "Curve control"
+    IDS_CURVEPARM           "Curve parameters"
+    IDS_CURVEPB             "Curve param"
+    IDS_DISTON              "Distortion on"
     IDS_DISTORTION_MAP      "Distortion map"
+    IDS_DISTORTION_MAP2     "Distortion strength map"
+    IDS_DISTORTION_STRENGTH "Distortion strength"
+    IDS_DIST_UVW            "UVWDist"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_NORMAL_VIEW         "View"
+    IDS_NORMAL_WORLDX       "World X"
+    IDS_NORMAL_WORLDY       "World Y"
+    IDS_NORMAL_WORLDZ       "World Z"
+    IDS_OGAMMA2             "Occurance Gamma"
+    IDS_OHUE2               "Occurance Hue"
+    IDS_OSAT2               "Occurance Saturation"
+    IDS_OUTPUT              "Output"
+    IDS_OUTPUT_NOISE        "Use curve"
+    IDS_PARAMS              "Parameters"
+    IDS_PATTERN_STRING      "Pattern string"
+    IDS_PBMAP               "Map parameters"
+    IDS_PERLIN_WOOD         "Perlin wood"
+    IDS_RADIALFREQ          "Radial noise frequency"
+    IDS_RADIALSTR           "Radial noise strength"
+    IDS_RADIALZ             "Radial noise z"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_WLOOP               "W loop"
+    IDS_WOODSIZE            "Wood size"
+    IDS_WOOD_TYPE           "Wood type"
+    IDS_WORLEY_DISTANCE     "Worley Distance"
+    IDS_WORLEY_F1           "F1"
+    IDS_WORLEY_F2           "F2"
+    IDS_WORLEY_F3           "F3"
+    IDS_WORLEY_F4           "F4"
+    IDS_WORLEY_SPREAD       "Worley Spread"
+    IDS_W_CHE               "Chebychev"
+    IDS_W_ID                "ID"
+    IDS_W_LIN               "Linear"
+    IDS_W_MAN               "Manhattan"
+    IDS_W_MI4               "Minkovsky 4"
+    IDS_W_MI5               "Minkovsky 0.5"
+    IDS_W_SQU               "Square"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RADIAL_WOOD         "Radial wood"
+    IDS_RANDBYMAT           "Random by material id"
+    IDS_RANDBYOBJ           "Random by object"
+    IDS_RANDBYPAR           "Random by particle"
+    IDS_RANDOM_X_OFF        "Random X offset"
+    IDS_RANDOM_X_SCA        "Random X scale"
+    IDS_RANDOM_Y_OFF        "Random Y offset"
+    IDS_RANDOM_Y_SCA        "Random Y scale"
+    IDS_RANGELOOP           "Range loop"
+    IDS_RANGEMAX            "Range maximum"
+    IDS_RANGEMIN            "Range minimum"
+    IDS_RB_HIGHTHRESH       "High Threshold"
+    IDS_RB_LOWTHRESH        "Low Threshold"
+    IDS_REVERSE             "Reverse"
+    IDS_RGAMMA2             "Random Gamma"
+    IDS_RHUE2               "Random Hue"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TILE_LOCK           "Lock edge"
+    IDS_TILE_MAPUV          "Map UV"
+    IDS_TILE_OFFSET         "Tiling offset"
+    IDS_TILE_OFFSET2        "Tiling offset 2"
+    IDS_TILE_PERIOD         "Tiling period"
+    IDS_TILE_ROT            "Random Rotation"
+    IDS_TILE_ROTUV          "Rot UV"
+    IDS_TILE_ROUND          "Tile round"
+    IDS_TILE_ROUNDRAD       "Tile round radius"
+    IDS_TILE_SIZE           "Tile size"
+    IDS_TILE_SOFTEN         "Tile soften"
+    IDS_TILE_SOFTRAD        "Tile soften radius"
+    IDS_TILE_STYLE          "Tile style"
+    IDS_TILE_WIDTH          "Tile width"
+    IDS_TILE_WIDTH2         "Tile width variation"
+    IDS_TILING              "Use tiling"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TILINGSIZE          "Tiling size"
+    IDS_TRUNKFREQ           "Trunk wobble frequency"
+    IDS_TRUNKSTR            "Trunk wobble strength"
+    IDS_ULOOP               "U loop"
+    IDS_USE_DISTORTION      "Use distortion"
+    IDS_UVWCHAN             "UVW Channel"
+    IDS_UVWCHAN2            "UVV Channel 2"
+    IDS_UVW_NORMAL          "Normal"
+    IDS_UVW_RADIAL          "Radial"
+    IDS_UVW_SPHERICAL       "Spherical"
+    IDS_UV_MAP              "UV Map"
+    IDS_VAR_MAP             "Variation map"
+    IDS_VAR_STR             "Variation strength"
+    IDS_VAR_TYPE            "Variation type"
+    IDS_VLOOP               "V loop"
+    IDS_WIDTHVAR            "Width variation"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_MAPON16             "MapOn16"
+    IDS_MAPON2              "MapOn2"
+    IDS_MAPON3              "MapOn3"
+    IDS_MAPON4              "MapOn4"
+    IDS_MAPON5              "MapOn5"
+    IDS_MAPON6              "MapOn6"
+    IDS_MAPON7              "MapOn7"
+    IDS_MAPON8              "MapOn8"
+    IDS_MAPON9              "MapOn9"
+    IDS_NF_PERLIN2          "Perlin 2D"
+    IDS_NF_PERLIN3          "Perlin 3D"
+    IDS_NF_PERLIN4          "Perlin 4D"
+    IDS_NF_SIMPLEX2         "Simplex 2D"
+    IDS_NF_SIMPLEX3         "Simplex 3D"
+    IDS_NF_SIMPLEX4         "Simplex 4D"
     IDS_NF_WORLEY           "Worley (Voronoi)"
+END
+
+STRINGTABLE
+BEGIN
     IDS_F_FRACTAL           "Fractal"
+    IDS_F_HETEROTERRAIN     "Hetero Terrain"
+    IDS_F_HYBRIDMULTIFRACTAL "Hybrid Multi Fractal"
+    IDS_F_REGULAR           "None"
+    IDS_F_RIDGEDMULTIFRACTAL "Ridged Multi Fractal"
+    IDS_F_TURBULENCE        "Turbulence"
+    IDS_GAINVAR             "Gain variation"
+    IDS_GRADIENTINTERPOLATION "Gradient interpolation"
+    IDS_GRADIENTTYPE        "Gradient type"
+    IDS_GRADIENTUVW         "Gradient UVW"
+    IDS_GRADINT_LINEAR      "Linear"
+    IDS_GRADINT_SMOOTH      "Smooth"
+    IDS_GRADINT_SOLIDLEFT   "Solid - Left"
+    IDS_GRADINT_SOLIDNEAR   "Solid - Nearest"
+    IDS_GRADINT_SOLIDRIGHT  "Solid - Right"
+    IDS_GRADTYPE_AGE        "Particle Age"
 END
 
 STRINGTABLE
 BEGIN
     IDS_DS_COLOR1           "Color 1"
     IDS_DS_COLOR2           "Color 2"
-    IDS_JW_MAP1             "Map 1"
-    IDS_JW_MAP2             "Map 2"
-    IDS_JW_MAP1ENABLE       "Map 1 Enable"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_JW_MAP2ENABLE       "Map 2 Enable"
-    IDS_DS_NOISESIZE        "Noise Size"
-    IDS_DS_PHASE            "Noise Phase"
-    IDS_DS_NSLEV            "Noise Levels"
-    IDS_RB_LOWTHRESH        "Low Threshold"
-    IDS_RB_HIGHTHRESH       "High Threshold"
-    IDS_NOISE_TYPE          "Noise Type"
-    IDS_NOISE_FUNCTION      "Noise Function"
-    IDS_NF_SIMPLEX2         "Simplex 2D"
-    IDS_OUTPUT_NOISE        "Use curve"
-    IDS_WORLEY_DISTANCE     "Worley Distance"
-    IDS_FRACTAL_TYPE        "Fractal Type"
-    IDS_WORLEY_SPREAD       "Worley Spread"
-    IDS_W_LIN               "Linear"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_W_SQU               "Square"
-    IDS_W_MAN               "Manhattan"
-    IDS_W_CHE               "Chebychev"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_F_REGULAR           "None"
-    IDS_F_TURBULENCE        "Turbulence"
-    IDS_F_FBM               "fBm"
-    IDS_F_HETEROTERRAIN     "Hetero Terrain"
-    IDS_F_HYBRIDMULTIFRACTAL "Hybrid Multi Fractal"
-    IDS_F_RIDGEDMULTIFRACTAL "Ridged Multi Fractal"
-    IDS_FRACTAL_GAIN        "Fractal Gain"
-    IDS_FRACTAL_OFFSET      "Fractal Offset"
-    IDS_FRACTAL_LACUNARITY  "Fractal Lacunarity"
-    IDS_PERLIN_WOOD         "Perlin wood"
-    IDS_FRACTAL_H           "Fractal H"
-    IDS_W_MI5               "Minkovsky 0.5"
-    IDS_W_MI4               "Minkovsky 4"
-    IDS_WOOD_TYPE           "Wood type"
-    IDS_TRUNKSTR            "Trunk wobble strength"
-    IDS_TRUNKFREQ           "Trunk wobble frequency"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_RADIALSTR           "Radial noise strength"
-    IDS_RADIALFREQ          "Radial noise frequency"
-    IDS_WIDTHVAR            "Width variation"
-    IDS_SKEW                "Skew"
-    IDS_ANGLESTR            "Angular strength"
-    IDS_ANGLEFREQ           "Angular frequency"
-    IDS_DISTORTION_MAP2     "Distortion strength map"
-    IDS_USE_DISTORTION      "Use distortion"
-    IDS_SIMPLEX_WOOD        "Simplex wood"
     IDS_DS_COLOR3           "Color 3"
-    IDS_JW_MAP3             "Map 3"
-    IDS_JW_MAP3ENABLE       "Map 3 Enable"
-    IDS_RADIALZ             "Radial noise z"
-    IDS_ANGLERAD            "Angular radius"
-    IDS_LOCK_GRAIN          "Lock grain"
-    IDS_GRAINSTR            "Grain amount"
+    IDS_DS_NOISESIZE        "Noise Size"
+    IDS_DS_NSLEV            "Noise Levels"
+    IDS_DS_PHASE            "Noise Phase"
+    IDS_FILTERING2          "Filtering"
+    IDS_FLIP_X              "Flip X-axis"
+    IDS_FLIP_Y              "Flip Y-axis"
+    IDS_FRACTAL_GAIN        "Fractal Gain"
+    IDS_FRACTAL_H           "Fractal H"
+    IDS_FRACTAL_LACUNARITY  "Fractal Lacunarity"
+    IDS_FRACTAL_OFFSET      "Fractal Offset"
+    IDS_FRACTAL_TYPE        "Fractal Type"
+    IDS_F_FBM               "fBm"
+    IDS_F_FBMTURB           "fBm Turbulence"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_GRAINFREQ           "Grain frequency"
-    IDS_GAINVAR             "Gain variation"
+    IDS_NODE                "Node"
+    IDS_NOISE_FUNCTION      "Noise Function"
+    IDS_NOISE_TYPE          "Noise Type"
+    IDS_NORMALFUNCTION      "Normal function"
+    IDS_NORMALTYPE          "Normal type"
+    IDS_NORMAL_CAMERAX      "Camera X"
+    IDS_NORMAL_CAMERAY      "Camera Y"
+    IDS_NORMAL_CAMERAZ      "Camera Z"
+    IDS_NORMAL_FRESNEL      "Fresnel"
+    IDS_NORMAL_LOCALX       "Local X"
+    IDS_NORMAL_LOCALY       "Local Y"
+    IDS_NORMAL_LOCALZ       "Local Z"
+    IDS_NORMAL_OBJECTZ      "Object Z"
+    IDS_NORMAL_PARALLEL     "Perpendicular / Parallel"
+    IDS_NORMAL_TOOBJECT     "To Object"
+    IDS_NORMAL_TOWARDS      "Towards / Away"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_RNDBY2              "Randomize by"
+    IDS_RSAT2               "Random Saturation"
+    IDS_SAMPLES             "Samples"
     IDS_SEED                "Random seed"
-    IDS_CURVE               "Curve control"
-    IDS_BERCON_TILE         "BerconTile"
+    IDS_SIMPLEX_WOOD        "Simplex wood"
+    IDS_SKEW                "Skew"
+    IDS_STRING262           "asfa"
+    IDS_SUBCOLORS           "Key colors"
+    IDS_SUBMAPS             "Key maps"
+    IDS_SUBPOSITIONS        "Key positions"
+    IDS_SUPPORT             "Support"
+    IDS_TILEROT_0           "None"
+    IDS_TILEROT_1           "180 Degrees"
+    IDS_TILEROT_2           "90 Degrees"
+    IDS_TILEROT_3           "Random°"
+    IDS_TILEROT_4           "Map"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_AGAMMA2             "General Gamma"
+    IDS_AHUE2               "General Hue"
+    IDS_ANGLEFREQ           "Angular frequency"
+    IDS_ANGLERAD            "Angular radius"
+    IDS_ANGLESTR            "Angular strength"
+    IDS_ASAT                "General Saturation"
+    IDS_BERCON_COLOR        "BerconGradient"
+    IDS_BERCON_DIST         "BerconMapping"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_LINEAR_WOOD         "Linear wood"
+    IDS_LOCK_GRAIN          "Lock grain"
+    IDS_LOCK_SCALE          "Uniform scale"
+    IDS_LOOP_CONT           "Continue"
+    IDS_LOOP_MIRROR         "Mirror"
+    IDS_LOOP_NONE           "None"
+    IDS_LOOP_STRETCH        "Stretch"
+    IDS_LOOP_TILE           "Tile"
+    IDS_MAP                 "Map"
+    IDS_MAP1                "Map1"
+    IDS_MAP10               "Map10"
+    IDS_MAP11               "Map11"
+    IDS_MAP12               "Map12"
+    IDS_MAP13               "Map13"
+    IDS_MAP14               "Map14"
+    IDS_MAP15               "Map15"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_TILESOFTEN_0        "None"
+    IDS_TILESOFTEN_1        "Linear"
+    IDS_TILESOFTEN_2        "Round"
+    IDS_TILESOFTEN_3        "Smooth"
     IDS_TILETYPE_0          "Stretcher Bond"
     IDS_TILETYPE_1          "Flemish Stretcher Bond"
+    IDS_TILETYPE_10         "Herringbone"
+    IDS_TILETYPE_11         "Custom (See the text field below)"
     IDS_TILETYPE_2          "Common Bond"
     IDS_TILETYPE_3          "Flemish Bond"
     IDS_TILETYPE_4          "Monk Bond"
@@ -1363,262 +1543,113 @@ BEGIN
     IDS_TILETYPE_6          "English Bond"
     IDS_TILETYPE_7          "English Cross Bond"
     IDS_TILETYPE_8          "Double English Cross Bond"
-    IDS_TILESOFTEN_0        "None"
-    IDS_TILESOFTEN_1        "Linear"
+    IDS_TILETYPE_9          "Stack Bond"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_TILESOFTEN_2        "Round"
-    IDS_TILESOFTEN_3        "Smooth"
-    IDS_CURVEPB             "Curve param"
-    IDS_CURVEPARM           "Curve parameters"
-    IDS_TILEROT_0           "None"
-    IDS_TILEROT_1           "180 Degrees"
-    IDS_TILEROT_2           "90 Degrees"
-    IDS_TILEROT_3           "Random°"
-    IDS_PBMAP               "Map parameters"
-    IDS_MAP1                "Map1"
+    IDS_MAP16               "Map16"
     IDS_MAP2                "Map2"
     IDS_MAP3                "Map3"
     IDS_MAP4                "Map4"
     IDS_MAP5                "Map5"
     IDS_MAP6                "Map6"
     IDS_MAP7                "Map7"
-END
-
-STRINGTABLE
-BEGIN
     IDS_MAP8                "Map8"
     IDS_MAP9                "Map9"
-    IDS_MAP10               "Map10"
-    IDS_MAP11               "Map11"
-    IDS_MAP12               "Map12"
-    IDS_MAP13               "Map13"
-    IDS_MAP14               "Map14"
-    IDS_MAP15               "Map15"
-    IDS_MAP16               "Map16"
     IDS_MAPON1              "MapOn1"
-    IDS_MAPON2              "MapOn2"
-    IDS_MAPON3              "MapOn3"
-    IDS_MAPON4              "MapOn4"
-    IDS_MAPON5              "MapOn5"
-    IDS_MAPON6              "MapOn6"
-    IDS_MAPON7              "MapOn7"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_MAPON8              "MapOn8"
-    IDS_MAPON9              "MapOn9"
     IDS_MAPON10             "MapOn10"
     IDS_MAPON11             "MapOn11"
     IDS_MAPON12             "MapOn12"
     IDS_MAPON13             "MapOn13"
     IDS_MAPON14             "MapOn14"
     IDS_MAPON15             "MapOn15"
-    IDS_MAPON16             "MapOn16"
-    IDS_BERCON_DIST         "BerconMapping"
-    IDS_VAR_MAP             "Variation map"
-    IDS_VAR_TYPE            "Variation type"
-    IDS_TILEVAR_0           "None"
-    IDS_TILEVAR_1           "Mix"
-    IDS_TILEVAR_2           "Color"
-    IDS_VAR_STR             "Variation strength"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_UV_MAP              "UV Map"
-    IDS_TILEROT_4           "Map"
-    IDS_W_ID                "ID"
     IDS_TILEUVW_0           "No auto scale"
     IDS_TILEUVW_1           "UV"
-    IDS_WORLEY_F1           "F1"
-    IDS_WORLEY_F2           "F2"
-    IDS_WORLEY_F3           "F3"
-    IDS_WORLEY_F4           "F4"
-    IDC_WORLEY_SOLID        "Solid"
-    IDS_TILE_SIZE           "Tile size"
-    IDS_TILE_STYLE          "Tile style"
-    IDS_TILE_WIDTH          "Tile width"
-    IDS_TILE_HEIGHT         "Tile height"
-    IDS_TILE_EWIDTH         "Tile edge width"
-    IDS_TILE_EHEIGHT        "Tile edge height"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_TILE_PERIOD         "Tiling period"
-    IDS_TILE_OFFSET         "Tiling offset"
-    IDS_TILE_OFFSET2        "Tiling offset 2"
-    IDS_TILE_SOFTEN         "Tile soften"
-    IDS_TILE_SOFTRAD        "Tile soften radius"
-    IDS_TILE_ROUND          "Tile round"
-    IDS_TILE_ROUNDRAD       "Tile round radius"
-    IDS_TILE_LOCK           "Lock edge"
-    IDS_TILE_MAPUV          "Map UV"
-    IDS_TILE_ROTUV          "Rot UV"
-    IDS_DIST_UVW            "UVWDist"
-    IDS_UVW_NORMAL          "Normal"
-    IDS_UVW_RADIAL          "Radial"
-    IDS_UVW_SPHERICAL       "Spherical"
-    IDS_TILETYPE_9          "Stack Bond"
-    IDS_F_FBMTURB           "fBm Turbulence"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_LINEAR_WOOD         "Linear wood"
-    IDS_BERCON_COLOR        "BerconGradient"
-    IDS_SUBMAPS             "Key maps"
-    IDS_GRADTYPE_RANDOM     "Random"
-    IDS_GRADTYPE_AGE        "Particle Age"
-    IDS_GRADTYPE_SPEED      "Particle Speed"
-    IDS_GRADTYPE_SIZE       "Particle Size"
-    IDS_GRADINT_LINEAR      "Linear"
-    IDS_GRADINT_SMOOTH      "Smooth"
-    IDS_GRADINT_SOLIDNEAR   "Solid - Nearest"
-    IDS_GRADINT_SOLIDLEFT   "Solid - Left"
-    IDS_GRADINT_SOLIDRIGHT  "Solid - Right"
-    IDS_SUBCOLORS           "Key colors"
-    IDS_SUBPOSITIONS        "Key positions"
-    IDS_KEYTEX              "Key texture"
-    IDS_KEYNUM              "Key number"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_KEYPOS              "Key position"
-    IDS_KEYCOL              "Key color"
-    IDS_GRADIENTTYPE        "Gradient type"
-    IDS_GRADIENTINTERPOLATION "Gradient interpolation"
-    IDS_RANDBYMAT           "Random by material id"
-    IDS_RANDBYOBJ           "Random by object"
-    IDS_RANDBYPAR           "Random by particle"
-    IDS_RANGEMIN            "Range minimum"
-    IDS_RANGEMAX            "Range maximum"
-    IDS_GRADTYPE_UVW        "UVW / XYZ"
-    IDS_GRADTYPE_LIGHT      "Lighting (shadow/light)"
-    IDS_GRADTYPE_MAP        "Map"
-    IDS_GRADTYPE_NORMAL     "Normal"
-    IDS_GRADTYPE_DISTANCE   "Distance"
-    IDS_GRADUVW_LINEAR      "Linear"
-    IDS_GRADUVW_RADIAL      "Radial"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_GRADUVW_RECTANGLE   "Rectangle"
-    IDS_GRADUVW_DIAGONAL    "Diagonal"
-    IDS_GRADUVW_SPIRAL      "Spiral"
-    IDS_GRADUVW_SWEEP       "Sweep"
-    IDS_GRADUVW_TARTAN      "Tartan"
-    IDS_GRADUVW_SPHERICAL   "Spherical"
-    IDS_GRADUVW_BOX         "Box"
-    IDS_GRADUVW_PONG        "Pong"
-    IDS_LOOP_STRETCH        "Stretch"
-    IDS_LOOP_TILE           "Tile"
-    IDS_LOOP_MIRROR         "Mirror"
-    IDS_LOOP_NONE           "None"
-    IDS_NORMAL_VIEW         "View"
-    IDS_NORMAL_LOCALX       "Local X"
-    IDS_NORMAL_LOCALY       "Local Y"
-    IDS_NORMAL_LOCALZ       "Local Z"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_NORMAL_WORLDX       "World X"
-    IDS_NORMAL_WORLDY       "World Y"
-    IDS_NORMAL_WORLDZ       "World Z"
-    IDS_NORMAL_CAMERAX      "Camera X"
-    IDS_NORMAL_CAMERAY      "Camera Y"
-    IDS_NORMAL_CAMERAZ      "Camera Z"
-    IDS_NORMAL_TOOBJECT     "To Object"
-    IDS_NORMAL_OBJECTZ      "Object Z"
-    IDS_NORMAL_PARALLEL     "Perpendicular / Parallel"
-    IDS_NORMAL_TOWARDS      "Towards / Away"
-    IDS_NORMAL_FRESNEL      "Fresnel"
-    IDS_MAP                 "Map"
-    IDS_NODE                "Node"
-    IDS_REVERSE             "Reverse"
-    IDS_RANGELOOP           "Range loop"
-    IDS_GRADIENTUVW         "Gradient UVW"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_NORMALTYPE          "Normal type"
-    IDS_NORMALFUNCTION      "Normal function"
-    IDS_IOR                 "IOR"
-    IDS_DISTON              "Distortion on"
-    IDS_ULOOP               "U loop"
-    IDS_VLOOP               "V loop"
-    IDS_WLOOP               "W loop"
-    IDS_SAMPLES             "Samples"
-    IDS_XYZ                 "Mapping"
-    IDS_XYZ_UVW             "Explicit Map Channel 2D"
-    IDS_XYZ_OBJ             "Object XYZ"
-    IDS_XYZ_WOR             "World XYZ"
-    IDS_XYZ_SCR             "Screen"
-    IDS_LOOP_CONT           "Continue"
-    IDS_XYZ_UVW2            "Explicit Map Channel Real world"
-    IDS_NF_SIMPLEX3         "Simplex 3D"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_NF_SIMPLEX4         "Simplex 4D"
-    IDS_NF_PERLIN2          "Perlin 2D"
-    IDS_NF_PERLIN3          "Perlin 3D"
-    IDS_NF_PERLIN4          "Perlin 4D"
     IDS_TILEUVW_2           "UV Fit"
     IDS_TILEUVW_3           "UV Fit Keep aspect"
     IDS_TILEUVW_4           "UV Normalized"
     IDS_TILEUVW_5           "UV Normalized Keep aspect"
-    IDS_TILETYPE_10         "Herringbone"
-    IDS_TILETYPE_11         "Custom (See the text field below)"
-    IDS_TILE_WIDTH2         "Tile width variation"
-    IDS_TILE_HEIGHT2        "Tile height variation"
-    IDS_TILE_EWIDTH2        "Edge width variation"
-    IDS_TILE_EHEIGHT2       "Edge height variation"
+    IDS_TILEVAR_0           "None"
+    IDS_TILEVAR_1           "Mix"
+    IDS_TILEVAR_2           "Color"
     IDS_TILE_AUTO           "Auto scaling"
-    IDS_UVWCHAN             "UVW Channel"
+    IDS_TILE_EHEIGHT        "Tile edge height"
+    IDS_TILE_EHEIGHT2       "Edge height variation"
+    IDS_TILE_EWIDTH         "Tile edge width"
+    IDS_TILE_EWIDTH2        "Edge width variation"
+    IDS_TILE_HEIGHT         "Tile height"
+    IDS_TILE_HEIGHT2        "Tile height variation"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_UVWCHAN2            "UVV Channel 2"
-    IDS_RANDOM_X_OFF        "Random X offset"
-    IDS_RANDOM_Y_OFF        "Random Y offset"
-    IDS_RANDOM_X_SCA        "Random X scale"
-    IDS_RANDOM_Y_SCA        "Random Y scale"
-    IDS_TILE_ROT            "Random Rotation"
-    IDS_FLIP_X              "Flip X-axis"
-    IDS_FLIP_Y              "Flip Y-axis"
-    IDS_SUPPORT             "Support"
-    IDS_CENTER_MAP          "Center mapping"
-    IDS_LOCK_SCALE          "Uniform scale"
-    IDS_PATTERN_STRING      "Pattern string"
-    IDS_CLASS_NAME_MULTI    "MultiTexture"
-    IDS_AGAMMA2             "General Gamma"
-    IDS_AHUE2               "General Hue"
-    IDS_RGAMMA2             "Random Gamma"
+    IDC_WORLEY_SOLID        "Solid"
 END
 
 STRINGTABLE
 BEGIN
-    IDS_RHUE2               "Random Hue"
-    IDS_RSAT2               "Random Saturation"
-    IDS_OGAMMA2             "Occurance Gamma"
-    IDS_OHUE2               "Occurance Hue"
-    IDS_OSAT2               "Occurance Saturation"
-    IDS_RNDBY2              "Randomize by"
-    IDS_STRING262           "asfa"
-    IDS_BLUR2               "Blur"
-    IDS_FILTERING2          "Filtering"
-    IDS_ASAT                "General Saturation"
+    IDS_GRADTYPE_DISTANCE   "Distance"
+    IDS_GRADTYPE_LIGHT      "Lighting (shadow/light)"
+    IDS_GRADTYPE_MAP        "Map"
+    IDS_GRADTYPE_NORMAL     "Normal"
+    IDS_GRADTYPE_RANDOM     "Random"
+    IDS_GRADTYPE_SIZE       "Particle Size"
+    IDS_GRADTYPE_SPEED      "Particle Speed"
+    IDS_GRADTYPE_UVW        "UVW / XYZ"
+    IDS_GRADUVW_BOX         "Box"
+    IDS_GRADUVW_DIAGONAL    "Diagonal"
+    IDS_GRADUVW_LINEAR      "Linear"
+    IDS_GRADUVW_PONG        "Pong"
+    IDS_GRADUVW_RADIAL      "Radial"
+    IDS_GRADUVW_RECTANGLE   "Rectangle"
+    IDS_GRADUVW_SPHERICAL   "Spherical"
+    IDS_GRADUVW_SPIRAL      "Spiral"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XYZ                 "Mapping"
+    IDS_XYZ_OBJ             "Object XYZ"
+    IDS_XYZ_SCR             "Screen"
+    IDS_XYZ_UVW             "Explicit Map Channel 2D"
+    IDS_XYZ_UVW2            "Explicit Map Channel Real world"
+    IDS_XYZ_WOR             "World XYZ"
+    IDS_XYZ_OFFSET_X        "xyz_offset_x"
+    IDS_XYZ_OFFSET_Y        "xyz_offset_y"
+    IDS_XYZ_OFFSET_Z        "xyz_offset_z"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XYZ_SIZE_X          "xyz_size_x"
+    IDS_XYZ_SIZE_Y          "xyz_size_y"
+    IDS_XYZ_SIZE_Z          "xyz_size_z"
+    IDS_XYZ_ANGLE_X         "xyz_angle_x"
+    IDS_XYZ_ANGLE_Y         "xyz_angle_y"
+    IDS_XYZ_ANGLE_Z         "xyz_angle_z"
+    IDS_XYZ_TILE_X          "xyz_tile_x"
+    IDS_XYZ_TILE_Y          "xyz_tile_y"
+    IDS_XYZ_TILE_Z          "xyz_tile_z"
+    IDS_XYZ_OFFSET_X2       "xyz_offset_x2"
+    IDS_XYZ_OFFSET_Y2       "xyz_offset_y2"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_XYZ_OFFSET_Z2       "xyz_offset_z2"
+    IDS_XYZ_SIZE_X2         "xyz_size_x2"
+	IDS_XYZ_SIZE_Y2         "xyz_size_y2"
+	IDS_XYZ_SIZE_Z2         "xyz_size_z2"
+	IDS_XYZ_ANGLE_X2        "xyz_angle_x2"
+	IDS_XYZ_ANGLE_Y2        "xyz_angle_y2"
+	IDS_XYZ_ANGLE_Z2        "xyz_angle_z2"
+	IDS_XYZ_LOCK            "xyz_lock"
+	IDS_XYZ_FILTERING       "xyz_filtering"
 END
 
 #endif    // English (United States) resources
@@ -1675,6 +1706,7 @@ END
 //
 
 IDB_BITMAPLOGO          BITMAP                  "logo.bmp"
+
 #endif    // Finnish (Finland) resources
 /////////////////////////////////////////////////////////////////////////////
 

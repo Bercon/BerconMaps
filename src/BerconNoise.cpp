@@ -130,7 +130,7 @@ static ParamBlockDesc2 berconnoise_param_blk ( berconnoise_params, _T("params"),
 	// General
 	noise_size,	_T("size"),   TYPE_FLOAT,			P_ANIMATABLE,	IDS_DS_NOISESIZE,
 		p_default,		25.f,
-		p_range,		0.0, 1000000.0f,
+		p_range,		0.001f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER, EDITTYPE_FLOAT, IDC_NOISESIZE_EDIT, IDC_NOISESIZE_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 	noise_lowthresh, _T("thresholdLow"), TYPE_FLOAT,	P_ANIMATABLE,	IDS_RB_LOWTHRESH,
@@ -419,8 +419,12 @@ void BerconNoise::Reset() {
 	if (texout) texout->Reset();
 	else ReplaceReference( OUTPUT_REF, GetNewDefaultTextureOutput());
 
-	if (curve) curve->DeleteMe();
-	curve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	ICurveCtl* newCurve = (ICurveCtl *) CreateInstance(REF_MAKER_CLASS_ID,CURVE_CONTROL_CLASS_ID);
+	// Replace our reference with the new value - otherwise Max reference counting system might
+	// Use ReplaceReference instead of directly assigning curve=newCurve so that Max reference
+	// system properly track dependencies
+	ReplaceReference(CURVE_REF, newCurve);
+
 #if MAX_RELEASE >= 18900
 	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(this));
 #else
