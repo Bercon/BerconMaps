@@ -270,8 +270,8 @@ float Perlin::snoise(float x, float y) {
     float x1 = x0 - i1 + G2, x2 = x0 - 1.0f + 2.0f * G2;
     float y1 = y0 - j1 + G2, y2 = y0 - 1.0f + 2.0f * G2;     
 
-    int ii = i % 256;
-    int jj = j % 256;
+    int ii = i & 0xff;
+    int jj = j & 0xff;
 
     return 40.0f * (point(x0, y0, ii,    jj) +
 					point(x1, y1, ii+i1, jj+j1) +
@@ -318,9 +318,9 @@ float Perlin::snoise(float x, float y, float z) {
     float y1 = y0 - j1 + G3,  y2 = y0 - j2 + G3a,  y3 = y0 + G3b;
     float z1 = z0 - k1 + G3,  z2 = z0 - k2 + G3a,  z3 = z0 + G3b;
 
-    int ii = i % 256;
-    int jj = j % 256;
-    int kk = k % 256;
+    int ii = i & 0xff;
+    int jj = j & 0xff;
+    int kk = k & 0xff;
 
 	return 32.0f * (point(x0, y0, z0, ii,    jj,    kk) +
 					point(x1, y1, z1, ii+i1, jj+j1, kk+k1) +
@@ -379,10 +379,10 @@ float Perlin::snoise(float x, float y, float z, float w) {
     float z1 = z0 - k1 + G4,  z2 = z0 - k2 + G4a,  z3 = z0 - k3 + G4b,  z4 = z0 + G4c;
     float w1 = w0 - l1 + G4,  w2 = w0 - l2 + G4a,  w3 = w0 - l3 + G4b,  w4 = w0 + G4c;
 
-    int ii = i % 256;
-    int jj = j % 256;
-    int kk = k % 256;
-    int ll = l % 256;
+    int ii = i & 0xff;
+    int jj = j & 0xff;
+    int kk = k & 0xff;
+    int ll = l & 0xff;
 
 	return 27.0f * (point(x0, y0, z0, w0, ii,    jj,    kk,    ll) +
 					point(x1, y1, z1, w1, ii+i1, jj+j1, kk+k1, ll+l1) +
