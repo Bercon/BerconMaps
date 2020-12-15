@@ -5,6 +5,10 @@ BerconMaps is a 3rd party texture plugin for Autodesk 3ds Max. It adds five new 
 
 For more information, pictures and binaries go to http://www.ylilammi.com/2013/09/berconmaps/
 
+Binaries
+-------------------------
+Binaries can be found under `src/DLL/` folder: https://github.com/Bercon/BerconMaps/tree/master/src/DLL
+
 License
 -------------------------
 
