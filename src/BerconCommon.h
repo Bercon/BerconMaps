@@ -45,8 +45,23 @@ under the License.
 #include "curvectrl.h"
 #include "BerconSC.h"
 
+// Max 2022
+#if MAX_RELEASE < MAX_RELEASE_R24_PREVIEW
+#define ARG_LOCALIZED(arg) arg
+#define FORWARD_ARG_LOCALIZED(arg) arg
+#define LOCALIZED_CLASS_NAME(id) \
+	const TCHAR* ClassName() { return GetString(id); }
+#else
+/// For use in argument list of method/function taking 1 custom argument and the 2nd one being the localization flag
+#define ARG_LOCALIZED(arg) arg, bool localized
+/// For use in function already using ARG_LOCALIZED in the argument list, passing the localized argument as is
+#define FORWARD_ARG_LOCALIZED(arg) arg, localized
+// Define both localized and non-localized class name functions
+#define LOCALIZED_CLASS_NAME(id) \
+	const TCHAR* ClassName() { return GetString(id); } \
+	const TCHAR* NonLocalizedClassName() override { return GetString(id); }
+#endif
 
-  
 #ifndef NOTIFY_REF_CHANGED_ARGS
 #if MAX_RELEASE < 16900
 #define NOTIFY_REF_CHANGED_ARGS Interval changeInt, RefTargetHandle hTarget, PartID& partID, RefMessage message

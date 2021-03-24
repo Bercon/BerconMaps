@@ -89,7 +89,7 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		int NumSubTexmaps() { return TILE_NSUBTEX; }
 		Texmap* GetSubTexmap(int i) { return subtex[i]; }
 		void SetSubTexmap(int i, Texmap *m);
-		TSTR GetSubTexmapSlotName(int i);
+		TSTR GetSubTexmapSlotName(ARG_LOCALIZED(int i));
 		
 		//From Texmap
 		RGBA EvalColor(ShadeContext& sc);
@@ -103,14 +103,14 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		//From Animatable
 		Class_ID ClassID() {return BerconTile_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_TILE);}
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_BERCON_TILE);}
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 11; }
 		Animatable* SubAnim(int i); 
-		TSTR SubAnimName(int i);
+		TSTR SubAnimName(ARG_LOCALIZED(int i));
 
 		int NumRefs() { return 11; }
 		RefTargetHandle GetReference(int i);
@@ -144,10 +144,10 @@ public:
 	virtual ~BerconTileClassDesc() {}
 	virtual int IsPublic() 							{ return TRUE; }
 	virtual void* Create(BOOL /*loading = FALSE*/) 	{ return new BerconTile(); }
-	virtual const TCHAR *	ClassName() 			{ return GetString(IDS_BERCON_TILE); }
 	virtual SClass_ID SuperClassID() 				{ return TEXMAP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return BerconTile_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
 	virtual const TCHAR* InternalName() 			{ return _T("BerconTile"); } // returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }
+	LOCALIZED_CLASS_NAME(IDS_BERCON_TILE)
 };

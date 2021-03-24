@@ -875,7 +875,7 @@ void BerconGradient::SetSubTexmap(int i, Texmap *m) {
 	ivalid.SetEmpty();
 }
 
-TSTR BerconGradient::GetSubTexmapSlotName(int i) {		
+TSTR BerconGradient::GetSubTexmapSlotName(ARG_LOCALIZED(int i)) {		
 	if (i == MAPTEX_NUM)
 		return TSTR(GetString(IDS_MAP)); 
 	if (i == DISTEX_NUM)
@@ -987,7 +987,7 @@ Animatable* BerconGradient::SubAnim(int i) {
 	return NULL;
 }
 
-TSTR BerconGradient::SubAnimName(int i) {
+TSTR BerconGradient::SubAnimName(ARG_LOCALIZED(int i)) {
 	switch (i) {
 		case PBLOCK_REF: return GetString(IDS_PARAMS);
 		case COORD_REF: return GetString(IDS_COORDS);				

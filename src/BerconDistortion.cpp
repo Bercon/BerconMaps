@@ -142,7 +142,7 @@ void BerconDistortion::SetSubTexmap(int i, Texmap *m)  {
 	}
 }
 
-TSTR BerconDistortion::GetSubTexmapSlotName(int i) {	
+TSTR BerconDistortion::GetSubTexmapSlotName(ARG_LOCALIZED(int i)) {	
 	switch(i) {
 		case 0:  return TSTR(GetString(IDS_DISTORTION_MAP)); 
 		case 1:  return TSTR(GetString(IDS_DISTORTION_MAP2)); 
@@ -190,11 +190,11 @@ Animatable* BerconDistortion::SubAnim(int i) {
 	}
 }
 
-TSTR BerconDistortion::SubAnimName(int i) {	
+TSTR BerconDistortion::SubAnimName(ARG_LOCALIZED(int i)) {	
 	switch (i) {
 		case PBLOCK_REF: return GetString(IDS_PARAMS);
 		case COORD_REF: return GetString(IDS_XYZ);
-		default: return GetSubTexmapTVName(i-1);
+		default: return GetSubTexmapTVName(FORWARD_ARG_LOCALIZED(i-1));
 	}
 }
 

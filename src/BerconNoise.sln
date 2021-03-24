@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BerconMaps", "BerconNoise.vcxproj", "{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}"
 EndProject
 Global
@@ -15,7 +17,10 @@ Global
 		Max2013|x64 = Max2013|x64
 		max2015|Win32 = max2015|Win32
 		max2015|x64 = max2015|x64
+		Max2021|Win32 = Max2021|Win32
 		Max2021|x64 = Max2021|x64
+		Max2022|Win32 = Max2022|Win32
+		Max2022|x64 = Max2022|x64
 		Max9_2|Win32 = Max9_2|Win32
 		Max9_2|x64 = Max9_2|x64
 	EndGlobalSection
@@ -40,8 +45,12 @@ Global
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.max2015|Win32.Build.0 = max2015|Win32
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.max2015|x64.ActiveCfg = max2015|x64
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.max2015|x64.Build.0 = max2015|x64
+		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2021|Win32.ActiveCfg = Max2021|x64
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2021|x64.ActiveCfg = Max2021|x64
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2021|x64.Build.0 = Max2021|x64
+		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2022|Win32.ActiveCfg = Max2022|x64
+		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2022|x64.ActiveCfg = Max2022|x64
+		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2022|x64.Build.0 = Max2022|x64
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max9_2|Win32.ActiveCfg = Max9_2|Win32
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max9_2|Win32.Build.0 = Max9_2|Win32
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max9_2|x64.ActiveCfg = Max9_2|x64
@@ -49,5 +58,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18F31B82-2705-494F-AAD9-4D1A23FB175F}
 	EndGlobalSection
 EndGlobal
