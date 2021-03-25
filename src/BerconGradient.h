@@ -124,7 +124,7 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		int NumSubTexmaps() { return 3 + gradient->numKeys(); } // !! Update submap count !!
 		Texmap* GetSubTexmap(int i);
 		void SetSubTexmap(int i, Texmap *m);
-		TSTR GetSubTexmapSlotName(int i);
+		TSTR GetSubTexmapSlotName(ARG_LOCALIZED(int i));
 		
 		//From Texmap
 		RGBA EvalColor(ShadeContext& sc);
@@ -145,14 +145,14 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		//From Animatable
 		Class_ID ClassID() {return BerconGradient_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_COLOR);}
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_BERCON_COLOR);}
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 8+gradient->numKeys(); } // !! Update submap count !!
 		Animatable* SubAnim(int i); 
-		TSTR SubAnimName(int i);
+		TSTR SubAnimName(ARG_LOCALIZED(int i));
 		
 		int NumRefs() { return 8+gradient->numKeys(); } // !! Update submap count !!
 		RefTargetHandle GetReference(int i);
@@ -187,10 +187,10 @@ class BerconGradientClassDesc : public ClassDesc2 {
 public:
 	virtual int IsPublic() 							{ return TRUE; }
 	virtual void* Create(BOOL /*loading = FALSE*/) 	{ return new BerconGradient(); }
-	virtual const TCHAR *	ClassName() 			{ return GetString(IDS_BERCON_COLOR); }
 	virtual SClass_ID SuperClassID() 				{ return TEXMAP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return BerconGradient_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
 	virtual const TCHAR* InternalName() 			{ return _T("BerconGradient"); } // scripter-visible name
 	virtual HINSTANCE HInstance() 					{ return hInstance; }
+	LOCALIZED_CLASS_NAME(IDS_BERCON_COLOR)
 };

@@ -116,7 +116,7 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		int NumSubTexmaps() { return NOISE_NSUBTEX; }
 		Texmap* GetSubTexmap(int i) { return subtex[i]; }
 		void SetSubTexmap(int i, Texmap *m);
-		TSTR GetSubTexmapSlotName(int i);
+		TSTR GetSubTexmapSlotName(ARG_LOCALIZED(int i));
 		
 		//From Texmap
 		RGBA EvalColor(ShadeContext& sc);
@@ -132,14 +132,14 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		//From Animatable
 		Class_ID ClassID() {return BerconNoise_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(TSTR& s) {s = GetString(IDS_CLASS_NAME);}
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_CLASS_NAME);}
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 24; }
 		Animatable* SubAnim(int i); 
-		TSTR SubAnimName(int i);
+		TSTR SubAnimName(ARG_LOCALIZED(int i));
 
 		// TODO: Maintain the number or references here 
 		int NumRefs() { return 24; }
@@ -174,10 +174,10 @@ class BerconNoiseClassDesc : public ClassDesc2 {
 public:
 	virtual int IsPublic() 							{ return TRUE; }
 	virtual void* Create(BOOL)				 		{ return new BerconNoise(); }
-	virtual const TCHAR *	ClassName() 			{ return GetString(IDS_CLASS_NAME); }
 	virtual SClass_ID SuperClassID() 				{ return TEXMAP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return BerconNoise_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
 	virtual const TCHAR* InternalName() 			{ return _T("BerconNoise"); } // returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }
+	LOCALIZED_CLASS_NAME(IDS_CLASS_NAME)
 };

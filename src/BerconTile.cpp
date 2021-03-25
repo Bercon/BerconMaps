@@ -732,7 +732,7 @@ void BerconTile::SetSubTexmap(int i, Texmap *m)  {
 	}
 }
 
-TSTR BerconTile::GetSubTexmapSlotName(int i)  {	
+TSTR BerconTile::GetSubTexmapSlotName(ARG_LOCALIZED(int i))  {	
 	switch(i) {
 		case 0:  return TSTR(GetString(IDS_DS_COLOR1)); 
 		case 1:  return TSTR(GetString(IDS_DS_COLOR2)); 
@@ -794,13 +794,13 @@ Animatable* BerconTile::SubAnim(int i) {
 	}
 }
 
-TSTR BerconTile::SubAnimName(int i) {	
+TSTR BerconTile::SubAnimName(ARG_LOCALIZED(int i)) {	
 	switch (i) {
 		case COORD_REF: return GetString(IDS_COORDS);		
 		case PBLOCK_REF: return GetString(IDS_PARAMS);		
 		case OUTPUT_REF: return GetString(IDS_OUTPUT);
 		case PBMAP_REF: return GetString(IDS_PBMAP);
-		default: return GetSubTexmapTVName(i-2);
+		default: return GetSubTexmapTVName(FORWARD_ARG_LOCALIZED(i-2));
 	}
 }
 

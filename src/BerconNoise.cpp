@@ -642,7 +642,7 @@ void BerconNoise::SetSubTexmap(int i, Texmap *m)  {
 	}
 }
 
-TSTR BerconNoise::GetSubTexmapSlotName(int i) {	
+TSTR BerconNoise::GetSubTexmapSlotName(ARG_LOCALIZED(int i)) {	
 	switch(i) {
 		case 0:  return TSTR(GetString(IDS_DS_COLOR1)); 
 		case 1:  return TSTR(GetString(IDS_DS_COLOR2)); 
@@ -724,7 +724,7 @@ Animatable* BerconNoise::SubAnim(int i) {
 	}
 }
 
-TSTR BerconNoise::SubAnimName(int i) {	
+TSTR BerconNoise::SubAnimName(ARG_LOCALIZED(int i)) {	
 	switch (i) {
 		case COORD_REF: return GetString(IDS_COORDS);		
 		case PBLOCK_REF: return GetString(IDS_PARAMS);

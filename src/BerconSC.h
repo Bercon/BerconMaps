@@ -144,6 +144,8 @@ public:
 	int NRenderElements () { return sc->NRenderElements(); }
 	IRenderElement* GetRenderElement (int n){ return sc->GetRenderElement(n); }
 	Color DiffuseIllum (){ return sc->DiffuseIllum(); }
+
+#if MAX_RELEASE < MAX_RELEASE_R24_PREVIEW
 	bool IsPhysicalSpace () const{ return sc->IsPhysicalSpace(); }
 	template<class T> void ScaledToRGB (T& energy) const { sc->ScaledToRGB(energy); }
 	float ScaledToRGB (float energy) const{ return sc->ScaledToRGB(energy); }
@@ -152,6 +154,7 @@ public:
 	float ScalePhysical (float energy) const{ return sc->ScalePhysical(energy); }
 	template<class T> void ScaleRGB (T& energy) const { sc->ScaleRGB(energy); }
 	float ScaleRGB (float energy) const{ return sc->ScaleRGB(energy); }
+#endif
 };
 
 inline Point3 BerconSC::PObjRelBox() {

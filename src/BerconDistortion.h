@@ -65,7 +65,7 @@ class BerconDistortion : public Texmap {
 		//TODO: Return the pointer to the 'i-th' sub-texmap
 		Texmap* GetSubTexmap(int i) { return subtex[i]; }
 		void SetSubTexmap(int i, Texmap *m);
-		TSTR GetSubTexmapSlotName(int i);
+		TSTR GetSubTexmapSlotName(ARG_LOCALIZED(int i));
 		
 		//From Texmap
 		RGBA EvalColor(ShadeContext& sc);
@@ -82,14 +82,14 @@ class BerconDistortion : public Texmap {
 		//From Animatable
 		Class_ID ClassID() {return BerconDistortion_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(TSTR& s) {s = GetString(IDS_BERCON_DIST);}
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_BERCON_DIST);}
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
 
 		int NumSubs() { return 2+DIST_NSUBTEX; }
 		Animatable* SubAnim(int i); 
-		TSTR SubAnimName(int i);
+		TSTR SubAnimName(ARG_LOCALIZED(int i));
 
 		// TODO: Maintain the number or references here 
 		int NumRefs() { return 5; }
@@ -113,11 +113,11 @@ public:
 	virtual ~BerconDistortionClassDesc() {}
 	virtual int IsPublic() 							{ return TRUE; }
 	virtual void* Create(BOOL /*loading = FALSE*/) 	{ return new BerconDistortion(); }
-	virtual const TCHAR *	ClassName() 			{ return GetString(IDS_BERCON_DIST); }
 	virtual SClass_ID SuperClassID() 				{ return TEXMAP_CLASS_ID; }
 	virtual Class_ID ClassID() 						{ return BerconDistortion_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
 
 	virtual const TCHAR* InternalName() 			{ return _T("BerconMapping"); }	// returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }					// returns owning module handle	
+	LOCALIZED_CLASS_NAME(IDS_BERCON_DIST)
 };

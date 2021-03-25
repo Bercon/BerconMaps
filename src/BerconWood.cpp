@@ -631,7 +631,7 @@ void BerconWood::SetSubTexmap(int i, Texmap *m)  {
 	}
 }
 
-TSTR BerconWood::GetSubTexmapSlotName(int i){	
+TSTR BerconWood::GetSubTexmapSlotName(ARG_LOCALIZED(int i)){	
 	switch(i) {
 		case 0:  return TSTR(GetString(IDS_DS_COLOR1)); 
 		case 1:  return TSTR(GetString(IDS_DS_COLOR2)); 
@@ -716,7 +716,7 @@ Animatable* BerconWood::SubAnim(int i) {
 	}
 }
 
-TSTR BerconWood::SubAnimName(int i) {	
+TSTR BerconWood::SubAnimName(ARG_LOCALIZED(int i)) {	
 	switch (i) {
 		case COORD_REF: return GetString(IDS_COORDS);		
 		case PBLOCK_REF: return GetString(IDS_PARAMS);
