@@ -155,6 +155,12 @@ public:
 	template<class T> void ScaleRGB (T& energy) const { sc->ScaleRGB(energy); }
 	float ScaleRGB (float energy) const{ return sc->ScaleRGB(energy); }
 #endif
+
+#if MAX_RELEASE >= MAX_RELEASE_R26_PREVIEW
+	Matrix3 MatrixTo(RefFrame ito) override { return sc->MatrixTo(ito); }
+
+	Matrix3 MatrixFrom(RefFrame ifrom) override { return sc->MatrixFrom(ifrom); }
+#endif
 };
 
 inline Point3 BerconSC::PObjRelBox() {
