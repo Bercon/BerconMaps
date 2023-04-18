@@ -35,8 +35,8 @@ float lerp(float a, float b, float blend);
 inline float avg(float a, float b) { return (a + b) / 2.f; }
 inline float avg(float a, float b, float c) { return (a + b + c) / 3.f; }
 
-inline float length(float a, float b) { return sqrt(a*a + b*b); }
-inline float length(float a, float b, float c) { return sqrt(a*a + b*b + c*c); }
+inline float length(float a, float b) { return sqrtf(a*a + b*b); }
+inline float length(float a, float b, float c) { return sqrtf(a*a + b*b + c*c); }
 
 // Macros
 
