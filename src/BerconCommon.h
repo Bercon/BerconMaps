@@ -148,7 +148,9 @@ public:
 	P_AUTO_CONSTRUCT + P_AUTO_UI, ref, 	
 	IDD_XYZ, IDS_XYZ, 0, closed, NULL,
 
+
 	xyz_map, _M("xyz_map"), TYPE_INT, P_ANIMATABLE, IDS_XYZ, p_default, 0, p_range, 0, 4, p_ui, TYPE_INTLISTBOX, IDC_TYPE, 0, p_end,
+
 
 	xyz_chan,	_M("xyz_chan"), TYPE_INT, P_ANIMATABLE, IDS_CHAN, 
 		p_default, 1, p_range, 1, 99,
