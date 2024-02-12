@@ -1,3 +1,5 @@
+**This is a development branch. The goal is to produce refactored code that is more easily read and understood for future maintainers.
+
 BerconMaps
 ==========
 
