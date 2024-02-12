@@ -1622,6 +1622,7 @@ BEGIN
     IDS_XYZ_OFFSET_X        "xyz_offset_x"
     IDS_XYZ_OFFSET_Y        "xyz_offset_y"
     IDS_XYZ_OFFSET_Z        "xyz_offset_z"
+    IDS_CHAN                "Channel"
 END
 
 STRINGTABLE
@@ -1642,14 +1643,18 @@ END
 STRINGTABLE
 BEGIN
     IDS_XYZ_OFFSET_Z2       "xyz_offset_z2"
+END
+
+STRINGTABLE
+BEGIN
     IDS_XYZ_SIZE_X2         "xyz_size_x2"
-	IDS_XYZ_SIZE_Y2         "xyz_size_y2"
-	IDS_XYZ_SIZE_Z2         "xyz_size_z2"
-	IDS_XYZ_ANGLE_X2        "xyz_angle_x2"
-	IDS_XYZ_ANGLE_Y2        "xyz_angle_y2"
-	IDS_XYZ_ANGLE_Z2        "xyz_angle_z2"
-	IDS_XYZ_LOCK            "xyz_lock"
-	IDS_XYZ_FILTERING       "xyz_filtering"
+    IDS_XYZ_SIZE_Y2         "xyz_size_y2"
+    IDS_XYZ_SIZE_Z2         "xyz_size_z2"
+    IDS_XYZ_ANGLE_X2        "xyz_angle_x2"
+    IDS_XYZ_ANGLE_Y2        "xyz_angle_y2"
+    IDS_XYZ_ANGLE_Z2        "xyz_angle_z2"
+    IDS_XYZ_LOCK            "xyz_lock"
+    IDS_XYZ_FILTERING       "xyz_filtering"
 END
 
 #endif    // English (United States) resources

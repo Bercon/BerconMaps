@@ -172,3 +172,9 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+src/.vs/BerconNoise/v16/Browse.VC.db
+src/.vs/ProjectSettings.json
+src/.vs/slnx.sqlite
+src/.vs/src/v16/Browse.VC.db
+src/.vscode/c_cpp_properties.json
+src/.vscode/settings.json

@@ -64,10 +64,10 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		TextureOutput   *texout;
 		Interval		ivalid;
 		//bool viewportPreview;
-
-		inline AColor BerconTile::getColor(ShadeContext &sc, int i)  { return mapOn[i]&&subtex[i] ? subtex[i]->EvalColor(sc): col[i]; }
-		inline float  BerconTile::getFloat(ShadeContext &sc, int i)  { return mapOn[i]&&subtex[i] ? subtex[i]->EvalMono(sc): Intens(col[i]); }
-		inline Point3 BerconTile::getNormal(ShadeContext &sc, int i) { return mapOn[i]&&subtex[i] ? subtex[i]->EvalNormalPerturb(sc): Point3(0,0,0); }
+		// fixed compiler error 4596
+		inline AColor getColor(ShadeContext &sc, int i)  { return mapOn[i]&&subtex[i] ? subtex[i]->EvalColor(sc): col[i]; }
+		inline float  getFloat(ShadeContext &sc, int i)  { return mapOn[i]&&subtex[i] ? subtex[i]->EvalMono(sc): Intens(col[i]); }
+		inline Point3 getNormal(ShadeContext &sc, int i) { return mapOn[i]&&subtex[i] ? subtex[i]->EvalNormalPerturb(sc): Point3(0,0,0); }
 
 		// Methods for interactive display
 		TexHandle *texHandle;

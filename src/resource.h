@@ -307,6 +307,7 @@
 #define IDS_XYZ_OFFSET_X                486
 #define IDS_XYZ_OFFSET_Y                487
 #define IDS_XYZ_OFFSET_Z                488
+#define IDS_CHAN                        489
 #define IDC_AGAMMA_EDIT                 1001
 #define IDC_AGAMMA_SPIN                 1002
 #define IDC_AHUE_EDIT                   1003
@@ -617,9 +618,9 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        486
+#define _APS_NEXT_RESOURCE_VALUE        490
 #define _APS_NEXT_COMMAND_VALUE         32775
-#define _APS_NEXT_CONTROL_VALUE         1281
-#define _APS_NEXT_SYMED_VALUE           101
+#define _APS_NEXT_CONTROL_VALUE         1289
+#define _APS_NEXT_SYMED_VALUE           118
 #endif
 #endif
