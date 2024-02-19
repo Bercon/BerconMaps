@@ -1,0 +1,26 @@
+﻿v3.05 (tested with Max 2024 only)
+FIX: Berconmap types display their type (e.g., "BerconWood") instead of just a generic 'Texture' in Slate editor. An override was required on the localized name.
+
+FIX: xyz_tile only referencing IDS_XYZ_TILE_X [though in practice I don't think it matters]
+
+FIX: prevent setting tiling scale to zero in XYZ pblock
+
+FIX: Random by Material checkbox/XYZ pblock. Wrong parameter label for random by material checkbox, and so this function did not work.
+
+ADD comments for future maintainers
+
+CHANGE "BerconMapping" to "BerconDistortion"
+
+REFACTOR: berconcommon uvwgen switch cases. The "Filtering:" setting was never reached except in case 0 or 1. It is now active for all map coordinate systems.
+
+KNOWN ISSUE: Gradient keys will not sort. I suspect they are sorted, but the new sort is never actually sent to the dialog window handler. (Issue present in previous commit)
+ 
+OTHER: Tweaked dialog boxes for alignment and readability (words slightly cut off, more space for options to be readable, etc.)
+
+NOTE: In Slate editor, map channel is always preset to 0 (but correctly set to 1 in dialog box). This is a cosmetic issue, albeit an annoying one.
+
+NOTE: The custom control curve slows things down in "Realistic Maps" mode, or when rendering. It takes only a few maps to bring the session down to a crawl on a Skylake-X chip with 24 threads, an RTX 4070, and 128GB of RAM.
+
+NOTE FOR USERS:
+Note for users, nitrous viewport only matches render if viewport is in Shaded Maps mode (not Realistic mode), Explicit Map Channel is set and object has no UVW map. Assigning a UVW map will enable both modes.
+If "variance" is used note that the same map applied to different objects will result in an incorrect preview. This is because the map is only evaluated once for the nitrous viewport; two or more objects sharing the same material with random variance are effectively multiple maps as far as 3DSMax is concerned. This is why you will only get one preview image in the material editor for any map.

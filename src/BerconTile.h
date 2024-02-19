@@ -103,7 +103,7 @@ class BerconTile : public Texmap, public ResourceMakerCallback {
 		//From Animatable
 		Class_ID ClassID() {return BerconTile_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_BERCON_TILE);}
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) const override {s = GetString(IDS_BERCON_TILE);} //override for Slate editor
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);

@@ -245,7 +245,7 @@ static ParamBlockDesc2 gradientmap_param_blk ( gradientmap_params, _T("params"),
 
 	pb_ior,					_T("IOR"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_IOR,
 		p_default,		1.6f,
-		p_range,		1.0, 1000000.0f,
+		p_range,		1.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_IOR_EDIT, IDC_IOR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
@@ -259,7 +259,7 @@ static ParamBlockDesc2 gradientmap_param_blk ( gradientmap_params, _T("params"),
 
 	pb_disstr,		_T("disStr"),		TYPE_FLOAT,		P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
 		p_default,		0.f,
-		p_range,		0.0, 1000000.0f,
+		p_range,		0.0f, 1000000.0f,
 		p_ui, 			TYPE_SPINNER,	EDITTYPE_FLOAT, IDC_DISTSTR_EDIT, IDC_DISTSTR_SPIN, SPIN_AUTOSCALE, 
 		p_end,
 
@@ -298,21 +298,22 @@ static ParamBlockDesc2 BerconCurve_param_blk ( BerconCurve_params, _T("params"),
 );	    
 
 class BerconCurveDlgProcGRADIENT : public ParamMap2UserDlgProc {
+
 	public:
 		BerconGradient *parentMap;		
 		BerconCurveDlgProcGRADIENT(BerconGradient *m) {parentMap = m;}		
 		INT_PTR DlgProc(TimeValue t,IParamMap2 *map,HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam) {
-			if (parentMap->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))
+			if (parentMap->curve->GetHWND() != GetDlgItem(hWnd, IDC_CURVE))  
 				CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap)); // Force update curve
 			switch (msg) {
-				case WM_INITDIALOG:
-				case WM_SHOWWINDOW:
-					CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap));					
-					break;
-				case WM_DESTROY:
-					CurveCtrl::disable(parentMap->curve);
-					break;
-				default: return FALSE;
+			case WM_INITDIALOG:
+			case WM_SHOWWINDOW:
+				CurveCtrl::update(parentMap->curve, GetDlgItem(hWnd, IDC_CURVE), static_cast<ReferenceMaker*>(parentMap));					
+				break;
+			case WM_DESTROY:
+				CurveCtrl::disable(parentMap->curve);
+				break;
+			default: return FALSE;
 			}
 			return TRUE;
 		}
@@ -922,7 +923,7 @@ RefTargetHandle BerconGradient::GetReference(int i) {
 			if (k >= gradient->numKeys()) return NULL;
 			return gradient->getSubtex(k);
 	}
-	return NULL;
+//	return NULL;
 }
 
 void BerconGradient::SetReference(int i, RefTargetHandle rtarg) {
@@ -984,7 +985,7 @@ Animatable* BerconGradient::SubAnim(int i) {
 			if (k >= gradient->numKeys()) return NULL;		
 			return gradient->getSubtex(k);
 	}
-	return NULL;
+//	return NULL;
 }
 
 TSTR BerconGradient::SubAnimName(ARG_LOCALIZED(int i)) {
@@ -1104,7 +1105,7 @@ float BerconGradient::getGradientValueUVW(Point3 p) {
 		default:
 			return 0.f;
 	}
-	return 0.f;
+//	return 0.f;
 }
 
 // Seed random number generator		
@@ -1177,10 +1178,10 @@ float BerconGradient::getGradientValueDist(ShadeContext& sc) {
 		}
 		case 10: { // To Object
 			if (sc.InMtlEditor() || !p_node)
-				return -sc.P().z; //(sc.PointTo(sc.P(), REF_CAMERA)).z;			
+				return -sc.P().z; //(sc.PointTo(sc.P(), REF_CAMERA)).z;
 			return Length((p_node->GetNodeTM(sc.CurTime())).GetTrans() - sc.PointTo(sc.P(), REF_WORLD));
 		}
-		case 11: { // Object Z			
+		case 11: { // Object Z
 			if (sc.InMtlEditor() || !p_node)
 				return -sc.P().z; //(sc.PointTo(sc.P(), REF_CAMERA)).z;			
 			Matrix3 tm = p_node->GetNodeTM(sc.CurTime());
@@ -1226,7 +1227,7 @@ float BerconGradient::getGradientValueNormal(ShadeContext& sc) {
 		}
 		case 10: { // To Object
 			if (sc.InMtlEditor() || !p_node)
-				return -DotProd(sc.Normal(), sc.V());												
+				return -DotProd(sc.Normal(), sc.V());
 			return DotProd(sc.Normal(), FNormalize(sc.PointFrom((p_node->GetNodeTM(sc.CurTime())).GetTrans(),REF_WORLD) - sc.P()));							
 		}
 		case 11: { // Object Z			
@@ -1279,7 +1280,7 @@ float BerconGradient::getGradientValue(ShadeContext& sc) {
 		}
 		case 5: { // Random
 			seedRandomGen(sc);
-			return (float)sfrand();		
+			return (float)sfrand();
 			break;
 		}
 		case 6: { // Particle age
@@ -1342,13 +1343,14 @@ AColor BerconGradient::EvalColor(ShadeContext& sc) {
 		return res; 	
 	if (gbufID) sc.SetGBufferID(gbufID);		
 	
-	// Function type
+	// Function type (UVW, Normal, Distance, etc.)
 	float d;
 	if (p_type == 0) {// UVW
 		Point3 p;
 		if (!berconXYZ.get(sc, p)) return res;
 		d = getGradientValueUVW(p);
 	} else { // Others
+
 		d = getGradientValue(sc);
 	}		 
 
@@ -1358,8 +1360,13 @@ AColor BerconGradient::EvalColor(ShadeContext& sc) {
 	// Limit range
 	if (!limitRange(d)) return res;
 
+	/////////// This is phenomenally CPU-intense in "Realistic Maps" mode!!! \\\\\\\\\\\\\
 	// Curve
-	if (p_curveOn) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);		
+	if (p_curveOn) {
+		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+		//TODO: Add option for user to use lookup table for complex scenes
+		//d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d, TRUE);	// Use lookup table for speed 
+	}
 
 	// Get color from gradient
 	res = gradient->getColor(p_reverse?1.f-d:d, sc);
@@ -1403,7 +1410,8 @@ Point3 BerconGradient::EvalNormalPerturb(ShadeContext& sc) {
 	// Origin
 	float d = getGradientValueUVW(p) + dist;	
 	if (!limitRange(d)) return res;
-	if (p_curveOn) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);		
+	if (p_curveOn) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+	//if (p_curveOn) d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d, TRUE);
 	d = Intens(gradient->getColor(d, sc));
 
 	// Deltas
@@ -1421,17 +1429,18 @@ Point3 BerconGradient::EvalNormalPerturb(ShadeContext& sc) {
 		}
 		normal = M[0]*normal.x + M[1]*normal.y + M[2]*normal.z;
 	} else {*/
-		Point3 MP[3];
-		MP[0] = Point3(DELTA,0.f,0.f); MP[1] = Point3(0.f,DELTA,0.f); MP[2] = Point3(0.f,DELTA,0.f);
-		for (int i=0; i<3; i++) {
-			normal[i] = getGradientValueUVW(p+MP[i]) + dist;
-			if (!limitRange(normal[i])) return res;
-			if (p_curveOn) 
-				normal[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i]);
-			normal[i] = Intens(gradient->getColor(normal[i], sc));
-			normal[i] = (normal[i] - d) / DELTA;
-		}		
-		normal = M[0]*normal.x + M[1]*normal.y + M[2]*normal.z;
+	Point3 MP[3];
+	MP[0] = Point3(DELTA,0.f,0.f); MP[1] = Point3(0.f,DELTA,0.f); MP[2] = Point3(0.f,DELTA,0.f);
+	for (int i=0; i<3; i++) {
+		normal[i] = getGradientValueUVW(p+MP[i]) + dist;
+		if (!limitRange(normal[i])) return res;
+		if (p_curveOn)
+			normal[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i]);
+//			normal[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), normal[i], TRUE);
+		normal[i] = Intens(gradient->getColor(normal[i], sc));
+		normal[i] = (normal[i] - d) / DELTA;
+	}		
+	normal = M[0]*normal.x + M[1]*normal.y + M[2]*normal.z;
 		
 		//normal = sc.VectorFromNoScale(normal, REF_OBJECT);		
 		

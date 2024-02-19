@@ -132,7 +132,7 @@ class BerconNoise : public Texmap, public ResourceMakerCallback/*, public imrSha
 		//From Animatable
 		Class_ID ClassID() {return BerconNoise_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_CLASS_NAME);}
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) const override {s = GetString(IDS_CLASS_NAME);} //override for Slate editor
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
