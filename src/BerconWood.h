@@ -130,7 +130,11 @@ class BerconWood : public Texmap, public ResourceMakerCallback {
 		//From Animatable
 		Class_ID ClassID() {return BerconWood_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(ARG_LOCALIZED(TSTR& s)) const override {s = GetString(IDS_BERCON_WOOD);}	// override so Slate editor gets name
+#if MAX_RELEASE < 23900
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) { s = GetString(IDS_BERCON_WOOD); }
+#else
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) const override { s = GetString(IDS_BERCON_WOOD); } //override for Slate editor
+#endif
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);

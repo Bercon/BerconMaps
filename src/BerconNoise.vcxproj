@@ -1,57 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Hybrid|Win32">
-      <Configuration>Hybrid</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Hybrid|x64">
       <Configuration>Hybrid</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2009|Win32">
-      <Configuration>Max2009</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max2009|x64">
       <Configuration>Max2009</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2010|Win32">
-      <Configuration>Max2010</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Max2010|x64">
       <Configuration>Max2010</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2012|Win32">
-      <Configuration>Max2012</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max2012|x64">
       <Configuration>Max2012</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2013|Win32">
-      <Configuration>Max2013</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max2013|x64">
       <Configuration>Max2013</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="max2015|Win32">
-      <Configuration>max2015</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="max2015|x64">
       <Configuration>max2015</Configuration>
@@ -61,73 +33,37 @@
       <Configuration>Max2021</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2022|Win32">
-      <Configuration>Max2022</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max2022|x64">
       <Configuration>Max2022</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2023|Win32">
-      <Configuration>Max2023</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Max2023|x64">
       <Configuration>Max2023</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2024_debug|Win32">
-      <Configuration>Max2024_debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max2024_debug|x64">
       <Configuration>Max2024_debug</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Max2024|Win32">
-      <Configuration>Max2024</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Max2024|x64">
       <Configuration>Max2024</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max9_2|Win32">
-      <Configuration>Max9_2</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max9_2|x64">
       <Configuration>Max9_2</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Max9_32|Win32">
-      <Configuration>Max9_32</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Max9_32|x64">
       <Configuration>Max9_32</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Max9|Win32">
-      <Configuration>Max9</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Max9|x64">
       <Configuration>Max9</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Template|Win32">
-      <Configuration>Template</Configuration>
-      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Template|x64">
       <Configuration>Template</Configuration>
@@ -138,65 +74,9 @@
     <ProjectName>BerconMaps</ProjectName>
     <ProjectGuid>{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}</ProjectGuid>
     <RootNamespace>BerconNoise</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max9|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseOfMfc>false</UseOfMfc>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
@@ -225,12 +105,18 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2021|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2022|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2023|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2024|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -246,7 +132,8 @@
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
-    <VCToolsVersion>14.29.30133</VCToolsVersion>
+    <VCToolsVersion>
+    </VCToolsVersion>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2009|x64'" Label="Configuration">
@@ -283,56 +170,8 @@
     <UseOfMfc>false</UseOfMfc>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Max2023|Win32'">
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2024|Win32'" Label="Configuration">
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2024_debug|Win32'" Label="Configuration">
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Max2022|Win32'">
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max9|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Template|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -388,73 +227,31 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release_08_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\Release_08_64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">.\Hybrid\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">.\Hybrid\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">x64\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">x64\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">x64\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'">$(Configuration)\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Max9_32|x64'">$(Platform)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Max9_32|x64'">$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max9_32|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max9_32|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max9|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max9|Win32'">$(Configuration)\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Max9|x64'">$(Platform)\$(Configuration)\</IntDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'">.\Release_9_32\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'">.\Release_9_32\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Max9_2|x64'">.\Release_9_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Max9_2|x64'">.\Release_9_64\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max9_2|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max9_2|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'">$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'">$(Configuration)\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2009|x64'">$(Platform)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Max2009|x64'">$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max2009|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2009|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'">$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'">$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'">$(Platform)\$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'">$(Platform)\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'">$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'">$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'">$(Platform)\$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'">$(Platform)\$(Configuration)\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'">true</GenerateManifest>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'">true</GenerateManifest>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'">true</GenerateManifest>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2010|x64'">$(Platform)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2012|x64'">$(Platform)\$(Configuration)\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Max2013|x64'">$(Platform)\$(Configuration)\</OutDir>
@@ -488,7 +285,6 @@
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='max2015|x64'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2021|x64'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2022|x64'">true</GenerateManifest>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2023|x64'">true</GenerateManifest>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Max2024_debug|x64'">true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Max2024|x64'">
@@ -499,66 +295,8 @@
     <ExecutablePath>$(VC_ExecutablePath_x64);$(CommonExecutablePath)</ExecutablePath>
     <TargetExt>.dlt</TargetExt>
     <CodeAnalysisRuleSet>NativeRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <TargetName>BerconMaps_2024_x64_debug</TargetName>
+    <TargetName>BerconMaps_2024_64_debug</TargetName>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
-      <ObjectFileName>.\Release\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>Default</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\Release\BerconNoise.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release\BerconNoise.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <BuildLog>
       <Path>.\Release_08_64\BuildLog.htm</Path>
@@ -628,56 +366,6 @@
       <OutputFile>.\Release_08_64\$(ProjectName).bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Hybrid|Win32'">
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>Disabled</Optimization>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_HYBRID;IS_HYBRID;_SECURE_SCL=0;WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>true</BufferSecurityCheck>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Hybrid\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Hybrid\</AssemblerListingLocation>
-      <ObjectFileName>.\Hybrid\</ObjectFileName>
-      <ProgramDataBaseFileName>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt.pdb</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <CompileAs>Default</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Hybrid\BerconNoise.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -728,56 +416,6 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>Disabled</Optimization>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <BufferSecurityCheck>true</BufferSecurityCheck>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Debug\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
-      <ObjectFileName>.\Debug\</ObjectFileName>
-      <ProgramDataBaseFileName>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt.pdb</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <CompileAs>Default</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>  %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Debug\BerconNoise.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -826,64 +464,6 @@
       </BaseAddress>
       <ImportLibrary>.\x64\Debug\BerconNoise.lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max9_32|Win32'">
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
-      <ObjectFileName>.\Release\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>Default</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\Release\BerconNoise.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2008 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>C:\Program Files\Autodesk\3ds Max 2008\plugins\BerconNoise.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release\BerconNoise.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max9_32|x64'">
@@ -944,98 +524,11 @@
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max9|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Autodesk\3ds Max 9 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\Release9_32\BerconNoise.dlt</OutputFile>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 9 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max9|x64'">
     <Link>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 9 SDK\maxsdk\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max9_2|Win32'">
-    <BuildLog>
-      <Path>.\Release_9_32\BuildLog.htm</Path>
-    </BuildLog>
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 9 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release_9_32\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_9_32\</AssemblerListingLocation>
-      <ObjectFileName>.\Release_9_32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_9_32\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <ResourceOutputFileName>.\Release_9_32\%(Filename).res</ResourceOutputFileName>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_9-2008_32.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 9 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\Release_9_32\$(TargetFileName).intermediate.manifest</ManifestFile>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\Release_9_32\BerconNoise_9_32.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release_9_32\BerconNoise_9_32.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-    <Manifest>
-      <OutputManifestFile>.\Release_9_32\$(TargetFileName).embed.manifest</OutputManifestFile>
-    </Manifest>
-    <ManifestResourceCompile>
-      <ResourceOutputFileName>.\Release_9_32\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
-    </ManifestResourceCompile>
-    <Xdcmake>
-      <OutputFile>.\Release_9_32\$(TargetName).xml</OutputFile>
-    </Xdcmake>
-    <Bscmake>
-      <OutputFile>.\Release_9_32\$(ProjectName).bsc</OutputFile>
-    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max9_2|x64'">
     <Midl>
@@ -1107,81 +600,6 @@
       <OutputFile>.\Release_9_64\$(ProjectName).bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2009|Win32'">
-    <BuildLog>
-      <Path>.\Release_2009_32\BuildLog.htm</Path>
-    </BuildLog>
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2009 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release_2009_32\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_2009_32\</AssemblerListingLocation>
-      <ObjectFileName>.\Release_2009_32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_2009_32\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <ResourceOutputFileName>.\Release_9_32\%(Filename).res</ResourceOutputFileName>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_2009_32.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2009 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\Release_2009_32\$(TargetFileName).intermediate.manifest</ManifestFile>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\Release_2009_32\BerconNoise_2009_32.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release_2009_32\BerconNoise_2009_32.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-    <Manifest>
-      <OutputManifestFile>.\Release_9_32\$(TargetFileName).embed.manifest</OutputManifestFile>
-    </Manifest>
-    <ManifestResourceCompile>
-      <ResourceOutputFileName>.\Release_9_32\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
-    </ManifestResourceCompile>
-    <Xdcmake>
-      <OutputFile>.\Release_9_32\$(TargetName).xml</OutputFile>
-    </Xdcmake>
-    <Bscmake>
-      <OutputFile>.\Release_9_32\$(ProjectName).bsc</OutputFile>
-    </Bscmake>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2009|x64'">
     <Midl>
       <TargetEnvironment>X64</TargetEnvironment>
@@ -1250,306 +668,6 @@
     </Xdcmake>
     <Bscmake>
       <OutputFile>.\Release_9_64\$(ProjectName).bsc</OutputFile>
-    </Bscmake>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2010|Win32'">
-    <BuildLog>
-      <Path>.\Release_2010_32\BuildLog.htm</Path>
-    </BuildLog>
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2010 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release_2010_32\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_2010_32\</AssemblerListingLocation>
-      <ObjectFileName>.\Release_2010_32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_2010_32\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <ResourceOutputFileName>.\Release_9_32\%(Filename).res</ResourceOutputFileName>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_2010-2011_32.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2010 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\Release_2010_32\$(TargetFileName).intermediate.manifest</ManifestFile>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\Release_2010_32\BerconNoise_2010_32.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release_2010_32\BerconNoise_2010_32.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-    <Manifest>
-      <OutputManifestFile>.\Release_9_32\$(TargetFileName).embed.manifest</OutputManifestFile>
-    </Manifest>
-    <ManifestResourceCompile>
-      <ResourceOutputFileName>.\Release_9_32\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
-    </ManifestResourceCompile>
-    <Xdcmake>
-      <OutputFile>.\Release_9_32\$(TargetName).xml</OutputFile>
-    </Xdcmake>
-    <Bscmake>
-      <OutputFile>.\Release_9_32\$(ProjectName).bsc</OutputFile>
-    </Bscmake>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2012|Win32'">
-    <BuildLog>
-      <Path>.\Release_2012_32\BuildLog.htm</Path>
-    </BuildLog>
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;C:\Program Files (x86)\Autodesk\3ds Max 2012 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release_2012_32\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_2012_32\</AssemblerListingLocation>
-      <ObjectFileName>.\Release_2012_32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_2012_32\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <ResourceOutputFileName>.\Release_9_32\%(Filename).res</ResourceOutputFileName>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_2012_32.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\Autodesk\3ds Max 2012 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\Release_2012_32\$(TargetFileName).intermediate.manifest</ManifestFile>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\Release_2012_32\BerconNoise_2012_32.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release_2012_32\BerconNoise_2012_32.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-    <Manifest>
-      <OutputManifestFile>.\Release_9_32\$(TargetFileName).embed.manifest</OutputManifestFile>
-    </Manifest>
-    <ManifestResourceCompile>
-      <ResourceOutputFileName>.\Release_9_32\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
-    </ManifestResourceCompile>
-    <Xdcmake>
-      <OutputFile>.\Release_9_32\$(TargetName).xml</OutputFile>
-    </Xdcmake>
-    <Bscmake>
-      <OutputFile>.\Release_9_32\$(ProjectName).bsc</OutputFile>
-    </Bscmake>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2013|Win32'">
-    <BuildLog>
-      <Path>.\Release_2013_32\BuildLog.htm</Path>
-    </BuildLog>
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;E:\Games\Autodesk\3ds Max 2013 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release_2013_32\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_2013_32\</AssemblerListingLocation>
-      <ObjectFileName>.\Release_2013_32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_2013_32\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <ResourceOutputFileName>.\Release_9_32\%(Filename).res</ResourceOutputFileName>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_2013_32.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>E:\Games\Autodesk\3ds Max 2013 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\Release_2013_32\$(TargetFileName).intermediate.manifest</ManifestFile>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\Release_2013_32\BerconNoise_2013_32.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release_2013_32\BerconNoise_2013_32.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-    <Manifest>
-      <OutputManifestFile>.\Release_9_32\$(TargetFileName).embed.manifest</OutputManifestFile>
-    </Manifest>
-    <ManifestResourceCompile>
-      <ResourceOutputFileName>.\Release_9_32\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
-    </ManifestResourceCompile>
-    <Xdcmake>
-      <OutputFile>.\Release_9_32\$(TargetName).xml</OutputFile>
-    </Xdcmake>
-    <Bscmake>
-      <OutputFile>.\Release_9_32\$(ProjectName).bsc</OutputFile>
-    </Bscmake>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='max2015|Win32'">
-    <BuildLog>
-      <Path>.\Release_2013_32\BuildLog.htm</Path>
-    </BuildLog>
-    <Midl>
-      <TargetEnvironment>Win32</TargetEnvironment>
-      <TypeLibraryName>.\midl\Win32\BerconNoise.tlb</TypeLibraryName>
-      <HeaderFileName>.\midl\Win32\%(Filename).h</HeaderFileName>
-      <InterfaceIdentifierFileName>.\midl\Win32\%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>.\midl\Win32\%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <OmitFramePointers>false</OmitFramePointers>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>.\midl\Win32;E:\Games\Autodesk\3ds Max 2013 SDK\maxsdk\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Fast</FloatingPointModel>
-      <PrecompiledHeaderOutputFile>.\Release_2013_32\BerconNoise.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_2013_32\</AssemblerListingLocation>
-      <ObjectFileName>.\Release_2013_32\</ObjectFileName>
-      <ProgramDataBaseFileName>.\Release_2013_32\</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <UseFullPaths>true</UseFullPaths>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0409</Culture>
-      <ResourceOutputFileName>.\Release_9_32\%(Filename).res</ResourceOutputFileName>
-    </ResourceCompile>
-    <Link>
-      <AdditionalOptions>   %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_2013_32.dlt</OutputFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>E:\Games\Autodesk\3ds Max 2013 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\Release_2013_32\$(TargetFileName).intermediate.manifest</ManifestFile>
-      <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\Release_2013_32\BerconNoise_2013_32.dlt.pdb</ProgramDatabaseFile>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <SetChecksum>true</SetChecksum>
-      <BaseAddress>0x16860000</BaseAddress>
-      <ImportLibrary>.\Release_2013_32\BerconNoise_2013_32.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-    </Link>
-    <Manifest>
-      <OutputManifestFile>.\Release_9_32\$(TargetFileName).embed.manifest</OutputManifestFile>
-    </Manifest>
-    <ManifestResourceCompile>
-      <ResourceOutputFileName>.\Release_9_32\$(TargetFileName).embed.manifest.res</ResourceOutputFileName>
-    </ManifestResourceCompile>
-    <Xdcmake>
-      <OutputFile>.\Release_9_32\$(TargetName).xml</OutputFile>
-    </Xdcmake>
-    <Bscmake>
-      <OutputFile>.\Release_9_32\$(ProjectName).bsc</OutputFile>
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2010|x64'">
@@ -1853,7 +971,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <WholeProgramOptimization>false</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>\Max2021SDK\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ADSK_3DSMAX_SDK_2021)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>Async</ExceptionHandling>
@@ -1870,6 +988,9 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
       <UseFullPaths>true</UseFullPaths>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1882,11 +1003,11 @@
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\DLL\BerconMaps_2021_64.dlt</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>Max2021SDK\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ADSK_3DSMAX_SDK_2021)\lib\x64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ManifestFile>.\Release_2021\$(TargetFileName).intermediate.manifest</ManifestFile>
       <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Release_2021\BerconNoise.dlt.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -1942,6 +1063,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
       <UseFullPaths>true</UseFullPaths>
+      <ConformanceMode>false</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -1989,7 +1112,7 @@
       <ProxyFileName>.\midl\x64\%(Filename)_p.c</ProxyFileName>
     </Midl>
     <ClCompile>
-      <AdditionalOptions>/LD  %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/LD /Qvec-report:2  %(AdditionalOptions)</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -1998,14 +1121,12 @@
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(ADSK_3DSMAX_SDK_2023)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_SECURE_SCL=0;WIN32;NDEBUG;_WINDOWS;_USRDLL;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;ISOLATION_AWARE_ENABLED=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ADESK_3DSMAX_WINDOWS_;WINVER=0x0601;_WIN32_WINNT=0x0601;_WIN32_WINDOWS=0x0601;_WIN32_IE=0x0800;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;_CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES=1;_CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES=1;ISOLATION_AWARE_ENABLED=1;MODULE_NAME=$(TargetFileName);WIN32;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <ExceptionHandling>Async</ExceptionHandling>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <BufferSecurityCheck>false</BufferSecurityCheck>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointModel>Precise</FloatingPointModel>
       <PrecompiledHeaderOutputFile>.\Release_2023\BerconNoise.x64.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Release_2023\</AssemblerListingLocation>
       <ObjectFileName>.\Release_2023\</ObjectFileName>
@@ -2014,9 +1135,17 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>Default</CompileAs>
       <UseFullPaths>true</UseFullPaths>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <DisableSpecificWarnings>4244;4018;4819;4840;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
+      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
+      <ExternalWarningLevel>Level2</ExternalWarningLevel>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
       <ResourceOutputFileName>.\Release_2023\%(Filename).res</ResourceOutputFileName>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -2030,7 +1159,7 @@
       <ManifestFile>.\Release_2023\$(TargetFileName).intermediate.manifest</ManifestFile>
       <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Release_2023\BerconNoise.dlt.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -2076,7 +1205,7 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointModel>Precise</FloatingPointModel>
       <PrecompiledHeaderOutputFile>.\Release_2024\BerconNoise.x64.pch</PrecompiledHeaderOutputFile>
       <AssemblerListingLocation>.\Release_2024\</AssemblerListingLocation>
       <ObjectFileName>.\Release_2024\</ObjectFileName>
@@ -2085,7 +1214,6 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <OpenMPSupport>true</OpenMPSupport>
       <ScanSourceForModuleDependencies>
       </ScanSourceForModuleDependencies>
       <TreatSpecificWarningsAsErrors>4002;4121;4130;4213;4295;4310;4390;4545;4546;4557;4596;4611;4706;4715;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
@@ -2098,8 +1226,9 @@
       <ConformanceMode>false</ConformanceMode>
       <AssemblerOutput>NoListing</AssemblerOutput>
       <TreatAngleIncludeAsExternal>true</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>Level2</ExternalWarningLevel>
+      <ExternalWarningLevel>Level1</ExternalWarningLevel>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -2162,13 +1291,12 @@
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeaderOutputFile>.\debug_2024\BerconMaps_2024_x64_debug.pch</PrecompiledHeaderOutputFile>
-      <AssemblerListingLocation>.\Release_2024\</AssemblerListingLocation>
-      <ProgramDataBaseFileName>.\debug_2024\BerconMaps_2024_x64_debug.dlt.pdb</ProgramDataBaseFileName>
+      <PrecompiledHeaderOutputFile>.\debug_2024\BerconMaps_2024_64_debug.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\debug_2024\</AssemblerListingLocation>
+      <ProgramDataBaseFileName>.\debug_2024\BerconMaps_2024_64_debug.dlt.pdb</ProgramDataBaseFileName>
       <WarningLevel>Level3</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <OpenMPSupport>true</OpenMPSupport>
       <ScanSourceForModuleDependencies>
       </ScanSourceForModuleDependencies>
       <TreatSpecificWarningsAsErrors>4002;4121;4130;4213;4295;4310;4390;4545;4546;4557;4596;4611;4706;4715;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
@@ -2199,14 +1327,14 @@
     <Link>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>odbc32.lib;odbccp32.lib;comctl32.lib;bmm.lib;core.lib;geom.lib;gfx.lib;mesh.lib;maxutil.lib;maxscrpt.lib;manipsys.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\DLL\BerconMaps_2024_x64_debug.dlt</OutputFile>
+      <OutputFile>.\DLL\BerconMaps_2024_64_debug.dlt</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>$(ADSK_3DSMAX_SDK_2024)\lib\x64\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ManifestFile>.\debug_2024\$(TargetFileName).intermediate.manifest</ManifestFile>
+      <ManifestFile>.\debug_2024\$(TargetFileName).dlt.intermediate.manifest</ManifestFile>
       <IgnoreSpecificDefaultLibraries>libcp.lib;libci.lib;msvcirt.lib;libcmt.lib;libcmtd.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ModuleDefinitionFile>.\BerconNoise.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\debug_2024\BerconMaps_2024_x64.dlt.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>.\debug_2024\$(TargetName).dlt.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>false</OptimizeReferences>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -2217,7 +1345,7 @@
       <SetChecksum>false</SetChecksum>
       <BaseAddress>
       </BaseAddress>
-      <ImportLibrary>.\debug_2024\debug\BerconMaps_2024_x64.lib</ImportLibrary>
+      <ImportLibrary>.\debug_2024\debug\$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX64</TargetMachine>
       <LargeAddressAware>true</LargeAddressAware>
       <LinkTimeCodeGenerationObjectFile>.\debug_2024\$(TargetName).iobj</LinkTimeCodeGenerationObjectFile>
@@ -2237,11 +1365,6 @@
     <ManifestResourceCompile>
       <ResourceOutputFileName>.\DEBUG_2024\$(TargetName)$(TargetExt).embed.manifest.res</ResourceOutputFileName>
     </ManifestResourceCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Max2024_debug|Win32'">
-    <Link>
-      <Profile>true</Profile>
-    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="BerconNoise.def" />

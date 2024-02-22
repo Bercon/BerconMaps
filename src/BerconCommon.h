@@ -50,7 +50,7 @@ under the License.
 #include "3dsmax_banned.h"
 
 // Max 2022
-#if MAX_RELEASE < MAX_RELEASE_R24_PREVIEW
+#if MAX_RELEASE < 23900
 #define ARG_LOCALIZED(arg) arg
 #define FORWARD_ARG_LOCALIZED(arg) arg
 #define LOCALIZED_CLASS_NAME(id) \
