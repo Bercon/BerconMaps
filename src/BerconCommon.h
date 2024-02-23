@@ -237,9 +237,15 @@ public:
 //	xyz_tile_y, _T("xyz_tile_y"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X, p_default, y, p_ui, TYPE_INTLISTBOX, IDC_TIL_Y, 0, p_end,
 //	xyz_tile_z, _T("xyz_tile_z"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X, p_default, z, p_ui, TYPE_INTLISTBOX, IDC_TIL_Z, 0, p_end,
 
-		xyz_tile_x, _T("xyz_tile_x"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X, p_default, x, p_ui, TYPE_INTLISTBOX, IDC_TIL_X, 0, p_end,
-		xyz_tile_y, _T("xyz_tile_y"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_Y, p_default, y, p_ui, TYPE_INTLISTBOX, IDC_TIL_Y, 0, p_end,
-		xyz_tile_z, _T("xyz_tile_z"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_Z, p_default, z, p_ui, TYPE_INTLISTBOX, IDC_TIL_Z, 0, p_end,
+		xyz_tile_x, _T("xyz_tile_x"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X,
+		p_default, x, p_range, 0, 4, p_ui, TYPE_INTLISTBOX, IDC_TIL_X, 0,
+		p_end,
+		xyz_tile_y, _T("xyz_tile_y"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_Y,
+		p_default, y, p_range, 0, 4, p_ui, TYPE_INTLISTBOX, IDC_TIL_Y, 0,
+		p_end,
+		xyz_tile_z, _T("xyz_tile_z"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_Z,
+		p_default, z, p_range, 0, 4, p_ui, TYPE_INTLISTBOX, IDC_TIL_Z, 0,
+		p_end,
 
 		// #################### // Random \\ ####################
 
@@ -371,8 +377,6 @@ public:
 			int curIndex;
 			map->GetParamBlock()->GetValue(xyz_map, t, curIndex, FOREVER);
 			SendMessage(GetDlgItem(hWnd, IDC_TYPE), CB_SETCURSEL, (WPARAM)curIndex, 0);
-			map->GetParamBlock()->GetValue(xyz_chan, t, curIndex, FOREVER);		// trying to fix the chan 0 issue
-			SendMessage(GetDlgItem(hWnd, IDC_CHAN), CB_SETCURSEL, (WPARAM)curIndex, 0);
 			map->GetParamBlock()->GetValue(xyz_tile_x, t, curIndex, FOREVER);
 			SendMessage(GetDlgItem(hWnd, IDC_TIL_X), CB_SETCURSEL, (WPARAM)curIndex, 0);
 			map->GetParamBlock()->GetValue(xyz_tile_y, t, curIndex, FOREVER);
