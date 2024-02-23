@@ -286,7 +286,6 @@ inline static int tiling(int type, float& x, int& flips) {
 
 // COORD_REF menu and UVWgen for render or Realistic Maps mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Matrix3 transform, int* flips) {
-// 			Point3 duvw = VectorTransform(transform, sc.DUVW(mappingChannel));
 
 	switch (mappingType) {
 		case 0: // Explicit Map 2D
@@ -381,11 +380,6 @@ int BerconXYZ::get(ShadeContext& sc, Point3& p) {
 
 // Map is in a bump map slot and we're rendering or in a Realistic Maps mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Point3* basis) {
-	/*int* flips = NULL;
-if (mappingType == 0) {
-	flips = new int[3];
-	flips[0]=0;flips[1]=0;flips[2]=0;
-}*/
 
 	if ((mappingType == 0 || mappingType == 1) && mode2D) {
 		Matrix3 inv;
@@ -415,14 +409,6 @@ if (mappingType == 0) {
 			for (int i=0; i<3; i++)
 				basis[i] = b[i];
 	}
-
-	/*if (flips) {
-	if (flips[0]) basis[0] *= -1;
-	if (flips[1]) basis[1] *= -1;
-	if (flips[2]) basis[2] *= -1;
-}
-delete[] flips;*/
-
 	return TRUE;
 }
 
@@ -464,13 +450,6 @@ if (mappingType == 0) {
 			for (int i=0; i<3; i++)
 				basis[i] = b[i];
 	}
-
-	/*if (flips) {
-	if (flips[0]) basis[0] *= -1;
-	if (flips[1]) basis[1] *= -1;
-	if (flips[2]) basis[2] *= -1;
-}
-delete[] flips;*/
 
 	return TRUE;
 }
