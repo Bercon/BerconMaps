@@ -233,10 +233,6 @@ public:
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_ANG_Z, IDC_ANG_Z_SPIN, SPIN_AUTOSCALE,
 		p_end,
 
-// 	BUG FIX FEB 2024: TILE_Y and TILE_Z were never referenced
-//	xyz_tile_y, _T("xyz_tile_y"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X, p_default, y, p_ui, TYPE_INTLISTBOX, IDC_TIL_Y, 0, p_end,
-//	xyz_tile_z, _T("xyz_tile_z"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X, p_default, z, p_ui, TYPE_INTLISTBOX, IDC_TIL_Z, 0, p_end,
-
 		xyz_tile_x, _T("xyz_tile_x"), TYPE_INT, P_ANIMATABLE, IDS_XYZ_TILE_X,
 		p_default, x, p_range, 0, 4, p_ui, TYPE_INTLISTBOX, IDC_TIL_X, 0,
 		p_end,
@@ -288,11 +284,11 @@ public:
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_X2, IDC_SIZ_X_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-		xyz_size_y2, _T("xyz_size_y2"), TYPE_FLOAT, P_ANIMATABLE, IDS_XYZ_SIZE_X2,
+		xyz_size_y2, _T("xyz_size_y2"), TYPE_FLOAT, P_ANIMATABLE, IDS_XYZ_SIZE_Y2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_Y2, IDC_SIZ_Y_SPIN2, SPIN_AUTOSCALE,
 		p_end,
-		xyz_size_z2, _T("xyz_size_z2"), TYPE_FLOAT, P_ANIMATABLE, IDS_XYZ_SIZE_X2,
+		xyz_size_z2, _T("xyz_size_z2"), TYPE_FLOAT, P_ANIMATABLE, IDS_XYZ_SIZE_Z2,
 		p_default, 0.f, p_range, 0.0f, 1000000.0f,
 		p_ui, TYPE_SPINNER, EDITTYPE_FLOAT, IDC_SIZ_Z2, IDC_SIZ_Z_SPIN2, SPIN_AUTOSCALE,
 		p_end,
