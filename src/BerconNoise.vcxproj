@@ -1232,7 +1232,7 @@
       <DisableAnalyzeExternal>true</DisableAnalyzeExternal>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_MSC_VER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
       <ResourceOutputFileName>.\Release_2024\%(Filename).res</ResourceOutputFileName>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

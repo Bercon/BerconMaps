@@ -750,6 +750,10 @@ int BerconGradient::countKeys() {
 void BerconGradient::resetKeys() {	
 	if (!pblock) return;
 
+	pblock->SetCount(pb_submaps, 0);
+	pblock->SetCount(pb_colors, 0);
+	pblock->SetCount(pb_positions, 0);
+
 	//pblock->SetCount(pb_submaps, 2);
 	//pblock->SetCount(pb_colors, 2);
 	//pblock->SetCount(pb_positions, 2);

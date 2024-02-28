@@ -19,7 +19,7 @@ REFACTOR: berconcommon uvwgen switch cases. The "Filtering:" setting was never r
 
 KNOWN ISSUE: Gradient keys will not sort. I suspect they are sorted, but the new sort is never actually sent to the dialog window handler. (Issue present in previous commit)
 
-KNOWN ISSUE: Gradient keys "reset" function does not work - unknown when it stopped working, or why. Current implementation needs to be rethought. "Reset" also adds two keys on top of 0 and 1. Using "Reset" multiple times can result in multiple keys being stacked at positions 0.f and 1.f.
+KNOWN ISSUE: Gradient map will display "NO MAP" in a key slot even if there's a map assigned. It will only display if the dialog window is destroyed and refreshed by switching to another map/material and back. Conversely, if the gradient is 'reset' via the right-click option, the label will persist even though the map is no longer connected.
  
 OTHER: Tweaked dialog boxes for alignment and readability (words slightly cut off, more space for options to be readable, etc.)
 
