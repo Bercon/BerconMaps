@@ -176,6 +176,7 @@ src/.vs/
 src/.vscode/
 .vscode/
 .vs/
+tempforcompare/
 *.asm
 *.cod
 *.sarif
