@@ -388,6 +388,20 @@ void GradientRamp::sort() {
 		}
 	} 
 }
+/* TODO for v3.1: KNOWN ISSUE: Keys don't sort
+//bubble sort?
+void GradientRamp::sort() {
+	bool swapped;
+	do {
+		swapped = false;
+		for (int i = 1; i < keys; ++i) {
+			if (i - 1 < keys - 1 && position[i - 1] > position[i]) {
+				swap(i - 1, i);
+				swapped = true;
+			}
+		}
+	} while (swapped);
+} */
 
 // #############################################################################################
 // #################################/ Subtex                   \################################

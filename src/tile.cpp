@@ -118,7 +118,7 @@ void Tile::rotatePoint2(Point3& d, float angle) {
 	d.y = rotY;
 }
 
-inline static float getAngle(int type, float amount) {
+inline static float getAngle(int type, float amount) {	
 	switch (type) {
 		case 0:
 			return 0.f;
@@ -140,7 +140,6 @@ inline static float getAngle(int type, float amount) {
 		default: // Amount	
 			return UFRAND() * amount;
 	}
-	return 0.f;
 }
 
 /*
@@ -153,10 +152,15 @@ inline static float getAngle(int type, float amount) {
 
 	+ ensure inside uv with rand offset/scale
 */
+#pragma warning (push)
+#pragma warning (disable: 4005)	// macro redefinition warning
 
 #define HALFPI 1.57079633f
 #define QUATPI 0.785398163f
 #define SQRTHALF 0.707106781f
+
+#pragma warning (pop)
+
 
 // left up right down
 void Tile::uvMapping(TilePoint& tp, Point3 p, float edges[4], TileParam& t, int dir) {

@@ -31,7 +31,7 @@ ClassDesc2* GetBerconDistortionDesc() { return &BerconDistortionDesc; }
 
 enum { BerconDistortion_params, xyz_params };
 
-static XYZ_Desc xyz_blk(&BerconDistortionDesc, COORD_REF, xyz_params, 0, 1, 1, 1, 0);
+XYZ_Desc xyz_blk(&BerconDistortionDesc, COORD_REF, xyz_params, 0, 1, 1, 1, 0);
 
 enum { map1, distortion_map, distortion_map2, use_distortion, distortion_str, };
 
@@ -40,11 +40,7 @@ static ParamBlockDesc2 BerconDistortion_param_blk ( BerconDistortion_params, _T(
 	IDD_PANEL_DISTORTION, IDS_PARAMS, 0, 0, NULL,
 	// params
 	// Distortion controls
-	map1,		_T("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_MAP1,
-		p_refno,		MAP3_REF,
-		p_subtexno,		2,
-		p_ui,			TYPE_TEXMAPBUTTON, IDC_MAP1,
-		p_end,
+
 	distortion_map,		_T("map1"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_DISTORTION_MAP,
 		p_refno,		MAP1_REF,
 		p_subtexno,		0,		
@@ -54,6 +50,11 @@ static ParamBlockDesc2 BerconDistortion_param_blk ( BerconDistortion_params, _T(
 		p_refno,		MAP2_REF,
 		p_subtexno,		1,		
 		p_ui,			TYPE_TEXMAPBUTTON, IDC_DISTORTION_TEX2,
+		p_end,
+		map1,		_T("map3"),		TYPE_TEXMAP,			P_OWNERS_REF,	IDS_MAP1,
+		p_refno,		MAP3_REF,
+		p_subtexno,		2,
+		p_ui,			TYPE_TEXMAPBUTTON, IDC_MAP1,
 		p_end,
 	distortion_str,	_T("distortionStr"),		 TYPE_FLOAT,	P_ANIMATABLE,	IDS_DISTORTION_STRENGTH,
 		p_default,		0.1f,
@@ -218,9 +219,8 @@ static AColor black(0.0f,0.0f,0.0f,1.0f);
 Point3 BerconDistortion::getDistVector(ShadeContext& sc) {	
 	if (subtex[1])
 		return subtex[0]->EvalNormalPerturb(sc)*distortionStr*subtex[1]->EvalMono(sc);
-	else					
-		return subtex[0]->EvalNormalPerturb(sc)*distortionStr;		  
-	return Point3(0.f, 0.f, 0.f);
+	else
+		return subtex[0]->EvalNormalPerturb(sc)*distortionStr;
 }
 
 AColor BerconDistortion::EvalColor(ShadeContext& sc) {

@@ -145,7 +145,11 @@ class BerconGradient : public Texmap, public GradientMap, public ResourceMakerCa
 		//From Animatable
 		Class_ID ClassID() {return BerconGradient_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_BERCON_COLOR);}
+#if MAX_RELEASE < 23900
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) { s = GetString(IDS_BERCON_COLOR); }
+#else
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) const override { s = GetString(IDS_BERCON_COLOR); } //override for Slate editor
+#endif
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);

@@ -17,8 +17,10 @@ under the License.
 
 #include "curvectrl.h"	
 
+
 void CurveCtrl::update(ICurveCtl *curve, HWND hParent, ReferenceMaker *resMaker) {
 	curve->SetCustomParentWnd(hParent);
+//	DebugPrint(_T("CCtrl UPDATED"));
 #if MAX_RELEASE >= 18900
 	curve->RegisterResourceMaker(static_cast<ReferenceTarget*>(resMaker));
 #else
@@ -35,11 +37,13 @@ void CurveCtrl::update(ICurveCtl *curve, HWND hParent, ReferenceMaker *resMaker)
 }
 void CurveCtrl::disable(ICurveCtl *curve) {
 	curve->SetActive(FALSE);
-	curve->EnableDraw(FALSE);	
+	curve->EnableDraw(FALSE);
+//	DebugPrint(_T("CCtrl DISABLED"));
 }
 
 void CurveCtrl::init(ICurveCtl *curve) {	
 	curve->SetTitle(L"Function value curve");
+//	DebugPrint(_T("Curve initialized!"));
 
 	// UI
 	DWORD flags = CC_NONE;				
@@ -48,10 +52,10 @@ void CurveCtrl::init(ICurveCtl *curve) {
 	flags |= CC_DRAWUTOOLBAR;
 	flags |= 0; //CC_DRAWLTOOLBAR;
 	flags |= CC_SHOWRESET;
-	flags |= 0; //CC_DRAWSCROLLBARS;
-	flags |= 0; //CC_AUTOSCROLL;
+//	flags |= 0; //CC_DRAWSCROLLBARS;
+//	flags |= 0; //CC_AUTOSCROLL;
 	flags |= CC_DRAWRULER;
-	flags |= 0; //CC_ASPOPUP;
+//	flags |= 0; //CC_ASPOPUP;
 	flags |= CC_CONSTRAIN_Y;
 	flags |= CC_HIDE_DISABLED_CURVES;
 
@@ -72,11 +76,13 @@ void CurveCtrl::init(ICurveCtl *curve) {
 
 	// Setup curve			
 	curve->SetNumCurves(1, TRUE);
+//  DebugPrint(_T("Curve SetNumCurves"));
 	ICurve *pCurve = curve->GetControlCurve(0);
 	pCurve->SetNumPts(2);
 	pCurve->SetPenProperty( RGB(0,0,0));
 	pCurve->SetDisabledPenProperty( RGB(128,128,128));
-	//pCurve->SetLookupTableSize(1000);
+	//TODO: Implement user option for LUT for 3.1
+	//pCurve->SetLookupTableSize(4096);	// curve is x+y: a 2D xform. RGBA @ 16-bits per channel. Allow 64^2 bits = 4096 for max precision. (seems to work)
 	TimeValue t = 0;
 	
 	// Point 0

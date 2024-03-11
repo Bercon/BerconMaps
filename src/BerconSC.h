@@ -145,7 +145,8 @@ public:
 	IRenderElement* GetRenderElement (int n){ return sc->GetRenderElement(n); }
 	Color DiffuseIllum (){ return sc->DiffuseIllum(); }
 
-#if MAX_RELEASE < MAX_RELEASE_R24_PREVIEW
+#if MAX_RELEASE < 23900
+//#if MAX_RELEASE < MAX_RELEASE_R24_PREVIEW (2021 and earlier)
 	bool IsPhysicalSpace () const{ return sc->IsPhysicalSpace(); }
 	template<class T> void ScaledToRGB (T& energy) const { sc->ScaledToRGB(energy); }
 	float ScaledToRGB (float energy) const{ return sc->ScaledToRGB(energy); }
@@ -156,7 +157,8 @@ public:
 	float ScaleRGB (float energy) const{ return sc->ScaleRGB(energy); }
 #endif
 
-#if MAX_RELEASE >= MAX_RELEASE_R26_PREVIEW
+#if MAX_RELEASE >= 25900	// The 2023 Max SDK does not know the value of MAX_RELEASE_R26_PREVIEW
+//#if MAX_RELEASE >= MAX_RELEASE_R26_PREVIEW
 	Matrix3 MatrixTo(RefFrame ito) override { return sc->MatrixTo(ito); }
 
 	Matrix3 MatrixFrom(RefFrame ifrom) override { return sc->MatrixFrom(ifrom); }

@@ -18,6 +18,8 @@ under the License.
 #include "BerconCommon.h"
 #include "chkmtlapi.h"
 
+//BerconCommon is referenced by all the maps. This lets the DLL handler know which map we're in.
+//We match the map description to the ID specified in the header file and the DLLEntry.cpp file
 TCHAR *GetString(int id) {
 	static TCHAR buf[256];
 
@@ -111,6 +113,16 @@ void BerconXYZ::update(IParamBlock2* pblock, TimeValue t, Interval& ivalid) {
 
 	pblockGetValue(xyz_filtering, filtering);
 	
+//Override the spinner control's minval because we don't want tiling scale to be zero
+	if (sizeX == 0.f) {
+		pblockSetValue(xyz_size_x, 0.001f);
+	}
+	if (sizeY == 0.f) {
+		pblockSetValue(xyz_size_y, 0.001f);
+	}
+	if (sizeZ == 0.f) {
+		pblockSetValue(xyz_size_z, 0.001f);
+	}
 
 	angX *= DEG_TO_RAD; angY *= DEG_TO_RAD; angZ *= DEG_TO_RAD;
 	angX2 *= DEG_TO_RAD; angY2 *= DEG_TO_RAD; angZ2 *= DEG_TO_RAD;
@@ -212,6 +224,7 @@ Matrix3 BerconXYZ::random(ShadeContext& sc, Matrix3* inv) {
 	return transform;
 }
 
+// Random by Material, Object or Particle
 void BerconXYZ::seedRandomGen(ShadeContext& sc) {
 	int seed = 1;
 
@@ -241,8 +254,10 @@ void BerconXYZ::seedRandomGen(ShadeContext& sc) {
 	srand(seed*(seed*seed*15731 + 789221));	
 }
 
+//Continue, Stretch, Tile, Mirror, None
 inline static int tiling(int type, float& x) {
 	switch (type) {
+		//case 0 is "Continue"
 		case 1: {D_STRE(x) return TRUE;}
 		case 2: {D_LOOP(x) return TRUE;}
 		case 3: {D_MIRR(x) return TRUE;}
@@ -251,7 +266,7 @@ inline static int tiling(int type, float& x) {
 	return TRUE;
 }
 
-inline static int tiling(int type, float& x, int& flip) {
+inline static int tiling(int type, float& x, int& flips) {
 	switch (type) {
 		case 1: {D_STRE(x) return TRUE;}
 		case 2: {D_LOOP(x) return TRUE;}
@@ -259,7 +274,7 @@ inline static int tiling(int type, float& x, int& flip) {
 			if (x<0) x = -x;
 			int ix = (int)x;
 			if (ix%2==0) x = x - ix;
-			else { x = 1.f - x + ix; flip = 1; }
+			else { x = 1.f - x + ix; flips = 1; }
 			return TRUE;				
 		}
 		case 4: {if (x<0||x>1) return FALSE;}
@@ -269,18 +284,16 @@ inline static int tiling(int type, float& x, int& flip) {
 
 #define OFFSET_5 Point3(0.5f, 0.5f, 0.f)
 
+// COORD_REF menu and UVWgen for render or Realistic Maps mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Matrix3 transform, int* flips) {
+
 	switch (mappingType) {
-		case 0:
-		case 1:
-			if (mappingType)
-				p = transform * sc.UVW(mappingChannel);			
-			else
-				p = transform * (sc.UVW(mappingChannel) - OFFSET_5) + OFFSET_5;
+		case 0: // Explicit Map 2D
+			p = transform * (sc.UVW(mappingChannel) - OFFSET_5) + OFFSET_5;
 			{
-			Point3 duvw = VectorTransform(transform, sc.DUVW(mappingChannel));
-			dpdx = Point3(duvw.x, 0.f, 0.f);
-			dpdy = Point3(0.f, duvw.y, 0.f);
+				Point3 duvw = VectorTransform(transform, sc.DUVW(mappingChannel));
+				dpdx = Point3(duvw.x, 0.f, 0.f);
+				dpdy = Point3(0.f, duvw.y, 0.f); 
 			}
 			if (flips) { if (!tiling(tileX, p.x, flips[0])) return FALSE; }
 			else { if (!tiling(tileX, p.x)) return FALSE; }
@@ -288,37 +301,48 @@ int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Matr
 			else { if (!tiling(tileY, p.y)) return FALSE; }
 			if (flips) { if (!tiling(tileZ, p.z, flips[2])) return FALSE; }
 			else { if (!tiling(tileZ, p.z)) return FALSE; }
+			dpdx = dpdx * filtering; dpdy = dpdy * filtering;
 			break;
-		case 2: {
-			p = transform * sc.PointTo(sc.P(),REF_OBJECT);
-			sc.DP(dpdx, dpdy);	
+		case 1: // Explicit Map 2D Real World
+			p = transform * sc.UVW(mappingChannel);
+			{
+				Point3 duvw = VectorTransform(transform, sc.DUVW(mappingChannel));
+				dpdx = Point3(duvw.x, 0.f, 0.f);
+				dpdy = Point3(0.f, duvw.y, 0.f);
+			}
+			dpdx = dpdx * filtering; dpdy = dpdy * filtering;
+			break;
+		case 2: // Object XYZ
+			p = transform * sc.PointTo(sc.P(), REF_OBJECT);
+			sc.DP(dpdx, dpdy);
 			dpdx = VectorTransform(transform, sc.VectorTo(dpdx, REF_OBJECT));
 			dpdy = VectorTransform(transform, sc.VectorTo(dpdy, REF_OBJECT));
-			break;}
-		case 3: {
+			dpdx = dpdx * filtering; dpdy = dpdy * filtering;
+			break;
+		case 3: // World XYZ
 			p = transform * sc.PointTo(sc.P(),REF_WORLD);
 			sc.DP(dpdx, dpdy);	
 			dpdx = VectorTransform(transform, sc.VectorTo(dpdx, REF_WORLD));
 			dpdy = VectorTransform(transform, sc.VectorTo(dpdy, REF_WORLD));
-			break;}
-		case 4: {
+			dpdx = dpdx * filtering; dpdy = dpdy * filtering;
+			break;
+		case 4: // Screen (2d mode)
 			Point2 uv, duv;
 			sc.ScreenUV(uv, duv);
 			p = transform * Point3(uv.x, uv.y, 0.f);
 			dpdx = VectorTransform(transform, Point3(duv.x, 0.f, 0.f));
 			dpdy = VectorTransform(transform, Point3(0.f, duv.y, 0.f));
-			break;}
+			dpdx = dpdx * filtering; dpdy = dpdy * filtering;
+			break;
 	}
-
-	dpdx = dpdx * filtering; dpdy = dpdy * filtering;
-	
 	return TRUE;
 }
 
+// COORD_REF menu and UVWgen for Shaded Maps mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Matrix3 transform, int* flips) {
 	switch (mappingType) {
 		case 0:
-			p = transform * (sc.UVW(mappingChannel) - OFFSET_5) + OFFSET_5;	
+			p = transform * (sc.UVW(mappingChannel) - OFFSET_5) + OFFSET_5;
 			if (flips) { if (!tiling(tileX, p.x, flips[0])) return FALSE; }
 			else { if (!tiling(tileX, p.x)) return FALSE; }
 			if (flips) { if (!tiling(tileY, p.y, flips[1])) return FALSE; }
@@ -327,46 +351,44 @@ int BerconXYZ::get(ShadeContext& sc, Point3& p, Matrix3 transform, int* flips) {
 			else { if (!tiling(tileZ, p.z)) return FALSE; }
 			break;
 		case 1:			
-			p = transform * sc.UVW(mappingChannel);			
+			p = transform * sc.UVW(mappingChannel);
 			break;
-		case 2: {
+		case 2:
 			p = transform * sc.PointTo(sc.P(),REF_OBJECT);
-			break;}
-		case 3: {
+			break;
+		case 3:
 			p = transform * sc.PointTo(sc.P(),REF_WORLD);
-			break;}
-		case 4: {
+			break;
+		case 4: 
 			Point2 uv, duv;
 			sc.ScreenUV(uv, duv);
 			p = transform * Point3(uv.x, uv.y, 0.f);
-			break;}
-		}
+			break;
+	}
 	return TRUE;
 }
 
+// A random variation is set and we're rendering or in Realistic Maps mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy) {
 	return get(sc, p, dpdx, dpdy, variance?random(sc):tm);
 }
 
+// A random variation is set and we're in Shaded Materials mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p) {
 	return get(sc, p, variance?random(sc):tm);
 }
 
+// Map is in a bump map slot and we're rendering or in a Realistic Maps mode
 int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Point3* basis) {
-	/*int* flips = NULL;
-	if (mappingType == 0) {
-		flips = new int[3];
-		flips[0]=0;flips[1]=0;flips[2]=0;
-	}*/
 
 	if ((mappingType == 0 || mappingType == 1) && mode2D) {
 		Matrix3 inv;
 		Matrix3 transform = variance?random(sc, &inv):tm;
 		if (!variance) inv = invNoScaleTm;
-		
+
 		if (!get(sc, p, dpdx, dpdy, transform)) {return FALSE;}
-		Point3 dp[3];				
-				 
+		Point3 dp[3];
+
 		if (sc.BumpBasisVectors(dp, AXIS_UV, mappingChannel)) {
 			basis[0] = VectorTransform(inv, dp[0]);
 			basis[1] = VectorTransform(inv, dp[1]);
@@ -376,9 +398,9 @@ int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Poin
 			transform.Invert();
 			basis[0] = VectorTransform(inv, dp[0]);
 			basis[1] = VectorTransform(inv, dp[1]);
-			basis[2] = VectorTransform(inv, dp[2]);			
-		 }		
-	} else {	
+			basis[2] = VectorTransform(inv, dp[2]);
+		}
+	} else {
 		Matrix3 transform = variance?random(sc):tm;
 		if (!get(sc, p, dpdx, dpdy, transform)) {return FALSE;}
 		if (variance)
@@ -387,24 +409,18 @@ int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3& dpdx, Point3& dpdy, Poin
 			for (int i=0; i<3; i++)
 				basis[i] = b[i];
 	}
-
-	/*if (flips) {
-		if (flips[0]) basis[0] *= -1;
-		if (flips[1]) basis[1] *= -1;
-		if (flips[2]) basis[2] *= -1;
-	}
-	delete[] flips;*/
-
 	return TRUE;
 }
 
-int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3* basis) {	
+// Map is in a bump map slot and we're in Shaded Materials mode
+int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3* basis) {
 	/*int* flips = NULL;
-	if (mappingType == 0) {
-		flips = new int[3];
-		flips[0]=0;flips[1]=0;flips[2]=0;
-	}*/
+if (mappingType == 0) {
+	flips = new int[3];
+	flips[0]=0;flips[1]=0;flips[2]=0;
+}*/
 
+	// BerconGradient + BerconTile are 2D maps, mode2D = TRUE
 	if ((mappingType == 0 || mappingType == 1) && mode2D) {
 		Matrix3 inv;
 		Matrix3 transform = variance?random(sc, &inv):tm;
@@ -434,13 +450,6 @@ int BerconXYZ::get(ShadeContext& sc, Point3& p, Point3* basis) {
 			for (int i=0; i<3; i++)
 				basis[i] = b[i];
 	}
-
-	/*if (flips) {
-		if (flips[0]) basis[0] *= -1;
-		if (flips[1]) basis[1] *= -1;
-		if (flips[2]) basis[2] *= -1;
-	}
-	delete[] flips;*/
 
 	return TRUE;
 }

@@ -82,7 +82,11 @@ class BerconDistortion : public Texmap {
 		//From Animatable
 		Class_ID ClassID() {return BerconDistortion_CLASS_ID;}		
 		SClass_ID SuperClassID() { return TEXMAP_CLASS_ID; }
-		void GetClassName(ARG_LOCALIZED(TSTR& s)) {s = GetString(IDS_BERCON_DIST);}
+#if MAX_RELEASE < 23900
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) { s = GetString(IDS_BERCON_DIST); }
+#else
+		void GetClassName(ARG_LOCALIZED(TSTR& s)) const override { s = GetString(IDS_BERCON_DIST); } //override for Slate editor
+#endif
 
 		RefTargetHandle Clone( RemapDir &remap );
 		RefResult NotifyRefChanged(NOTIFY_REF_CHANGED_ARGS);
@@ -117,7 +121,7 @@ public:
 	virtual Class_ID ClassID() 						{ return BerconDistortion_CLASS_ID; }
 	virtual const TCHAR* Category() 				{ return TEXMAP_CAT_3D; }
 
-	virtual const TCHAR* InternalName() 			{ return _T("BerconMapping"); }	// returns fixed parsable name (scripter-visible name)
+	virtual const TCHAR* InternalName() 			{ return _T("BerconDistortion"); }	// returns fixed parsable name (scripter-visible name)
 	virtual HINSTANCE HInstance() 					{ return hInstance; }					// returns owning module handle	
 	LOCALIZED_CLASS_NAME(IDS_BERCON_DIST)
 };

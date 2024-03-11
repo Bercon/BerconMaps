@@ -848,6 +848,7 @@ AColor BerconNoise::EvalColor(ShadeContext& sc) {
 	float d = sc.filterMaps ? Noise::limitedNoise(p, dpdx, dpdy, np) : Noise::limitedNoise(p, np);	
 	if (useCurve)
 		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
+//		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d, TRUE); // Use lookup table
 
 	// Get colors
 	RGBA c0 = mapOn[0]&&subtex[0] ? subtex[0]->EvalColor(sc): col[0];
@@ -930,5 +931,5 @@ Point3 BerconNoise::EvalNormalPerturb(ShadeContext& sc) {
 	else
 		normal *= f2 - f1;
 
-	return texout->Filter(normal); // Does this filter actually do something?
+	return texout->Filter(normal);	//AColor Filter return
 }
