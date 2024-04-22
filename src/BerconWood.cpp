@@ -832,8 +832,8 @@ AColor BerconWood::EvalColor(ShadeContext& sc) {
 	
 	// Apply curves
 	if (useCurve)
+		//		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d, TRUE);
 		d = curve->GetControlCurve(0)->GetValue(sc.CurTime(), d);
-
 	// Calculate color
 	c = (1.0f-d)*c0 + d*c1;
 	c = (1.0f-g)*c + g*c2;
@@ -880,7 +880,8 @@ Point3 BerconWood::EvalNormalPerturb(ShadeContext& sc) {
 	
 	for (int i=0; i<3; i++) {		
 		np[i] = sc.filterMaps? Noise::wood(p + DELTA * M[i], dpdx, dpdy, gP, wp) : Noise::wood(p + DELTA * M[i], gP, wp);
-		if (useCurve) np[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i]);	
+		if (useCurve) np[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i]);
+//		if (useCurve) np[i] = curve->GetControlCurve(0)->GetValue(sc.CurTime(), np[i], TRUE);	
 		np[i] = (np[i] - d) / DELTA;
 		if (grainON) nG[i] = Fractal::grain(gP, grainA, grainF); // gP is updated by wood()
 	}

@@ -99,8 +99,9 @@ public:
 	//void moveKey(int n, float pos);
 	void addKey(int n, float pos, AColor col, Texmap* sub = NULL);
 	void reset();
+	//sort before we swap
+	void sort();					//TODO: Figure out why it refuses to sort
 	void swap(int a, int b);
-	void sort();
 	Texmap* getSubtex(int n = -1);
 	void setSubtex(int n, Texmap* sub);
 	void setSubtex(Texmap* sub);

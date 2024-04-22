@@ -48,15 +48,11 @@
     <None Include="BerconNoise.def">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="notes.txt" />
     <None Include="logo.bmp">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DllEntry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BerconCommon.cpp">
       <Filter>Source Files\Main</Filter>
     </ClCompile>
@@ -102,6 +98,9 @@
     <ClCompile Include="commonMath.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="DllEntry.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BerconCommon.h">
@@ -126,9 +125,6 @@
       <Filter>Header Files\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="noise.h">
-      <Filter>Header Files\Patterns</Filter>
-    </ClInclude>
-    <ClInclude Include="NoiseAverages.h">
       <Filter>Header Files\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="perlin.h">
@@ -161,13 +157,16 @@
     <ClInclude Include="commonMath.h">
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="MultiMap.h">
-      <Filter>Header Files\Main</Filter>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BerconNoise.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\change notes.txt" />
   </ItemGroup>
 </Project>

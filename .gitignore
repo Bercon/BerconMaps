@@ -172,3 +172,24 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+src/.vs/
+src/.vscode/
+.vscode/
+.vs/
+tempforcompare/
+*.asm
+*.cod
+*.sarif
+*.idb
+*.xml
+*.enc
+*.diagsession
+*.map
+src/Release_2024
+/src/ssecheck.cpp
+src/BerconDlg.h
+src/Release_2021/
+src/Release_2022/
+src/Release_2023/
+src/DLL/BerconMaps_2024_64_debug.dlt
+
