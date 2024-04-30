@@ -327,7 +327,7 @@ TilePoint Tile::drawTile(Point3 p, float edges[4], TileParam& t, int id, int dir
 }
 
 static int rowcol(float& low, float& high, int& id, float pos, float total, std::vector<float>& arr, float size, float var, float rand) {
-	int num = arr.size();
+	int num = int(arr.size());
 	float h = total * size;
 	float y = pos / h;
 	float yi = (float)FASTFLOOR(y); // group ID
