@@ -13,6 +13,7 @@ Global
 		Max2024_debug|x64 = Max2024_debug|x64
 		Max2024|x64 = Max2024|x64
 		Max2025|x64 = Max2025|x64
+		Max2026|x64 = Max2026|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2021|x64.ActiveCfg = Max2021|x64
@@ -27,6 +28,8 @@ Global
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2024|x64.Build.0 = Max2024|x64
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2025|x64.ActiveCfg = Max2025|x64
 		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2025|x64.Build.0 = Max2025|x64
+		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2026|x64.ActiveCfg = Max2026|x64
+		{E7CB76AA-6113-46BA-8EBC-8AE1D2B81210}.Max2026|x64.Build.0 = Max2026|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
